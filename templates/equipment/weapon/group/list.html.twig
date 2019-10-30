@@ -1,0 +1,28 @@
+{% extends "base/base.html.twig" %}
+{% block content %}
+    <h1>Weapon Groups</h1>
+
+    <div class="col-md-12 mb-2 text-right">
+        <a href="{{ path('create_weapon_group') }}" class="btn btn-outline-success" role="button">New</a>
+    </div>
+
+    <table class="table table-striped bg-light text-nowrap text-center">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for weaponGroup in weaponGroups %}
+                <tr>
+                    <td>{{ weaponGroup.name }}</td>
+                    <td>
+                        <a href="{{ path('edit_weapon_group', {"id":weaponGroup.id}) }}" class="btn btn-outline-primary" role="button">Edit</a>
+                        <a href="{{ path('delete_weapon_group', {"id":weaponGroup.id}) }}" class="btn btn-outline-danger" role="button">Delete</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
