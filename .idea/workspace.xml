@@ -2,47 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0b9a3871-3386-4d40-9261-e24049e96f75" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/css/sigmaria.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/icons/favicon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/phandalin.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/Base/BaseController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/Equipment/Weapon/WeaponController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/Equipment/Weapon/WeaponDamageController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/Equipment/Weapon/WeaponGroupController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/Equipment/Weapon/WeaponPropertyController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/Base/Traits/BaseFieldsTrait.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/Base/Traits/ValueTrait.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/Equipment/Item.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/Equipment/Weapon/Weapon.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/Equipment/Weapon/WeaponCategory.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/Equipment/Weapon/WeaponDamage.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/Equipment/Weapon/WeaponGroup.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/Equipment/Weapon/WeaponProperty.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Form/Base/BaseLookUpEntityType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Form/Equipment/Weapon/WeaponDamageType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Form/Equipment/Weapon/WeaponGroupType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Form/Equipment/Weapon/WeaponPropertyType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Repository/Equipment/Weapon/WeaponDamageRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Repository/Equipment/Weapon/WeaponGroupRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Repository/Equipment/Weapon/WeaponPropertyRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/base/base.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/base/components/footer.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/base/components/navbar.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/equipment/weapon/damage/form.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/equipment/weapon/damage/list.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/equipment/weapon/group/form.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/equipment/weapon/group/list.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/equipment/weapon/property/form.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/equipment/weapon/property/list.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/twig.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/twig.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/Ancestry/AncestralFeatureController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/Ancestry/AncestryController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Entity/Ancestry/AncestralFeature.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Entity/Ancestry/Ancestry.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Form/Ancestry/AncestralFeatureType.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Form/Ancestry/AncestryType.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Repository/Ancestry/AncestralFeatureRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Repository/Ancestry/AncestryRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/ancestry/ancestry/form.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/ancestry/ancestry/list.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/ancestry/ancestry/show.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/ancestry/feature/form.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/ancestry/feature/list.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Base/Traits/BaseFieldsTrait.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Base/Traits/BaseFieldsTrait.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Equipment/Weapon/WeaponProperty.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Equipment/Weapon/WeaponProperty.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Migrations/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base/components/flashbag.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base/components/footer.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base/components/footer.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base/components/navbar.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base/components/navbar.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -57,177 +36,64 @@
     </execution>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controller/Equipment/Weapon/WeaponGroupController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="212">
-              <caret line="42" column="64" selection-start-line="42" selection-start-column="64" selection-end-line="42" selection-end-column="64" />
-              <folding>
-                <element signature="e#44#88#0#PHP" expanded="true" />
-                <element signature="e#1429#1449#1#PHP" expanded="true" />
-                <element signature="e#2192#2212#1#PHP" expanded="true" />
-                <element signature="e#2652#2672#1#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
+    <leaf>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Entity/Base/Traits/BaseFieldsTrait.php">
+        <entry file="file://$PROJECT_DIR$/templates/ancestry/ancestry/list.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="674">
-              <caret line="143" column="5" selection-start-line="143" selection-start-column="5" selection-end-line="143" selection-end-column="5" />
+            <state relative-caret-position="352">
+              <caret line="16" column="15" lean-forward="true" selection-start-line="16" selection-start-column="15" selection-end-line="16" selection-end-column="15" />
               <folding>
-                <element signature="e#42#74#0#PHP" expanded="true" />
+                <element signature="e#151#166#0#Twig" expanded="true" />
+                <element signature="e#598#611#0#Twig" expanded="true" />
+                <element signature="e#784#797#0#Twig" expanded="true" />
+                <element signature="e#952#967#0#Twig" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Form/Equipment/Weapon/WeaponPropertyType.php">
+        <entry file="file://$PROJECT_DIR$/templates/ancestry/ancestry/show.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
-              <caret line="14" column="23" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="23" />
+            <state relative-caret-position="440">
+              <caret line="20" column="25" lean-forward="true" selection-start-line="20" selection-start-column="25" selection-end-line="20" selection-end-column="25" />
               <folding>
-                <element signature="e#45#92#0#PHP" expanded="true" />
+                <element signature="e#154#167#0#Twig" expanded="true" />
+                <element signature="e#1203#1218#0#Twig" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controller/Equipment/Weapon/WeaponPropertyController.php">
+        <entry file="file://$PROJECT_DIR$/src/Controller/Ancestry/AncestryController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="462">
-              <caret line="42" column="12" selection-start-line="42" selection-start-column="12" selection-end-line="42" selection-end-column="67" />
+            <state relative-caret-position="564">
+              <caret line="81" column="56" selection-start-line="81" selection-start-column="56" selection-end-line="81" selection-end-column="56" />
               <folding>
-                <element signature="e#51#98#0#PHP" expanded="true" />
-                <element signature="e#1495#1519#1#PHP" expanded="true" />
-                <element signature="e#2292#2316#1#PHP" expanded="true" />
-                <element signature="e#2774#2798#1#PHP" expanded="true" />
+                <element signature="e#2436#2451#1#PHP" expanded="true" />
+                <element signature="e#2921#2938#1#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/equipment/weapon/property/form.html.twig">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/equipment/weapon/property/list.html.twig">
+        <entry file="file://$PROJECT_DIR$/templates/ancestry/ancestry/form.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="484">
-              <caret line="22" column="55" selection-start-line="22" selection-start-column="55" selection-end-line="22" selection-end-column="55" />
-              <folding>
-                <element signature="e#12#31#0#Twig" expanded="true" />
-                <element signature="e#157#179#0#Twig" expanded="true" />
-                <element signature="e#760#780#0#Twig" expanded="true" />
-                <element signature="e#910#932#0#Twig" expanded="true" />
-              </folding>
+            <state relative-caret-position="154">
+              <caret line="7" column="14" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="14" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Entity/Equipment/Weapon/WeaponCategory.php">
+        <entry file="file://$PROJECT_DIR$/src/Entity/Ancestry/Ancestry.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="110">
-              <caret line="5" column="1" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/equipment/weapon/group/list.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="18" column="51" selection-start-line="18" selection-start-column="51" selection-end-line="18" selection-end-column="51" />
+            <state relative-caret-position="4395">
+              <caret line="251" column="22" selection-start-line="251" selection-start-column="22" selection-end-line="251" selection-end-column="22" />
               <folding>
-                <element signature="e#12#31#0#Twig" expanded="true" />
-                <element signature="e#154#173#0#Twig" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/base/base.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="418">
-              <caret line="28" column="63" selection-start-line="28" selection-start-column="63" selection-end-line="28" selection-end-column="63" />
-              <folding>
-                <element signature="e#1527#1559#0#Twig" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/equipment/weapon/damage/list.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="18" column="52" selection-start-line="18" selection-start-column="52" selection-end-line="18" selection-end-column="52" />
-              <folding>
-                <element signature="e#12#31#0#Twig" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controller/Equipment/Weapon/WeaponDamageController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="652">
-              <caret line="87" column="61" selection-start-line="87" selection-start-column="61" selection-end-line="87" selection-end-column="61" />
-              <folding>
-                <element signature="e#44#89#0#PHP" expanded="true" />
-                <element signature="e#1447#1468#1#PHP" expanded="true" />
-                <element signature="e#2221#2242#1#PHP" expanded="true" />
-                <element signature="e#2688#2709#1#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controller/Base/BaseController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="242">
-              <caret line="11" column="31" selection-start-line="11" selection-start-column="31" selection-end-line="11" selection-end-column="31" />
-              <folding>
-                <element signature="e#39#101#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controller/Equipment/Weapon/WeaponController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="44">
-              <caret line="2" column="34" selection-start-line="2" selection-start-column="34" selection-end-line="2" selection-end-column="41" />
-              <folding>
-                <element signature="e#44#109#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/base/components/navbar.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="10" column="70" selection-start-line="10" selection-start-column="70" selection-end-line="10" selection-end-column="70" />
-              <folding>
-                <element signature="e#93#97#0#Twig" expanded="true" />
-                <element signature="e#458#462#0#Twig" expanded="true" />
-                <element signature="e#892#910#0#Twig" expanded="true" />
-                <element signature="e#1006#1025#0#Twig" expanded="true" />
-                <element signature="e#1122#1144#0#Twig" expanded="true" />
+                <element signature="e#39#82#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -247,12 +113,18 @@
       <find>Damage</find>
       <find>Group</find>
       <find>propertys</find>
+      <find>Weapon</find>
+      <find>weapon_property</find>
+      <find>, nullable=true</find>
+      <find>text-</find>
+      <find>span</find>
     </findStrings>
     <replaceStrings>
       <replace>Damage</replace>
       <replace>list</replace>
       <replace>Property</replace>
       <replace>properties</replace>
+      <replace>p</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -261,22 +133,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/templates/base.html.twig" />
-        <option value="$PROJECT_DIR$/src/Entity/Equipment/WeaponGroup.php" />
-        <option value="$PROJECT_DIR$/src/Form/Equipment/WeaponGroupType.php" />
-        <option value="$PROJECT_DIR$/src/Controller/BaseController.php" />
-        <option value="$PROJECT_DIR$/src/Repository/WeaponGroupRepository.php" />
-        <option value="$PROJECT_DIR$/src/Entity/Base/BaseValuedLookUpEntity.php" />
-        <option value="$PROJECT_DIR$/src/Entity/Equipment/WeaponDamage.php" />
-        <option value="$PROJECT_DIR$/src/Entity/Equipment/WeaponAttribute.php" />
-        <option value="$PROJECT_DIR$/src/Entity/Equipment/WeaponProperty.php" />
-        <option value="$PROJECT_DIR$/src/Entity/Equipment/Weapon.php" />
-        <option value="$PROJECT_DIR$/src/Entity/Equipment/WeaponHands.php" />
-        <option value="$PROJECT_DIR$/.env" />
-        <option value="$PROJECT_DIR$/src/Entity/Equipment/WeaponCategory.php" />
-        <option value="$PROJECT_DIR$/src/Repository/Equipment/Weapon/WeaponGroupRepository.php" />
-        <option value="$PROJECT_DIR$/templates/equipment/save_weapon_lookups.html.twig" />
-        <option value="$PROJECT_DIR$/src/Form/Base/BaseLookUpEntityType.php" />
         <option value="$PROJECT_DIR$/templates/equipment/weapon/group/create.html.twig" />
         <option value="$PROJECT_DIR$/src/Entity/Base/Traits/TimestampableTrait.php" />
         <option value="$PROJECT_DIR$/src/Entity/Base/BaseLookUpEntity.php" />
@@ -291,7 +147,6 @@
         <option value="$PROJECT_DIR$/src/Entity/Equipment/Weapon/WeaponDamage.php" />
         <option value="$PROJECT_DIR$/src/Entity/Equipment/Weapon/Weapon.php" />
         <option value="$PROJECT_DIR$/src/Entity/Equipment/Weapon/WeaponCategory.php" />
-        <option value="$PROJECT_DIR$/src/Entity/Equipment/Weapon/WeaponProperty.php" />
         <option value="$PROJECT_DIR$/src/Controller/Equipment/WeaponGroupController.php" />
         <option value="$PROJECT_DIR$/templates/equipment/weapon/damage/form.html.twig" />
         <option value="$PROJECT_DIR$/src/Controller/Equipment/WeaponDamageController.php" />
@@ -305,13 +160,30 @@
         <option value="$PROJECT_DIR$/templates/equipment/weapon/damage/list.html.twig" />
         <option value="$PROJECT_DIR$/templates/equipment/weapon/group/list.html.twig" />
         <option value="$PROJECT_DIR$/src/Controller/Base/BaseController.php" />
-        <option value="$PROJECT_DIR$/templates/base/components/navbar.html.twig" />
         <option value="$PROJECT_DIR$/templates/equipment/weapon/property/list.html.twig" />
         <option value="$PROJECT_DIR$/src/Controller/Equipment/Weapon/WeaponPropertyController.php" />
-        <option value="$PROJECT_DIR$/templates/base/base.html.twig" />
         <option value="$PROJECT_DIR$/src/Controller/Equipment/Weapon/WeaponDamageController.php" />
         <option value="$PROJECT_DIR$/src/Controller/Equipment/Weapon/WeaponGroupController.php" />
+        <option value="$PROJECT_DIR$/src/Form/Ancestry/AncestralFeatureType.php" />
+        <option value="$PROJECT_DIR$/templates/ancestry/feature/list.html.twig" />
+        <option value="$PROJECT_DIR$/src/Repository/Ancestry/AncestralFeatureRepository.php" />
+        <option value="$PROJECT_DIR$/src/Entity/Equipment/Weapon/WeaponProperty.php" />
+        <option value="$PROJECT_DIR$/src/Entity/Ancestry/AncestralFeatures.php" />
+        <option value="$PROJECT_DIR$/src/Repository/Ancestry/AncestryRepository.php" />
+        <option value="$PROJECT_DIR$/templates/ancestry/feature/form.html.twig" />
+        <option value="$PROJECT_DIR$/templates/ancestry/ancestry/form.html.twig" />
         <option value="$PROJECT_DIR$/src/Entity/Base/Traits/BaseFieldsTrait.php" />
+        <option value="$PROJECT_DIR$/src/Entity/Ancestry/AncestralFeature.php" />
+        <option value="$PROJECT_DIR$/src/Entity/Ancestry/Ancestry.php" />
+        <option value="$PROJECT_DIR$/src/Form/Ancestry/AncestryType.php" />
+        <option value="$PROJECT_DIR$/templates/base/components/navbar.html.twig" />
+        <option value="$PROJECT_DIR$/templates/base/base.html.twig" />
+        <option value="$PROJECT_DIR$/templates/base/components/footer.html.twig" />
+        <option value="$PROJECT_DIR$/templates/base/components/flashbag.html.twig" />
+        <option value="$PROJECT_DIR$/src/Controller/Ancestry/AncestralFeatureController.php" />
+        <option value="$PROJECT_DIR$/templates/ancestry/ancestry/list.html.twig" />
+        <option value="$PROJECT_DIR$/src/Controller/Ancestry/AncestryController.php" />
+        <option value="$PROJECT_DIR$/templates/ancestry/ancestry/show.html.twig" />
       </list>
     </option>
   </component>
@@ -426,18 +298,6 @@
       <path value="$PROJECT_DIR$/vendor/behat/transliterator" />
     </include_path>
   </component>
-  <component name="ProjectConfigurationFiles">
-    <option name="files">
-      <list>
-        <option value="$PROJECT_DIR$/.idea/Sigmaria.iml" />
-        <option value="$PROJECT_DIR$/.idea/misc.xml" />
-        <option value="$PROJECT_DIR$/.idea/modules.xml" />
-        <option value="$PROJECT_DIR$/.idea/vcs.xml" />
-        <option value="$PROJECT_DIR$/.idea/php.xml" />
-        <option value="$PROJECT_DIR$/.idea/symfony2.xml" />
-      </list>
-    </option>
-  </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="3" />
     <option name="y" value="278" />
@@ -449,7 +309,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -460,28 +319,6 @@
             <path>
               <item name="Sigmaria" type="b2602c69:ProjectViewProjectNode" />
               <item name="Sigmaria" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Sigmaria" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Sigmaria" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-              <item name="packages" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Sigmaria" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Sigmaria" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Sigmaria" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Sigmaria" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Sigmaria" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Sigmaria" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -495,7 +332,7 @@
               <item name="Sigmaria" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="Controller" type="462c0819:PsiDirectoryNode" />
-              <item name="Base" type="462c0819:PsiDirectoryNode" />
+              <item name="Ancestry" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Sigmaria" type="b2602c69:ProjectViewProjectNode" />
@@ -523,15 +360,7 @@
               <item name="Sigmaria" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="Entity" type="462c0819:PsiDirectoryNode" />
-              <item name="Base" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Sigmaria" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Sigmaria" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Entity" type="462c0819:PsiDirectoryNode" />
-              <item name="Base" type="462c0819:PsiDirectoryNode" />
-              <item name="Traits" type="462c0819:PsiDirectoryNode" />
+              <item name="Ancestry" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Sigmaria" type="b2602c69:ProjectViewProjectNode" />
@@ -559,7 +388,7 @@
               <item name="Sigmaria" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="Form" type="462c0819:PsiDirectoryNode" />
-              <item name="Base" type="462c0819:PsiDirectoryNode" />
+              <item name="Ancestry" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Sigmaria" type="b2602c69:ProjectViewProjectNode" />
@@ -581,6 +410,13 @@
               <item name="Sigmaria" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="Repository" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Sigmaria" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Sigmaria" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Repository" type="462c0819:PsiDirectoryNode" />
+              <item name="Ancestry" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Sigmaria" type="b2602c69:ProjectViewProjectNode" />
@@ -601,6 +437,26 @@
               <item name="Sigmaria" type="b2602c69:ProjectViewProjectNode" />
               <item name="Sigmaria" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Sigmaria" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Sigmaria" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="ancestry" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Sigmaria" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Sigmaria" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="ancestry" type="462c0819:PsiDirectoryNode" />
+              <item name="ancestry" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Sigmaria" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Sigmaria" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="ancestry" type="462c0819:PsiDirectoryNode" />
+              <item name="feature" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Sigmaria" type="b2602c69:ProjectViewProjectNode" />
@@ -615,71 +471,36 @@
               <item name="base" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="Sigmaria" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Sigmaria" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="equipment" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Sigmaria" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Sigmaria" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="equipment" type="462c0819:PsiDirectoryNode" />
-              <item name="weapon" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Sigmaria" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Sigmaria" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="equipment" type="462c0819:PsiDirectoryNode" />
-              <item name="weapon" type="462c0819:PsiDirectoryNode" />
-              <item name="damage" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Sigmaria" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Sigmaria" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="equipment" type="462c0819:PsiDirectoryNode" />
-              <item name="weapon" type="462c0819:PsiDirectoryNode" />
-              <item name="group" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Sigmaria" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Sigmaria" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="equipment" type="462c0819:PsiDirectoryNode" />
-              <item name="weapon" type="462c0819:PsiDirectoryNode" />
-              <item name="property" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/images" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Form/Ancestry" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="Symfony2.SettingsForm" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\Projekty\Sigmaria\public\images" />
-      <recent name="E:\Projekty\Sigmaria\templates\equipment\weapon" />
-      <recent name="E:\Projekty\Sigmaria\src\Controller\Equipment\Weapon" />
-      <recent name="E:\Projekty\Sigmaria\src\Form\Equipment\Weapon" />
-      <recent name="E:\Projekty\Sigmaria\src\Repository\Equipment\Weapon" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\Projekty\Sigmaria\src\Controller\Equipment\Weapon" />
       <recent name="E:\Projekty\Sigmaria\src\Form\Equipment\Weapon" />
       <recent name="E:\Projekty\Sigmaria\src\Entity\Equipment\Weapon" />
       <recent name="E:\Projekty\Sigmaria\src\Repository\Equipment\Weapon" />
       <recent name="E:\Projekty\Sigmaria\templates\base" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Projekty\Sigmaria\src\Form\Ancestry" />
+      <recent name="E:\Projekty\Sigmaria\templates\ancestry\ancestry" />
+      <recent name="E:\Projekty\Sigmaria\src\Repository\Ancestry" />
+      <recent name="E:\Projekty\Sigmaria\templates\ancestry\feature" />
+      <recent name="E:\Projekty\Sigmaria\src\Controller\Ancestry" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -707,18 +528,19 @@
       <workItem from="1572344463748" duration="5894000" />
       <workItem from="1572350384622" duration="5230000" />
       <workItem from="1572364202211" duration="1666000" />
-      <workItem from="1572426646909" duration="14165000" />
+      <workItem from="1572426646909" duration="14842000" />
+      <workItem from="1572451182323" duration="9091000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="26955000" />
+    <option name="totallyTimeSpent" value="36723000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22761194" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2510661" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -764,109 +586,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/vendor/sensio/framework-extra-bundle/src/Configuration/Template.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-330">
-          <caret line="19" column="6" selection-start-line="19" selection-start-column="6" selection-end-line="19" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/services.yaml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/packages/doctrine_migrations.yaml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/base/components/footer.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="11" column="18" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/packages/prod/doctrine.yaml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/packages/cache.yaml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.env">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="27" column="50" selection-start-line="27" selection-start-column="50" selection-end-line="27" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/packages/doctrine.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="10" column="30" lean-forward="true" selection-start-line="10" selection-start-column="30" selection-end-line="10" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/equipment/save_weapon_lookups.html.twig" />
-    <entry file="file://$PROJECT_DIR$/vendor/symfony/routing/Annotation/Route.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="283">
-          <caret line="21" column="6" selection-start-line="21" selection-start-column="6" selection-end-line="21" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/standard/standard_1.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="283">
-          <caret line="13" column="9" selection-start-line="13" selection-start-column="9" selection-end-line="13" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/symfony/form/FormInterface.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="283">
-          <caret line="296" column="20" selection-start-line="296" selection-start-column="20" selection-end-line="296" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/symfony/framework-bundle/Controller/ControllerTrait.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="283">
-          <caret line="319" column="23" selection-start-line="319" selection-start-column="23" selection-end-line="319" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Form/Base/BaseLookUpEntityType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
-          <folding>
-            <element signature="e#33#73#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/Base/Traits/TimestampableTrait.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="12" selection-start-line="12" selection-end-line="12" />
-          <folding>
-            <element signature="e#75#107#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/Base/BaseLookUpEntity.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1460">
-          <caret line="10" column="6" lean-forward="true" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/Base/BaseValuedLookUpEntity.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="15" column="22" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Entity/Equipment/Item.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="44">
@@ -881,16 +600,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/.gitignore">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/Equipment/Weapon/WeaponHands.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="16" column="1" lean-forward="true" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/.gitignore" />
+    <entry file="file://$PROJECT_DIR$/src/Entity/Equipment/Weapon/WeaponHands.php" />
     <entry file="file://$PROJECT_DIR$/public/css/sigmaria.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="44">
@@ -933,67 +644,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/Base/Traits/ValueTrait.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="14" column="23" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="23" />
-          <folding>
-            <element signature="e#42#96#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/Equipment/Weapon/WeaponDamage.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="9" column="70" selection-start-line="9" selection-start-column="70" selection-end-line="9" selection-end-column="70" />
-          <folding>
-            <element signature="e#40#83#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/Equipment/Weapon/WeaponGroup.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="11" column="6" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
-          <folding>
-            <element signature="e#47#90#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Repository/Equipment/Weapon/WeaponDamageRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="33">
-          <caret line="4" column="45" selection-start-line="4" selection-start-column="45" selection-end-line="4" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Repository/Equipment/Weapon/WeaponGroupRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="14" column="6" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
-          <folding>
-            <element signature="e#51#95#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vendor/gedmo/doctrine-extensions/lib/Gedmo/Mapping/Annotation/Slug.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="166">
           <caret line="15" column="12" selection-start-line="15" selection-start-column="12" selection-end-line="15" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/Equipment/Weapon/WeaponProperty.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="17" column="5" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
-          <folding>
-            <element signature="e#47#90#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1023,16 +677,6 @@
           <caret line="2" column="34" selection-start-line="2" selection-start-column="34" selection-end-line="2" selection-end-column="41" />
           <folding>
             <element signature="e#44#109#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Repository/Equipment/Weapon/WeaponPropertyRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="291">
-          <caret line="14" column="6" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
-          <folding>
-            <element signature="e#51#98#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1071,33 +715,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/Equipment/Weapon/WeaponCategory.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="5" column="1" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/Base/BaseController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="242">
           <caret line="11" column="31" selection-start-line="11" selection-start-column="31" selection-end-line="11" selection-end-column="31" />
           <folding>
             <element signature="e#39#101#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/base/components/navbar.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="10" column="70" selection-start-line="10" selection-start-column="70" selection-end-line="10" selection-end-column="70" />
-          <folding>
-            <element signature="e#93#97#0#Twig" expanded="true" />
-            <element signature="e#458#462#0#Twig" expanded="true" />
-            <element signature="e#892#910#0#Twig" expanded="true" />
-            <element signature="e#1006#1025#0#Twig" expanded="true" />
-            <element signature="e#1122#1144#0#Twig" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1111,16 +734,6 @@
             <element signature="e#157#179#0#Twig" expanded="true" />
             <element signature="e#760#780#0#Twig" expanded="true" />
             <element signature="e#910#932#0#Twig" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/base/base.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="28" column="63" selection-start-line="28" selection-start-column="63" selection-end-line="28" selection-end-column="63" />
-          <folding>
-            <element signature="e#1527#1559#0#Twig" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1151,6 +764,36 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Repository/Equipment/Weapon/WeaponDamageRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="283">
+          <caret line="14" column="6" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
+          <folding>
+            <element signature="e#51#96#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Repository/Equipment/Weapon/WeaponGroupRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="14" column="6" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
+          <folding>
+            <element signature="e#51#95#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Repository/Equipment/Weapon/WeaponPropertyRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="14" column="6" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
+          <folding>
+            <element signature="e#51#98#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/Equipment/Weapon/WeaponGroupController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="212">
@@ -1164,12 +807,240 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/Base/Traits/ValueTrait.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="14" column="23" lean-forward="true" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="23" />
+          <folding>
+            <element signature="e#42#96#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/Equipment/Weapon/WeaponCategory.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="5" column="1" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Repository/Ancestry/AncestryRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+          <folding>
+            <element signature="e#43#76#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Repository/Ancestry/AncestralFeatureRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="15" column="1" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
+          <folding>
+            <element signature="e#51#92#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/Equipment/Weapon/WeaponDamage.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="12" column="6" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/Equipment/Weapon/WeaponGroup.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="13" column="19" selection-start-line="13" selection-start-column="19" selection-end-line="13" selection-end-column="19" />
+          <folding>
+            <element signature="e#47#90#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/Equipment/Weapon/WeaponProperty.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="6" selection-start-line="6" selection-end-line="6" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/ancestry/feature/form.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="3" column="26" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="26" />
+          <folding>
+            <element signature="e#12#31#0#Twig" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/doctrine/orm/lib/Doctrine/ORM/Mapping/ManyToOne.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="25" column="12" selection-start-line="25" selection-start-column="12" selection-end-line="25" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/ancestry/feature/list.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="616">
+          <caret line="28" column="24" selection-start-line="28" selection-start-column="24" selection-end-line="28" selection-end-column="24" />
+          <folding>
+            <element signature="e#12#31#0#Twig" expanded="true" />
+            <element signature="e#158#182#0#Twig" expanded="true" />
+            <element signature="e#871#893#0#Twig" expanded="true" />
+            <element signature="e#1025#1049#0#Twig" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/doctrine/orm/lib/Doctrine/ORM/Mapping/Column.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="35" column="11" selection-start-line="35" selection-start-column="11" selection-end-line="35" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Entity/Base/Traits/BaseFieldsTrait.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="674">
-          <caret line="143" column="5" selection-start-line="143" selection-start-column="5" selection-end-line="143" selection-end-column="5" />
+        <state relative-caret-position="374">
+          <caret line="44" column="25" selection-start-line="44" selection-start-column="25" selection-end-line="44" selection-end-column="25" />
           <folding>
             <element signature="e#42#74#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/Ancestry/AncestralFeature.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-646">
+          <caret line="8" column="32" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="32" />
+          <folding>
+            <element signature="e#39#82#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Form/Ancestry/AncestralFeatureType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="550">
+          <caret line="28" column="14" selection-start-line="28" selection-start-column="14" selection-end-line="28" selection-end-column="14" />
+          <folding>
+            <element signature="e#37#78#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Form/Ancestry/AncestryType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="550">
+          <caret line="46" column="51" selection-start-line="46" selection-start-column="51" selection-end-line="46" selection-end-column="51" />
+          <folding>
+            <element signature="e#37#78#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/base/components/navbar.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="18" column="124" selection-start-line="18" selection-start-column="124" selection-end-line="18" selection-end-column="124" />
+          <folding>
+            <element signature="e#93#97#0#Twig" expanded="true" />
+            <element signature="e#458#462#0#Twig" expanded="true" />
+            <element signature="e#768#783#0#Twig" expanded="true" />
+            <element signature="e#1031#1054#0#Twig" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/base/base.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="434">
+          <caret line="26" column="54" selection-start-line="26" selection-start-column="54" selection-end-line="26" selection-end-column="54" />
+          <folding>
+            <element signature="e#1527#1559#0#Twig" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/base/components/footer.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="1" column="46" selection-start-line="1" selection-start-column="46" selection-end-line="1" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/base/components/flashbag.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="14" column="12" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/Ancestry/AncestralFeatureController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="520">
+          <caret line="84" column="50" lean-forward="true" selection-start-line="84" selection-start-column="50" selection-end-line="84" selection-end-column="50" />
+          <folding>
+            <element signature="e#1529#1554#1#PHP" expanded="true" />
+            <element signature="e#3305#3330#1#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/Ancestry/Ancestry.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4395">
+          <caret line="251" column="22" selection-start-line="251" selection-start-column="22" selection-end-line="251" selection-end-column="22" />
+          <folding>
+            <element signature="e#39#82#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/ancestry/ancestry/form.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="7" column="14" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/Ancestry/AncestryController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="564">
+          <caret line="81" column="56" selection-start-line="81" selection-start-column="56" selection-end-line="81" selection-end-column="56" />
+          <folding>
+            <element signature="e#2436#2451#1#PHP" expanded="true" />
+            <element signature="e#2921#2938#1#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/ancestry/ancestry/show.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="20" column="25" lean-forward="true" selection-start-line="20" selection-start-column="25" selection-end-line="20" selection-end-column="25" />
+          <folding>
+            <element signature="e#154#167#0#Twig" expanded="true" />
+            <element signature="e#1203#1218#0#Twig" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/ancestry/ancestry/list.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="16" column="15" lean-forward="true" selection-start-line="16" selection-start-column="15" selection-end-line="16" selection-end-column="15" />
+          <folding>
+            <element signature="e#151#166#0#Twig" expanded="true" />
+            <element signature="e#598#611#0#Twig" expanded="true" />
+            <element signature="e#784#797#0#Twig" expanded="true" />
+            <element signature="e#952#967#0#Twig" expanded="true" />
           </folding>
         </state>
       </provider>

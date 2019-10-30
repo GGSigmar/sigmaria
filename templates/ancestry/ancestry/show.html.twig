@@ -1,0 +1,37 @@
+{% extends "base/base.html.twig" %}
+{% block content %}
+    <div class="col-md-12 text-right">
+        <a href="{{ path('edit_ancestry', {"id":ancestry.id}) }}" class="btn btn-outline-success" role="button">Edit</a>
+    </div>
+    <h1>{{ ancestry.name }}</h1>
+    <p class="mb-5">(Value: {{ ancestry.value }})</p>
+
+    <p class="mt-2 mb-2">
+        {{ ancestry.description }}
+    </p>
+    <p class="mt-2 mb-2">
+        <strong>Ability Score Increase.</strong> {{ ancestry.abilityScoreIncrease }}
+    </p>
+    <p class="mt-2 mb-2">
+        <strong>Age.</strong> {{ ancestry.age }}
+    </p>
+    <p class="mt-2 mb-2">
+        <strong>Alignment.</strong> {{ ancestry.alignment }}
+    </p>
+    <p class="mt-2 mb-2">
+        <strong>Size.</strong> {{ ancestry.size }}
+    </p>
+    <p class="mt-2 mb-2">
+        <strong>Speed.</strong> {{ ancestry.speed }}
+    </p>
+    <p class="mt-2 mb-2">
+        <strong>Languages.</strong> {{ ancestry.languages }}
+    </p>
+    <h2>Ancestral features</h2>
+    {% for feature in ancestry.ancestralFeatures %}
+        <p class="mt-2 mb-2"><strong>{{ feature.name }}</strong>. {{ feature.description }}</p>
+    {% endfor %}
+    <div class="col-md-12 mb-2 text-right">
+        <a href="{{ path('list_ancestries') }}" class="btn btn-outline-success" role="button">Back to ancestry list</a>
+    </div>
+{% endblock %}

@@ -11,9 +11,19 @@
                 <a href="{{ path('home') }}" class="nav-link">Home</a>
             </li>
             <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" role="button" id="equipment-btn">Ancestry</a>
+                <div class="dropdown-menu">
+                    <a href="{{ path('list_ancestries') }}" class="dropdown-item">Ancestries</a>
+                    <a href="#" class="dropdown-item dropdown-toggle" data-toggle="dropdown">Ancestries Admin</a>
+                    <div class="dropdown-menu">
+                        <a href="{{ path('list_ancestral_features') }}" class="dropdown-item">(Admin) Ancestral Features</a>
+                    </div>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" role="button" id="equipment-btn">Equipment</a>
                 <div class="dropdown-menu">
-                    <a href="#" class="dropdown-item dropdown-toggle" data-toggle="dropdown">Weapons</a>
+                    <a href="#" class="dropdown-item dropdown-toggle" data-toggle="dropdown">Weapons Admin</a>
                     <div class="dropdown-menu">
                         <a href="{{ path('list_weapon_groups') }}" class="dropdown-item">(Admin) Weapon Groups</a>
                         <a href="{{ path('list_weapon_damages') }}" class="dropdown-item">(Admin) Weapon Damages</a>
@@ -33,7 +43,7 @@
                 </div>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle disabled" href="#">Ancestry</a>
+                <a class="nav-link dropdown-toggle disabled" href="#">Talents</a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle disabled" href="#">Campaign</a>

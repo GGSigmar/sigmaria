@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\Equipment\Weapon\WeaponPropertyRepository")
- * @ORM\Table(name="WeaponProperty")
+ * @ORM\Table(name="weapon_property")
  */
 class WeaponProperty
 {
