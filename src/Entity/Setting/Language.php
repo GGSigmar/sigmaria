@@ -1,15 +1,10 @@
 <?php
 
-namespace App\Entity\Equipment\Weapon;
+namespace App\Entity\Setting;
 
 use App\Entity\Core\Traits\BaseFieldsTrait;
-use Doctrine\ORM\Mapping as ORM;
 
-/**
- * @ORM\Entity(repositoryClass="App\Repository\Equipment\Weapon\WeaponGroupRepository")
- * @ORM\Table(name="weapon_group")
- */
-class WeaponGroup
+class Language
 {
     use BaseFieldsTrait;
 

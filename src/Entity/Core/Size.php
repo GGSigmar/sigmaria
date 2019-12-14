@@ -1,17 +1,20 @@
 <?php
 
-namespace App\Entity\Equipment\Weapon;
+namespace App\Entity\Core;
 
 use App\Entity\Core\Traits\BaseFieldsTrait;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\Equipment\Weapon\WeaponGroupRepository")
- * @ORM\Table(name="weapon_group")
+ * @ORM\Entity(repositoryClass="App\Repository\Core\SizeRepository")
+ * @ORM\Table(name="core_size")
  */
-class WeaponGroup
+class Size
 {
     use BaseFieldsTrait;
+
+    public const SIZE_SMALL = 'SIZE_SMALL';
+    public const SIZE_MEDIUM = 'SIZE_MEDIUM';
 
     public function __construct()
     {

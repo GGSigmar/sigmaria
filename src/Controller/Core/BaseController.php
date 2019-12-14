@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller\Base;
+namespace App\Controller\Core;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\Routing\Annotation\Route;

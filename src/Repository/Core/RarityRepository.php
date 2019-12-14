@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Repository\Ancestry;
+namespace App\Repository\Core;
 
-use App\Entity\Ancestry\Ancestry;
+use App\Entity\Core\Rarity;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
 
-class AncestryRepository extends ServiceEntityRepository
+class RarityRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Ancestry::class);
+        parent::__construct($registry, Rarity::class);
     }
 }

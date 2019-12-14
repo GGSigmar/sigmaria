@@ -2,10 +2,11 @@
 
 namespace App\Entity\Ancestry;
 
-use App\Entity\Base\Traits\BaseFieldsTrait;
+use App\Entity\Core\MoveSpeed;
+use App\Entity\Core\Size;
+use App\Entity\Core\Traits\BaseFieldsTrait;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
-use Doctrine\ORM\PersistentCollection;
 use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -18,57 +19,57 @@ class Ancestry
     use BaseFieldsTrait;
 
     /**
-     * @var string|null
+     * @var AncestralHitPoints
      *
-     * @ORM\Column(type="string", length=255)
-     * @Assert\Length(max=255)
+     * @ORM\ManyToOne(targetEntity="App\Entity\Ancestry\AncestralHitPoints")
+     * @Assert\NotBlank
      */
-    private $abilityScoreIncrease;
+    private $hitPoints;
 
     /**
-     * @var string|null
+     * @var Size
      *
-     * @ORM\Column(type="string", length=255)
-     * @Assert\Length(max=255)
-     */
-    private $age;
-
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(type="string", length=255)
-     * @Assert\Length(max=255)
-     */
-    private $alignment;
-
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(type="string", length=255)
-     * @Assert\Length(max=255)
+     * @ORM\ManyToOne(targetEntity="App\Entity\Core\Size")
+     * @Assert\NotBlank
      */
     private $size;
 
     /**
-     * @var string|null
+     * @var MoveSpeed
      *
-     * @ORM\Column(type="string", length=255)
-     * @Assert\Length(max=255)
+     * @ORM\ManyToOne(targetEntity="App\Entity\Core\MoveSpeed")
+     * @Assert\NotBlank
      */
     private $speed;
 
     /**
-     * @var string|null
+     * @var ArrayCollection
      *
-     * @ORM\Column(type="string", length=255)
-     * @Assert\Length(max=255)
+     * @ORM\ManyToMany(targetEntity="App\Entity\Core\Ability")
+     * @Assert\NotBlank
+     */
+    private $abilityBoosts;
+
+    /**
+     * @var ArrayCollection
+     *
+     * @ORM\ManyToMany(targetEntity="App\Entity\Setting\Language")
+     * @Assert\NotBlank
      */
     private $languages;
 
     /**
      * @var ArrayCollection
      *
-     * @ORM\ManyToMany(targetEntity="App\Entity\Ancestry\AncestralFeature", inversedBy="articles")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Core\CoreTrait")
+     * @Assert\NotBlank
+     */
+    private $traits;
+
+    /**
+     * @var ArrayCollection
+     *
+     * @ORM\ManyToMany(targetEntity="App\Entity\Ancestry\AncestralFeature", inversedBy="ancestries")
      */
     private $ancestralFeatures;
 
@@ -77,127 +78,106 @@ class Ancestry
         $this->isActive = true;
         $this->createdAt = new \DateTime();
         $this->updatedAt = new \DateTime();
+        $this->abilityBoosts = new ArrayCollection();
+        $this->languages = new ArrayCollection();
+        $this->traits = new ArrayCollection();
         $this->ancestralFeatures = new ArrayCollection();
     }
 
     /**
-     * @return string|null
+     * @return AncestralHitPoints
      */
-    public function getAbilityScoreIncrease(): ?string
+    public function getHitPoints(): AncestralHitPoints
     {
-        return $this->abilityScoreIncrease;
+        return $this->hitPoints;
     }
 
     /**
-     * @param string|null $abilityScoreIncrease
-     *
-     * @return Ancestry
+     * @param AncestralHitPoints $hitPoints
      */
-    public function setAbilityScoreIncrease(?string $abilityScoreIncrease): self
+    public function setHitPoints(AncestralHitPoints $hitPoints): void
     {
-        $this->abilityScoreIncrease = $abilityScoreIncrease;
-
-        return $this;
+        $this->hitPoints = $hitPoints;
     }
 
     /**
-     * @return string|null
+     * @return Size
      */
-    public function getAge(): ?string
-    {
-        return $this->age;
-    }
-
-    /**
-     * @param string|null $age
-     *
-     * @return Ancestry
-     */
-    public function setAge(?string $age): self
-    {
-        $this->age = $age;
-
-        return $this;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getAlignment(): ?string
-    {
-        return $this->alignment;
-    }
-
-    /**
-     * @param string|null $alignment
-     *
-     * @return Ancestry
-     */
-    public function setAlignment(?string $alignment): self
-    {
-        $this->alignment = $alignment;
-
-        return $this;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getSize(): ?string
+    public function getSize(): Size
     {
         return $this->size;
     }
 
     /**
-     * @param string|null $size
-     *
-     * @return Ancestry
+     * @param Size $size
      */
-    public function setSize(?string $size): self
+    public function setSize(Size $size): void
     {
         $this->size = $size;
-
-        return $this;
     }
 
     /**
-     * @return string|null
+     * @return MoveSpeed
      */
-    public function getSpeed(): ?string
+    public function getSpeed(): MoveSpeed
     {
         return $this->speed;
     }
 
     /**
-     * @param string|null $speed
-     *
-     * @return Ancestry
+     * @param MoveSpeed $speed
      */
-    public function setSpeed(?string $speed): self
+    public function setSpeed(MoveSpeed $speed): void
     {
         $this->speed = $speed;
-
-        return $this;
     }
 
     /**
-     * @return string|null
+     * @return ArrayCollection
      */
-    public function getLanguages(): ?string
+    public function getAbilityBoosts(): ArrayCollection
+    {
+        return $this->abilityBoosts;
+    }
+
+    /**
+     * @param ArrayCollection $abilityBoosts
+     */
+    public function setAbilityBoosts(ArrayCollection $abilityBoosts): void
+    {
+        $this->abilityBoosts = $abilityBoosts;
+    }
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getLanguages(): ArrayCollection
     {
         return $this->languages;
     }
 
     /**
-     * @param string|null $languages
-     *
-     * @return Ancestry
+     * @param ArrayCollection $languages
      */
-    public function setLanguages(?string $languages): self
+    public function setLanguages(ArrayCollection $languages): void
     {
         $this->languages = $languages;
+    }
 
-        return $this;
+    /**
+     * @return ArrayCollection
+     */
+    public function getTraits(): ArrayCollection
+    {
+        return $this->traits;
+    }
+
+    /**
+     * @param ArrayCollection $traits
+     */
+    public function setTraits(ArrayCollection $traits): void
+    {
+        $this->traits = $traits;
     }
 
     /**

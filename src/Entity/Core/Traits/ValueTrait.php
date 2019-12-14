@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Entity\Base\Traits;
+namespace App\Entity\Core\Traits;
 
 use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 trait ValueTrait
 {
     /**
-     * @var int|null
+     * @var int
      *
      * @ORM\Column(type="integer")
      *
@@ -16,11 +16,19 @@ trait ValueTrait
      */
     private $value;
 
-    public function getValue(): ?int
+    /**
+     * @return int
+     */
+    public function getValue(): int
     {
         return $this->value;
     }
 
+    /**
+     * @param int $value
+     *
+     * @return ValueTrait
+     */
     public function setValue(int $value): self
     {
         $this->value = $value;

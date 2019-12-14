@@ -2,8 +2,8 @@
 
 namespace App\Entity\Equipment\Weapon;
 
-use App\Entity\Base\Traits\BaseFieldsTrait;
-use App\Entity\Base\Traits\ValueTrait;
+use App\Entity\Core\Traits\BaseFieldsTrait;
+use App\Entity\Core\Traits\ValueTrait;
 use Doctrine\ORM\Mapping as ORM;
 
 /**

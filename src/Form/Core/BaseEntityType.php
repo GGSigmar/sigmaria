@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Form\Base;
+namespace App\Form\Core;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 
-class BaseLookUpEntityType extends AbstractType
+class BaseEntityType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
