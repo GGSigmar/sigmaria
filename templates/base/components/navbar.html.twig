@@ -53,7 +53,7 @@
                 <div class="dropdown-menu multi-level">
                     <a href="#" class="dropdown-item dropdown-toggle" data-toggle="dropdown">Core Admin</a>
                     <div class="dropdown-menu">
-                        <a href="{{ path('list_ancestral_features') }}" class="dropdown-item">Core Trait</a>
+                        <a href="{{ path('list_core_traits') }}" class="dropdown-item">Core Trait</a>
                     </div>
                     <a href="#" class="dropdown-item dropdown-toggle" data-toggle="dropdown">Ancestry Admin</a>
                     <ul class="dropdown-menu">
@@ -74,6 +74,11 @@
         $( document ).ready(function () {
             const url = window.location.href;
             $("a.dropdown-item").each(function() {
+                if(url == (this.href)) {
+                    $(this).addClass("active");
+                }
+            });
+            $("a.nav-link").each(function() {
                 if(url == (this.href)) {
                     $(this).addClass("active");
                 }

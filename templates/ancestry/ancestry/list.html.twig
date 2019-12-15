@@ -1,17 +1,17 @@
 {% extends "base/base.html.twig" %}
 {% block content %}
-    <h1>Ancestries</h1>
+    <h1>Rasy</h1>
 
     <div class="col-md-12 mb-2 text-right">
-        <a href="{{ path('create_ancestry') }}" class="btn btn-outline-success" role="button">New</a>
+        <a href="{{ path('create_ancestry') }}" class="btn btn-outline-success" role="button">Stwórz</a>
     </div>
 
     <table class="table table-striped bg-light text-nowrap text-center">
         <thead>
             <tr>
-                <th>Name</th>
-                <th>Value</th>
-                <th>Actions</th>
+                <th>Nazwa</th>
+                <th>Wartość</th>
+                <th>Akcje</th>
             </tr>
         </thead>
         <tbody>
@@ -20,8 +20,8 @@
                     <td><a href="{{ path('show_ancestry', {"id":ancestry.id}) }}">{{ ancestry.name }}</a></td>
                     <td>{{ ancestry.value }}</td>
                     <td>
-                        <a href="{{ path('edit_ancestry', {"id":ancestry.id}) }}" class="btn btn-outline-primary" role="button">Edit</a>
-                        <a href="{{ path('delete_ancestry', {"id":ancestry.id}) }}" class="btn btn-outline-danger" role="button">Delete</a>
+                        <a href="{{ path('edit_ancestry', {"id":ancestry.id}) }}" class="btn btn-outline-primary" role="button">Edytuj</a>
+                        <a href="{{ path('delete_ancestry', {"id":ancestry.id}) }}" class="btn btn-outline-danger" role="button">Usuń</a>
                     </td>
                 </tr>
             {% endfor %}

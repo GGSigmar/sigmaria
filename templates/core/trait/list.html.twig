@@ -1,29 +1,27 @@
 {% extends "base/base.html.twig" %}
 {% block content %}
-    <h1>Ancestral Features</h1>
+    <h1>Atrybuty</h1>
 
     <div class="col-md-12 mb-2 text-right">
-        <a href="{{ path('create_ancestral_feature') }}" class="btn btn-outline-success" role="button">New</a>
+        <a href="{{ path('create_core_trait') }}" class="btn btn-outline-success" role="button">Stwórz</a>
     </div>
 
     <table class="table table-striped bg-light text-nowrap text-center">
         <thead>
             <tr>
-                <th>Name</th>
-                <th>Description</th>
-                <th>Value</th>
-                <th>Actions</th>
+                <th>Nazwa</th>
+                <th>Kategoria</th>
+                <th>Akcje</th>
             </tr>
         </thead>
         <tbody>
-            {% for ancestralFeature in ancestralFeatures %}
+            {% for trait in traits %}
                 <tr>
-                    <td>{{ ancestralFeature.name }}</td>
-                    <td>{{ ancestralFeature.description }}</td>
-                    <td>{{ ancestralFeature.value }}</td>
+                    <td>{{ trait.name }}</td>
+                    <td>{{ trait.category.name }}</td>
                     <td>
-                        <a href="{{ path('edit_ancestral_feature', {"id":ancestralFeature.id}) }}" class="btn btn-outline-primary" role="button">Edit</a>
-                        <a href="{{ path('delete_ancestral_feature', {"id":ancestralFeature.id}) }}" class="btn btn-outline-danger" role="button">Delete</a>
+                        <a href="{{ path('edit_core_trait', {"id": trait.id}) }}" class="btn btn-outline-primary" role="button">Edytuj</a>
+                        <a href="{{ path('delete_core_trait', {"id": trait.id}) }}" class="btn btn-outline-danger" role="button">Usuń</a>
                     </td>
                 </tr>
             {% endfor %}
