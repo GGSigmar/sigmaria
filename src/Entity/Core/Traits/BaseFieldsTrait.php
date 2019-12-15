@@ -25,7 +25,7 @@ trait BaseFieldsTrait
      * @Assert\NotBlank
      * @Assert\Length(max=80)
      */
-    private $name;
+    private $name = '';
 
     /**
      * @var string
@@ -35,7 +35,7 @@ trait BaseFieldsTrait
      * @Assert\NotBlank
      * @Assert\Length(max=80)
      */
-    private $handle;
+    private $handle = '';
 
     /**
      * @var string|null
@@ -95,14 +95,10 @@ trait BaseFieldsTrait
 
     /**
      * @param string $handle
-     *
-     * @return BaseFieldsTrait
      */
-    public function setHandle(string $handle): self
+    public function setHandle(string $handle): void
     {
-        $this->handle = strtoupper($handle);
-
-        return $this;
+        $this->handle = str_replace(' ', '_', trim(strtoupper($handle)));
     }
 
     /**
@@ -115,14 +111,10 @@ trait BaseFieldsTrait
 
     /**
      * @param string $name
-     *
-     * @return BaseFieldsTrait
      */
-    public function setName(string $name): self
+    public function setName(string $name): void
     {
         $this->name = ucfirst($name);
-
-        return $this;
     }
 
     /**
@@ -135,14 +127,10 @@ trait BaseFieldsTrait
 
     /**
      * @param string|null $description
-     *
-     * @return BaseFieldsTrait
      */
-    public function setDescription(?string $description): self
+    public function setDescription(?string $description): void
     {
         $this->description = ucfirst($description);
-
-        return $this;
     }
 
     /**
@@ -155,14 +143,10 @@ trait BaseFieldsTrait
 
     /**
      * @param bool $isActive
-     *
-     * @return BaseFieldsTrait
      */
-    public function setIsActive(bool $isActive): self
+    public function setIsActive(bool $isActive): void
     {
         $this->isActive = $isActive;
-
-        return $this;
     }
 
     /**

@@ -49,42 +49,20 @@
                 <a class="nav-link dropdown-toggle disabled" href="#">Świat</a>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle disabled" href="#">Warownie</a>
-            </li>
-            <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" role="button">Admin</a>
                 <div class="dropdown-menu multi-level">
                     <a href="#" class="dropdown-item dropdown-toggle" data-toggle="dropdown">Core Admin</a>
-                    <div class="dropdown-submenu">
-                        <ul class="dropdown-menu">
-                            <li><a href="{{ path('list_ancestral_features') }}" class="dropdown-item">Core Trait</a></li>
-                        </ul>
+                    <div class="dropdown-menu">
+                        <a href="{{ path('list_ancestral_features') }}" class="dropdown-item">Core Trait</a>
                     </div>
                     <a href="#" class="dropdown-item dropdown-toggle" data-toggle="dropdown">Ancestry Admin</a>
-                    <div class="dropdown-submenu">
-                        <ul class="dropdown-menu">
-                            <li><a href="{{ path('list_ancestral_features') }}" class="dropdown-item">Ancestral Feature</a></li>
-                        </ul>
-                    </div>
+                    <ul class="dropdown-menu">
+                        <li><a href="{{ path('list_ancestral_features') }}" class="dropdown-item">Ancestral Feature</a></li>
+                    </ul>
                     <a href="#" class="dropdown-item dropdown-toggle" data-toggle="dropdown">Setting Admin</a>
-                    <div class="dropdown-submenu">
-                        <ul class="dropdown-menu">
-                            <li><a href="{{ path('list_ancestral_features') }}" class="dropdown-item">Language</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Testt</a>
-                <div class="dropdown-menu">
-                    <a href="#" class="dropdown-item dropdown-toggle" data-toggle="dropdown">11</a>
-                    <div class="dropdown-menu">
-                        <a href="{{ path('list_ancestral_features') }}" class="dropdown-item">12</a>
-                    </div>
-                    <a href="#" class="dropdown-item dropdown-toggle" data-toggle="dropdown">21</a>
-                    <div class="dropdown-menu">
-                        <a href="{{ path('list_ancestral_features') }}" class="dropdown-item">22</a>
-                    </div>
+                    <ul class="dropdown-menu">
+                        <li><a href="{{ path('list_ancestral_features') }}" class="dropdown-item">Language</a></li>
+                    </ul>
                 </div>
             </li>
         </ul>
@@ -101,5 +79,31 @@
                 }
             });
         });
+
+        $( document ).ready( function () {
+            $( '.dropdown-menu a.dropdown-toggle' ).on( 'click', function ( e ) {
+                var $el = $( this );
+                $el.toggleClass('active-dropdown');
+                var $parent = $( this ).offsetParent( ".dropdown-menu" );
+                if ( !$( this ).next().hasClass( 'show' ) ) {
+                    $( this ).parents( '.dropdown-menu' ).first().find( '.show' ).removeClass( "show" );
+                }
+                var $subMenu = $( this ).next( ".dropdown-menu" );
+                $subMenu.toggleClass( 'show' );
+
+                $( this ).parent( "li" ).toggleClass( 'show' );
+
+                $( this ).parents( 'li.nav-item.dropdown.show' ).on( 'hidden.bs.dropdown', function ( e ) {
+                    $( '.dropdown-menu .show' ).removeClass( "show" );
+                    $el.removeClass('active-dropdown');
+                } );
+
+                if ( !$parent.parent().hasClass( 'navbar-nav' ) ) {
+                    $el.next().css( { "top": $el[0].offsetTop, "left": $parent.outerWidth() - 4 } );
+                }
+
+                return false;
+            } );
+        } );
     </script>
 {% endblock %}

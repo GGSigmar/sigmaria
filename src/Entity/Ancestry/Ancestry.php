@@ -18,6 +18,8 @@ class Ancestry
 {
     use BaseFieldsTrait;
 
+    public const ADDITIONAL_LANGUAGES_MESSAGE = '';
+
     /**
      * @var AncestralHitPoints
      *
@@ -46,9 +48,19 @@ class Ancestry
      * @var ArrayCollection
      *
      * @ORM\ManyToMany(targetEntity="App\Entity\Core\Ability")
+     * @ORM\JoinTable(name="ancestry_ability_boost")
      * @Assert\NotBlank
      */
     private $abilityBoosts;
+
+    /**
+     * @var ArrayCollection
+     *
+     * @ORM\ManyToMany(targetEntity="App\Entity\Core\Ability")
+     * @ORM\JoinTable(name="ancestry_ability_flaw")
+     * @Assert\NotBlank
+     */
+    private $abilityFlaws;
 
     /**
      * @var ArrayCollection
@@ -79,15 +91,16 @@ class Ancestry
         $this->createdAt = new \DateTime();
         $this->updatedAt = new \DateTime();
         $this->abilityBoosts = new ArrayCollection();
+        $this->abilityFlaws = new ArrayCollection();
         $this->languages = new ArrayCollection();
         $this->traits = new ArrayCollection();
         $this->ancestralFeatures = new ArrayCollection();
     }
 
     /**
-     * @return AncestralHitPoints
+     * @return null|AncestralHitPoints
      */
-    public function getHitPoints(): AncestralHitPoints
+    public function getHitPoints(): ?AncestralHitPoints
     {
         return $this->hitPoints;
     }
@@ -101,9 +114,9 @@ class Ancestry
     }
 
     /**
-     * @return Size
+     * @return null|Size
      */
-    public function getSize(): Size
+    public function getSize(): ?Size
     {
         return $this->size;
     }
@@ -117,9 +130,9 @@ class Ancestry
     }
 
     /**
-     * @return MoveSpeed
+     * @return null|MoveSpeed
      */
-    public function getSpeed(): MoveSpeed
+    public function getSpeed(): ?MoveSpeed
     {
         return $this->speed;
     }
@@ -133,9 +146,9 @@ class Ancestry
     }
 
     /**
-     * @return ArrayCollection
+     * @return Collection
      */
-    public function getAbilityBoosts(): ArrayCollection
+    public function getAbilityBoosts(): Collection
     {
         return $this->abilityBoosts;
     }
@@ -149,9 +162,25 @@ class Ancestry
     }
 
     /**
-     * @return ArrayCollection
+     * @return Collection
      */
-    public function getLanguages(): ArrayCollection
+    public function getAbilityFlaws(): Collection
+    {
+        return $this->abilityFlaws;
+    }
+
+    /**
+     * @param ArrayCollection $abilityFlaws
+     */
+    public function setAbilityFlaws(ArrayCollection $abilityFlaws): void
+    {
+        $this->abilityFlaws = $abilityFlaws;
+    }
+
+    /**
+     * @return Collection
+     */
+    public function getLanguages(): Collection
     {
         return $this->languages;
     }
@@ -165,9 +194,9 @@ class Ancestry
     }
 
     /**
-     * @return ArrayCollection
+     * @return Collection
      */
-    public function getTraits(): ArrayCollection
+    public function getTraits(): Collection
     {
         return $this->traits;
     }
@@ -219,6 +248,34 @@ class Ancestry
     }
 
     /**
+     * @return string
+     */
+    public function getAbilityBoostNamesAsString(): string
+    {
+        return $this->getAbilityNamesAsString($this->getAbilityBoosts()->toArray());
+    }
+
+    /**
+     * @return string
+     */
+    public function getAbilityFlawNamesAsString(): string
+    {
+        return $this->getAbilityNamesAsString($this->getAbilityFlaws()->toArray());
+    }
+
+    public function getTraitsAsString(): string
+    {
+        $traitNames = [];
+
+        foreach ($this->getTraits()->toArray() as $trait)
+        {
+            $traitNames[] = $trait->getName();
+        }
+
+        return (implode(' <br> ', $traitNames));
+    }
+
+    /**
      * @return int
      */
     public function getValue(): int
@@ -230,5 +287,22 @@ class Ancestry
         }
 
         return $value;
+    }
+
+    /**
+     * @param array $abilities
+     *
+     * @return string
+     */
+    private function getAbilityNamesAsString(array $abilities)
+    {
+        $abilityNames = [];
+
+        foreach ($abilities as $ability)
+        {
+            $abilityNames[] = $ability->getName();
+        }
+
+        return (implode(' lub ', $abilityNames));
     }
 }

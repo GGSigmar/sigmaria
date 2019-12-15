@@ -25,13 +25,9 @@ trait RarityTrait
 
     /**
      * @param Rarity $rarity
-     *
-     * @return RarityTrait
      */
-    public function setRarity(Rarity $rarity): self
+    public function setRarity(Rarity $rarity): void
     {
         $this->rarity = $rarity;
-
-        return $this;
     }
 }

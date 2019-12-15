@@ -3,7 +3,15 @@
 namespace App\Form\Ancestry;
 
 use App\Entity\Ancestry\AncestralFeature;
+use App\Entity\Ancestry\AncestralHitPoints;
 use App\Entity\Ancestry\Ancestry;
+use App\Entity\Core\Ability;
+use App\Entity\Core\CoreTrait;
+use App\Entity\Core\CoreTraitCategory;
+use App\Entity\Core\MoveSpeed;
+use App\Entity\Core\Size;
+use App\Entity\Setting\Language;
+use Doctrine\ORM\EntityRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
@@ -25,23 +33,43 @@ class AncestryType extends AbstractType
             ->add('description', TextareaType::class, [
 
             ])
-            ->add('abilityScoreIncrease', TextType::class, [
-
+            ->add('hitPoints', EntityType::class, [
+                'class' => AncestralHitPoints::class,
             ])
-            ->add('age', TextType::class, [
-
+            ->add('size', EntityType::class, [
+                'class' => Size::class,
             ])
-            ->add('alignment', TextType::class, [
-
-            ])
-            ->add('size', TextType::class, [
-
-            ])
-            ->add('speed', TextType::class, [
-
+            ->add('speed', EntityType::class, [
+                'class' => MoveSpeed::class,
             ])
             ->add('languages', TextType::class, [
 
+            ])
+            ->add('abilityBoosts', EntityType::class, [
+                'class' => Ability::class,
+                'multiple' => true,
+                'expanded' => true,
+            ])
+            ->add('abilityFlaws', EntityType::class, [
+                'class' => Ability::class,
+                'multiple' => true,
+                'expanded' => true,
+            ])
+            ->add('languages', EntityType::class, [
+                'class' => Language::class,
+                'multiple' => true,
+                'expanded' => true,
+            ])
+            ->add('traits', EntityType::class, [
+                'class' => CoreTrait::class,
+                'multiple' => true,
+                'expanded' => true,
+                'query_builder' => function (EntityRepository $er) {
+                    return $er->createQueryBuilder('t')
+                        ->innerJoin('t.category', 'c')
+                        ->andWhere('c.handle LIKE :ancestral_category')
+                        ->setParameter('ancestral_category', CoreTraitCategory::TRAIT_CATEGORY_ANCESTRAL);
+                },
             ])
             ->add('ancestralFeatures', EntityType::class, [
                 'class' => AncestralFeature::class,

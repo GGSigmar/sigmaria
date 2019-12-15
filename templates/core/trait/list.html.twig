@@ -1,0 +1,32 @@
+{% extends "base/base.html.twig" %}
+{% block content %}
+    <h1>Ancestral Features</h1>
+
+    <div class="col-md-12 mb-2 text-right">
+        <a href="{{ path('create_ancestral_feature') }}" class="btn btn-outline-success" role="button">New</a>
+    </div>
+
+    <table class="table table-striped bg-light text-nowrap text-center">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Value</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for ancestralFeature in ancestralFeatures %}
+                <tr>
+                    <td>{{ ancestralFeature.name }}</td>
+                    <td>{{ ancestralFeature.description }}</td>
+                    <td>{{ ancestralFeature.value }}</td>
+                    <td>
+                        <a href="{{ path('edit_ancestral_feature', {"id":ancestralFeature.id}) }}" class="btn btn-outline-primary" role="button">Edit</a>
+                        <a href="{{ path('delete_ancestral_feature', {"id":ancestralFeature.id}) }}" class="btn btn-outline-danger" role="button">Delete</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

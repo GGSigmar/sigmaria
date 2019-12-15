@@ -79,7 +79,7 @@ class AncestryController extends AbstractController
 
             $this->addFlash('success', 'Ancestry edited!');
 
-            return $this->redirectToRoute('show_ancestry');
+            return $this->redirectToRoute('show_ancestry', ['id' => $ancestry->getId()]);
         }
 
         return [

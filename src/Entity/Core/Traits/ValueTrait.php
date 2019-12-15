@@ -14,7 +14,7 @@ trait ValueTrait
      *
      * @Assert\NotBlank
      */
-    private $value;
+    private $value = 0;
 
     /**
      * @return int
@@ -26,13 +26,9 @@ trait ValueTrait
 
     /**
      * @param int $value
-     *
-     * @return ValueTrait
      */
-    public function setValue(int $value): self
+    public function setValue(int $value): void
     {
         $this->value = $value;
-
-        return $this;
     }
 }

@@ -26,7 +26,9 @@ class BaseValuedEntityType extends AbstractType
 
             ])
             ->add('save', SubmitType::class, [
-
+                'attr' => [
+                    'class' => 'btn btn-primary',
+                ],
             ])
         ;
     }

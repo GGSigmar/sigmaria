@@ -40,7 +40,7 @@ class AncestralFeatureController extends AbstractController
             $entityManager->persist($ancestralFeature);
             $entityManager->flush();
 
-            $this->addFlash('success', 'Ancestral feature created!');
+            $this->addFlash('success', 'Zdolność rasowa stworzona!');
 
             return $this->redirectToRoute('list_ancestral_features');
         }
@@ -66,7 +66,7 @@ class AncestralFeatureController extends AbstractController
             $entityManager->persist($ancestralFeature);
             $entityManager->flush();
 
-            $this->addFlash('success', 'Ancestral feature edited!');
+            $this->addFlash('success', 'Zdolność rasowa edytowana!');
 
             return $this->redirectToRoute('list_ancestral_features');
         }
@@ -82,11 +82,13 @@ class AncestralFeatureController extends AbstractController
     public function deleteWeaponPropertyAction(AncestralFeature $ancestralFeature) {
         $entityManager = $this->getDoctrine()->getManager();
 
-        $entityManager->remove($ancestralFeature);
+        $ancestralFeature->setIsActive(false);
+
+        $entityManager->persist($ancestralFeature);
         $entityManager->flush();
 
-        $this->addFlash('success', 'Ancestral feature deleted!');
-        $this->addFlash('warning', 'Ancestral feature removed from ancestries!');
+        $this->addFlash('success', 'Zdolność rasowa usunięta!');
+        $this->addFlash('warning', 'Zdolność rasowa usunięta z ras!');
 
         return $this->redirectToRoute('list_ancestral_features');
     }
