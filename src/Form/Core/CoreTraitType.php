@@ -24,7 +24,7 @@ class CoreTraitType extends AbstractType
 
             ])
             ->add('description', TextType::class, [
-
+                'required' => false,
             ])
             ->add('category', EntityType::class, [
                 'class' => CoreTraitCategory::class,

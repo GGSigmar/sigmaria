@@ -17,9 +17,10 @@
         <tbody>
             {% for ancestry in ancestries %}
                 <tr>
-                    <td><a href="{{ path('show_ancestry', {"id":ancestry.id}) }}">{{ ancestry.name }}</a></td>
+                    <td>{{ ancestry.name }}</td>
                     <td>{{ ancestry.value }}</td>
                     <td>
+                        <a href="{{ path('show_ancestry', {"id":ancestry.id}) }}" class="btn btn-outline-success" role="button">Zobacz</a>
                         <a href="{{ path('edit_ancestry', {"id":ancestry.id}) }}" class="btn btn-outline-primary" role="button">Edytuj</a>
                         <a href="{{ path('delete_ancestry', {"id":ancestry.id}) }}" class="btn btn-outline-danger" role="button">Usuń</a>
                     </td>

@@ -18,21 +18,6 @@
                     <a href="{{ path('list_ancestries') }}" class="dropdown-item">Atuty</a>
                 </div>
             </li>
-            {# Zmiana 5e na PF2 - moduł ekwipunku ukryty do momentu, aż stanie się potrzebny #}
-            <li class="nav-item dropdown d-none">
-                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" role="button" id="equipment-btn">Ekwipunek</a>
-                <div class="dropdown-menu">
-                    <a href="#" class="dropdown-item dropdown-toggle" data-toggle="dropdown">Weapons Admin</a>
-                    <div class="dropdown-menu">
-                        <a href="{{ path('list_weapon_groups') }}" class="dropdown-item">(Admin) Weapon Groups</a>
-                        <a href="{{ path('list_weapon_damages') }}" class="dropdown-item">(Admin) Weapon Damages</a>
-                        <a href="{{ path('list_weapon_properties') }}" class="dropdown-item">(Admin) Weapon Properties</a>
-                    </div>
-                    <a href="/" class="dropdown-item">Armor</a>
-                    <a href="/" class="dropdown-item">Other Equipment</a>
-                </div>
-            </li>
-            {# koniec wyłączonego modułu #}
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" role="button" id="quests-btn">Zadania</a>
 
@@ -53,15 +38,15 @@
                 <div class="dropdown-menu multi-level">
                     <a href="#" class="dropdown-item dropdown-toggle" data-toggle="dropdown">Core Admin</a>
                     <div class="dropdown-menu">
-                        <a href="{{ path('list_core_traits') }}" class="dropdown-item">Core Trait</a>
+                        <a href="{{ path('list_core_traits') }}" class="dropdown-item">Atrybuty</a>
                     </div>
                     <a href="#" class="dropdown-item dropdown-toggle" data-toggle="dropdown">Ancestry Admin</a>
                     <ul class="dropdown-menu">
-                        <li><a href="{{ path('list_ancestral_features') }}" class="dropdown-item">Ancestral Feature</a></li>
+                        <li><a href="{{ path('list_ancestral_features') }}" class="dropdown-item">Zdolności rasowe</a></li>
                     </ul>
                     <a href="#" class="dropdown-item dropdown-toggle" data-toggle="dropdown">Setting Admin</a>
                     <ul class="dropdown-menu">
-                        <li><a href="{{ path('list_ancestral_features') }}" class="dropdown-item">Language</a></li>
+                        <li><a href="{{ path('list_ancestral_features') }}" class="dropdown-item">Języki</a></li>
                     </ul>
                 </div>
             </li>

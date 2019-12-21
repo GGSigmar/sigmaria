@@ -19,7 +19,7 @@ class BaseEntityType extends AbstractType
 
             ])
             ->add('description', TextType::class, [
-
+                'required' => false,
             ])
             ->add('save', SubmitType::class, [
                 'attr' => [

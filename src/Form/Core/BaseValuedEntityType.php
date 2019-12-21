@@ -20,7 +20,7 @@ class BaseValuedEntityType extends AbstractType
 
             ])
             ->add('description', TextType::class, [
-
+                'required' => false,
             ])
             ->add('value', IntegerType::class, [
 

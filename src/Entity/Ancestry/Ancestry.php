@@ -286,6 +286,12 @@ class Ancestry
             $value += $ancestralFeature->getValue();
         }
 
+        $value += $this->getHitPoints()->getValue();
+
+        if (count($this->getTraits()->toArray()) > 1) {
+            $value++;
+        }
+
         return $value;
     }
 
