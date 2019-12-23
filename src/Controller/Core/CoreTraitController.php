@@ -4,31 +4,34 @@ namespace App\Controller\Core;
 
 use App\Entity\Core\CoreTrait;
 use App\Form\Core\CoreTraitType;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\Routing\Annotation\Route;
 
-class CoreTraitController extends AbstractController
+class CoreTraitController extends CoreController
 {
     /**
      * @Route("/core/trait/list", name="list_core_traits")
      * @Template("core/trait/list.html.twig")
      */
-    public function listTraitsAction() {
+    public function listTraitsAction()
+    {
         $traits = $this->getDoctrine()->getRepository(CoreTrait::class)
             ->findBy(['isActive' => true]);
 
-        return [
+        $templateData = [
             'traits' => $traits,
         ];
+
+        return array_merge($templateData, $this->getTemplateData(CoreController::NAV_TAB_RULES));
     }
 
     /**
      * @Route("/core/trait/create", name="create_core_trait")
      * @Template("core/trait/form.html.twig")
      */
-    public function createTraitAction(Request $request) {
+    public function createTraitAction(Request $request)
+    {
         $form = $this->createForm(CoreTraitType::class);
 
         $form->handleRequest($request);
@@ -45,16 +48,19 @@ class CoreTraitController extends AbstractController
             return $this->redirectToRoute('list_core_traits');
         }
 
-        return [
+        $templateData = [
             'form' => $form->createView(),
         ];
+
+        return array_merge($templateData, $this->getTemplateData(CoreController::NAV_TAB_RULES));
     }
 
     /**
      * @Route("/core/trait/{id}/edit", name="edit_core_trait")
      * @Template("core/trait/form.html.twig")
      */
-    public function editTraitAction(Request $request, CoreTrait $trait) {
+    public function editTraitAction(Request $request, CoreTrait $trait)
+    {
         $form = $this->createForm(CoreTraitType::class, $trait);
 
         $form->handleRequest($request);
@@ -71,15 +77,18 @@ class CoreTraitController extends AbstractController
             return $this->redirectToRoute('list_core_traits');
         }
 
-        return [
+        $templateData = [
             'form' => $form->createView(),
         ];
+
+        return array_merge($templateData, $this->getTemplateData(CoreController::NAV_TAB_RULES));
     }
 
     /**
      * @Route("/core/trait/{id}/delete", name="delete_core_trait")
      */
-    public function deleteTraitAction(CoreTrait $trait) {
+    public function deleteTraitAction(CoreTrait $trait)
+    {
         $entityManager = $this->getDoctrine()->getManager();
 
         $trait->setIsActive(false);

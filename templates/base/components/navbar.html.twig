@@ -8,10 +8,12 @@
     <div class="collapse navbar-collapse" id="mainmenu">
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a href="{{ path('home') }}" class="nav-link">Strona główna</a>
+                <a href="{{ path('home') }}" class="nav-link {% if navTab is defined and navTab == constant('App\\Controller\\Core\\CoreController::NAV_TAB_HOME') %}active{% endif %}">
+                    Strona główna
+                </a>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Zasady</a>
+                <a class="nav-link dropdown-toggle {% if navTab is defined and navTab == constant('App\\Controller\\Core\\CoreController::NAV_TAB_RULES') %}active{% endif %}" href="#" data-toggle="dropdown">Zasady</a>
                 <div class="dropdown-menu">
                     <a href="{{ path('list_ancestries') }}" class="dropdown-item">Rasy</a>
                     <div class="dropdown-divider"></div>
@@ -19,7 +21,7 @@
                 </div>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" role="button" id="quests-btn">Zadania</a>
+                <a class="nav-link dropdown-toggle {% if navTab is defined and navTab == constant('App\\Controller\\Core\\CoreController::NAV_TAB_CAMPAIGN') %}active{% endif %}" href="#" data-toggle="dropdown" role="button" id="quests-btn">Kampanie</a>
 
                 <div class="dropdown-menu">
                     <a href="/" class="quest-location dropdown-item">Kedernas</a>
@@ -28,10 +30,7 @@
                 </div>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle disabled" href="#">Kampanie</a>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle disabled" href="#">Świat</a>
+                <a class="nav-link dropdown-toggle disabled {% if navTab is defined and navTab == constant('App\\Controller\\Core\\CoreController::NAV_TAB_SETTING') %}active{% endif %}" href="#">Świat</a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" role="button">Admin</a>
@@ -63,11 +62,11 @@
                     $(this).addClass("active");
                 }
             });
-            $("a.nav-link").each(function() {
-                if(url == (this.href)) {
-                    $(this).addClass("active");
-                }
-            });
+            // $("a.nav-link").each(function() {
+            //     if(url == (this.href)) {
+            //         $(this).addClass("active");
+            //     }
+            // });
         });
 
         $( document ).ready( function () {

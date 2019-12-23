@@ -2,44 +2,50 @@
 
 namespace App\Controller\Ancestry;
 
+use App\Controller\Core\CoreController;
 use App\Entity\Ancestry\Ancestry;
 use App\Form\Ancestry\AncestryType;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
-class AncestryController extends AbstractController
+class AncestryController extends CoreController
 {
     /**
      * @Route("/ancestry/list", name="list_ancestries")
      * @Template("ancestry/ancestry/list.html.twig")
      */
-    public function listAncestriesAction() {
+    public function listAncestriesAction()
+    {
         $ancestries = $this->getDoctrine()->getRepository(Ancestry::class)
             ->findBy(['isActive' => true]);
 
-        return [
+        $templateData = [
             'ancestries' => $ancestries,
         ];
+
+        return array_merge($templateData, $this->getTemplateData(CoreController::NAV_TAB_RULES));
     }
 
     /**
      * @Route("/ancestry/{id}/show", name="show_ancestry")
      * @Template("ancestry/ancestry/show.html.twig")
      */
-    public function showAncestryAction(Ancestry $ancestry) {
-
-        return [
+    public function showAncestryAction(Ancestry $ancestry)
+    {
+        $templateData = [
             'ancestry' => $ancestry,
         ];
+
+        return array_merge($templateData, $this->getTemplateData(CoreController::NAV_TAB_RULES));
     }
 
     /**
      * @Route("/ancestry/create", name="create_ancestry")
      * @Template("ancestry/ancestry/form.html.twig")
      */
-    public function createAncestryAction(Request $request) {
+    public function createAncestryAction(Request $request)
+    {
         $form = $this->createForm(AncestryType::class);
 
         $form->handleRequest($request);
@@ -56,16 +62,19 @@ class AncestryController extends AbstractController
             return $this->redirectToRoute('list_ancestries');
         }
 
-        return [
+        $templateData = [
             'form' => $form->createView()
         ];
+
+        return array_merge($templateData, $this->getTemplateData(CoreController::NAV_TAB_RULES));
     }
 
     /**
      * @Route("/ancestry/{id}/edit", name="edit_ancestry")
      * @Template("ancestry/ancestry/form.html.twig")
      */
-    public function editAncestryAction(Request $request, Ancestry $ancestry) {
+    public function editAncestryAction(Request $request, Ancestry $ancestry)
+    {
         $form = $this->createForm(AncestryType::class, $ancestry);
 
         $form->handleRequest($request);
@@ -82,15 +91,18 @@ class AncestryController extends AbstractController
             return $this->redirectToRoute('show_ancestry', ['id' => $ancestry->getId()]);
         }
 
-        return [
+        $templateData = [
             'form' => $form->createView()
         ];
+
+        return array_merge($templateData, $this->getTemplateData(CoreController::NAV_TAB_RULES));
     }
 
     /**
      * @Route("/ancestry/{id}/delete", name="delete_ancestry")
      */
-    public function deleteAncestryAction(Ancestry $ancestry) {
+    public function deleteAncestryAction(Ancestry $ancestry)
+    {
         $entityManager = $this->getDoctrine()->getManager();
 
         $entityManager->remove($ancestry);
