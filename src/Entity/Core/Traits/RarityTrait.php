@@ -9,16 +9,16 @@ trait RarityTrait
     /**
      * @var Rarity
      *
-     * @ORM\Column(type="integer")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Core\Rarity")
      *
      * @Assert\NotBlank
      */
     private $rarity;
 
     /**
-     * @return Rarity
+     * @return null|Rarity
      */
-    public function getRarity(): Rarity
+    public function getRarity(): ?Rarity
     {
         return $this->rarity;
     }

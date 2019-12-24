@@ -1,0 +1,29 @@
+{% extends "base/base.html.twig" %}
+{% block content %}
+    <h1>Atuty</h1>
+
+    <div class="col-md-12 mb-2 text-right">
+        <a href="{{ path('create_feat') }}" class="btn btn-outline-success" role="button">Stwórz</a>
+    </div>
+
+    <table class="table table-striped bg-light text-nowrap text-center">
+        <thead>
+            <tr>
+                <th>Nazwa</th>
+                <th>Akcje</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for feat in feats %}
+                <tr>
+                    <td>{{ feat.name }}</td>
+                    <td>
+                        <a href="{{ path('show_feat', {"id":feat.id}) }}" class="btn btn-outline-success" role="button">Zobacz</a>
+                        <a href="{{ path('edit_feat', {"id": feat.id}) }}" class="btn btn-outline-primary" role="button">Edytuj</a>
+                        <a href="{{ path('delete_feat', {"id": feat.id}) }}" class="btn btn-outline-danger" role="button">Usuń</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

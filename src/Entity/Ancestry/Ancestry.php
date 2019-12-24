@@ -49,7 +49,7 @@ class Ancestry
      *
      * @ORM\ManyToMany(targetEntity="App\Entity\Core\Ability")
      * @ORM\JoinTable(name="ancestry_ability_boost")
-     * @Assert\NotBlank
+     * @Assert\Count(min="2", max="2")
      */
     private $abilityBoosts;
 
@@ -58,7 +58,7 @@ class Ancestry
      *
      * @ORM\ManyToMany(targetEntity="App\Entity\Core\Ability")
      * @ORM\JoinTable(name="ancestry_ability_flaw")
-     * @Assert\NotBlank
+     * @Assert\Count(min="1", max="1")
      */
     private $abilityFlaws;
 
@@ -66,7 +66,7 @@ class Ancestry
      * @var ArrayCollection
      *
      * @ORM\ManyToMany(targetEntity="App\Entity\Setting\Language")
-     * @Assert\NotBlank
+     * @Assert\Count(min="2")
      */
     private $languages;
 
@@ -74,7 +74,7 @@ class Ancestry
      * @var ArrayCollection
      *
      * @ORM\ManyToMany(targetEntity="App\Entity\Core\CoreTrait")
-     * @Assert\NotBlank
+     * @Assert\Count(min="1")
      */
     private $traits;
 

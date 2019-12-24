@@ -23,7 +23,7 @@ class CoreTraitController extends CoreController
             'traits' => $traits,
         ];
 
-        return array_merge($templateData, $this->getTemplateData(CoreController::NAV_TAB_RULES));
+        return array_merge($templateData, $this->getTemplateData(CoreController::NAV_TAB_ADMIN));
     }
 
     /**
@@ -52,7 +52,7 @@ class CoreTraitController extends CoreController
             'form' => $form->createView(),
         ];
 
-        return array_merge($templateData, $this->getTemplateData(CoreController::NAV_TAB_RULES));
+        return array_merge($templateData, $this->getTemplateData(CoreController::NAV_TAB_ADMIN));
     }
 
     /**
@@ -81,7 +81,7 @@ class CoreTraitController extends CoreController
             'form' => $form->createView(),
         ];
 
-        return array_merge($templateData, $this->getTemplateData(CoreController::NAV_TAB_RULES));
+        return array_merge($templateData, $this->getTemplateData(CoreController::NAV_TAB_ADMIN));
     }
 
     /**

@@ -24,7 +24,7 @@ class AncestralFeatureController extends CoreController
             'ancestralFeatures' => $ancestralFeatures,
         ];
 
-        return array_merge($templateData, $this->getTemplateData(CoreController::NAV_TAB_RULES));
+        return array_merge($templateData, $this->getTemplateData(CoreController::NAV_TAB_ADMIN));
     }
 
     /**
@@ -53,7 +53,7 @@ class AncestralFeatureController extends CoreController
             'form' => $form->createView()
         ];
 
-        return array_merge($templateData, $this->getTemplateData(CoreController::NAV_TAB_RULES));
+        return array_merge($templateData, $this->getTemplateData(CoreController::NAV_TAB_ADMIN));
     }
 
     /**
@@ -82,7 +82,7 @@ class AncestralFeatureController extends CoreController
             'form' => $form->createView()
         ];
 
-        return array_merge($templateData, $this->getTemplateData(CoreController::NAV_TAB_RULES));
+        return array_merge($templateData, $this->getTemplateData(CoreController::NAV_TAB_ADMIN));
     }
 
     /**

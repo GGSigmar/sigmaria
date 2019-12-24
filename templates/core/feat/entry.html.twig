@@ -1,0 +1,29 @@
+<div class="col-md-6">
+    <div class="border-bottom border-primary" style="width:100%;">
+        <h3>{{ feat.name|upper }} ({{ feat.actions.name }})
+        <span style="float: right;">ATUT {{ feat.level }}</span><h2>
+    </div>
+    <div>
+        {% for trait in feat.traits %}
+            <span class="badge badge-primary">{{ trait.name }}</span>
+        {% endfor %}
+    </div>
+    <div>
+        <b>Wymagania.</b> {{ feat.prerequisites }}
+    </div>
+    <div>
+        <b>Częstotliwość.</b> {{ feat.frequency }}
+    </div>
+    <div>
+        <b>Wyzwalacz.</b> {{ feat.trigger }}
+    </div>
+    <div>
+        <b>Warunki.</b> {{ feat.requirements }}
+    </div>
+    <div class="border-top border-primary">
+        {{ feat.description }}
+    </div>
+    <div>
+        <b>Wyjątki.</b> {{ feat.specialRules }}
+    </div>
+</div>

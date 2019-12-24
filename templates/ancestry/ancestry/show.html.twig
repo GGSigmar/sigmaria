@@ -1,73 +1,39 @@
 {% extends "base/base.html.twig" %}
 {% block content %}
-    <div class="row">
-        <div class="col-md-9">
-            <h1>{{ ancestry.name }}</h1>
+    <div class="col-md-9">
+        <h1>{{ ancestry.name }}</h1>
 
-            <p class="mb-4">
-                {{ ancestry.description|raw }}
+        <p class="mb-4">
+            {{ ancestry.description|raw }}
+        </p>
+
+        <h5>Zdolności rasowe</h5>
+        {% for feature in ancestry.ancestralFeatures %}
+            <p class="mb-4"><b>{{ feature.name }}</b>
+                <br>
+                {{ feature.description }}
             </p>
-
-            <h5>Zdolności rasowe</h5>
-            {% for feature in ancestry.ancestralFeatures %}
-                <p class="mb-4"><b>{{ feature.name }}</b>
-                    <br>
-                    {{ feature.description }}
-                </p>
-            {% endfor %}
-        </div>
-        <div class="col-md-3">
-            <h5>Punkty zdrowia</h5>
-            <p class="mb-4">{{ ancestry.hitPoints.name }}</p>
-
-            <h5>Rozmiar</h5>
-            <p class="mb-4">{{ ancestry.size.name }}</p>
-
-            <h5>Premie do cech</h5>
-            <p class="mb-4">{{ ancestry.getAbilityBoostNamesAsString|raw }}<br>Dowolna</p>
-
-            <h5>Kara do cechy</h5>
-            <p class="mb-4">{{ ancestry.getAbilityFlawNamesAsString|raw }}</p>
-
-            <h5>Atrybuty</h5>
-            <p class="mb-4">{{ ancestry.getTraitsAsString|raw }}</p>
-        </div>
-        <div class="col-md-12 mb-2 text-left">
-            <a href="{{ path('edit_ancestry', {"id":ancestry.id}) }}" class="btn btn-outline-success" role="button">Edytuj</a>
-            <a href="{{ path('list_ancestries') }}" class="btn btn-outline-success" role="button">Powrót do listy</a>
-            ({{ ancestry.value }})
-        </div>
+        {% endfor %}
     </div>
+    <div class="col-md-3">
+        <h5>Punkty zdrowia</h5>
+        <p class="mb-4">{{ ancestry.hitPoints.name }}</p>
 
-{#    <h1>{{ ancestry.name }}</h1>#}
-{#    <p class="mb-5">(Value: {{ ancestry.value }})</p>#}
+        <h5>Rozmiar</h5>
+        <p class="mb-4">{{ ancestry.size.name }}</p>
 
-{#    <p class="mt-2 mb-2">#}
-{#        {{ ancestry.description }}#}
-{#    </p>#}
-{#    <p class="mt-2 mb-2">#}
-{#        <strong>Ability Score Increase.</strong> {{ ancestry.abilityScoreIncrease }}#}
-{#    </p>#}
-{#    <p class="mt-2 mb-2">#}
-{#        <strong>Age.</strong> {{ ancestry.age }}#}
-{#    </p>#}
-{#    <p class="mt-2 mb-2">#}
-{#        <strong>Alignment.</strong> {{ ancestry.alignment }}#}
-{#    </p>#}
-{#    <p class="mt-2 mb-2">#}
-{#        <strong>Size.</strong> {{ ancestry.size }}#}
-{#    </p>#}
-{#    <p class="mt-2 mb-2">#}
-{#        <strong>Speed.</strong> {{ ancestry.speed }}#}
-{#    </p>#}
-{#    <p class="mt-2 mb-2">#}
-{#        <strong>Languages.</strong> {{ ancestry.languages }}#}
-{#    </p>#}
-{#    <h2>Ancestral features</h2>#}
-{#    {% for feature in ancestry.ancestralFeatures %}#}
-{#        <p class="mt-2 mb-2"><strong>{{ feature.name }}</strong>. {{ feature.description }}</p>#}
-{#    {% endfor %}#}
-{#    <div class="col-md-12 mb-2 text-right">#}
-{#        <a href="{{ path('list_ancestries') }}" class="btn btn-outline-success" role="button">Back to ancestry list</a>#}
-{#    </div>#}
+        <h5>Premie do cech</h5>
+        <p class="mb-4">{{ ancestry.getAbilityBoostNamesAsString|raw }}<br>Dowolna</p>
+
+        <h5>Kara do cechy</h5>
+        <p class="mb-4">{{ ancestry.getAbilityFlawNamesAsString|raw }}</p>
+
+        <h5>Atrybuty</h5>
+        <p class="mb-4">{{ ancestry.getTraitsAsString|raw }}</p>
+    </div>
+    <div class="col-md-12 mb-2 text-left">
+        <a href="{{ path('edit_ancestry', {"id":ancestry.id}) }}" class="btn btn-outline-success" role="button">Edytuj</a>
+        <a href="{{ path('list_ancestries') }}" class="btn btn-outline-success" role="button">Powrót do listy</a>
+        ({{ ancestry.value }})
+    </div>
 {% endblock %}
