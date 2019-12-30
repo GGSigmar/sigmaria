@@ -54,7 +54,7 @@ class Feat
     /**
      * @var string|null
      *
-     * @ORM\Column(name="feat_trigger", type="string", nullable=true)
+     * @ORM\Column(name="`trigger`", type="string", nullable=true)
      */
     private $trigger;
 

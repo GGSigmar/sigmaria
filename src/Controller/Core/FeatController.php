@@ -4,6 +4,7 @@ namespace App\Controller\Core;
 
 use App\Entity\Core\Feat;
 use App\Form\Core\FeatType;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\Routing\Annotation\Route;
@@ -40,6 +41,7 @@ class FeatController extends CoreController
     }
 
     /**
+     * @IsGranted("ROLE_ADMIN")
      * @Route("/core/feat/create", name="create_feat")
      * @Template("core/feat/form.html.twig")
      */
@@ -69,6 +71,7 @@ class FeatController extends CoreController
     }
 
     /**
+     * @IsGranted("ROLE_ADMIN")
      * @Route("/core/feat/{id}/edit", name="edit_feat")
      * @Template("core/feat/form.html.twig")
      */
@@ -98,6 +101,7 @@ class FeatController extends CoreController
     }
 
     /**
+     * @IsGranted("ROLE_ADMIN")
      * @Route("/core/feat/{id}/delete", name="delete_feat")
      */
     public function deleteFeatAction(Feat $feat)

@@ -13,18 +13,15 @@ class BaseEntityType extends AbstractType
     {
         $builder
             ->add('handle', TextType::class, [
+                'label' => 'Identyfikator',
 
             ])
             ->add('name', TextType::class, [
-
+                'label' => 'Nazwa',
             ])
             ->add('description', TextType::class, [
                 'required' => false,
-            ])
-            ->add('save', SubmitType::class, [
-                'attr' => [
-                    'class' => 'btn btn-primary',
-                ],
+                'label' => 'Opis',
             ])
         ;
     }

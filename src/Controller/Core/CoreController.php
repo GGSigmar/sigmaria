@@ -2,7 +2,11 @@
 
 namespace App\Controller\Core;
 
+use App\Entity\Core\User;
+use App\Form\Core\UserRolesType;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
@@ -38,7 +42,7 @@ class CoreController extends AbstractController
      *
      * @return array
      */
-    protected function getNavigationTemplateData(string $navTabName): array
+    private function getNavigationTemplateData(string $navTabName): array
     {
         $navigationData = [
             'navTab' => $navTabName

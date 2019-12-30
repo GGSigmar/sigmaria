@@ -11,10 +11,11 @@ use App\Entity\Core\CoreTraitCategory;
 use App\Entity\Core\MoveSpeed;
 use App\Entity\Core\Size;
 use App\Entity\Setting\Language;
+use App\Form\Core\BaseEntityType;
 use Doctrine\ORM\EntityRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -24,15 +25,6 @@ class AncestryType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('handle', TextType::class, [
-
-            ])
-            ->add('name', TextType::class, [
-
-            ])
-            ->add('description', TextareaType::class, [
-
-            ])
             ->add('hitPoints', EntityType::class, [
                 'class' => AncestralHitPoints::class,
             ])
@@ -77,6 +69,11 @@ class AncestryType extends AbstractType
                 'expanded' => true,
             ])
         ;
+    }
+
+    public function getParent()
+    {
+        return BaseEntityType::class;
     }
 
     public function configureOptions(OptionsResolver $resolver)

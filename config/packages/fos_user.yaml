@@ -1,0 +1,10 @@
+fos_user:
+  db_driver: orm
+  firewall_name: main
+  user_class: App\Entity\Core\User
+  from_email:
+    address: "nup@nup.pl"
+    sender_name: "nup"
+  registration:
+    form:
+      type: App\Form\Core\RegistrationFormType

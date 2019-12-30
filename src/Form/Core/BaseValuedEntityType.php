@@ -13,23 +13,14 @@ class BaseValuedEntityType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('handle', TextType::class, [
-
-            ])
-            ->add('name', TextType::class, [
-
-            ])
-            ->add('description', TextType::class, [
-                'required' => false,
-            ])
             ->add('value', IntegerType::class, [
-
-            ])
-            ->add('save', SubmitType::class, [
-                'attr' => [
-                    'class' => 'btn btn-primary',
-                ],
+                'label' => 'Wartość',
             ])
         ;
+    }
+
+    public function getParent()
+    {
+        return BaseEntityType::class;
     }
 }

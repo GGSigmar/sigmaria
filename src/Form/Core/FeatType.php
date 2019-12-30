@@ -20,50 +20,44 @@ class FeatType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('handle', TextType::class, [
-
-            ])
-            ->add('name', TextType::class, [
-
-            ])
-            ->add('description', TextareaType::class, [
-
-            ])
             ->add('rarity', EntityType::class, [
+                'label' => 'Rzadkość',
                 'class' => Rarity::class
             ])
             ->add('actions', EntityType::class, [
+                'label' => 'Akcje',
                 'class' => Actions::class,
             ])
             ->add('level', IntegerType::class, [
-
+                'label' => 'Poziom',
             ])
             ->add('prerequisites', TextareaType::class, [
-
+                'label' => 'Wymagania',
             ])
             ->add('frequency', TextareaType::class, [
-
+                'label' => 'Częstotliwość',
             ])
             ->add('trigger', TextareaType::class, [
-
+                'label' => 'Wyzwalacz',
             ])
             ->add('requirements', TextareaType::class, [
-
+                'label' => 'Warunki',
             ])
             ->add('specialRules', TextareaType::class, [
-
+                'label' => 'Wyjątki/właściwość specjalna/specjalne zasady',
             ])
             ->add('traits', EntityType::class, [
+                'label' => 'Atrybuty',
                 'class' => CoreTrait::class,
                 'multiple' => true,
                 'expanded' => true,
             ])
-            ->add('save', SubmitType::class, [
-                'attr' => [
-                    'class' => 'btn btn-primary',
-                ],
-            ])
         ;
+    }
+
+    public function getParent()
+    {
+        return BaseEntityType::class;
     }
 
     public function configureOptions(OptionsResolver $resolver)
