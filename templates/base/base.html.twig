@@ -23,14 +23,14 @@
         {% block body %}
             <div id="sack" class="app bg-dark text-white">
                 {% include("base/components/navbar.html.twig") %}
-                <div class="container">
+                <div class="container margin-top-30">
                     {% include("base/components/flashbag.html.twig") %}
                     <div class="row">
-                        <div class="col-md-12">
-                            {% block content %}
-                                    <img class="img-fluid border border-light" src="images/phandalin.png" alt="Phandalin czeka!">
-                            {% endblock %}
-                        </div>
+                        {% block content %}
+                            <div class="col-md-12">
+                                <img class="img-fluid border border-light" src="images/phandalin.png" alt="Phandalin czeka!">
+                            </div>
+                        {% endblock %}
                     </div>
                 </div>
                 {% include("base/components/footer.html.twig") %}

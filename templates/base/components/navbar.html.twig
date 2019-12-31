@@ -1,12 +1,12 @@
-<nav class="navbar fixed-top navbar-dark bg-danger navbar-expand-md border-bottom border-white">
+<nav class="navbar navbar-expand-md sticky-top navbar-dark bg-danger border-bottom border-white">
     <a href="{{ path('home') }}" class="navbar-brand"><i class="fas fa-dice-d20"></i> Sigmaria</a>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainmenu">
         <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse container-fluid" id="mainmenu">
-        <ul class="nav navbar-nav">
+    <div class="collapse navbar-collapse" id="mainmenu">
+        <ul class="navbar-nav mr-auto">
             <li class="nav-item">
                 <a href="{{ path('home') }}" class="nav-link {% if navTab is defined and navTab == constant('App\\Controller\\Core\\CoreController::NAV_TAB_HOME') %}active{% endif %}">
                     <i class="fas fa-home"></i> Strona główna
@@ -54,7 +54,7 @@
             </li>
             {% endif %}
         </ul>
-        <ul class="nav navbar-nav navbar-right">
+        <ul class="navbar-nav navbar-right">
             {% if is_granted('ROLE_USER') %}
                 <li ><span class="navbar-text mr-1">Zalogowany jako {{ app.user.email }}</span></li>
                 <li><a class="btn btn-secondary border border-white" href="{{ path('fos_user_security_logout') }}">Wyloguj <i class="fas fa-unlock"></i></a></li>

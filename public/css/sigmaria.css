@@ -1,9 +1,14 @@
-#sack
+/*#sack*/
+/*{*/
+/*    padding-top: 86px; !* 56 navbar + 30 *!*/
+/*}*/
+
+.margin-top-30
 {
-    padding-top: 86px; /* 56 navbar + 30 */
+    margin-top: 30px;
 }
 
-/*.float-right*/
-/*{*/
-/*    float: right;*/
-/*}*/
+p.indented
+{
+    text-indent: 40px;
+}

@@ -1,20 +1,22 @@
 {% extends "base/base.html.twig" %}
 
 {% block content %}
-    {% block list_title %}{% endblock %}
+    <div class="col-md-12">
+        {% block list_title %}{% endblock %}
 
-    <div class="col-md-12 mb-2 text-right">
-        {% block top_right_buttons %}{% endblock %}
+        <div class="col-md-12 mb-2 text-right">
+            {% block top_right_buttons %}{% endblock %}
+        </div>
+
+        <table class="table table-striped bg-light text-nowrap text-center">
+            <thead>
+            <tr>
+                {% block table_headers %}{% endblock %}
+            </tr>
+            </thead>
+            <tbody>
+                {% block table_rows %}{% endblock %}
+            </tbody>
+        </table>
     </div>
-
-    <table class="table table-striped bg-light text-nowrap text-center">
-        <thead>
-        <tr>
-            {% block table_headers %}{% endblock %}
-        </tr>
-        </thead>
-        <tbody>
-            {% block table_rows %}{% endblock %}
-        </tbody>
-    </table>
 {% endblock %}
