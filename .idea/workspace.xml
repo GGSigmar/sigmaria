@@ -2,58 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0b9a3871-3386-4d40-9261-e24049e96f75" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/config/packages/fos_user.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/Core/UserController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/Core/User.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/EventListener/Core/RedirectAfterRegistrationSubscriber.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Form/Core/RegistrationFormType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Form/Core/UserRolesType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/ancestry/feature/entry.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/bundles/FOSUserBundle/Registration/register_content.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/bundles/FOSUserBundle/Security/login_content.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/bundles/FOSUserBundle/layout.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/core/user/list.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/core/user/roles.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/translations/bundles/FOSUserBundle/FOSUserBundle.pl.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Sigmaria.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Sigmaria.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/base/base_list.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/base/base_list.template" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/base/buttons/entity_create_button.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/base/buttons/entity_delete_button.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/base/buttons/entity_edit_button.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/base/buttons/entity_show_button.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/framework.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/framework.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/translation.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/translation.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/routes.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/sigmaria.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/sigmaria.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Core/CoreController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Core/CoreController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Core/FeatController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Core/FeatController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Core/Feat.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Core/Feat.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/Ancestry/AncestralFeatureType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/Ancestry/AncestralFeatureType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/Ancestry/AncestryType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/Ancestry/AncestryType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/Core/BaseEntityType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/Core/BaseEntityType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/Core/BaseValuedEntityType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/Core/BaseValuedEntityType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/Core/CoreTraitType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/Core/CoreTraitType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/Core/FeatType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/Core/FeatType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/ancestry/ancestry/form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/ancestry/ancestry/form.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/ancestry/ancestry/list.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/ancestry/ancestry/list.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/ancestry/feature/form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/ancestry/feature/form.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base/components/flashbag.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base/components/flashbag.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base/components/footer.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base/components/footer.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base/components/navbar.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base/components/navbar.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/core/feat/entry.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/core/feat/entry.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/core/feat/form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/core/feat/form.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/core/feat/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/core/feat/show.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/core/trait/form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/core/trait/form.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/equipment/weapon/damage/form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base/base_form.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/equipment/weapon/damage/list.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/equipment/weapon/group/form.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/equipment/weapon/group/list.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/equipment/weapon/property/form.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/equipment/weapon/property/list.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/ancestry/feature/list.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/ancestry/feature/list.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/core/feat/list.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/core/feat/list.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/core/trait/list.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/core/trait/list.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/core/user/list.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/core/user/list.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -193,7 +153,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/base" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/base/buttons" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -209,11 +169,11 @@
       <recent name="E:\Projekty\Sigmaria\src\Form\Equipment\Weapon" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/templates/base/buttons" />
       <recent name="$PROJECT_DIR$/templates/base" />
       <recent name="$PROJECT_DIR$/templates/core/feat" />
       <recent name="$PROJECT_DIR$/src/Controller/Core" />
       <recent name="$PROJECT_DIR$/src/Form/Core" />
-      <recent name="$PROJECT_DIR$/src/DataFixtures/Core" />
     </key>
   </component>
   <component name="ServiceViewManager">
@@ -251,7 +211,8 @@
       <workItem from="1577629796499" duration="13227000" />
       <workItem from="1577655957499" duration="3782000" />
       <workItem from="1577661842732" duration="3017000" />
-      <workItem from="1577746620627" duration="3055000" />
+      <workItem from="1577746620627" duration="6510000" />
+      <workItem from="1577787213424" duration="441000" />
     </task>
     <servers />
   </component>
@@ -259,6 +220,10 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="481" y="271" width="688" height="398" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1577751100858">
+      <screen x="70" y="27" width="1530" height="873" />
+    </state>
+    <state x="481" y="271" width="688" height="398" key="#com.intellij.fileTypes.FileTypeChooser/70.27.1530.873@70.27.1530.873" timestamp="1577751100858" />
     <state x="603" y="182" width="454" height="569" key="#com.intellij.ide.util.MemberChooser" timestamp="1577747935395">
       <screen x="70" y="27" width="1530" height="873" />
     </state>
@@ -275,21 +240,25 @@
       <screen x="70" y="27" width="1530" height="873" />
     </state>
     <state x="535" y="273" width="614" height="387" key="NewPhpClassDialog/70.27.1530.873@70.27.1530.873" timestamp="1577748547622" />
+    <state x="635" y="175" width="389" height="583" key="RollbackChangesDialog" timestamp="1577751250092">
+      <screen x="70" y="27" width="1530" height="873" />
+    </state>
+    <state x="635" y="175" width="389" height="583" key="RollbackChangesDialog/70.27.1530.873@70.27.1530.873" timestamp="1577751250092" />
     <state x="324" y="98" width="1022" height="737" key="SettingsEditor" timestamp="1577136359086">
       <screen x="70" y="27" width="1530" height="873" />
     </state>
     <state x="324" y="98" width="1022" height="737" key="SettingsEditor/70.27.1530.873@70.27.1530.873" timestamp="1577136359086" />
-    <state x="491" y="291" key="com.intellij.ide.util.TipDialog" timestamp="1577746620708">
+    <state x="491" y="291" key="com.intellij.ide.util.TipDialog" timestamp="1577787221616">
       <screen x="70" y="27" width="1530" height="873" />
     </state>
-    <state x="491" y="291" key="com.intellij.ide.util.TipDialog/70.27.1530.873@70.27.1530.873" timestamp="1577746620708" />
-    <state x="465" y="43" width="800" height="840" key="find.popup" timestamp="1577749575065">
+    <state x="491" y="291" key="com.intellij.ide.util.TipDialog/70.27.1530.873@70.27.1530.873" timestamp="1577787221616" />
+    <state x="465" y="43" width="800" height="840" key="find.popup" timestamp="1577750455641">
       <screen x="70" y="27" width="1530" height="873" />
     </state>
-    <state x="465" y="43" width="800" height="840" key="find.popup/70.27.1530.873@70.27.1530.873" timestamp="1577749575065" />
-    <state x="498" y="214" width="672" height="678" key="search.everywhere.popup" timestamp="1577663699708">
+    <state x="465" y="43" width="800" height="840" key="find.popup/70.27.1530.873@70.27.1530.873" timestamp="1577750455641" />
+    <state x="498" y="214" width="672" height="678" key="search.everywhere.popup" timestamp="1577751717295">
       <screen x="70" y="27" width="1530" height="873" />
     </state>
-    <state x="498" y="214" width="672" height="678" key="search.everywhere.popup/70.27.1530.873@70.27.1530.873" timestamp="1577663699708" />
+    <state x="498" y="214" width="672" height="678" key="search.everywhere.popup/70.27.1530.873@70.27.1530.873" timestamp="1577751717295" />
   </component>
 </project>

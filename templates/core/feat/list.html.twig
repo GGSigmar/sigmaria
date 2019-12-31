@@ -1,29 +1,29 @@
-{% extends "base/base.html.twig" %}
-{% block content %}
+{% extends "base/base_list.html.twig" %}
+
+{% block list_title %}
     <h1>Atuty</h1>
+{% endblock %}
 
-    <div class="col-md-12 mb-2 text-right">
-        <a href="{{ path('create_feat') }}" class="btn btn-outline-success" role="button">Stwórz</a>
-    </div>
+{% block top_right_buttons %}
+    <a href="{{ path('create_feat') }}" class="btn btn-outline-success" role="button">Stwórz <i class="fas fa-plus-circle"></i></a>
+{% endblock %}
 
-    <table class="table table-striped bg-light text-nowrap text-center">
-        <thead>
-            <tr>
-                <th>Nazwa</th>
-                <th>Akcje</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for feat in feats %}
-                <tr>
-                    <td>{{ feat.name }}</td>
-                    <td>
-                        <a href="{{ path('show_feat', {"id":feat.id}) }}" class="btn btn-outline-success" role="button">Zobacz</a>
-                        <a href="{{ path('edit_feat', {"id": feat.id}) }}" class="btn btn-outline-primary" role="button">Edytuj</a>
-                        <a href="{{ path('delete_feat', {"id": feat.id}) }}" class="btn btn-outline-danger" role="button">Usuń</a>
-                    </td>
-                </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+{% block table_headers %}
+    <th>Nazwa</th>
+    <th>Akcje</th>
+{% endblock %}
+
+{% block table_rows %}
+    {% for feat in feats %}
+        <tr>
+            <td class="align-middle">{{ feat.name }}</td>
+            <td class="align-middle">
+                {% set entityName = 'feat' %}
+
+                {% include "base/buttons/entity_show_button.html.twig" with {'entityName': entityName, 'entityId': feat.id} %}
+                {% include "base/buttons/entity_edit_button.html.twig" with {'entityName': entityName, 'entityId': feat.id} %}
+                {% include "base/buttons/entity_delete_button.html.twig" with {'entityName': entityName, 'entityId': feat.id} %}
+            </td>
+        </tr>
+    {% endfor %}
 {% endblock %}

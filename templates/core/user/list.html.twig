@@ -1,23 +1,26 @@
-{% extends "base/base.html.twig" %}
-{% block content %}
-    <h1>Użytkownicy</h1>
+{% extends "base/base_list.html.twig" %}
 
-    <table class="table table-striped bg-light text-nowrap text-center">
-        <thead>
+{% block list_title %}
+    <h1>Użytkownicy</h1>
+{% endblock %}
+
+{% block top_right_buttons %}
+{% endblock %}
+
+{% block table_headers %}
+    <th>Id</th>
+    <th>Email</th>
+    <th>Akcje</th>
+{% endblock %}
+
+{% block table_rows %}
+    {% for user in users %}
         <tr>
-            <th>Email</th>
-            <th>Akcje</th>
+            <td class="align-middle">{{ user.id }}</td>
+            <td class="align-middle">{{ user.email }}</td>
+            <td class="align-middle">
+                <a href="{{ path('user_roles', {"id": user.id}) }}" class="btn btn-outline-primary" role="button">Uprawnienia <i class="fas fa-user-tag"></i></a>
+            </td>
         </tr>
-        </thead>
-        <tbody>
-        {% for user in users %}
-            <tr>
-                <td>{{ user.email }}</td>
-                <td>
-                    <a href="{{ path('user_roles', {"id": user.id}) }}" class="btn btn-outline-primary" role="button">Uprawnienia</a>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+    {% endfor %}
 {% endblock %}

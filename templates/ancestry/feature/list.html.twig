@@ -1,32 +1,32 @@
-{% extends "base/base.html.twig" %}
-{% block content %}
+{% extends "base/base_list.html.twig" %}
+
+{% block list_title %}
     <h1>Zdolności rasowe</h1>
+{% endblock %}
 
-    <div class="col-md-12 mb-2 text-right">
-        <a href="{{ path('create_ancestral_feature') }}" class="btn btn-outline-success" role="button">Stwórz</a>
-    </div>
+{% block top_right_buttons %}
+    <a href="{{ path('create_ancestral_feature') }}" class="btn btn-outline-success" role="button">Stwórz <i class="fas fa-plus-circle"></i></a>
+{% endblock %}
 
-    <table class="table table-striped bg-light text-center">
-        <thead>
-            <tr>
-                <th>Nazwa</th>
-                <th>Opis</th>
-                <th>Wartość</th>
-                <th>Akcje</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for ancestralFeature in ancestralFeatures %}
-                <tr>
-                    <td class="align-middle">{{ ancestralFeature.name }}</td>
-                    <td class="align-middle">{{ ancestralFeature.description }}</td>
-                    <td class="align-middle">{{ ancestralFeature.value }}</td>
-                    <td class="align-middle">
-                        <a href="{{ path('edit_ancestral_feature', {"id":ancestralFeature.id}) }}" class="btn btn-outline-primary" role="button">Edytuj</a>
-                        <a href="{{ path('delete_ancestral_feature', {"id":ancestralFeature.id}) }}" class="btn btn-outline-danger" role="button">Usuń</a>
-                    </td>
-                </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+{% block table_headers %}
+    <th>Nazwa</th>
+    <th>Opis</th>
+    <th>Wartość</th>
+    <th>Akcje</th>
+{% endblock %}
+
+{% block table_rows %}
+    {% for ancestralFeature in ancestralFeatures %}
+        <tr>
+            <td class="align-middle">{{ ancestralFeature.name }}</td>
+            <td class="align-middle">{{ ancestralFeature.description }}</td>
+            <td class="align-middle">{{ ancestralFeature.value }}</td>
+            <td class="align-middle">
+                {% set entityName = 'ancestral_feature' %}
+
+                {% include "base/buttons/entity_edit_button.html.twig" with {'entityName': entityName, 'entityId': ancestralFeature.id} %}
+                {% include "base/buttons/entity_delete_button.html.twig" with {'entityName': entityName, 'entityId': ancestralFeature.id} %}
+            </td>
+        </tr>
+    {% endfor %}
 {% endblock %}

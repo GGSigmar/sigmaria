@@ -1,31 +1,31 @@
-{% extends "base/base.html.twig" %}
-{% block content %}
+{% extends "base/base_list.html.twig" %}
+
+{% block list_title %}
     <h1>Rasy</h1>
+{% endblock %}
 
-    <div class="col-md-12 mb-2 text-right">
-        <a href="{{ path('create_ancestry') }}" class="btn btn-outline-success" role="button">Stwórz <i class="fas fa-plus-circle"></i></a>
-    </div>
+{% block top_right_buttons %}
+    <a href="{{ path('create_ancestry') }}" class="btn btn-outline-success" role="button">Stwórz <i class="fas fa-plus-circle"></i></a>
+{% endblock %}
 
-    <table class="table table-striped bg-light text-nowrap text-center">
-        <thead>
-            <tr>
-                <th>Nazwa</th>
-                <th>Wartość</th>
-                <th>Akcje</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for ancestry in ancestries %}
-                <tr>
-                    <td>{{ ancestry.name }}</td>
-                    <td>{{ ancestry.value }}</td>
-                    <td>
-                        <a href="{{ path('show_ancestry', {"id":ancestry.id}) }}" class="btn btn-outline-success" role="button">Zobacz</a>
-                        <a href="{{ path('edit_ancestry', {"id":ancestry.id}) }}" class="btn btn-outline-primary" role="button">Edytuj</a>
-                        <a href="{{ path('delete_ancestry', {"id":ancestry.id}) }}" class="btn btn-outline-danger" role="button">Usuń</a>
-                    </td>
-                </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+{% block table_headers %}
+    <th>Nazwa</th>
+    <th>Wartość</th>
+    <th>Akcje</th>
+{% endblock %}
+
+{% block table_rows %}
+    {% for ancestry in ancestries %}
+        <tr>
+            <td class="align-middle">{{ ancestry.name }}</td>
+            <td class="align-middle">{{ ancestry.value }}</td>
+            <td class="align-middle">
+                {% set entityName = 'ancestry' %}
+
+                {% include "base/buttons/entity_show_button.html.twig" with {'entityName': entityName, 'entityId': ancestry.id} %}
+                {% include "base/buttons/entity_edit_button.html.twig" with {'entityName': entityName, 'entityId': ancestry.id} %}
+                {% include "base/buttons/entity_delete_button.html.twig" with {'entityName': entityName, 'entityId': ancestry.id} %}
+            </td>
+        </tr>
+    {% endfor %}
 {% endblock %}
