@@ -21,6 +21,7 @@ class CoreTraitController extends CoreController
 
         $templateData = [
             'traits' => $traits,
+            'entityName' => 'core_trait',
         ];
 
         return array_merge($templateData, $this->getTemplateData(CoreController::NAV_TAB_ADMIN));

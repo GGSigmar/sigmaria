@@ -22,6 +22,7 @@ class AncestralFeatureController extends CoreController
 
         $templateData = [
             'ancestralFeatures' => $ancestralFeatures,
+            'entityName' => 'ancestral_feature',
         ];
 
         return array_merge($templateData, $this->getTemplateData(CoreController::NAV_TAB_ADMIN));

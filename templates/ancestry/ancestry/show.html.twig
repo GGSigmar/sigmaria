@@ -16,6 +16,11 @@
         {% endfor %}
     </div>
     <div class="col-md-3">
+        {% if is_granted('ROLE_ADMIN') %}
+            <h5>Wartość</h5>
+            <p class="mb-4">{{ ancestry.value }}</p>
+        {% endif %}
+
         <h5>Punkty zdrowia</h5>
         <p class="mb-4">{{ ancestry.hitPoints.name }}</p>
 
@@ -34,6 +39,5 @@
     <div class="col-md-12 mb-2 text-left">
         <a href="{{ path('edit_ancestry', {"id":ancestry.id}) }}" class="btn btn-outline-success" role="button">Edytuj</a>
         <a href="{{ path('list_ancestries') }}" class="btn btn-outline-success" role="button">Powrót do listy</a>
-        ({{ ancestry.value }})
     </div>
 {% endblock %}

@@ -3,19 +3,20 @@
   <component name="ChangeListManager">
     <list default="true" id="0b9a3871-3386-4d40-9261-e24049e96f75" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/sigmaria.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/sigmaria.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/Core/BaseEntityType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/Core/BaseEntityType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/ancestry/ancestry/form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/ancestry/ancestry/form.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/ancestry/feature/form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/ancestry/feature/form.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base/base_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base/base_form.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/twig.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/twig.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Ancestry/AncestralFeatureController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Ancestry/AncestralFeatureController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Ancestry/AncestryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Ancestry/AncestryController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Core/CoreTraitController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Core/CoreTraitController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Core/FeatController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Core/FeatController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/ancestry/ancestry/list.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/ancestry/ancestry/list.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/ancestry/ancestry/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/ancestry/ancestry/show.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/ancestry/feature/list.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/ancestry/feature/list.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base/base_list.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base/base_list.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base/buttons/entity_create_button.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base/buttons/entity_create_button.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base/components/navbar.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base/components/navbar.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/bundles/FOSUserBundle/layout.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/bundles/FOSUserBundle/layout.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/core/feat/form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/core/feat/form.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/core/trait/form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/core/trait/form.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/core/feat/list.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/core/feat/list.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/core/trait/list.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/core/trait/list.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/core/user/roles.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/core/user/roles.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/core/user/list.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/core/user/list.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -160,7 +161,7 @@
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.tabs" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -214,7 +215,8 @@
       <workItem from="1577655957499" duration="3782000" />
       <workItem from="1577661842732" duration="3017000" />
       <workItem from="1577746620627" duration="6510000" />
-      <workItem from="1577787213424" duration="3645000" />
+      <workItem from="1577787213424" duration="5027000" />
+      <workItem from="1577881169306" duration="2853000" />
     </task>
     <servers />
   </component>
@@ -250,25 +252,25 @@
       <screen x="70" y="27" width="1530" height="873" />
     </state>
     <state x="635" y="175" width="389" height="583" key="RollbackChangesDialog/70.27.1530.873@70.27.1530.873" timestamp="1577751250092" />
-    <state x="324" y="98" width="1022" height="737" key="SettingsEditor" timestamp="1577136359086">
+    <state x="324" y="98" width="1022" height="737" key="SettingsEditor" timestamp="1577881803401">
       <screen x="70" y="27" width="1530" height="873" />
     </state>
-    <state x="324" y="98" width="1022" height="737" key="SettingsEditor/70.27.1530.873@70.27.1530.873" timestamp="1577136359086" />
+    <state x="324" y="98" width="1022" height="737" key="SettingsEditor/70.27.1530.873@70.27.1530.873" timestamp="1577881803401" />
     <state x="469" y="168" width="722" height="598" key="VCS.ChangeListViewerDialog" timestamp="1577789039156">
       <screen x="70" y="27" width="1530" height="873" />
     </state>
     <state x="469" y="168" width="722" height="598" key="VCS.ChangeListViewerDialog/70.27.1530.873@70.27.1530.873" timestamp="1577789039156" />
-    <state x="491" y="291" key="com.intellij.ide.util.TipDialog" timestamp="1577787221616">
+    <state x="491" y="291" key="com.intellij.ide.util.TipDialog" timestamp="1577881169287">
       <screen x="70" y="27" width="1530" height="873" />
     </state>
-    <state x="491" y="291" key="com.intellij.ide.util.TipDialog/70.27.1530.873@70.27.1530.873" timestamp="1577787221616" />
-    <state x="465" y="43" width="800" height="840" key="find.popup" timestamp="1577750455641">
+    <state x="491" y="291" key="com.intellij.ide.util.TipDialog/70.27.1530.873@70.27.1530.873" timestamp="1577881169287" />
+    <state x="465" y="43" width="822" height="840" key="find.popup" timestamp="1577882604528">
       <screen x="70" y="27" width="1530" height="873" />
     </state>
-    <state x="465" y="43" width="800" height="840" key="find.popup/70.27.1530.873@70.27.1530.873" timestamp="1577750455641" />
-    <state x="498" y="214" width="672" height="678" key="search.everywhere.popup" timestamp="1577794930577">
+    <state x="465" y="43" width="822" height="840" key="find.popup/70.27.1530.873@70.27.1530.873" timestamp="1577882604528" />
+    <state x="498" y="214" width="672" height="678" key="search.everywhere.popup" timestamp="1577882665366">
       <screen x="70" y="27" width="1530" height="873" />
     </state>
-    <state x="498" y="214" width="672" height="678" key="search.everywhere.popup/70.27.1530.873@70.27.1530.873" timestamp="1577794930577" />
+    <state x="498" y="214" width="672" height="678" key="search.everywhere.popup/70.27.1530.873@70.27.1530.873" timestamp="1577882665366" />
   </component>
 </project>

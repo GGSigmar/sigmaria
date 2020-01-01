@@ -22,6 +22,7 @@ class FeatController extends CoreController
 
         $templateData = [
             'feats' => $feats,
+            'entityName' => 'feat',
         ];
 
         return array_merge($templateData, $this->getTemplateData(CoreController::NAV_TAB_ADMIN));

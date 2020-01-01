@@ -4,10 +4,6 @@
     <h1>Rasy</h1>
 {% endblock %}
 
-{% block top_right_buttons %}
-    <a href="{{ path('create_ancestry') }}" class="btn btn-outline-success" role="button">Stwórz <i class="fas fa-plus-circle"></i></a>
-{% endblock %}
-
 {% block table_headers %}
     <th>Nazwa</th>
     <th>Wartość</th>
@@ -20,8 +16,6 @@
             <td class="align-middle">{{ ancestry.name }}</td>
             <td class="align-middle">{{ ancestry.value }}</td>
             <td class="align-middle">
-                {% set entityName = 'ancestry' %}
-
                 {% include "base/buttons/entity_show_button.html.twig" with {'entityName': entityName, 'entityId': ancestry.id} %}
                 {% include "base/buttons/entity_edit_button.html.twig" with {'entityName': entityName, 'entityId': ancestry.id} %}
                 {% include "base/buttons/entity_delete_button.html.twig" with {'entityName': entityName, 'entityId': ancestry.id} %}
