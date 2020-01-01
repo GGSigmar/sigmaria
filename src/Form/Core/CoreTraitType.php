@@ -15,8 +15,8 @@ class CoreTraitType extends AbstractType
     {
         $builder
             ->add('category', EntityType::class, [
-                'label' => 'Kategoria',
                 'class' => CoreTraitCategory::class,
+                'label' => 'Kategoria',
             ])
         ;
     }

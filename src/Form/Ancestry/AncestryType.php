@@ -27,33 +27,37 @@ class AncestryType extends AbstractType
         $builder
             ->add('hitPoints', EntityType::class, [
                 'class' => AncestralHitPoints::class,
+                'label' => 'Punkty zdrowia',
             ])
             ->add('size', EntityType::class, [
                 'class' => Size::class,
+                'label' => 'Rozmiar',
             ])
             ->add('speed', EntityType::class, [
                 'class' => MoveSpeed::class,
-            ])
-            ->add('languages', TextType::class, [
-
+                'label' => 'Prędkość ruchu',
             ])
             ->add('abilityBoosts', EntityType::class, [
                 'class' => Ability::class,
+                'label' => 'Premie do cech',
                 'multiple' => true,
                 'expanded' => true,
             ])
             ->add('abilityFlaws', EntityType::class, [
                 'class' => Ability::class,
+                'label' => 'Opcjonalna kara do cechy',
                 'multiple' => true,
                 'expanded' => true,
             ])
             ->add('languages', EntityType::class, [
                 'class' => Language::class,
+                'label' => 'Znane języki',
                 'multiple' => true,
                 'expanded' => true,
             ])
             ->add('traits', EntityType::class, [
                 'class' => CoreTrait::class,
+                'label' => 'Atrybuty',
                 'multiple' => true,
                 'expanded' => true,
                 'query_builder' => function (EntityRepository $er) {

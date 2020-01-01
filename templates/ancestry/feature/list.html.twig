@@ -18,8 +18,6 @@
             <td class="align-middle">{{ ancestralFeature.description }}</td>
             <td class="align-middle">{{ ancestralFeature.value }}</td>
             <td class="align-middle">
-                {% set entityName = 'ancestral_feature' %}
-
                 {% include "base/buttons/entity_edit_button.html.twig" with {'entityName': entityName, 'entityId': ancestralFeature.id} %}
                 {% include "base/buttons/entity_delete_button.html.twig" with {'entityName': entityName, 'entityId': ancestralFeature.id} %}
             </td>

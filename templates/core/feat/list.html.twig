@@ -14,8 +14,6 @@
         <tr>
             <td class="align-middle">{{ feat.name }}</td>
             <td class="align-middle">
-                {% set entityName = 'feat' %}
-
                 {% include "base/buttons/entity_show_button.html.twig" with {'entityName': entityName, 'entityId': feat.id} %}
                 {% include "base/buttons/entity_edit_button.html.twig" with {'entityName': entityName, 'entityId': feat.id} %}
                 {% include "base/buttons/entity_delete_button.html.twig" with {'entityName': entityName, 'entityId': feat.id} %}

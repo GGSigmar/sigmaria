@@ -16,8 +16,6 @@
             <td class="align-middle">{{ trait.name }}</td>
             <td class="align-middle">{{ trait.category.name }}</td>
             <td class="align-middle">
-                {% set entityName = 'core_trait' %}
-
                 {% include "base/buttons/entity_edit_button.html.twig" with {'entityName': entityName, 'entityId': trait.id} %}
                 {% include "base/buttons/entity_delete_button.html.twig" with {'entityName': entityName, 'entityId': trait.id} %}
             </td>
