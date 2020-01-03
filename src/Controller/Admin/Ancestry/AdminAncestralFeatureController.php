@@ -16,13 +16,12 @@ use Symfony\Component\HttpFoundation\Request;
 class AdminAncestralFeatureController extends BaseController
 {
     /**
-     * @Route("/ancestry/feature/list", name="ancestral_feature_list")
+     * @Route("/admin/ancestry/feature/list", name="ancestral_feature_list")
      * @Template("ancestry/feature/list.html.twig")
      */
     public function listAncestralFeaturesAction()
     {
-        $ancestralFeatures = $this->getDoctrine()->getRepository(AncestralFeature::class)
-            ->findBy(['isActive' => true]);
+        $ancestralFeatures = $this->getDoctrine()->getRepository(AncestralFeature::class)->findAll();
 
         $templateData = [
             'ancestralFeatures' => $ancestralFeatures,
@@ -93,9 +92,9 @@ class AdminAncestralFeatureController extends BaseController
     }
 
     /**
-     * @Route("/admin/ancestry/feature/{id}/delete", name="ancestral_feature_delete")
+     * @Route("/admin/ancestry/feature/{id}/kill", name="ancestral_feature_kill")
      */
-    public function deleteWeaponPropertyAction(AncestralFeature $ancestralFeature)
+    public function killWeaponPropertyAction(AncestralFeature $ancestralFeature)
     {
         $entityManager = $this->getDoctrine()->getManager();
 
@@ -104,7 +103,7 @@ class AdminAncestralFeatureController extends BaseController
         $entityManager->persist($ancestralFeature);
         $entityManager->flush();
 
-        $this->addFlash('success', 'Zdolność rasowa usunięta!');
+        $this->addFlash('success', 'Zdolność rasowa zabita!');
 
         return $this->redirectToRoute('ancestral_feature_list');
     }
@@ -122,6 +121,21 @@ class AdminAncestralFeatureController extends BaseController
         $entityManager->flush();
 
         $this->addFlash('success', 'Zdolność rasowa wskrzeszona!');
+
+        return $this->redirectToRoute('ancestral_feature_list');
+    }
+
+    /**
+     * @Route("/admin/ancestry/feature/{id}/delete", name="ancestral_feature_delete")
+     */
+    public function deleteWeaponPropertyAction(AncestralFeature $ancestralFeature)
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+
+        $entityManager->remove($ancestralFeature);
+        $entityManager->flush();
+
+        $this->addFlash('success', 'Zdolność rasowa usunięta!');
 
         return $this->redirectToRoute('ancestral_feature_list');
     }

@@ -17,13 +17,12 @@ class AdminFeatController extends BaseController
 {
 
     /**
-     * @Route("/core/feat/list", name="feat_list")
+     * @Route("/admin/core/feat/list", name="feat_list")
      * @Template("core/feat/list.html.twig")
      */
     public function listFeatsAction()
     {
-        $feats = $this->getDoctrine()->getRepository(Feat::class)
-            ->findBy(['isActive' => true]);
+        $feats = $this->getDoctrine()->getRepository(Feat::class)->findAll();
 
         $templateData = [
             'feats' => $feats,
@@ -94,9 +93,9 @@ class AdminFeatController extends BaseController
     }
 
     /**
-     * @Route("/admin/core/feat/{id}/delete", name="feat_delete")
+     * @Route("/admin/core/feat/{id}/kill", name="feat_kill")
      */
-    public function deleteFeatAction(Feat $feat)
+    public function killFeatAction(Feat $feat)
     {
         $entityManager = $this->getDoctrine()->getManager();
 
@@ -105,7 +104,7 @@ class AdminFeatController extends BaseController
         $entityManager->persist($feat);
         $entityManager->flush();
 
-        $this->addFlash('success', 'Atut usunięty!');
+        $this->addFlash('success', 'Atut zabity!');
 
         return $this->redirectToRoute('feat_list');
     }
@@ -123,6 +122,21 @@ class AdminFeatController extends BaseController
         $entityManager->flush();
 
         $this->addFlash('success', 'Atut wskrzeszony!');
+
+        return $this->redirectToRoute('feat_list');
+    }
+
+    /**
+     * @Route("/admin/core/feat/{id}/delete", name="feat_delete")
+     */
+    public function deleteFeatAction(Feat $feat)
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+
+        $entityManager->remove($feat);
+        $entityManager->flush();
+
+        $this->addFlash('success', 'Atut usunięty!');
 
         return $this->redirectToRoute('feat_list');
     }

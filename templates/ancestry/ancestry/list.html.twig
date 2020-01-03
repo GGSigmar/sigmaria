@@ -12,16 +12,18 @@
 
 {% block table_rows %}
     {% for ancestry in ancestries %}
-        <tr class="{% include "base/utilities/inactive_entity_row_classes.html.twig" with {'entity': ancestry} %}">
-            <td class="align-middle">{{ ancestry.name }}</td>
-            <td class="align-middle">{{ ancestry.value }}</td>
-            <td class="align-middle text-nowrap">
-                {% include "base/buttons/entity_show_button.html.twig" with {'entityName': entityName, 'entity': ancestry} %}
-                {% if is_granted('ROLE_ADMIN') %}
-                    {% include "base/buttons/entity_edit_button.html.twig" with {'entityName': entityName, 'entity': ancestry} %}
-                    {% include "base/buttons/entity_delete_or_activate_button.html.twig" with {'entityName': entityName, 'entity': ancestry} %}
-                {% endif %}
-            </td>
-        </tr>
+        {% if not is_granted('ROLE_ADMIN') and ancestry.isActive %}
+            <tr class="{% include "base/utilities/inactive_entity_row_classes.html.twig" with {'entity': ancestry} %}">
+                <td class="align-middle">{{ ancestry.name }}</td>
+                <td class="align-middle">{{ ancestry.value }}</td>
+                <td class="align-middle text-nowrap">
+                    {% include "base/buttons/entity_show_button.html.twig" with {'entityName': entityName, 'entity': ancestry} %}
+                    {% if is_granted('ROLE_ADMIN') %}
+                        {% include "base/buttons/entity_edit_button.html.twig" with {'entityName': entityName, 'entity': ancestry} %}
+                        {% include "base/buttons/entity_delete_buttons.html.twig" with {'entityName': entityName, 'entity': ancestry} %}
+                    {% endif %}
+                </td>
+            </tr>
+        {% endif %}
     {% endfor %}
 {% endblock %}

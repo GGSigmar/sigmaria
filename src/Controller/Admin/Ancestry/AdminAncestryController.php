@@ -64,7 +64,7 @@ class AdminAncestryController extends BaseController
 
             $this->addFlash('success', 'Rasa edytowana!');
 
-            return $this->redirectToRoute('ancestry_edit', ['id' => $ancestry->getId()]);
+            return $this->redirectToRoute('ancestry_show', ['id' => $ancestry->getId()]);
         }
 
         $templateData = [
@@ -76,9 +76,9 @@ class AdminAncestryController extends BaseController
     }
 
     /**
-     * @Route("/admin/ancestry/{id}/delete", name="ancestry_delete")
+     * @Route("/admin/ancestry/{id}/kill", name="ancestry_kill")
      */
-    public function deleteAncestryAction(Ancestry $ancestry)
+    public function killAncestryAction(Ancestry $ancestry)
     {
         $entityManager = $this->getDoctrine()->getManager();
 
@@ -87,7 +87,7 @@ class AdminAncestryController extends BaseController
         $entityManager->persist($ancestry);
         $entityManager->flush();
 
-        $this->addFlash('success', 'Rasa usunięta!');
+        $this->addFlash('success', 'Rasa zabita!');
 
         return $this->redirectToRoute('ancestry_list');
     }
@@ -105,6 +105,21 @@ class AdminAncestryController extends BaseController
         $entityManager->flush();
 
         $this->addFlash('success', 'Rasa wskrzeszona!');
+
+        return $this->redirectToRoute('ancestry_list');
+    }
+
+    /**
+     * @Route("/admin/ancestry/{id}/delete", name="ancestry_delete")
+     */
+    public function deleteAncestryAction(Ancestry $ancestry)
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+
+        $entityManager->remove($ancestry);
+        $entityManager->flush();
+
+        $this->addFlash('success', 'Rasa usunięta!');
 
         return $this->redirectToRoute('ancestry_list');
     }

@@ -16,7 +16,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class AdminAttributeController extends BaseController
 {
     /**
-     * @Route("/core/attribute/list", name="attribute_list")
+     * @Route("/admin/core/attribute/list", name="attribute_list")
      * @Template("core/attribute/list.html.twig")
      */
     public function listAttributesAction()
@@ -92,6 +92,38 @@ class AdminAttributeController extends BaseController
     }
 
     /**
+     * @Route("/admin/core/attribute/{id}/kill", name="attribute_kill")
+     */
+    public function killAttributeAction(Attribute $attribute)
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+
+        $attribute->setIsActive(false);
+
+        $entityManager->persist($attribute);
+        $entityManager->flush();
+
+        $this->addFlash('success', 'Cecha zabita!');
+
+        return $this->redirectToRoute('attribute_list');
+    }
+
+    /**
+     * @Route("/admin/core/attribute/{id}/revive", name="attribute_revive")
+     */
+    public function reviveAttributeAction(Attribute $attribute)
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+
+        $entityManager->remove($attribute);
+        $entityManager->flush();
+
+        $this->addFlash('success', 'Cecha wskrzeszona!');
+
+        return $this->redirectToRoute('attribute_list');
+    }
+
+    /**
      * @Route("/admin/core/attribute/{id}/delete", name="attribute_delete")
      */
     public function deleteAttributeAction(Attribute $attribute)
@@ -104,23 +136,6 @@ class AdminAttributeController extends BaseController
         $entityManager->flush();
 
         $this->addFlash('success', 'Cecha usunięta!');
-
-        return $this->redirectToRoute('attribute_list');
-    }
-
-    /**
-     * @Route("/admin/core/attribute/{id}/revive", name="attribute_revive")
-     */
-    public function reviveAttributeAction(Attribute $attribute)
-    {
-        $entityManager = $this->getDoctrine()->getManager();
-
-        $attribute->setIsActive(true);
-
-        $entityManager->persist($attribute);
-        $entityManager->flush();
-
-        $this->addFlash('success', 'Cecha wskrzeszona!');
 
         return $this->redirectToRoute('attribute_list');
     }

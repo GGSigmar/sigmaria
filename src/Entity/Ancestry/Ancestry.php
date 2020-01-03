@@ -222,26 +222,6 @@ class Ancestry
     }
 
     /**
-     * @return string
-     */
-    public function getAbilityBoostNamesAsString(): string
-    {
-        return $this->getAbilityNamesAsString($this->getAbilityBoosts()->toArray());
-    }
-
-    public function getAttributesAsString(): string
-    {
-        $attributeNames = [];
-
-        foreach ($this->getAttributes()->toArray() as $attribute)
-        {
-            $attributeNames[] = $attribute->getName();
-        }
-
-        return (implode(' <br> ', $attributeNames));
-    }
-
-    /**
      * @return int
      */
     public function getValue(): int
@@ -259,22 +239,5 @@ class Ancestry
         }
 
         return $value;
-    }
-
-    /**
-     * @param array $abilities
-     *
-     * @return string
-     */
-    private function getAbilityNamesAsString(array $abilities)
-    {
-        $abilityNames = [];
-
-        foreach ($abilities as $ability)
-        {
-            $abilityNames[] = $ability->getName();
-        }
-
-        return (implode(' lub ', $abilityNames));
     }
 }

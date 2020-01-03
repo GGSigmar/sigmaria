@@ -45,12 +45,6 @@ class AncestryType extends AbstractType
                 'multiple' => true,
                 'expanded' => true,
             ])
-            ->add('cultures', EntityType::class, [
-                'class' => Culture::class,
-                'label' => 'Kultury',
-                'multiple' => true,
-                'expanded' => true,
-            ])
             ->add('attributes', EntityType::class, [
                 'class' => Attribute::class,
                 'label' => 'Atrybuty',
@@ -62,6 +56,12 @@ class AncestryType extends AbstractType
                         ->andWhere('c.handle LIKE :ancestral_category')
                         ->setParameter('ancestral_category', AttributeCategory::TRAIT_CATEGORY_ANCESTRAL);
                 },
+            ])
+            ->add('cultures', EntityType::class, [
+                'class' => Culture::class,
+                'label' => 'Kultury',
+                'multiple' => true,
+                'expanded' => true,
             ])
             ->add('ancestralFeatures', EntityType::class, [
                 'class' => AncestralFeature::class,

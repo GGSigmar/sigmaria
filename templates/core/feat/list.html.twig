@@ -11,15 +11,17 @@
 
 {% block table_rows %}
     {% for feat in feats %}
-        <tr class="{% include "base/utilities/inactive_entity_row_classes.html.twig" with {'entity': feat} %}">
-            <td class="align-middle">{{ feat.name }}</td>
-            <td class="align-middle text-nowrap">
-                {% include "base/buttons/entity_show_button.html.twig" with {'entityName': entityName, 'entityId': feat.id} %}
-                {% if is_granted('ROLE_ADMIN') %}
-                    {% include "base/buttons/entity_edit_button.html.twig" with {'entityName': entityName, 'entity': feat} %}
-                    {% include "base/buttons/entity_delete_or_activate_button.html.twig" with {'entityName': entityName, 'entity': feat} %}
-                {% endif %}
-            </td>
-        </tr>
+        {% if not is_granted('ROLE_ADMIN') and feat.isActive %}
+            <tr class="{% include "base/utilities/inactive_entity_row_classes.html.twig" with {'entity': feat} %}">
+                <td class="align-middle">{{ feat.name }}</td>
+                <td class="align-middle text-nowrap">
+                    {% include "base/buttons/entity_show_button.html.twig" with {'entityName': entityName, 'entityId': feat.id} %}
+                    {% if is_granted('ROLE_ADMIN') %}
+                        {% include "base/buttons/entity_edit_button.html.twig" with {'entityName': entityName, 'entity': feat} %}
+                        {% include "base/buttons/entity_delete_buttons.html.twig" with {'entityName': entityName, 'entity': feat} %}
+                    {% endif %}
+                </td>
+            </tr>
+        {% endif %}
     {% endfor %}
 {% endblock %}

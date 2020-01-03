@@ -40,22 +40,34 @@
 
         <h5>Premie do cech</h5>
         <p class="mb-4">
-            {{ ancestry.getAbilityBoostNamesAsString|raw }}
+            {{ ancestry.abilityBoosts|first }} lub {{ ancestry.abilityBoosts|last }}
             <br />
             Dowolna
         </p>
 
         <h5>Języki</h5>
-        <p class="mb-4">lista kultur</p>
+        <p class="mb-4">Języki lul</p>
 
         <h5>Atrybuty</h5>
-        <p class="mb-4">{{ ancestry.getAttributesAsString|raw }}</p>
+        <p class="mb-4">
+            {% for attribute in ancestry.attributes %}
+                {{ attribute.name}}
+
+                {% if not loop.last %}
+                    <br />
+                {% endif %}
+            {% endfor %}
+        </p>
 
         <h5>Kultury</h5>
-        <ul class="list-group bg-dark">
-            <li class="list-group-item">1</li>
-            <li class="list-group-item">2</li>
-        </ul>
-        <p class="mb-4">lista kultur</p>
+        <p class="mb-4">
+            {% for culture in ancestry.cultures %}
+                <a href="{{ path('home') }}">{{ culture.name}}</a>
+
+                {% if not loop.last %}
+                    <br />
+                {% endif %}
+            {% endfor %}
+        </p>
     </div>
 {% endblock %}
