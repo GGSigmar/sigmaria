@@ -3,15 +3,13 @@
 namespace App\Form\Core;
 
 use App\Entity\Core\Actions;
-use App\Entity\Core\CoreTrait;
+use App\Entity\Core\Attribute;
 use App\Entity\Core\Feat;
 use App\Entity\Core\Rarity;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -46,9 +44,9 @@ class FeatType extends AbstractType
             ->add('specialRules', TextareaType::class, [
                 'label' => 'Wyjątki/właściwość specjalna/specjalne zasady',
             ])
-            ->add('traits', EntityType::class, [
+            ->add('attributes', EntityType::class, [
                 'label' => 'Atrybuty',
-                'class' => CoreTrait::class,
+                'class' => Attribute::class,
                 'multiple' => true,
                 'expanded' => true,
             ])

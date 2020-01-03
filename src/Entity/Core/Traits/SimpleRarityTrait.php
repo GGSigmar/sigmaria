@@ -3,8 +3,10 @@
 namespace App\Entity\Core\Traits;
 
 use App\Entity\Core\Rarity;
+use Symfony\Component\Validator\Constraints as Assert;
+use Doctrine\ORM\Mapping as ORM;
 
-trait RarityTrait
+trait SimpleRarityTrait
 {
     /**
      * @var Rarity

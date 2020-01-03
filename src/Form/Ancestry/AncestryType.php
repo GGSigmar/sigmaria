@@ -6,17 +6,15 @@ use App\Entity\Ancestry\AncestralFeature;
 use App\Entity\Ancestry\AncestralHitPoints;
 use App\Entity\Ancestry\Ancestry;
 use App\Entity\Core\Ability;
-use App\Entity\Core\CoreTrait;
-use App\Entity\Core\CoreTraitCategory;
+use App\Entity\Core\Attribute;
+use App\Entity\Core\AttributeCategory;
 use App\Entity\Core\MoveSpeed;
 use App\Entity\Core\Size;
-use App\Entity\Setting\Language;
+use App\Entity\Setting\Culture;
 use App\Form\Core\BaseEntityType;
 use Doctrine\ORM\EntityRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -43,20 +41,14 @@ class AncestryType extends AbstractType
                 'multiple' => true,
                 'expanded' => true,
             ])
-            ->add('abilityFlaws', EntityType::class, [
-                'class' => Ability::class,
-                'label' => 'Opcjonalna kara do cechy',
+            ->add('cultures', EntityType::class, [
+                'class' => Culture::class,
+                'label' => 'Kultury',
                 'multiple' => true,
                 'expanded' => true,
             ])
-            ->add('languages', EntityType::class, [
-                'class' => Language::class,
-                'label' => 'Znane języki',
-                'multiple' => true,
-                'expanded' => true,
-            ])
-            ->add('traits', EntityType::class, [
-                'class' => CoreTrait::class,
+            ->add('attributes', EntityType::class, [
+                'class' => Attribute::class,
                 'label' => 'Atrybuty',
                 'multiple' => true,
                 'expanded' => true,
@@ -64,7 +56,7 @@ class AncestryType extends AbstractType
                     return $er->createQueryBuilder('t')
                         ->innerJoin('t.category', 'c')
                         ->andWhere('c.handle LIKE :ancestral_category')
-                        ->setParameter('ancestral_category', CoreTraitCategory::TRAIT_CATEGORY_ANCESTRAL);
+                        ->setParameter('ancestral_category', AttributeCategory::TRAIT_CATEGORY_ANCESTRAL);
                 },
             ])
             ->add('ancestralFeatures', EntityType::class, [

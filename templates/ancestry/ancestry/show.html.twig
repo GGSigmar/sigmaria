@@ -30,11 +30,11 @@
         <h5>Premie do cech</h5>
         <p class="mb-4">{{ ancestry.getAbilityBoostNamesAsString|raw }}<br>Dowolna</p>
 
-        <h5>Opcjonalna kara do cechy</h5>
-        <p class="mb-4">{{ ancestry.getAbilityFlawNamesAsString|raw }}</p>
-
         <h5>Atrybuty</h5>
-        <p class="mb-4">{{ ancestry.getTraitsAsString|raw }}</p>
+        <p class="mb-4">{{ ancestry.getAttributesAsString|raw }}</p>
+
+        <h5>Kultury</h5>
+        <p class="mb-4">lista kultur</p>
     </div>
     <div class="col-md-12 mb-2 text-left">
         {% include "base/buttons/entity_edit_button.html.twig" with {'entityName': entityName, 'entityId': ancestry.id} %}

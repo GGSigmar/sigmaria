@@ -2,21 +2,25 @@
 
 namespace App\Entity\Ancestry;
 
+use App\Entity\Core\Ability;
+use App\Entity\Core\Attribute;
 use App\Entity\Core\MoveSpeed;
 use App\Entity\Core\Size;
 use App\Entity\Core\Traits\BaseFieldsTrait;
+use App\Entity\Setting\Culture;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Gedmo\Timestampable\Traits\TimestampableEntity;
 use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\Ancestry\AncestryRepository")
- * @ORM\Table(name="ancestry")
+ * @ORM\Table(name="ancestry_ancestry")
  */
 class Ancestry
 {
-    use BaseFieldsTrait;
+    use BaseFieldsTrait, TimestampableEntity;
 
     public const ADDITIONAL_LANGUAGES_MESSAGE = '';
 
@@ -48,7 +52,7 @@ class Ancestry
      * @var ArrayCollection
      *
      * @ORM\ManyToMany(targetEntity="App\Entity\Core\Ability")
-     * @ORM\JoinTable(name="ancestry_ability_boost")
+     * @ORM\JoinTable(name="ancestry_ancestry_ability_boost")
      * @Assert\Count(min="2", max="2")
      */
     private $abilityBoosts;
@@ -56,44 +60,35 @@ class Ancestry
     /**
      * @var ArrayCollection
      *
-     * @ORM\ManyToMany(targetEntity="App\Entity\Core\Ability")
-     * @ORM\JoinTable(name="ancestry_ability_flaw")
-     * @Assert\Count(min="1", max="1")
-     */
-    private $abilityFlaws;
-
-    /**
-     * @var ArrayCollection
-     *
-     * @ORM\ManyToMany(targetEntity="App\Entity\Setting\Language")
-     * @Assert\Count(min="2")
-     */
-    private $languages;
-
-    /**
-     * @var ArrayCollection
-     *
-     * @ORM\ManyToMany(targetEntity="App\Entity\Core\CoreTrait")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Setting\Culture")
+     * @ORM\JoinTable(name="ancestry_ancestry_culture")
      * @Assert\Count(min="1")
      */
-    private $traits;
+    private $cultures;
+
+    /**
+     * @var ArrayCollection
+     *
+     * @ORM\ManyToMany(targetEntity="App\Entity\Core\Attribute")
+     * @ORM\JoinTable(name="ancestry_ancestry_attribute")
+     * @Assert\Count(min="1")
+     */
+    private $attributes;
 
     /**
      * @var ArrayCollection
      *
      * @ORM\ManyToMany(targetEntity="App\Entity\Ancestry\AncestralFeature", inversedBy="ancestries")
+     * @ORM\JoinTable(name="ancestry_ancestry_ancestral_feature")
+     * @Assert\Count(min="1")
      */
     private $ancestralFeatures;
 
     public function __construct()
     {
-        $this->isActive = true;
-        $this->createdAt = new \DateTime();
-        $this->updatedAt = new \DateTime();
         $this->abilityBoosts = new ArrayCollection();
-        $this->abilityFlaws = new ArrayCollection();
-        $this->languages = new ArrayCollection();
-        $this->traits = new ArrayCollection();
+        $this->cultures = new ArrayCollection();
+        $this->attributes = new ArrayCollection();
         $this->ancestralFeatures = new ArrayCollection();
     }
 
@@ -146,7 +141,7 @@ class Ancestry
     }
 
     /**
-     * @return Collection
+     * @return Collection|Ability[]
      */
     public function getAbilityBoosts(): Collection
     {
@@ -162,55 +157,39 @@ class Ancestry
     }
 
     /**
-     * @return Collection
+     * @return Collection|Culture[]
      */
-    public function getAbilityFlaws(): Collection
+    public function getCultures(): Collection
     {
-        return $this->abilityFlaws;
+        return $this->cultures;
     }
 
     /**
-     * @param ArrayCollection $abilityFlaws
+     * @param ArrayCollection $cultures
      */
-    public function setAbilityFlaws(ArrayCollection $abilityFlaws): void
+    public function setCultures(ArrayCollection $cultures): void
     {
-        $this->abilityFlaws = $abilityFlaws;
+        $this->cultures = $cultures;
     }
 
     /**
-     * @return Collection
+     * @return Collection|Attribute[]
      */
-    public function getLanguages(): Collection
+    public function getAttributes(): Collection
     {
-        return $this->languages;
+        return $this->attributes;
     }
 
     /**
-     * @param ArrayCollection $languages
+     * @param ArrayCollection $attributes
      */
-    public function setLanguages(ArrayCollection $languages): void
+    public function setAttributes(ArrayCollection $attributes): void
     {
-        $this->languages = $languages;
+        $this->attributes = $attributes;
     }
 
     /**
-     * @return Collection
-     */
-    public function getTraits(): Collection
-    {
-        return $this->traits;
-    }
-
-    /**
-     * @param ArrayCollection $traits
-     */
-    public function setTraits(ArrayCollection $traits): void
-    {
-        $this->traits = $traits;
-    }
-
-    /**
-     * @return Collection
+     * @return Collection|AncestralFeature[]
      */
     public function getAncestralFeatures(): Collection
     {
@@ -219,32 +198,28 @@ class Ancestry
 
     /**
      * @param AncestralFeature $ancestralFeature
-     *
-     * @return Ancestry
      */
-    public function addAncestralFeature(AncestralFeature $ancestralFeature): self
+    public function addAncestralFeature(AncestralFeature $ancestralFeature): void
     {
         if (!$this->ancestralFeatures->contains($ancestralFeature)) {
             $this->ancestralFeatures->add($ancestralFeature);
             $ancestralFeature->addAncestry($this);
         }
 
-        return $this;
+        return;
     }
 
     /**
      * @param AncestralFeature $ancestralFeature
-     *
-     * @return Ancestry
      */
-    public function removeAncestralFeature(AncestralFeature $ancestralFeature): self
+    public function removeAncestralFeature(AncestralFeature $ancestralFeature): void
     {
         if ($this->ancestralFeatures->contains($ancestralFeature)) {
             $this->ancestralFeatures->removeElement($ancestralFeature);
             $ancestralFeature->removeAncestry($this);
         }
 
-        return $this;
+        return;
     }
 
     /**
@@ -255,24 +230,16 @@ class Ancestry
         return $this->getAbilityNamesAsString($this->getAbilityBoosts()->toArray());
     }
 
-    /**
-     * @return string
-     */
-    public function getAbilityFlawNamesAsString(): string
+    public function getAttributesAsString(): string
     {
-        return $this->getAbilityNamesAsString($this->getAbilityFlaws()->toArray());
-    }
+        $attributeNames = [];
 
-    public function getTraitsAsString(): string
-    {
-        $traitNames = [];
-
-        foreach ($this->getTraits()->toArray() as $trait)
+        foreach ($this->getAttributes()->toArray() as $attribute)
         {
-            $traitNames[] = $trait->getName();
+            $attributeNames[] = $attribute->getName();
         }
 
-        return (implode(' <br> ', $traitNames));
+        return (implode(' <br> ', $attributeNames));
     }
 
     /**
@@ -282,13 +249,13 @@ class Ancestry
     {
         $value = 0;
 
-        foreach ($this->getAncestralFeatures()->toArray() as $ancestralFeature) {
+        foreach ($this->getAncestralFeatures() as $ancestralFeature) {
             $value += $ancestralFeature->getValue();
         }
 
         $value += $this->getHitPoints()->getValue();
 
-        if (count($this->getTraits()->toArray()) > 1) {
+        if (count($this->getAttributes()->toArray()) > 1) {
             $value++;
         }
 

@@ -1,24 +1,25 @@
 <?php
 
+namespace App\Controller\Admin\Core;
 
-namespace App\Controller\Core;
-
-
+use App\Controller\Base\BaseController;
 use App\Entity\Core\User;
 use App\Form\Core\UserRolesType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\Request;
 
-class UserController extends CoreController
+/**
+ * @IsGranted("ROLE_ADMIN")
+ */
+class AdminUserController extends BaseController
 {
     /**
-     * @IsGranted("ROLE_ADMIN")
-     * @Route("/core/user/list", name="list_users")
+     * @Route("/admin/core/user/list", name="user_list")
      * @Template("core/user/list.html.twig")
      */
-    public function listFeatsAction()
+    public function listUsersAction()
     {
         $users = $this->getDoctrine()->getRepository(User::class)->findAll();
 
@@ -26,12 +27,11 @@ class UserController extends CoreController
             'users' => $users,
         ];
 
-        return array_merge($templateData, $this->getTemplateData(CoreController::NAV_TAB_ADMIN));
+        return array_merge($templateData, $this->getTemplateData(BaseController::NAV_TAB_ADMIN));
     }
 
     /**
-     * @IsGranted("ROLE_ADMIN")
-     * @Route("/core/user/{id}/roles", name="user_roles")
+     * @Route("/admin/core/user/{id}/roles", name="user_roles")
      * @Template("core/user/roles.html.twig")
      */
     public function userRolesAction(Request $request, User $user)
@@ -56,6 +56,6 @@ class UserController extends CoreController
             'form' => $form->createView(),
         ];
 
-        return array_merge($templateData, $this->getTemplateData(CoreController::NAV_TAB_ADMIN));
+        return array_merge($templateData, $this->getTemplateData(BaseController::NAV_TAB_ADMIN));
     }
 }

@@ -3,9 +3,10 @@
 namespace App\Entity\Core;
 
 use App\Entity\Core\Traits\BaseFieldsTrait;
-use App\Entity\Core\Traits\RarityTrait;
+use App\Entity\Core\Traits\SimpleRarityTrait;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Gedmo\Timestampable\Traits\TimestampableEntity;
 use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -15,7 +16,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Feat
 {
-    use BaseFieldsTrait, RarityTrait;
+    use BaseFieldsTrait, SimpleRarityTrait, TimestampableEntity;
 
     /**
      * @var Actions
@@ -75,17 +76,14 @@ class Feat
     /**
      * @var ArrayCollection
      *
-     * @ORM\ManyToMany(targetEntity="App\Entity\Core\CoreTrait")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Core\Attribute")
      * @Assert\Count(min="1")
      */
-    private $traits;
+    private $attributes;
 
     public function __construct()
     {
-        $this->isActive = true;
-        $this->createdAt = new \DateTime();
-        $this->updatedAt = new \DateTime();
-        $this->traits = new ArrayCollection();
+        $this->attributes = new ArrayCollection();
     }
 
     /**
@@ -201,18 +199,18 @@ class Feat
     }
 
     /**
-     * @return Collection
+     * @return Collection|Attribute[]
      */
-    public function getTraits(): Collection
+    public function getAttributes(): Collection
     {
-        return $this->traits;
+        return $this->attributes;
     }
 
     /**
-     * @param ArrayCollection $traits
+     * @param ArrayCollection $attributes
      */
-    public function setTraits(ArrayCollection $traits): void
+    public function setAttributes(ArrayCollection $attributes): void
     {
-        $this->traits = $traits;
+        $this->attributes = $attributes;
     }
 }

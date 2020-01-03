@@ -4,6 +4,7 @@ namespace App\Entity\Setting;
 
 use App\Entity\Core\Traits\BaseFieldsTrait;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Timestampable\Traits\TimestampableEntity;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\Setting\LanguageRepository")
@@ -11,16 +12,9 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Language
 {
-    use BaseFieldsTrait;
+    use BaseFieldsTrait, TimestampableEntity;
 
     public const LANGUAGE_COMMON = 'LANGUAGE_COMMON';
     public const LANGUAGE_ELVISH = 'LANGUAGE_ELVISH';
     public const LANGUAGE_DWARVISH = 'LANGUAGE_DWARVISH';
-
-    public function __construct()
-    {
-        $this->isActive = true;
-        $this->createdAt = new \DateTime();
-        $this->updatedAt = new \DateTime();
-    }
 }
