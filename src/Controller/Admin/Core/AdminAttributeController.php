@@ -89,4 +89,21 @@ class AdminAttributeController extends BaseController
 
         return $this->redirectToRoute('attribute_list');
     }
+
+    /**
+     * @Route("/admin/core/attribute/{id}/activate", name="attribute_activate")
+     */
+    public function activateAttributeAction(Attribute $attribute)
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+
+        $attribute->setIsActive(true);
+
+        $entityManager->persist($attribute);
+        $entityManager->flush();
+
+        $this->addFlash('success', 'Cecha aktywowana!');
+
+        return $this->redirectToRoute('attribute_list');
+    }
 }

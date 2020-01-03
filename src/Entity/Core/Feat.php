@@ -77,6 +77,7 @@ class Feat
      * @var ArrayCollection
      *
      * @ORM\ManyToMany(targetEntity="App\Entity\Core\Attribute")
+     * @ORM\JoinTable(name="core_feat_attribute")
      * @Assert\Count(min="1")
      */
     private $attributes;

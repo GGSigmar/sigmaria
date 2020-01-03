@@ -30,6 +30,10 @@ class AncestryType extends AbstractType
             ->add('size', EntityType::class, [
                 'class' => Size::class,
                 'label' => 'Rozmiar',
+                'query_builder' => function (EntityRepository $er) {
+                    return $er->createQueryBuilder('s')
+                        ->andWhere('s.isPlayerCharacterSize = true');
+                },
             ])
             ->add('speed', EntityType::class, [
                 'class' => MoveSpeed::class,

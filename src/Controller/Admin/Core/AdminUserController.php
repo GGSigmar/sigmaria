@@ -58,4 +58,38 @@ class AdminUserController extends BaseController
 
         return array_merge($templateData, $this->getTemplateData(BaseController::NAV_TAB_ADMIN));
     }
+
+    /**
+     * @Route("/admin/core/user/{id}/disable", name="user_disable")
+     */
+    public function disableUserAction(User $user)
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+
+        $user->setEnabled(false);
+
+        $entityManager->persist($user);
+        $entityManager->flush();
+
+        $this->addFlash('success', 'Użytkownik dezaktywowany!');
+
+        return $this->redirectToRoute('user_list');
+    }
+
+    /**
+     * @Route("/admin/core/user/{id}/enable", name="user_enable")
+     */
+    public function enableUserAction(User $user)
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+
+        $user->setEnabled(true);
+
+        $entityManager->persist($user);
+        $entityManager->flush();
+
+        $this->addFlash('success', 'Użytkownik aktywowany!');
+
+        return $this->redirectToRoute('user_list');
+    }
 }

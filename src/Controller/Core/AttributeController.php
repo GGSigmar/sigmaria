@@ -15,8 +15,7 @@ class AttributeController extends BaseController
      */
     public function listAttributesAction()
     {
-        $attributes = $this->getDoctrine()->getRepository(Attribute::class)
-            ->findBy(['isActive' => true]);
+        $attributes = $this->getDoctrine()->getRepository(Attribute::class)->findAll();
 
         $templateData = [
             'attributes' => $attributes,

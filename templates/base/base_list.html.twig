@@ -2,15 +2,17 @@
 
 {% block content %}
     <div class="col-md-12">
-        {% block list_title %}{% endblock %}
+        <h1 {% if not is_granted('ROLE_ADMIN') %}class="mb-5"{% endif %}>{% block list_title %}{% endblock %}</h1>
 
-        <div class="col-md-12 mb-2 text-right">
-            {% block top_right_buttons %}
-                {% include "base/buttons/entity_create_button.html.twig" with {'entityName': entityName} %}
-            {% endblock %}
-        </div>
+        {% if is_granted('ROLE_ADMIN') %}
+            <div class="mb-2 float-right">
+                {% block top_right_buttons %}
+                    {% include "base/buttons/entity_create_button.html.twig" with {'entityName': entityName} %}
+                {% endblock %}
+            </div>
+        {% endif %}
 
-        <table class="table table-striped bg-light text-nowrap text-center">
+        <table class="table table-striped bg-light text-center">
             <thead>
             <tr>
                 {% block table_headers %}{% endblock %}

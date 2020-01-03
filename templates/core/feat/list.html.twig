@@ -1,7 +1,7 @@
 {% extends "base/base_list.html.twig" %}
 
 {% block list_title %}
-    <h1>Atuty</h1>
+    Atuty
 {% endblock %}
 
 {% block table_headers %}
@@ -11,12 +11,14 @@
 
 {% block table_rows %}
     {% for feat in feats %}
-        <tr>
+        <tr class="{% include "base/utilities/inactive_entity_row_classes.html.twig" with {'entity': feat} %}">
             <td class="align-middle">{{ feat.name }}</td>
-            <td class="align-middle">
+            <td class="align-middle text-nowrap">
                 {% include "base/buttons/entity_show_button.html.twig" with {'entityName': entityName, 'entityId': feat.id} %}
-                {% include "base/buttons/entity_edit_button.html.twig" with {'entityName': entityName, 'entityId': feat.id} %}
-                {% include "base/buttons/entity_delete_button.html.twig" with {'entityName': entityName, 'entityId': feat.id} %}
+                {% if is_granted('ROLE_ADMIN') %}
+                    {% include "base/buttons/entity_edit_button.html.twig" with {'entityName': entityName, 'entity': feat} %}
+                    {% include "base/buttons/entity_delete_or_activate_button.html.twig" with {'entityName': entityName, 'entity': feat} %}
+                {% endif %}
             </td>
         </tr>
     {% endfor %}

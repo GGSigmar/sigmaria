@@ -1,0 +1,10 @@
+{% if entity.isActive %}
+    {% set deletePathName = (entityName ~ '_delete') %}
+
+    <a href="{{ path(deletePathName, {"id": entity.id}) }}" class="btn btn-outline-danger" role="button">Usuń <i class="fas fa-trash-alt"></i></a>
+{% else %}
+    {% set activatePathName = (entityName ~ '_activate') %}
+
+    <a href="{{ path(activatePathName, {"id": entity.id}) }}" class="btn btn-outline-secondary" role="button">Aktywuj <i class="fas fa-skull"></i></a>
+{% endif %}
+

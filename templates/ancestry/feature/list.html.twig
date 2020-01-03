@@ -1,7 +1,7 @@
 {% extends "base/base_list.html.twig" %}
 
 {% block list_title %}
-    <h1>Zdolności rasowe</h1>
+    Zdolności rasowe
 {% endblock %}
 
 {% block table_headers %}
@@ -13,13 +13,13 @@
 
 {% block table_rows %}
     {% for ancestralFeature in ancestralFeatures %}
-        <tr>
+        <tr class="{% include "base/utilities/inactive_entity_row_classes.html.twig" with {'entity': ancestralFeature} %}">
             <td class="align-middle">{{ ancestralFeature.name }}</td>
-            <td class="align-middle">{{ ancestralFeature.description }}</td>
+            <td class="align-middle">{{ ancestralFeature.description|length > 500 ? ancestralFeature.description|slice(0, 500) ~ '...' : ancestralFeature.description }}</td>
             <td class="align-middle">{{ ancestralFeature.value }}</td>
-            <td class="align-middle">
-                {% include "base/buttons/entity_edit_button.html.twig" with {'entityName': entityName, 'entityId': ancestralFeature.id} %}
-                {% include "base/buttons/entity_delete_button.html.twig" with {'entityName': entityName, 'entityId': ancestralFeature.id} %}
+            <td class="align-middle text-nowrap">
+                {% include "base/buttons/entity_edit_button.html.twig" with {'entityName': entityName, 'entity': ancestralFeature} %}
+                {% include "base/buttons/entity_delete_or_activate_button.html.twig" with {'entityName': entityName, 'entity': ancestralFeature} %}
             </td>
         </tr>
     {% endfor %}

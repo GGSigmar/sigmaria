@@ -12,19 +12,19 @@ class RarityFixtures extends Fixture
     {
         $commonRarity = new Rarity();
         $commonRarity->setHandle(Rarity::RARITY_COMMON);
-        $commonRarity->setName('Pospolity');
+        $commonRarity->setName('Pospolita');
 
         $uncommonRarity = new Rarity();
         $uncommonRarity->setHandle(Rarity::RARITY_UNCOMMON);
-        $uncommonRarity->setName('Niepospolity');
+        $uncommonRarity->setName('Niepospolita');
 
         $rareRarity = new Rarity();
         $rareRarity->setHandle(Rarity::RARITY_RARE);
-        $rareRarity->setName('Rzadki');
+        $rareRarity->setName('Rzadka');
 
         $uniqueRarity = new Rarity();
         $uniqueRarity->setHandle(Rarity::RARITY_UNIQUE);
-        $uniqueRarity->setName('Unikalny');
+        $uniqueRarity->setName('Unikalna');
 
         $manager->persist($commonRarity);
         $manager->persist($uncommonRarity);

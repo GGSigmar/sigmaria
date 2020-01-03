@@ -1,7 +1,7 @@
 {% extends "base/base_list.html.twig" %}
 
 {% block list_title %}
-    <h1 class="mb-5">Użytkownicy</h1>
+    Użytkownicy
 {% endblock %}
 
 {% block top_right_buttons %}
@@ -15,11 +15,16 @@
 
 {% block table_rows %}
     {% for user in users %}
-        <tr>
+        <tr class="{% include "base/utilities/inactive_entity_row_classes.html.twig" with {'entity': user} %}">
             <td class="align-middle">{{ user.id }}</td>
             <td class="align-middle">{{ user.email }}</td>
-            <td class="align-middle">
+            <td class="align-middle text-nowrap">
                 <a href="{{ path('user_roles', {"id": user.id}) }}" class="btn btn-outline-primary" role="button">Uprawnienia <i class="fas fa-user-tag"></i></a>
+                {% if user.isActive %}
+                    <a href="{{ path("user_disable", {"id": user.id}) }}" class="btn btn-outline-danger" role="button">Dezaktywuj <i class="fas fa-trash-alt"></i></a>
+                {% else %}
+                    <a href="{{ path("user_enable", {"id": user.id}) }}" class="btn btn-outline-secondary" role="button">Aktywuj <i class="fas fa-skull"></i></a>
+                {% endif %}
             </td>
         </tr>
     {% endfor %}

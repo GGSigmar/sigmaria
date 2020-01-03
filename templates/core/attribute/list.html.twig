@@ -1,7 +1,7 @@
 {% extends "base/base_list.html.twig" %}
 
 {% block list_title %}
-    <h1>Atrybuty</h1>
+    Atrybuty
 {% endblock %}
 
 {% block table_headers %}
@@ -12,12 +12,12 @@
 
 {% block table_rows %}
     {% for attribute in attributes %}
-        <tr>
+        <tr class="{% include "base/utilities/inactive_entity_row_classes.html.twig" with {'entity': attribute} %}">
             <td class="align-middle">{{ attribute.name }}</td>
             <td class="align-middle">{{ attribute.category.name }}</td>
-            <td class="align-middle">
-                {% include "base/buttons/entity_edit_button.html.twig" with {'entityName': entityName, 'entityId': attribute.id} %}
-                {% include "base/buttons/entity_delete_button.html.twig" with {'entityName': entityName, 'entityId': attribute.id} %}
+            <td class="align-middle text-nowrap">
+                {% include "base/buttons/entity_edit_button.html.twig" with {'entityName': entityName, 'entity': attribute} %}
+                {% include "base/buttons/entity_delete_or_activate_button.html.twig" with {'entityName': entityName, 'entity': attribute} %}
             </td>
         </tr>
     {% endfor %}
