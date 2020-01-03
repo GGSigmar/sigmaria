@@ -16,6 +16,23 @@ use Symfony\Component\HttpFoundation\Request;
 class AdminAncestralFeatureController extends BaseController
 {
     /**
+     * @Route("/ancestry/feature/list", name="ancestral_feature_list")
+     * @Template("ancestry/feature/list.html.twig")
+     */
+    public function listAncestralFeaturesAction()
+    {
+        $ancestralFeatures = $this->getDoctrine()->getRepository(AncestralFeature::class)
+            ->findBy(['isActive' => true]);
+
+        $templateData = [
+            'ancestralFeatures' => $ancestralFeatures,
+            'entityName' => 'ancestral_feature',
+        ];
+
+        return array_merge($templateData, $this->getTemplateData(BaseController::NAV_TAB_ADMIN));
+    }
+
+    /**
      * @Route("/admin/ancestry/feature/create", name="ancestral_feature_create")
      * @Template("ancestry/feature/form.html.twig")
      */
@@ -38,7 +55,8 @@ class AdminAncestralFeatureController extends BaseController
         }
 
         $templateData = [
-            'form' => $form->createView()
+            'form' => $form->createView(),
+            'entityName' => 'ancestral_feature'
         ];
 
         return array_merge($templateData, $this->getTemplateData(BaseController::NAV_TAB_ADMIN));
@@ -67,7 +85,8 @@ class AdminAncestralFeatureController extends BaseController
         }
 
         $templateData = [
-            'form' => $form->createView()
+            'form' => $form->createView(),
+            'entityName' => 'ancestral_feature'
         ];
 
         return array_merge($templateData, $this->getTemplateData(BaseController::NAV_TAB_ADMIN));

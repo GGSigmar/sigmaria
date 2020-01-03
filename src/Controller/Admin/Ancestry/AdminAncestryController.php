@@ -38,7 +38,8 @@ class AdminAncestryController extends BaseController
         }
 
         $templateData = [
-            'form' => $form->createView()
+            'form' => $form->createView(),
+            'entityName' => 'ancestry'
         ];
 
         return array_merge($templateData, $this->getTemplateData(BaseController::NAV_TAB_RULES));
@@ -67,7 +68,8 @@ class AdminAncestryController extends BaseController
         }
 
         $templateData = [
-            'form' => $form->createView()
+            'form' => $form->createView(),
+            'entityName' => 'ancestry'
         ];
 
         return array_merge($templateData, $this->getTemplateData(BaseController::NAV_TAB_RULES));

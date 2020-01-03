@@ -15,6 +15,24 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class AdminFeatController extends BaseController
 {
+
+    /**
+     * @Route("/core/feat/list", name="feat_list")
+     * @Template("core/feat/list.html.twig")
+     */
+    public function listFeatsAction()
+    {
+        $feats = $this->getDoctrine()->getRepository(Feat::class)
+            ->findBy(['isActive' => true]);
+
+        $templateData = [
+            'feats' => $feats,
+            'entityName' => 'feat',
+        ];
+
+        return array_merge($templateData, $this->getTemplateData(BaseController::NAV_TAB_ADMIN));
+    }
+
     /**
      * @Route("/admin/core/feat/create", name="feat_create")
      * @Template("core/feat/form.html.twig")
@@ -39,6 +57,7 @@ class AdminFeatController extends BaseController
 
         $templateData = [
             'form' => $form->createView(),
+            'entityName' => 'feat',
         ];
 
         return array_merge($templateData, $this->getTemplateData(BaseController::NAV_TAB_ADMIN));
@@ -68,6 +87,7 @@ class AdminFeatController extends BaseController
 
         $templateData = [
             'form' => $form->createView(),
+            'entityName' => 'feat',
         ];
 
         return array_merge($templateData, $this->getTemplateData(BaseController::NAV_TAB_ADMIN));

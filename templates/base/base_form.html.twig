@@ -2,11 +2,14 @@
 
 {% block content %}
     <div class="col-md-12">
-        {% block form_title %}{% endblock %}
+        <h1>
+            {% block form_title %}{% endblock %}
+        </h1>
 
         {{ form_start(form) }}
             {{ form_widget(form) }}
-            <button type="submit" class="btn btn-primary">Zapisz <i class="fas fa-save"></i></button>
+            <button type="submit" class="btn btn-outline-primary">Zapisz <i class="fas fa-save"></i></button>
+            {% include "base/buttons/entity_list_button.html.twig" with {'entityName': entityName} %}
         {{ form(form) }}
     </div>
 {% endblock %}

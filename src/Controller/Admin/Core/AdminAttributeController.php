@@ -16,6 +16,22 @@ use Symfony\Component\Routing\Annotation\Route;
 class AdminAttributeController extends BaseController
 {
     /**
+     * @Route("/core/attribute/list", name="attribute_list")
+     * @Template("core/attribute/list.html.twig")
+     */
+    public function listAttributesAction()
+    {
+        $attributes = $this->getDoctrine()->getRepository(Attribute::class)->findAll();
+
+        $templateData = [
+            'attributes' => $attributes,
+            'entityName' => 'attribute',
+        ];
+
+        return array_merge($templateData, $this->getTemplateData(BaseController::NAV_TAB_ADMIN));
+    }
+
+    /**
      * @Route("/admin/core/attribute/create", name="attribute_create")
      * @Template("core/attribute/form.html.twig")
      */
@@ -39,6 +55,7 @@ class AdminAttributeController extends BaseController
 
         $templateData = [
             'form' => $form->createView(),
+            'entityName' => 'attribute',
         ];
 
         return array_merge($templateData, $this->getTemplateData(BaseController::NAV_TAB_ADMIN));
@@ -68,6 +85,7 @@ class AdminAttributeController extends BaseController
 
         $templateData = [
             'form' => $form->createView(),
+            'entityName' => 'attribute',
         ];
 
         return array_merge($templateData, $this->getTemplateData(BaseController::NAV_TAB_ADMIN));

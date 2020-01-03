@@ -54,6 +54,7 @@ class AdminUserController extends BaseController
 
         $templateData = [
             'form' => $form->createView(),
+            'entityName' => 'user'
         ];
 
         return array_merge($templateData, $this->getTemplateData(BaseController::NAV_TAB_ADMIN));

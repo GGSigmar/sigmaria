@@ -62,7 +62,6 @@ class Ancestry
      *
      * @ORM\ManyToMany(targetEntity="App\Entity\Setting\Culture")
      * @ORM\JoinTable(name="ancestry_ancestry_culture")
-     * @Assert\Count(min="1")
      */
     private $cultures;
 

@@ -1,7 +1,15 @@
 {% extends "base/base.html.twig" %}
 {% block content %}
     <div class="col-md-9">
-        <h1>{{ ancestry.name }}</h1>
+        <h1>
+            {{ ancestry.name }}
+            <div class="float-right">
+                {% if is_granted('ROLE_ADMIN') %}
+                    {% include "base/buttons/entity_edit_button.html.twig" with {'entityName': entityName, 'entity': ancestry} %}
+                {% endif %}
+                {% include "base/buttons/entity_list_button.html.twig" with {'entityName': entityName} %}
+            </div>
+        </h1>
 
         <p class="mb-4">
             {{ ancestry.description|raw }}
@@ -27,17 +35,27 @@
         <h5>Rozmiar</h5>
         <p class="mb-4">{{ ancestry.size.name }}</p>
 
+        <h5>Prędkość</h5>
+        <p class="mb-4">{{ ancestry.speed.name }}</p>
+
         <h5>Premie do cech</h5>
-        <p class="mb-4">{{ ancestry.getAbilityBoostNamesAsString|raw }}<br>Dowolna</p>
+        <p class="mb-4">
+            {{ ancestry.getAbilityBoostNamesAsString|raw }}
+            <br />
+            Dowolna
+        </p>
+
+        <h5>Języki</h5>
+        <p class="mb-4">lista kultur</p>
 
         <h5>Atrybuty</h5>
         <p class="mb-4">{{ ancestry.getAttributesAsString|raw }}</p>
 
         <h5>Kultury</h5>
+        <ul class="list-group bg-dark">
+            <li class="list-group-item">1</li>
+            <li class="list-group-item">2</li>
+        </ul>
         <p class="mb-4">lista kultur</p>
-    </div>
-    <div class="col-md-12 mb-2 text-left">
-        {% include "base/buttons/entity_edit_button.html.twig" with {'entityName': entityName, 'entityId': ancestry.id} %}
-        {% include "base/buttons/entity_list_button.html.twig" with {'entityName': entityName} %}
     </div>
 {% endblock %}
