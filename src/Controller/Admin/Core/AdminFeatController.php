@@ -109,4 +109,21 @@ class AdminFeatController extends BaseController
 
         return $this->redirectToRoute('feat_list');
     }
+
+    /**
+     * @Route("/admin/core/feat/{id}/revive", name="feat_revive")
+     */
+    public function reviveFeatAction(Feat $feat)
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+
+        $feat->setIsActive(true);
+
+        $entityManager->persist($feat);
+        $entityManager->flush();
+
+        $this->addFlash('success', 'Atut wskrzeszony!');
+
+        return $this->redirectToRoute('feat_list');
+    }
 }

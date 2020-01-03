@@ -32,7 +32,7 @@ class AdminAncestryController extends BaseController
             $entityManager->persist($ancestry);
             $entityManager->flush();
 
-            $this->addFlash('success', 'Ancestry created!');
+            $this->addFlash('success', 'Rasa stworzona!');
 
             return $this->redirectToRoute('ancestry_list');
         }
@@ -62,7 +62,7 @@ class AdminAncestryController extends BaseController
             $entityManager->persist($ancestry);
             $entityManager->flush();
 
-            $this->addFlash('success', 'Ancestry edited!');
+            $this->addFlash('success', 'Rasa edytowana!');
 
             return $this->redirectToRoute('ancestry_edit', ['id' => $ancestry->getId()]);
         }
@@ -82,10 +82,29 @@ class AdminAncestryController extends BaseController
     {
         $entityManager = $this->getDoctrine()->getManager();
 
-        $entityManager->remove($ancestry);
+        $ancestry->setIsActive(false);
+
+        $entityManager->persist($ancestry);
         $entityManager->flush();
 
-        $this->addFlash('success', 'Ancestry deleted!');
+        $this->addFlash('success', 'Rasa usunięta!');
+
+        return $this->redirectToRoute('ancestry_list');
+    }
+
+    /**
+     * @Route("/admin/ancestry/{id}/revive", name="ancestry_revive")
+     */
+    public function reviveAncestryAction(Ancestry $ancestry)
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+
+        $ancestry->setIsActive(true);
+
+        $entityManager->persist($ancestry);
+        $entityManager->flush();
+
+        $this->addFlash('success', 'Rasa wskrzeszona!');
 
         return $this->redirectToRoute('ancestry_list');
     }

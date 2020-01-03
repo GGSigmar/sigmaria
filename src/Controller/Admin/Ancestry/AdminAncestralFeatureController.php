@@ -105,7 +105,23 @@ class AdminAncestralFeatureController extends BaseController
         $entityManager->flush();
 
         $this->addFlash('success', 'Zdolność rasowa usunięta!');
-        $this->addFlash('warning', 'Zdolność rasowa usunięta z ras!');
+
+        return $this->redirectToRoute('ancestral_feature_list');
+    }
+
+    /**
+     * @Route("/admin/ancestry/feature/{id}/revive", name="ancestral_feature_revive")
+     */
+    public function reviveWeaponPropertyAction(AncestralFeature $ancestralFeature)
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+
+        $ancestralFeature->setIsActive(true);
+
+        $entityManager->persist($ancestralFeature);
+        $entityManager->flush();
+
+        $this->addFlash('success', 'Zdolność rasowa wskrzeszona!');
 
         return $this->redirectToRoute('ancestral_feature_list');
     }

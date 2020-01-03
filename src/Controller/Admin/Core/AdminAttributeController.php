@@ -109,9 +109,9 @@ class AdminAttributeController extends BaseController
     }
 
     /**
-     * @Route("/admin/core/attribute/{id}/activate", name="attribute_activate")
+     * @Route("/admin/core/attribute/{id}/revive", name="attribute_revive")
      */
-    public function activateAttributeAction(Attribute $attribute)
+    public function reviveAttributeAction(Attribute $attribute)
     {
         $entityManager = $this->getDoctrine()->getManager();
 
@@ -120,7 +120,7 @@ class AdminAttributeController extends BaseController
         $entityManager->persist($attribute);
         $entityManager->flush();
 
-        $this->addFlash('success', 'Cecha aktywowana!');
+        $this->addFlash('success', 'Cecha wskrzeszona!');
 
         return $this->redirectToRoute('attribute_list');
     }
