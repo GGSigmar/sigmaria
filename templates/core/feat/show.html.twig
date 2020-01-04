@@ -15,6 +15,7 @@
         {% if feat.release and is_granted('ROLE_ADMIN') %}
             <div class="mb-4 font-italic">
                 Atut wydany dnia {{ feat.release.createdAt|date('Y-m-d') }} wraz z aktualizacją {{ feat.release.name }} ({{ feat.release.contentVersion }})
+                <a href="{{ path("release_show", {"id": feat.release.id}) }}" class="badge badge-success" role="button">Zobacz <i class="fas fa-search"></i></a>
             </div>
         {% endif %}
     </div>

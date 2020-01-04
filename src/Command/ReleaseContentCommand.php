@@ -65,10 +65,10 @@ class ReleaseContentCommand extends Command
 
         $helper = $this->getHelper('question');
 
-        $nameQuestion = new Question('Podaj nazwę nowego wydania');
+        $nameQuestion = new Question('Podaj nazwę nowego wydania:');
         $releaseName = $helper->ask($input, $output, $nameQuestion);
 
-        $versionQuestion = new Question('Podaj number nowej wersji zawartości');
+        $versionQuestion = new Question('Podaj number nowej wersji zawartości:');
         $contentVersion = $helper->ask($input, $output, $versionQuestion);
 
         $release = new Release();

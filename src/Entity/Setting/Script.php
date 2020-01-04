@@ -7,10 +7,10 @@ use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\Setting\LanguageRepository")
- * @ORM\Table(name="setting_language")
+ * @ORM\Entity(repositoryClass="App\Repository\Setting\ScriptRepository")
+ * @ORM\Table(name="setting_script")
  */
-class Language
+class Script
 {
     use BaseFieldsTrait, TimestampableEntity;
 }

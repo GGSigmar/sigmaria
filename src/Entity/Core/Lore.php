@@ -8,9 +8,9 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\Core\LoreSkillRepository")
- * @ORM\Table(name="core_lore_skill")
+ * @ORM\Table(name="core_lore")
  */
-class LoreSkill
+class Lore
 {
     use BaseFieldsTrait, TimestampableEntity;
 }

@@ -115,7 +115,9 @@ class AdminAttributeController extends BaseController
     {
         $entityManager = $this->getDoctrine()->getManager();
 
-        $entityManager->remove($attribute);
+        $attribute->setIsActive(false);
+
+        $entityManager->persist($attribute);
         $entityManager->flush();
 
         $this->addFlash('success', 'Cecha wskrzeszona!');
@@ -130,9 +132,7 @@ class AdminAttributeController extends BaseController
     {
         $entityManager = $this->getDoctrine()->getManager();
 
-        $attribute->setIsActive(false);
-
-        $entityManager->persist($attribute);
+        $entityManager->remove($attribute);
         $entityManager->flush();
 
         $this->addFlash('danger', 'Cecha usunięta!');
