@@ -8,6 +8,7 @@
     <th>Nazwa</th>
     <th>Opis</th>
     <th>Wartość</th>
+    <th>Wykorzystane</th>
     <th>Akcje</th>
 {% endblock %}
 
@@ -17,6 +18,7 @@
             <td class="align-middle">{{ ancestralFeature.name }}</td>
             <td class="align-middle">{{ ancestralFeature.description|length > 500 ? ancestralFeature.description|slice(0, 500) ~ '...' : ancestralFeature.description }}</td>
             <td class="align-middle">{{ ancestralFeature.value }}</td>
+            <td class="align-middle">{{ ancestralFeature.ancestries|length }}</td>
             <td class="align-middle text-nowrap">
                 {% include "base/buttons/entity_edit_button.html.twig" with {'entityName': entityName, 'entity': ancestralFeature} %}
                 {% include "base/buttons/entity_delete_buttons.html.twig" with {'entityName': entityName, 'entity': ancestralFeature} %}

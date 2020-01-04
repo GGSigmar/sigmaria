@@ -34,7 +34,9 @@ class AncestralFeature
      */
     public function getAncestries(): Collection
     {
-        return $this->ancestries;
+        return $this->ancestries->filter(function ($ancestry) {
+            return $ancestry->isActive();
+        });
     }
 
     /**

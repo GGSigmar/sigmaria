@@ -10,16 +10,16 @@ class AttributeCategoryFixtures extends Fixture
 {
     public function load(ObjectManager $manager)
     {
-        $ancestralTraitCategory = new AttributeCategory();
-        $ancestralTraitCategory->setHandle(AttributeCategory::TRAIT_CATEGORY_ANCESTRAL);
-        $ancestralTraitCategory->setName('Atrybuty rasowe');
+        $ancestralAttributeCategory = new AttributeCategory();
+        $ancestralAttributeCategory->setHandle(AttributeCategory::ATTRIBUTE_CATEGORY_ANCESTRAL);
+        $ancestralAttributeCategory->setName('Atrybuty rasowe');
 
-        $classTraitCategory = new AttributeCategory();
-        $classTraitCategory->setHandle(AttributeCategory::TRAIT_CATEGORY_CLASS);
-        $classTraitCategory->setName('Atrybuty klasowe');
+        $classAttributeCategory = new AttributeCategory();
+        $classAttributeCategory->setHandle(AttributeCategory::ATTRIBUTE_CATEGORY_CLASS);
+        $classAttributeCategory->setName('Atrybuty klasowe');
 
-        $manager->persist($ancestralTraitCategory);
-        $manager->persist($classTraitCategory);
+        $manager->persist($ancestralAttributeCategory);
+        $manager->persist($classAttributeCategory);
 
         $manager->flush();
     }

@@ -14,6 +14,6 @@ class AttributeCategory
 {
     use BaseFieldsTrait, TimestampableEntity;
 
-    public const TRAIT_CATEGORY_ANCESTRAL = 'TRAIT_CATEGORY_ANCESTRAL';
-    public const TRAIT_CATEGORY_CLASS = 'TRAIT_CATEGORY_CLASS';
+    public const ATTRIBUTE_CATEGORY_ANCESTRAL = 'ATTRIBUTE_CATEGORY_ANCESTRAL';
+    public const ATTRIBUTE_CATEGORY_CLASS = 'ATTRIBUTE_CATEGORY_CLASS';
 }

@@ -3,9 +3,10 @@
 namespace App\DataFixtures\Core;
 
 use App\Entity\Core\CharacterClass;
+use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
 
-class CharacterClassFixtures
+class CharacterClassFixtures extends Fixture
 {
     public function load(ObjectManager $manager)
     {

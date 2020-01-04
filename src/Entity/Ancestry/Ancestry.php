@@ -160,7 +160,9 @@ class Ancestry
      */
     public function getCultures(): Collection
     {
-        return $this->cultures;
+        return $this->cultures->filter(function ($culture) {
+            return $culture->isActive();
+        });
     }
 
     /**
@@ -176,7 +178,9 @@ class Ancestry
      */
     public function getAttributes(): Collection
     {
-        return $this->attributes;
+        return $this->attributes->filter(function ($attribute) {
+            return $attribute->isActive();
+        });
     }
 
     /**
@@ -192,7 +196,9 @@ class Ancestry
      */
     public function getAncestralFeatures(): Collection
     {
-        return $this->ancestralFeatures;
+        return $this->ancestralFeatures->filter(function ($ancestralFeature) {
+            return $ancestralFeature->isActive();
+        });
     }
 
     /**
@@ -234,8 +240,8 @@ class Ancestry
 
         $value += $this->getHitPoints()->getValue();
 
-        if (count($this->getAttributes()->toArray()) > 1) {
-            $value++;
+        if (count($this->getAttributes()->toArray()) > 2) {
+            $value--;
         }
 
         return $value;
