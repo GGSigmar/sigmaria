@@ -2,10 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0b9a3871-3386-4d40-9261-e24049e96f75" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Form/Core/ReleaseType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/core/release/form.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Twig/TranslateReleasedContentArrayKeyExtension.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Admin/Core/AdminReleaseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Admin/Core/AdminReleaseController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Command/ReleaseContentCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Command/ReleaseContentCommand.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Admin/Core/AdminFeatController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Admin/Core/AdminFeatController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Core/FeatController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Core/FeatController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Twig/PluralEntitiesExtension.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Twig/TranslateReleaseContentKeyExtension.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Twig/RarityNameToMasculineExtension.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/ancestry/ancestry/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/ancestry/ancestry/show.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base/components/navbar.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base/components/navbar.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/core/feat/entry.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/core/feat/entry.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/core/feat/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/core/feat/show.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/core/release/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/core/release/show.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -150,7 +157,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/core/release" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Twig" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -159,8 +166,8 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\Projekty\Sigmaria\templates\core\release" />
       <recent name="E:\Projekty\Sigmaria\src\Twig" />
+      <recent name="E:\Projekty\Sigmaria\templates\core\release" />
       <recent name="E:\Projekty\Sigmaria\templates\base\buttons" />
       <recent name="E:\Projekty\Sigmaria\src\Repository\Core" />
       <recent name="E:\Projekty\Sigmaria" />
@@ -218,7 +225,7 @@
       <workItem from="1578066375252" duration="38000" />
       <workItem from="1578066436656" duration="8083000" />
       <workItem from="1578075173714" duration="8725000" />
-      <workItem from="1578131951589" duration="19022000" />
+      <workItem from="1578131951589" duration="23089000" />
     </task>
     <servers />
   </component>

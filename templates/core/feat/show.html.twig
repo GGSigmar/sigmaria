@@ -1,5 +1,23 @@
 {% extends "base/base.html.twig" %}
 
 {% block content %}
+    <div class="col-md-12">
+        <h1>
+            {{ feat.name }}
+            <div class="float-right">
+                {% if is_granted('ROLE_ADMIN') %}
+                    {% include "base/buttons/entity_edit_button.html.twig" with {'entityName': entityName, 'entity': feat} %}
+                {% endif %}
+                {% include "base/buttons/entity_list_button.html.twig" with {'entityName': entityName} %}
+            </div>
+        </h1>
+
+        {% if feat.release and is_granted('ROLE_ADMIN') %}
+            <div class="mb-4 font-italic">
+                Atut wydany dnia {{ feat.release.createdAt|date('Y-m-d') }} wraz z aktualizacją {{ feat.release.name }} ({{ feat.release.contentVersion }})
+            </div>
+        {% endif %}
+    </div>
+
     {% include "core/feat/entry.html.twig" with {'feat': feat} only %}
 {% endblock %}

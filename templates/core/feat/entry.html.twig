@@ -1,11 +1,14 @@
 <div class="col-md-6">
-    <div class="border-bottom border-primary" style="width:100%;">
-        <h3>{{ feat.name|upper }} ({{ feat.actions.name }})
-        <span class="float-right">ATUT {{ feat.level }}</span><h2>
+    <div class="border-bottom border-white" style="width:100%;">
+        <h3>
+            {{ feat.name|upper }} {% if feat.actions %}({{ feat.actions.name }}){% endif %}
+            {% if feat.level %}<span class="float-right">ATUT {{ feat.level }}</span>{% endif %}
+        </h3>
     </div>
     <div>
+        <span class="badge badge-primary border border-white">{{ feat.rarity.name|masculine }}</span>
         {% for attribute in feat.attributes %}
-            <span class="badge badge-primary">{{ attribute.name }}</span>
+            <span class="badge badge-danger border border-white">{{ attribute.name }}</span>
         {% endfor %}
     </div>
     <div>
@@ -20,8 +23,8 @@
     <div>
         <b>Warunki.</b> {{ feat.requirements }}
     </div>
-    <div class="border-top border-primary">
-        {{ feat.description }}
+    <div class="border-top border-white">
+        {{ feat.description|raw }}
     </div>
     <div>
         <b>Wyjątki.</b> {{ feat.specialRules }}

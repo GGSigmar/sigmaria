@@ -65,10 +65,10 @@ class ReleaseContentCommand extends Command
 
         $helper = $this->getHelper('question');
 
-        $nameQuestion = new Question('Podaj nazwę nowego wydania:');
+        $nameQuestion = new Question('Podaj nazwę nowego wydania');
         $releaseName = $helper->ask($input, $output, $nameQuestion);
 
-        $versionQuestion = new Question('Podaj number nowej wersji zawartości:');
+        $versionQuestion = new Question('Podaj number nowej wersji zawartości');
         $contentVersion = $helper->ask($input, $output, $versionQuestion);
 
         $release = new Release();
@@ -86,7 +86,8 @@ class ReleaseContentCommand extends Command
         if ($ancestriesToBeReleased) {
             foreach ($ancestriesToBeReleased as $ancestry) {
                 $ancestry->setIsActive(true);
-                $releasedDataArray['ancestry'][] = $ancestry->getName();
+                $releasedDataArray['ancestry'][$ancestry->getId()] = $ancestry->getName();
+                $ancestry->setRelease($release);
                 $this->em->persist($ancestry);
             }
         }
@@ -100,7 +101,8 @@ class ReleaseContentCommand extends Command
         if ($featsToBeReleased) {
             foreach ($featsToBeReleased as $feat) {
                 $feat->setIsActive(true);
-                $releasedDataArray['feat'][] = $feat->getName();
+                $releasedDataArray['feat'][$feat->getId()] = $feat->getName();
+                $feat->setRelease($release);
                 $this->em->persist($feat);
             }
         }

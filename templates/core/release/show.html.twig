@@ -22,8 +22,14 @@
     {% for entityType, entityNameArray in release.getContentReleased %}
     <div class="col-md-4">
         <h5>{{ entityType|releaseKey }}</h5>
-        {% for entityName in entityNameArray %}
-            {{ entityName }}
+        {% for entityId, entityName in entityNameArray %}
+            {% set showPathName = (entityType ~ '_show') %}
+
+            <a href="{{ path(showPathName, {"id": entityId}) }}" class="badge badge-success" role="button">Zobacz <i class="fas fa-search"></i></a> <span>{{ entityName }}</span>
+
+            {% if not loop.last %}
+                <br />
+            {% endif %}
         {% endfor %}
     </div>
     {% endfor %}

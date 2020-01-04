@@ -15,23 +15,6 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class AdminFeatController extends BaseController
 {
-
-    /**
-     * @Route("/admin/core/feat/list", name="feat_list")
-     * @Template("core/feat/list.html.twig")
-     */
-    public function listFeatsAction()
-    {
-        $feats = $this->getDoctrine()->getRepository(Feat::class)->findAll();
-
-        $templateData = [
-            'feats' => $feats,
-            'entityName' => 'feat',
-        ];
-
-        return array_merge($templateData, $this->getTemplateData(BaseController::NAV_TAB_RULES));
-    }
-
     /**
      * @Route("/admin/core/feat/create", name="feat_create")
      * @Template("core/feat/form.html.twig")
@@ -81,7 +64,7 @@ class AdminFeatController extends BaseController
 
             $this->addFlash('success', 'Atut zmieniony!');
 
-            return $this->redirectToRoute('feat_list');
+            return $this->redirectToRoute('feat_show', ['id' => $feat->getId()]);
         }
 
         $templateData = [

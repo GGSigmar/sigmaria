@@ -10,6 +10,11 @@
                 {% include "base/buttons/entity_list_button.html.twig" with {'entityName': entityName} %}
             </div>
         </h1>
+        {% if ancestry.release and is_granted('ROLE_ADMIN') %}
+            <div class="mb-4 font-italic">
+                Rasa wydana dnia {{ ancestry.release.createdAt|date('Y-m-d') }} wraz z aktualizacją {{ ancestry.release.name }} ({{ ancestry.release.contentVersion }})
+            </div>
+        {% endif %}
 
         <p class="mb-4">
             {{ ancestry.description|raw }}

@@ -5,7 +5,7 @@ namespace App\Twig;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFilter;
 
-class TranslateReleaseContentKeyExtension extends AbstractExtension
+class TranslateReleasedContentArrayKeyExtension extends AbstractExtension
 {
     private const ENTITY_ARRAY_KEYS_TO_POLISH_ARRAY = [
         'ancestry' => 'Rasy',
