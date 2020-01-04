@@ -13,14 +13,8 @@
                 </div>
             </h1>
 
-            {% if feat.release and is_granted('ROLE_ADMIN') %}
-                <div class="font-italic">
-                    Atut wydany dnia {{ feat.release.createdAt|date('Y-m-d') }} wraz z aktualizacją {{ feat.release.name }} ({{ feat.release.contentVersion }})
-                    {% include "base/badges/entity_show_badge.html.twig" with {'entityName': 'release', 'entity': feat.release} %}
-                </div>
-            {% endif %}
+            {% include "base/utilities/entity_release_note.html.twig" with {'entity': feat} %}
         </div>
-
     </div>
 
     {% include "core/feat/entry.html.twig" with {'feat': feat} only %}

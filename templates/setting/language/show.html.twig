@@ -13,14 +13,8 @@
                 </div>
             </h1>
 
-            {% if language.release and is_granted('ROLE_ADMIN') %}
-                <div class="font-italic">
-                    Język wydany dnia {{ language.release.createdAt|date('Y-m-d') }} wraz z aktualizacją {{ language.release.name }} ({{ language.release.contentVersion }})
-                    {% include "base/badges/entity_show_badge.html.twig" with {'entityName': 'release', 'entity': language.release} %}
-                </div>
-            {% endif %}
+            {% include "base/utilities/entity_release_note.html.twig" with {'entity': language} %}
         </div>
-
     </div>
     <div class="col-md-6">
         <h5>

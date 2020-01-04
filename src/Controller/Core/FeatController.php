@@ -36,6 +36,6 @@ class FeatController extends BaseController
             'entityName' => 'feat',
         ];
 
-        return array_merge($templateData, $this->getTemplateData(BaseController::NAV_TAB_ADMIN));
+        return array_merge($templateData, $this->getTemplateData(BaseController::NAV_TAB_RULES));
     }
 }
