@@ -12,4 +12,16 @@ class LanguageRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Language::class);
     }
+
+    /**
+     * @return array|Language[]
+     */
+    public function getLanguagesForRelease(): array
+    {
+        return $this->createQueryBuilder('l')
+            ->andWhere('l.isActive = false')
+            ->andWhere('l.isToBeReleased = true')
+            ->getQuery()
+            ->getResult();
+    }
 }

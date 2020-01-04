@@ -2,28 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0b9a3871-3386-4d40-9261-e24049e96f75" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Controller/Admin/Core/AdminLoreController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/Admin/Setting/AdminScriptController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/Setting/Script.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Form/Core/LoreType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Form/Setting/ScriptType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Repository/Setting/BackgroundRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Repository/Setting/ScriptRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/core/lore/form.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/core/lore/list.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/setting/script/form.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/setting/script/list.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Sigmaria.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Sigmaria.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/Admin/Setting/AdminLanguageController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/Setting/LanguageController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Form/Setting/LanguageType.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/base/badges/entity_show_badge.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/setting/language/form.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/setting/language/list.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/setting/language/show.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Command/ReleaseContentCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Command/ReleaseContentCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Admin/Core/AdminAttributeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Admin/Core/AdminAttributeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Core/LoreSkill.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Core/Lore.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Setting/Background.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Setting/Background.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Admin/Setting/AdminScriptController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Admin/Setting/AdminScriptController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Core/FeatController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Core/FeatController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Setting/Language.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Setting/Language.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/Core/LoreSkillRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/Core/LoreSkillRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/Setting/LanguageRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/Setting/LanguageRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Twig/TranslateReleasedContentArrayKeyExtension.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Twig/TranslateReleasedContentArrayKeyExtension.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/ancestry/ancestry/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/ancestry/ancestry/show.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base/components/navbar.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base/components/navbar.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/core/feat/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/core/feat/show.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/core/release/list.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/core/release/list.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/core/release/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/core/release/show.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -167,7 +164,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Repository/Setting" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Controller/Admin/Setting" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -176,11 +173,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\Projekty\Sigmaria\src\Repository\Setting" />
-      <recent name="E:\Projekty\Sigmaria\src\Form\Setting" />
-      <recent name="E:\Projekty\Sigmaria\templates\setting\script" />
       <recent name="E:\Projekty\Sigmaria\src\Controller\Admin\Setting" />
-      <recent name="E:\Projekty\Sigmaria\templates\core\lore" />
+      <recent name="E:\Projekty\Sigmaria\templates\setting\language" />
+      <recent name="E:\Projekty\Sigmaria\src\Form\Setting" />
+      <recent name="E:\Projekty\Sigmaria\src\Controller\Setting" />
+      <recent name="E:\Projekty\Sigmaria\src\Repository\Setting" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\Projekty\Sigmaria\src\Controller\Admin\Core" />
@@ -235,7 +232,7 @@
       <workItem from="1578066375252" duration="38000" />
       <workItem from="1578066436656" duration="8083000" />
       <workItem from="1578075173714" duration="8725000" />
-      <workItem from="1578131951589" duration="25124000" />
+      <workItem from="1578131951589" duration="28010000" />
     </task>
     <servers />
   </component>
@@ -261,10 +258,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="714" y="76" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1578167929644" />
-    <state x="625" y="231" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1578169049367">
+    <state x="625" y="231" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1578171318308">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="625" y="231" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1578169049367" />
+    <state x="625" y="231" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1578171318308" />
     <state x="568" y="221" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/70.27.1530.873@70.27.1530.873" timestamp="1577748604635" />
     <state x="170" y="127" width="1330" height="673" key="DiffContextDialog" timestamp="1577789038253">
       <screen x="70" y="27" width="1530" height="873" />
@@ -297,15 +294,15 @@
     </state>
     <state x="528" y="315" key="com.intellij.ide.util.TipDialog/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1578131953515" />
     <state x="491" y="291" key="com.intellij.ide.util.TipDialog/70.27.1530.873@70.27.1530.873" timestamp="1577918559018" />
-    <state x="417" y="20" width="1032" height="1001" key="find.popup" timestamp="1578168492167">
+    <state x="417" y="20" width="1032" height="1001" key="find.popup" timestamp="1578171771839">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="417" y="20" width="1032" height="1001" key="find.popup/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1578168492167" />
+    <state x="417" y="20" width="1032" height="1001" key="find.popup/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1578171771839" />
     <state x="465" y="43" width="822" height="840" key="find.popup/70.27.1530.873@70.27.1530.873" timestamp="1577887556269" />
-    <state x="537" y="223" width="844" height="808" key="search.everywhere.popup" timestamp="1578169129702">
+    <state x="537" y="223" width="844" height="808" key="search.everywhere.popup" timestamp="1578170926954">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="537" y="223" width="844" height="808" key="search.everywhere.popup/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1578169129702" />
+    <state x="537" y="223" width="844" height="808" key="search.everywhere.popup/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1578170926954" />
     <state x="498" y="214" width="672" height="678" key="search.everywhere.popup/70.27.1530.873@70.27.1530.873" timestamp="1577887898996" />
   </component>
 </project>

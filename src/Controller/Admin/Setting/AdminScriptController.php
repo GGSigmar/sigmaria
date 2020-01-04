@@ -48,7 +48,7 @@ class AdminScriptController extends BaseController
             $entityManager->persist($script);
             $entityManager->flush();
 
-            $this->addFlash('success', 'Dziedzina wiedzy stworzona!');
+            $this->addFlash('success', 'Pismo stworzone!');
 
             return $this->redirectToRoute('script_list');
         }
@@ -78,7 +78,7 @@ class AdminScriptController extends BaseController
             $entityManager->persist($script);
             $entityManager->flush();
 
-            $this->addFlash('success', 'Dziedzina wiedzy zmieniona!');
+            $this->addFlash('success', 'Pismo zmienione!');
 
             return $this->redirectToRoute('script_list');
         }
@@ -103,7 +103,7 @@ class AdminScriptController extends BaseController
         $entityManager->persist($script);
         $entityManager->flush();
 
-        $this->addFlash('warning', 'Dziedzina wiedzy zabita!');
+        $this->addFlash('warning', 'Pismo zabite!');
 
         return $this->redirectToRoute('script_list');
     }
@@ -120,7 +120,7 @@ class AdminScriptController extends BaseController
         $entityManager->persist($script);
         $entityManager->flush();
 
-        $this->addFlash('success', 'Dziedzina wiedzy wskrzeszona!');
+        $this->addFlash('success', 'Pismo wskrzeszone!');
 
         return $this->redirectToRoute('script_list');
     }
@@ -135,7 +135,7 @@ class AdminScriptController extends BaseController
         $entityManager->remove($script);
         $entityManager->flush();
 
-        $this->addFlash('danger', 'Dziedzina wiedzy usunięta!');
+        $this->addFlash('danger', 'Pismo usunięte!');
 
         return $this->redirectToRoute('script_list');
     }

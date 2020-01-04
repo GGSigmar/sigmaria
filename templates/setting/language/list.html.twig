@@ -1,0 +1,30 @@
+{% extends "base/base_list.html.twig" %}
+
+{% block list_title %}
+    Języki
+{% endblock %}
+
+{% block table_headers %}
+    <th>Nazwa</th>
+    <th>Akcje</th>
+{% endblock %}
+
+{% block table_rows %}
+    {% for language in languages %}
+        {% if is_granted('ROLE_ADMIN') or language.isActive %}
+            <tr class="{% include "base/utilities/inactive_entity_row_classes.html.twig" with {'entity': language} %}">
+                <td class="align-middle">{{ language.name }}</td>
+                <td class="align-middle text-nowrap">
+                    {% include "base/buttons/entity_show_button.html.twig" with {'entityName': entityName, 'entity': language} %}
+                    {% if is_granted('ROLE_ADMIN') %}
+                        {% include "base/buttons/entity_edit_button.html.twig" with {'entityName': entityName, 'entity': language} %}
+                        {% if not language.isActive %}
+                            {% include "base/buttons/entity_release_buttons.html.twig" with {'entityName': entityName, 'entity': language} %}
+                        {% endif %}
+                        {% include "base/buttons/entity_delete_buttons.html.twig" with {'entityName': entityName, 'entity': language} %}
+                    {% endif %}
+                </td>
+            </tr>
+        {% endif %}
+    {% endfor %}
+{% endblock %}

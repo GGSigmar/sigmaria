@@ -25,7 +25,7 @@
         {% for entityId, entityName in entityNameArray %}
             {% set showPathName = (entityType ~ '_show') %}
 
-            <a href="{{ path(showPathName, {"id": entityId}) }}" class="badge badge-success" role="button">Zobacz <i class="fas fa-search"></i></a> <span>{{ entityName }}</span>
+            <a href="{{ path(showPathName, {"id": entityId}) }}" class="badge badge-success border border-white" role="button">Zobacz <i class="fas fa-search"></i></a> <span>{{ entityName }}</span>
 
             {% if not loop.last %}
                 <br />

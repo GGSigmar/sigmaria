@@ -10,6 +10,7 @@ class TranslateReleasedContentArrayKeyExtension extends AbstractExtension
     private const ENTITY_ARRAY_KEYS_TO_POLISH_ARRAY = [
         'ancestry' => 'Rasy',
         'feat' => 'Atuty',
+        'language' => 'Języki',
     ];
 
     public function getFilters()

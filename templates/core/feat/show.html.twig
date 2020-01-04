@@ -2,22 +2,25 @@
 
 {% block content %}
     <div class="col-md-12">
-        <h1>
-            {{ feat.name }}
-            <div class="float-right">
-                {% if is_granted('ROLE_ADMIN') %}
-                    {% include "base/buttons/entity_edit_button.html.twig" with {'entityName': entityName, 'entity': feat} %}
-                {% endif %}
-                {% include "base/buttons/entity_list_button.html.twig" with {'entityName': entityName} %}
-            </div>
-        </h1>
+        <div class="mb-4">
+            <h1>
+                {{ feat.name }}
+                <div class="float-right">
+                    {% if is_granted('ROLE_ADMIN') %}
+                        {% include "base/buttons/entity_edit_button.html.twig" with {'entityName': entityName, 'entity': feat} %}
+                    {% endif %}
+                    {% include "base/buttons/entity_list_button.html.twig" with {'entityName': entityName} %}
+                </div>
+            </h1>
 
-        {% if feat.release and is_granted('ROLE_ADMIN') %}
-            <div class="mb-4 font-italic">
-                Atut wydany dnia {{ feat.release.createdAt|date('Y-m-d') }} wraz z aktualizacją {{ feat.release.name }} ({{ feat.release.contentVersion }})
-                <a href="{{ path("release_show", {"id": feat.release.id}) }}" class="badge badge-success" role="button">Zobacz <i class="fas fa-search"></i></a>
-            </div>
-        {% endif %}
+            {% if feat.release and is_granted('ROLE_ADMIN') %}
+                <div class="font-italic">
+                    Atut wydany dnia {{ feat.release.createdAt|date('Y-m-d') }} wraz z aktualizacją {{ feat.release.name }} ({{ feat.release.contentVersion }})
+                    {% include "base/badges/entity_show_badge.html.twig" with {'entityName': 'release', 'entity': feat.release} %}
+                </div>
+            {% endif %}
+        </div>
+
     </div>
 
     {% include "core/feat/entry.html.twig" with {'feat': feat} only %}

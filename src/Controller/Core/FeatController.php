@@ -10,7 +10,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class FeatController extends BaseController
 {
     /**
-     * @Route("/admin/core/feat/list", name="feat_list")
+     * @Route("/core/feat/list", name="feat_list")
      * @Template("core/feat/list.html.twig")
      */
     public function listFeatsAction()

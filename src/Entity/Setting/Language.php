@@ -3,6 +3,8 @@
 namespace App\Entity\Setting;
 
 use App\Entity\Core\Traits\BaseFieldsTrait;
+use App\Entity\Core\Traits\ReleasableTrait;
+use App\Entity\Core\Traits\SimpleRarityTrait;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
 
@@ -12,5 +14,28 @@ use Gedmo\Timestampable\Traits\TimestampableEntity;
  */
 class Language
 {
-    use BaseFieldsTrait, TimestampableEntity;
+    use BaseFieldsTrait, SimpleRarityTrait, ReleasableTrait, TimestampableEntity;
+
+    /**
+     * @var Script
+     *
+     * @ORM\ManyToOne(targetEntity="App\Entity\Setting\Script")
+     */
+    private $script;
+
+    /**
+     * @return null|Script
+     */
+    public function getScript(): ?Script
+    {
+        return $this->script;
+    }
+
+    /**
+     * @param Script|null $script
+     */
+    public function setScript(?Script $script): void
+    {
+        $this->script = $script;
+    }
 }

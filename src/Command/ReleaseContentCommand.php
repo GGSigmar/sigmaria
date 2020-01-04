@@ -6,6 +6,7 @@ use App\Entity\Ancestry\AncestralFeature;
 use App\Entity\Ancestry\Ancestry;
 use App\Entity\Core\Feat;
 use App\Entity\Core\Release;
+use App\Entity\Setting\Language;
 use App\Repository\Ancestry\AncestryRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Console\Command\Command;
@@ -106,6 +107,23 @@ class ReleaseContentCommand extends Command
                 $this->em->persist($feat);
             }
         }
+
+        /* wydanie języków */
+
+        $languageRepository = $this->em->getRepository(Language::class);
+
+        $languagesToBeReleased = $languageRepository->getLanguagesForRelease();
+
+        if ($languagesToBeReleased) {
+            foreach ($languagesToBeReleased as $language) {
+                $language->setIsActive(true);
+                $releasedDataArray['language'][$language->getId()] = $language->getName();
+                $language->setRelease($release);
+                $this->em->persist($language);
+            }
+        }
+
+        /* finalizacja */
 
         $release->setContentReleased($releasedDataArray);
 

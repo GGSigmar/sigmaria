@@ -40,7 +40,7 @@
                     <div class="dropdown-divider"></div>
                     <a href="{{ path('home') }}" class="dropdown-item">Pochodzenia</a>
                     <div class="dropdown-divider"></div>
-                    <a href="{{ path('home') }}" class="dropdown-item">Języki</a>
+                    <a href="{{ path('language_list') }}" class="dropdown-item">Języki</a>
                 </div>
             </li>
             {% if is_granted('ROLE_ADMIN') %}
@@ -54,8 +54,6 @@
                     <a href="#" class="dropdown-item dropdown-toggle" data-toggle="dropdown">Core Admin</a>
                     <ul class="dropdown-menu">
                         <li><a href="{{ path('attribute_list') }}" class="dropdown-item">Atrybuty</a></li>
-                    </ul>
-                    <ul class="dropdown-menu">
                         <li><a href="{{ path('lore_list') }}" class="dropdown-item">Dziedziny wiedzy</a></li>
                     </ul>
                     <div class="dropdown-divider"></div>
