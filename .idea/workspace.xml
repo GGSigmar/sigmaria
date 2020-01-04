@@ -2,37 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0b9a3871-3386-4d40-9261-e24049e96f75" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Command/ReleaseContentCommand.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/Admin/Core/AdminReleaseController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Repository/Core/ReleaseRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Twig/TranslateReleaseContentKeyExtension.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/base/buttons/entity_release_buttons.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/core/release/list.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/core/release/show.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Sigmaria.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Sigmaria.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Form/Core/ReleaseType.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/core/release/form.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Admin/Ancestry/AdminAncestralFeatureController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Admin/Ancestry/AdminAncestralFeatureController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Admin/Ancestry/AdminAncestryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Admin/Ancestry/AdminAncestryController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Admin/Core/AdminAttributeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Admin/Core/AdminAttributeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Admin/Core/AdminFeatController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Admin/Core/AdminFeatController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Admin/Core/AdminUserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Admin/Core/AdminUserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Ancestry/Ancestry.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Ancestry/Ancestry.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Core/Feat.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Core/Feat.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Core/Release.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Core/Release.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Core/Traits/ReleasableTrait.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Core/Traits/ReleasableTrait.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/Ancestry/AncestryType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/Ancestry/AncestryType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/Core/FeatType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/Core/FeatType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/Ancestry/AncestryRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/Ancestry/AncestryRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/Core/FeatRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/Core/FeatRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/ancestry/ancestry/list.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/ancestry/ancestry/list.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base/base_list.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base/base_list.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base/components/navbar.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base/components/navbar.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base/utilities/inactive_entity_row_classes.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base/utilities/inactive_entity_row_classes.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/core/feat/list.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/core/feat/list.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Admin/Core/AdminReleaseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Admin/Core/AdminReleaseController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/core/release/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/core/release/show.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -176,7 +150,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Twig" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/core/release" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -185,8 +159,8 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\Projekty\Sigmaria\src\Twig" />
       <recent name="E:\Projekty\Sigmaria\templates\core\release" />
+      <recent name="E:\Projekty\Sigmaria\src\Twig" />
       <recent name="E:\Projekty\Sigmaria\templates\base\buttons" />
       <recent name="E:\Projekty\Sigmaria\src\Repository\Core" />
       <recent name="E:\Projekty\Sigmaria" />
@@ -244,7 +218,7 @@
       <workItem from="1578066375252" duration="38000" />
       <workItem from="1578066436656" duration="8083000" />
       <workItem from="1578075173714" duration="8725000" />
-      <workItem from="1578131951589" duration="18145000" />
+      <workItem from="1578131951589" duration="19022000" />
     </task>
     <servers />
   </component>
@@ -270,10 +244,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="714" y="130" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1578160660972" />
-    <state x="625" y="231" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1578160848421">
+    <state x="625" y="231" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1578162435705">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="625" y="231" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1578160848421" />
+    <state x="625" y="231" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1578162435705" />
     <state x="568" y="221" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/70.27.1530.873@70.27.1530.873" timestamp="1577748604635" />
     <state x="170" y="127" width="1330" height="673" key="DiffContextDialog" timestamp="1577789038253">
       <screen x="70" y="27" width="1530" height="873" />
@@ -283,10 +257,10 @@
       <screen x="70" y="27" width="1530" height="873" />
     </state>
     <state x="618" y="221" width="424" height="491" key="FileChooserDialogImpl/70.27.1530.873@70.27.1530.873" timestamp="1577136336958" />
-    <state x="848" y="318" width="614" height="387" key="NewPhpClassDialog" timestamp="1578160515102">
+    <state x="848" y="318" width="614" height="387" key="NewPhpClassDialog" timestamp="1578162277527">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="848" y="318" key="NewPhpClassDialog/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1578160515102" />
+    <state x="848" y="318" key="NewPhpClassDialog/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1578162277527" />
     <state x="535" y="273" width="614" height="387" key="NewPhpClassDialog/70.27.1530.873@70.27.1530.873" timestamp="1577888056471" />
     <state x="635" y="175" width="389" height="583" key="RollbackChangesDialog" timestamp="1577751250092">
       <screen x="70" y="27" width="1530" height="873" />

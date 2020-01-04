@@ -5,7 +5,10 @@ namespace App\Controller\Admin\Core;
 use App\Controller\Base\BaseController;
 use App\Entity\Core\Feat;
 use App\Entity\Core\Release;
+use App\Form\Core\FeatType;
+use App\Form\Core\ReleaseType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
@@ -31,13 +34,44 @@ class AdminReleaseController extends BaseController
     }
 
     /**
-     * @Route("/admincore/release/{id}/show", name="release_show")
+     * @Route("/admin/core/release/{id}/show", name="release_show")
      * @Template("core/release/show.html.twig")
      */
     public function showFeatAction(Release $release)
     {
         $templateData = [
             'release' => $release,
+            'entityName' => 'release',
+        ];
+
+        return array_merge($templateData, $this->getTemplateData(BaseController::NAV_TAB_ADMIN));
+    }
+
+    /**
+     * @Route("/admin/core/release/{id}/edit", name="release_edit")
+     * @Template("core/release/form.html.twig")
+     */
+    public function editContentChangedAction(Request $request, Release $release)
+    {
+        $form = $this->createForm(ReleaseType::class, $release);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $release = $form->getData();
+
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($release);
+            $entityManager->flush();
+
+            $this->addFlash('success', 'Wydanie zmienione!');
+
+            return $this->redirectToRoute('release_show', ['id' => $release->getId()]);
+        }
+
+        $templateData = [
+            'form' => $form->createView(),
+            'entityName' => 'release',
         ];
 
         return array_merge($templateData, $this->getTemplateData(BaseController::NAV_TAB_ADMIN));

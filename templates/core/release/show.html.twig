@@ -3,9 +3,19 @@
 {% block content %}
     <div class="col-md-12">
         <div class="mb-5">
-            <h1>{{ release.name }} ({{ release.contentVersion }})</h1>
+            <h1>
+                {{ release.name }} ({{ release.contentVersion }})
+                <div class="float-right">
+                    {% include "base/buttons/entity_edit_button.html.twig" with {'entityName': entityName, 'entity': release} %}
+                    {% include "base/buttons/entity_list_button.html.twig" with {'entityName': entityName} %}
+                </div>
+            </h1>
             Wydanie z dnia {{ release.createdAt|date('Y-m-d') }}
         </div>
+        {% if release.contentChanges %}
+            <h3 class="mb-3">Zmiany zawartości:</h3>
+            {{ release.contentChanges|raw }}
+        {% endif %}
         <h3 class="mb-3">Wydana zawartość:</h3>
     </div>
 
