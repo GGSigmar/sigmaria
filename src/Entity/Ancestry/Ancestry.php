@@ -7,6 +7,7 @@ use App\Entity\Core\Attribute;
 use App\Entity\Core\MoveSpeed;
 use App\Entity\Core\Size;
 use App\Entity\Core\Traits\BaseFieldsTrait;
+use App\Entity\Core\Traits\ReleasableTrait;
 use App\Entity\Setting\Culture;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -20,7 +21,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Ancestry
 {
-    use BaseFieldsTrait, TimestampableEntity;
+    use BaseFieldsTrait, ReleasableTrait, TimestampableEntity;
 
     public const ADDITIONAL_LANGUAGES_MESSAGE = '';
 
@@ -85,6 +86,7 @@ class Ancestry
 
     public function __construct()
     {
+        $this->isActive = false;
         $this->abilityBoosts = new ArrayCollection();
         $this->cultures = new ArrayCollection();
         $this->attributes = new ArrayCollection();
@@ -245,5 +247,17 @@ class Ancestry
         }
 
         return $value;
+    }
+
+    /**
+     * @param bool $isActive
+     */
+    public function setIsActive(bool $isActive): void
+    {
+        $this->isActive = $isActive;
+
+        if (!$isActive) {
+            $this->isToBeReleased = false;
+        }
     }
 }

@@ -20,6 +20,9 @@
                     {% include "base/buttons/entity_show_button.html.twig" with {'entityName': entityName, 'entity': ancestry} %}
                     {% if is_granted('ROLE_ADMIN') %}
                         {% include "base/buttons/entity_edit_button.html.twig" with {'entityName': entityName, 'entity': ancestry} %}
+                        {% if not ancestry.isActive %}
+                            {% include "base/buttons/entity_release_buttons.html.twig" with {'entityName': entityName, 'entity': ancestry} %}
+                        {% endif %}
                         {% include "base/buttons/entity_delete_buttons.html.twig" with {'entityName': entityName, 'entity': ancestry} %}
                     {% endif %}
                 </td>

@@ -1,0 +1,20 @@
+{% extends "base/base.html.twig" %}
+
+{% block content %}
+    <div class="col-md-12">
+        <div class="mb-5">
+            <h1>{{ release.name }} ({{ release.contentVersion }})</h1>
+            Wydanie z dnia {{ release.createdAt|date('Y-m-d') }}
+        </div>
+        <h3 class="mb-3">Wydana zawartość:</h3>
+    </div>
+
+    {% for entityType, entityNameArray in release.getContentReleased %}
+    <div class="col-md-4">
+        <h5>{{ entityType|releaseKey }}</h5>
+        {% for entityName in entityNameArray %}
+            {{ entityName }}
+        {% endfor %}
+    </div>
+    {% endfor %}
+{% endblock %}

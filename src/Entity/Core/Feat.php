@@ -3,6 +3,7 @@
 namespace App\Entity\Core;
 
 use App\Entity\Core\Traits\BaseFieldsTrait;
+use App\Entity\Core\Traits\ReleasableTrait;
 use App\Entity\Core\Traits\SimpleRarityTrait;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -16,14 +17,12 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Feat
 {
-    use BaseFieldsTrait, SimpleRarityTrait, TimestampableEntity;
+    use BaseFieldsTrait, SimpleRarityTrait, ReleasableTrait, TimestampableEntity;
 
     /**
      * @var Actions
      *
      * @ORM\ManyToOne(targetEntity="App\Entity\Core\Actions")
-     *
-     * @Assert\NotBlank
      */
     private $actions;
 
@@ -84,6 +83,7 @@ class Feat
 
     public function __construct()
     {
+        $this->isActive = false;
         $this->attributes = new ArrayCollection();
     }
 
@@ -96,9 +96,9 @@ class Feat
     }
 
     /**
-     * @param Actions $actions
+     * @param Actions|null $actions
      */
-    public function setActions(Actions $actions): void
+    public function setActions(?Actions $actions): void
     {
         $this->actions = $actions;
     }
@@ -213,5 +213,17 @@ class Feat
     public function setAttributes(ArrayCollection $attributes): void
     {
         $this->attributes = $attributes;
+    }
+
+    /**
+     * @param bool $isActive
+     */
+    public function setIsActive(bool $isActive): void
+    {
+        $this->isActive = $isActive;
+
+        if (!$isActive) {
+            $this->isToBeReleased = false;
+        }
     }
 }

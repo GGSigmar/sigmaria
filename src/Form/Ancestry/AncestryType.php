@@ -54,7 +54,7 @@ class AncestryType extends AbstractType
                     return $er->createQueryBuilder('t')
                         ->innerJoin('t.category', 'c')
                         ->andWhere('c.handle LIKE :ancestral_category')
-                        ->setParameter('ancestral_category', AttributeCategory::TRAIT_CATEGORY_ANCESTRAL);
+                        ->setParameter('ancestral_category', AttributeCategory::ATTRIBUTE_CATEGORY_ANCESTRAL);
                 },
             ])
             ->add('cultures', EntityType::class, [

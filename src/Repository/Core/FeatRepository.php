@@ -12,4 +12,16 @@ class FeatRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Feat::class);
     }
+
+    /**
+     * @return array|Feat[]
+     */
+    public function getFeatsForRelease(): array
+    {
+        return $this->createQueryBuilder('f')
+            ->andWhere('f.isActive = false')
+            ->andWhere('f.isToBeReleased = true')
+            ->getQuery()
+            ->getResult();
+    }
 }

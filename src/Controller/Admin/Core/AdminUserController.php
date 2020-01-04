@@ -72,7 +72,7 @@ class AdminUserController extends BaseController
         $entityManager->persist($user);
         $entityManager->flush();
 
-        $this->addFlash('success', 'Użytkownik dezaktywowany!');
+        $this->addFlash('warning', 'Użytkownik dezaktywowany!');
 
         return $this->redirectToRoute('user_list');
     }

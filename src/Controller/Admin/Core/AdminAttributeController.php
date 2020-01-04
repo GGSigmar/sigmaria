@@ -103,7 +103,7 @@ class AdminAttributeController extends BaseController
         $entityManager->persist($attribute);
         $entityManager->flush();
 
-        $this->addFlash('success', 'Cecha zabita!');
+        $this->addFlash('warning', 'Cecha zabita!');
 
         return $this->redirectToRoute('attribute_list');
     }
@@ -135,7 +135,7 @@ class AdminAttributeController extends BaseController
         $entityManager->persist($attribute);
         $entityManager->flush();
 
-        $this->addFlash('success', 'Cecha usunięta!');
+        $this->addFlash('danger', 'Cecha usunięta!');
 
         return $this->redirectToRoute('attribute_list');
     }

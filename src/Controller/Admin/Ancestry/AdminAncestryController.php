@@ -87,7 +87,7 @@ class AdminAncestryController extends BaseController
         $entityManager->persist($ancestry);
         $entityManager->flush();
 
-        $this->addFlash('success', 'Rasa zabita!');
+        $this->addFlash('warning', 'Rasa zabita!');
 
         return $this->redirectToRoute('ancestry_list');
     }
@@ -119,7 +119,41 @@ class AdminAncestryController extends BaseController
         $entityManager->remove($ancestry);
         $entityManager->flush();
 
-        $this->addFlash('success', 'Rasa usunięta!');
+        $this->addFlash('danger', 'Rasa usunięta!');
+
+        return $this->redirectToRoute('ancestry_list');
+    }
+
+    /**
+     * @Route("/admin/ancestry/{id}/stage", name="ancestry_stage")
+     */
+    public function stageAncestryAction(Ancestry $ancestry)
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+
+        $ancestry->setIsToBeReleased(true);
+
+        $entityManager->persist($ancestry);
+        $entityManager->flush();
+
+        $this->addFlash('success', 'Rasa oznaczona do wydania!');
+
+        return $this->redirectToRoute('ancestry_list');
+    }
+
+    /**
+     * @Route("/admin/ancestry/{id}/unstage", name="ancestry_unstage")
+     */
+    public function unstageAncestryAction(Ancestry $ancestry)
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+
+        $ancestry->setIsToBeReleased(false);
+
+        $entityManager->persist($ancestry);
+        $entityManager->flush();
+
+        $this->addFlash('warning', 'Rasa wyłączona z wydania!');
 
         return $this->redirectToRoute('ancestry_list');
     }

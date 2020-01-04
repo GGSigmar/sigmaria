@@ -103,7 +103,7 @@ class AdminAncestralFeatureController extends BaseController
         $entityManager->persist($ancestralFeature);
         $entityManager->flush();
 
-        $this->addFlash('success', 'Zdolność rasowa zabita!');
+        $this->addFlash('warning', 'Zdolność rasowa zabita!');
 
         return $this->redirectToRoute('ancestral_feature_list');
     }
@@ -135,7 +135,7 @@ class AdminAncestralFeatureController extends BaseController
         $entityManager->remove($ancestralFeature);
         $entityManager->flush();
 
-        $this->addFlash('success', 'Zdolność rasowa usunięta!');
+        $this->addFlash('danger', 'Zdolność rasowa usunięta!');
 
         return $this->redirectToRoute('ancestral_feature_list');
     }

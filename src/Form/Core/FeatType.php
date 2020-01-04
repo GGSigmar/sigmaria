@@ -23,8 +23,10 @@ class FeatType extends AbstractType
                 'class' => Rarity::class
             ])
             ->add('actions', EntityType::class, [
+                'required' => false,
                 'label' => 'Akcje',
                 'class' => Actions::class,
+                'placeholder' => 'Nie dotyczy',
             ])
             ->add('level', IntegerType::class, [
                 'label' => 'Poziom',

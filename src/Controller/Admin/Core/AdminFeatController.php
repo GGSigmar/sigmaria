@@ -104,7 +104,7 @@ class AdminFeatController extends BaseController
         $entityManager->persist($feat);
         $entityManager->flush();
 
-        $this->addFlash('success', 'Atut zabity!');
+        $this->addFlash('warning', 'Atut zabity!');
 
         return $this->redirectToRoute('feat_list');
     }
@@ -136,7 +136,41 @@ class AdminFeatController extends BaseController
         $entityManager->remove($feat);
         $entityManager->flush();
 
-        $this->addFlash('success', 'Atut usunięty!');
+        $this->addFlash('danger', 'Atut usunięty!');
+
+        return $this->redirectToRoute('feat_list');
+    }
+
+    /**
+     * @Route("/admin/core/feat/{id}/stage", name="feat_stage")
+     */
+    public function stageFeatAction(Feat $feat)
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+
+        $feat->setIsToBeReleased(true);
+
+        $entityManager->persist($feat);
+        $entityManager->flush();
+
+        $this->addFlash('success', 'Atut oznaczony do wydania!');
+
+        return $this->redirectToRoute('feat_list');
+    }
+
+    /**
+     * @Route("/admin/core/feat/{id}/unstage", name="feat_unstage")
+     */
+    public function unstageFeatAction(Feat $feat)
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+
+        $feat->setIsToBeReleased(false);
+
+        $entityManager->persist($feat);
+        $entityManager->flush();
+
+        $this->addFlash('warning', 'Atut wyłączony z wydania!');
 
         return $this->redirectToRoute('feat_list');
     }

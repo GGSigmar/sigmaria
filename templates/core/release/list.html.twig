@@ -1,0 +1,29 @@
+{% extends "base/base_list.html.twig" %}
+
+{% block list_title %}
+    Wydania
+{% endblock %}
+
+{% block title_classes %}
+    mb-5
+{% endblock %}
+
+{% block top_right_buttons %}{% endblock %}
+
+{% block table_headers %}
+    <th>Numer</th>
+    <th>Nazwa</th>
+    <th>Akcje</th>
+{% endblock %}
+
+{% block table_rows %}
+    {% for release in releases %}
+        <tr>
+            <td class="align-middle">{{ release.getContentVersion }}</td>
+            <td class="align-middle">{{ release.name }}</td>
+            <td class="align-middle text-nowrap">
+                {% include "base/buttons/entity_show_button.html.twig" with {'entityName': entityName, 'entity': release} %}
+            </td>
+        </tr>
+    {% endfor %}
+{% endblock %}

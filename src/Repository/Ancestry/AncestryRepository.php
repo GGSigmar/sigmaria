@@ -12,4 +12,16 @@ class AncestryRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Ancestry::class);
     }
+
+    /**
+     * @return array|Ancestry[]
+     */
+    public function getAncestriesForRelease(): array
+    {
+        return $this->createQueryBuilder('a')
+            ->andWhere('a.isActive = false')
+            ->andWhere('a.isToBeReleased = true')
+            ->getQuery()
+            ->getResult();
+    }
 }

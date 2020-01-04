@@ -2,31 +2,37 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0b9a3871-3386-4d40-9261-e24049e96f75" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.env.dev" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/DataFixtures/Core/SkillFixtures.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/Core/LoreSkill.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/Core/Release.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/Core/Skill.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/Core/Traits/ReleasableTrait.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/Core/Traits/SortOrderTrait.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Repository/Core/LoreSkillRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Repository/Core/SkillRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Command/ReleaseContentCommand.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/Admin/Core/AdminReleaseController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Repository/Core/ReleaseRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Twig/TranslateReleaseContentKeyExtension.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/base/buttons/entity_release_buttons.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/core/release/list.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/core/release/show.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Sigmaria.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Sigmaria.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Admin/Ancestry/AdminAncestralFeatureController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Admin/Ancestry/AdminAncestralFeatureController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Admin/Ancestry/AdminAncestryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Admin/Ancestry/AdminAncestryController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Admin/Core/AdminAttributeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Admin/Core/AdminAttributeController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/Admin/Core/AdminFeatController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Admin/Core/AdminFeatController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Base/BaseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Base/BaseController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataFixtures/Core/AbilityFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/Core/AbilityFixtures.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataFixtures/Core/AttributeCategoryFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/Core/AttributeCategoryFixtures.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataFixtures/Core/CharacterClassFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/Core/CharacterClassFixtures.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Ancestry/AncestralFeature.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Ancestry/AncestralFeature.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Admin/Core/AdminUserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Admin/Core/AdminUserController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Ancestry/Ancestry.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Ancestry/Ancestry.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Core/Ability.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Core/Ability.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Core/AttributeCategory.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Core/AttributeCategory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Core/Feat.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Core/Feat.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Core/Release.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Core/Release.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Core/Traits/ReleasableTrait.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Core/Traits/ReleasableTrait.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/Ancestry/AncestryType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/Ancestry/AncestryType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/Core/FeatType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/Core/FeatType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/Ancestry/AncestryRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/Ancestry/AncestryRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/Core/FeatRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/Core/FeatRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/ancestry/ancestry/list.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/ancestry/ancestry/list.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/ancestry/ancestry/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/ancestry/ancestry/show.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/ancestry/feature/list.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/ancestry/feature/list.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base/base_list.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base/base_list.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base/components/navbar.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base/components/navbar.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base/utilities/inactive_entity_row_classes.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base/utilities/inactive_entity_row_classes.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/core/feat/list.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/core/feat/list.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/core/user/list.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/core/user/list.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -157,6 +163,7 @@
       <path value="$PROJECT_DIR$/vendor/symfony/templating" />
       <path value="$PROJECT_DIR$/vendor/twig/extensions" />
       <path value="$PROJECT_DIR$/vendor/stof/doctrine-extensions-bundle" />
+      <path value="$PROJECT_DIR$/vendor/symfony/lock" />
     </include_path>
   </component>
   <component name="ProjectId" id="1VOu5FnL4GxueIMLlFHSG4wGC8F" />
@@ -169,7 +176,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Twig" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -178,11 +185,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\Projekty\Sigmaria" />
-      <recent name="E:\Projekty\Sigmaria\src\DataFixtures\Core" />
+      <recent name="E:\Projekty\Sigmaria\src\Twig" />
+      <recent name="E:\Projekty\Sigmaria\templates\core\release" />
+      <recent name="E:\Projekty\Sigmaria\templates\base\buttons" />
       <recent name="E:\Projekty\Sigmaria\src\Repository\Core" />
-      <recent name="E:\Projekty\Sigmaria\templates\bundles\TwigBundle\Exception" />
-      <recent name="E:\Projekty\Sigmaria\src\Repository\Setting" />
+      <recent name="E:\Projekty\Sigmaria" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\Projekty\Sigmaria\src\Controller\Admin\Core" />
@@ -237,7 +244,7 @@
       <workItem from="1578066375252" duration="38000" />
       <workItem from="1578066436656" duration="8083000" />
       <workItem from="1578075173714" duration="8725000" />
-      <workItem from="1578131951589" duration="6085000" />
+      <workItem from="1578131951589" duration="18145000" />
     </task>
     <servers />
   </component>
@@ -250,18 +257,23 @@
     </state>
     <state x="516" y="291" key="#com.intellij.fileTypes.FileTypeChooser/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1578142313655" />
     <state x="481" y="271" width="688" height="398" key="#com.intellij.fileTypes.FileTypeChooser/70.27.1530.873@70.27.1530.873" timestamp="1577751100858" />
-    <state x="603" y="182" width="454" height="569" key="#com.intellij.ide.util.MemberChooser" timestamp="1577747935395">
-      <screen x="70" y="27" width="1530" height="873" />
+    <state x="669" y="185" width="454" height="569" key="#com.intellij.ide.util.MemberChooser" timestamp="1578149180401">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="669" y="185" key="#com.intellij.ide.util.MemberChooser/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1578149180401" />
     <state x="603" y="182" width="454" height="569" key="#com.intellij.ide.util.MemberChooser/70.27.1530.873@70.27.1530.873" timestamp="1577747935395" />
     <state x="640" y="249" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1578066388151">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="640" y="249" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1578066388151" />
-    <state x="625" y="231" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1578145600794">
+    <state x="714" y="130" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1578160660972">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="625" y="231" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1578145600794" />
+    <state x="714" y="130" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1578160660972" />
+    <state x="625" y="231" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1578160848421">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="625" y="231" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1578160848421" />
     <state x="568" y="221" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/70.27.1530.873@70.27.1530.873" timestamp="1577748604635" />
     <state x="170" y="127" width="1330" height="673" key="DiffContextDialog" timestamp="1577789038253">
       <screen x="70" y="27" width="1530" height="873" />
@@ -271,10 +283,10 @@
       <screen x="70" y="27" width="1530" height="873" />
     </state>
     <state x="618" y="221" width="424" height="491" key="FileChooserDialogImpl/70.27.1530.873@70.27.1530.873" timestamp="1577136336958" />
-    <state x="848" y="318" width="614" height="387" key="NewPhpClassDialog" timestamp="1578143994580">
+    <state x="848" y="318" width="614" height="387" key="NewPhpClassDialog" timestamp="1578160515102">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="848" y="318" key="NewPhpClassDialog/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1578143994580" />
+    <state x="848" y="318" key="NewPhpClassDialog/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1578160515102" />
     <state x="535" y="273" width="614" height="387" key="NewPhpClassDialog/70.27.1530.873@70.27.1530.873" timestamp="1577888056471" />
     <state x="635" y="175" width="389" height="583" key="RollbackChangesDialog" timestamp="1577751250092">
       <screen x="70" y="27" width="1530" height="873" />
@@ -294,15 +306,15 @@
     </state>
     <state x="528" y="315" key="com.intellij.ide.util.TipDialog/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1578131953515" />
     <state x="491" y="291" key="com.intellij.ide.util.TipDialog/70.27.1530.873@70.27.1530.873" timestamp="1577918559018" />
-    <state x="496" y="19" width="1032" height="1001" key="find.popup" timestamp="1578145369653">
+    <state x="444" y="39" width="1032" height="1001" key="find.popup" timestamp="1578160831181">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="496" y="19" width="1032" height="1001" key="find.popup/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1578145369653" />
+    <state x="444" y="39" width="1032" height="1001" key="find.popup/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1578160831181" />
     <state x="465" y="43" width="822" height="840" key="find.popup/70.27.1530.873@70.27.1530.873" timestamp="1577887556269" />
-    <state x="537" y="223" width="844" height="808" key="search.everywhere.popup" timestamp="1578081742956">
+    <state x="537" y="223" width="844" height="808" key="search.everywhere.popup" timestamp="1578153912153">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="537" y="223" width="844" height="808" key="search.everywhere.popup/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1578081742956" />
+    <state x="537" y="223" width="844" height="808" key="search.everywhere.popup/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1578153912153" />
     <state x="498" y="214" width="672" height="678" key="search.everywhere.popup/70.27.1530.873@70.27.1530.873" timestamp="1577887898996" />
   </component>
 </project>

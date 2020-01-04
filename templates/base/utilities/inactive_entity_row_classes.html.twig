@@ -1,1 +1,7 @@
-{% if not entity.isActive %}table-warning{% endif %}
+{% if not entity.isActive %}
+    {% if entity.isToBeReleased is defined and entity.isToBeReleased %}
+        table-success
+    {% else %}
+        table-warning
+    {% endif %}
+{% endif %}
