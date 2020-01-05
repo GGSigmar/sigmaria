@@ -12,4 +12,16 @@ class CultureRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Culture::class);
     }
+
+    /**
+     * @return array|Culture[]
+     */
+    public function getCulturesForRelease(): array
+    {
+        return $this->createQueryBuilder('c')
+            ->andWhere('c.isActive = false')
+            ->andWhere('c.isToBeReleased = true')
+            ->getQuery()
+            ->getResult();
+    }
 }

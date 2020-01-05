@@ -3,6 +3,7 @@
 namespace App\Entity\Setting;
 
 use App\Entity\Core\Traits\BaseFieldsTrait;
+use App\Entity\Core\Traits\ReleasableTrait;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
 
@@ -12,5 +13,5 @@ use Gedmo\Timestampable\Traits\TimestampableEntity;
  */
 class Culture
 {
-    use BaseFieldsTrait, TimestampableEntity;
+    use BaseFieldsTrait, ReleasableTrait, TimestampableEntity;
 }

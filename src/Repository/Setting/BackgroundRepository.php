@@ -12,4 +12,16 @@ class BackgroundRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Background::class);
     }
+
+    /**
+     * @return array|Background[]
+     */
+    public function getBackgroundsForRelease(): array
+    {
+        return $this->createQueryBuilder('b')
+            ->andWhere('b.isActive = false')
+            ->andWhere('b.isToBeReleased = true')
+            ->getQuery()
+            ->getResult();
+    }
 }

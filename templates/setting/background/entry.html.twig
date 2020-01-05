@@ -1,0 +1,26 @@
+<div class="col-md-6">
+    <div class="border-bottom border-white" style="width:100%;">
+        <h3>
+            {{ background.name|upper }}
+            <span class="float-right">POCHODZENIE</span>
+        </h3>
+    </div>
+    <div>
+        {{ background.description|raw }}
+    </div>
+    <div class="indented">
+        Wybierz dwie premie do cech.
+        Jedna z premii musi być do cech {{ background.abilityBoosts|first }} lub {{ background.abilityBoosts|last }}, a druga jest dowolna.
+    </div>
+    <div class="indented">
+        {% if background.trainedSkill and background.trainedLore %}
+            Jesteś wytrenowany w umiejętności {{ background.trainedSkill.name }} i w dziedzinie wiedzy {{ background.trainedLore.name }}.
+        {% endif %}
+        {% if background.feat %}
+            Zyskujesz umiejętnościowy atut {{ background.feat.name }}.
+        {% endif %}
+        {% if background.additionalRules %}
+            {{ background.additionalRules|raw }}
+        {% endif %}
+    </div>
+</div>

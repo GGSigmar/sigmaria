@@ -23,6 +23,11 @@ class Language
      */
     private $script;
 
+    public function __construct()
+    {
+        $this->isActive = false;
+    }
+
     /**
      * @return null|Script
      */

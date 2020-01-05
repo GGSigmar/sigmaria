@@ -6,6 +6,8 @@ use App\Entity\Ancestry\AncestralFeature;
 use App\Entity\Ancestry\Ancestry;
 use App\Entity\Core\Feat;
 use App\Entity\Core\Release;
+use App\Entity\Setting\Background;
+use App\Entity\Setting\Culture;
 use App\Entity\Setting\Language;
 use App\Repository\Ancestry\AncestryRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -93,6 +95,21 @@ class ReleaseContentCommand extends Command
             }
         }
 
+        /* wydanie kultur */
+
+        $cultureRepository = $this->em->getRepository(Culture::class);
+
+        $culturesToBeReleased = $cultureRepository->getCulturesForRelease();
+
+        if ($culturesToBeReleased) {
+            foreach ($culturesToBeReleased as $culture) {
+                $culture->setIsActive(true);
+                $releasedDataArray['culture'][$culture->getId()] = $culture->getName();
+                $culture->setRelease($release);
+                $this->em->persist($culture);
+            }
+        }
+
         /* wydanie atutów */
 
         $featRepository = $this->em->getRepository(Feat::class);
@@ -105,6 +122,21 @@ class ReleaseContentCommand extends Command
                 $releasedDataArray['feat'][$feat->getId()] = $feat->getName();
                 $feat->setRelease($release);
                 $this->em->persist($feat);
+            }
+        }
+
+        /* wydanie pochodzeń */
+
+        $backgroundRepository = $this->em->getRepository(Background::class);
+
+        $backgroundsToBeReleased = $backgroundRepository->getBackgroundsForRelease();
+
+        if ($backgroundsToBeReleased) {
+            foreach ($backgroundsToBeReleased as $background) {
+                $background->setIsActive(true);
+                $releasedDataArray['background'][$background->getId()] = $background->getName();
+                $background->setRelease($release);
+                $this->em->persist($background);
             }
         }
 
