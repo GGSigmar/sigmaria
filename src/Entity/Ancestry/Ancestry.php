@@ -4,6 +4,7 @@ namespace App\Entity\Ancestry;
 
 use App\Entity\Core\Ability;
 use App\Entity\Core\Attribute;
+use App\Entity\Core\Feat;
 use App\Entity\Core\MoveSpeed;
 use App\Entity\Core\Size;
 use App\Entity\Core\Traits\BaseFieldsTrait;
@@ -55,7 +56,7 @@ class Ancestry
     /**
      * @var ArrayCollection
      *
-     * @ORM\ManyToMany(targetEntity="App\Entity\Core\Ability")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Core\Ability", fetch="EXTRA_LAZY")
      * @ORM\JoinTable(name="ancestry_ancestry_ability_boost")
      * @Assert\Count(min="2", max="2")
      */
@@ -64,15 +65,14 @@ class Ancestry
     /**
      * @var ArrayCollection
      *
-     * @ORM\ManyToMany(targetEntity="App\Entity\Setting\Culture")
-     * @ORM\JoinTable(name="ancestry_ancestry_culture")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Setting\Culture", mappedBy="commonAncestries", fetch="EXTRA_LAZY")
      */
     private $cultures;
 
     /**
      * @var ArrayCollection
      *
-     * @ORM\ManyToMany(targetEntity="App\Entity\Core\Attribute")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Core\Attribute", fetch="EXTRA_LAZY")
      * @ORM\JoinTable(name="ancestry_ancestry_attribute")
      * @Assert\Count(min="1")
      */
@@ -81,11 +81,20 @@ class Ancestry
     /**
      * @var ArrayCollection
      *
-     * @ORM\ManyToMany(targetEntity="App\Entity\Ancestry\AncestralFeature", inversedBy="ancestries")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Ancestry\AncestralFeature", inversedBy="ancestries", fetch="EXTRA_LAZY")
      * @ORM\JoinTable(name="ancestry_ancestry_ancestral_feature")
      * @Assert\Count(min="1")
      */
     private $ancestralFeatures;
+
+    /**
+     * @var ArrayCollection
+     *
+     * @ORM\ManyToMany(targetEntity="App\Entity\Core\Feat", fetch="EXTRA_LAZY")
+     * @ORM\OrderBy({"level"="ASC"})
+     * @ORM\JoinTable(name="ancestry_ancestry_feat")
+     */
+    private $feats;
 
     public function __construct()
     {
@@ -94,6 +103,7 @@ class Ancestry
         $this->cultures = new ArrayCollection();
         $this->attributes = new ArrayCollection();
         $this->ancestralFeatures = new ArrayCollection();
+        $this->feats = new ArrayCollection();
     }
 
     /**
@@ -193,6 +203,7 @@ class Ancestry
     {
         if (!$this->cultures->contains($culture)) {
             $this->cultures->add($culture);
+            $culture->addCommonAncestry($this);
         }
 
         return;
@@ -205,6 +216,7 @@ class Ancestry
     {
         if ($this->cultures->contains($culture)) {
             $this->cultures->removeElement($culture);
+            $culture->removeCommonAncestry($this);
         }
 
         return;
@@ -281,6 +293,40 @@ class Ancestry
     }
 
     /**
+     * @return Collection|Feat[]
+     */
+    public function getFeats(): Collection
+    {
+        return $this->feats->filter(function ($feat) {
+            return $feat->isActive();
+        });
+    }
+
+    /**
+     * @param Feat $feat
+     */
+    public function addFeat(Feat $feat): void
+    {
+        if (!$this->feats->contains($feat)) {
+            $this->feats->add($feat);
+        }
+
+        return;
+    }
+
+    /**
+     * @param Feat $feat
+     */
+    public function removeFeat(Feat $feat): void
+    {
+        if ($this->feats->contains($feat)) {
+            $this->feats->removeElement($feat);
+        }
+
+        return;
+    }
+
+    /**
      * @return string
      */
     public function getLanguagesMessage(): string
@@ -300,10 +346,7 @@ class Ancestry
         }
 
         $value += $this->getHitPoints()->getValue();
-
-        if (count($this->getAttributes()->toArray()) > 2) {
-            $value--;
-        }
+        $value += $this->getSpeed()->getValue();
 
         return $value;
     }

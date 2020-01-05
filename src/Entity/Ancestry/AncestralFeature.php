@@ -20,7 +20,7 @@ class AncestralFeature
     /**
      * @var ArrayCollection
      *
-     * @ORM\ManyToMany(targetEntity="Ancestry", mappedBy="ancestralFeatures")
+     * @ORM\ManyToMany(targetEntity="Ancestry", mappedBy="ancestralFeatures", fetch="EXTRA_LAZY")
      */
     private $ancestries;
 

@@ -75,7 +75,7 @@ class Feat
     /**
      * @var ArrayCollection
      *
-     * @ORM\ManyToMany(targetEntity="App\Entity\Core\Attribute")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Core\Attribute", fetch="EXTRA_LAZY")
      * @ORM\JoinTable(name="core_feat_attribute")
      * @Assert\Count(min="1")
      */

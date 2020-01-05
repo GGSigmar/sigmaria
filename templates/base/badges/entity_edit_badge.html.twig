@@ -1,0 +1,3 @@
+{% set showPathName = (entityName ~ '_edit') %}
+
+<a href="{{ path(showPathName, {"id": entityId}) }}" class="badge badge-primary border border-white" role="button"><i class="fas fa-edit"></i></a>

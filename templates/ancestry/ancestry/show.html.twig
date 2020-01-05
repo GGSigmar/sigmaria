@@ -21,13 +21,14 @@
         <h5>Zdolności rasowe</h5>
         {% if ancestry.ancestralFeatures is empty %}
             Brak.
+        {% else %}
+            {% for feature in ancestry.ancestralFeatures %}
+                <p class="mb-4"><b>{{ feature.name }}</b>
+                    <br />
+                    {{ feature.description }}
+                </p>
+            {% endfor %}
         {% endif %}
-        {% for feature in ancestry.ancestralFeatures %}
-            <p class="mb-4"><b>{{ feature.name }}</b>
-                <br />
-                {{ feature.description }}
-            </p>
-        {% endfor %}
     </div>
     <div class="col-md-3">
         {% if is_granted('ROLE_ADMIN') %}
@@ -67,13 +68,28 @@
 
         <h5>Kultury</h5>
         <p class="mb-4">
-            {% for culture in ancestry.cultures %}
-                <a href="{{ path('home') }}">{{ culture.name}}</a>
+            {% if ancestry.cultures is empty %}
+                Brak
+            {% else %}
+                {% for culture in ancestry.cultures %}
+                    {% include "base/badges/entity_show_badge.html.twig" with {'entityName': 'culture', 'entityId': culture.id} %} {{ culture.name }}
 
-                {% if not loop.last %}
-                    <br />
-                {% endif %}
-            {% endfor %}
+                    {% if not loop.last %}
+                        <br />
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
         </p>
     </div>
+    <div class="col-md-12">
+        <h5>Atuty rasowe</h5>
+        {% if ancestry.feats is empty %}
+            Brak.
+        {% endif %}
+    </div>
+    {% if ancestry.feats is not empty %}
+        {% for feat in ancestry.feats %}
+            {% include "core/feat/entry.html.twig" with {'feat': feat} %}
+        {% endfor %}
+    {% endif %}
 {% endblock %}

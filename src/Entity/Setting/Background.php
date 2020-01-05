@@ -25,7 +25,7 @@ class Background
     /**
      * @var ArrayCollection
      *
-     * @ORM\ManyToMany(targetEntity="App\Entity\Core\Ability")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Core\Ability", fetch="EXTRA_LAZY")
      * @ORM\JoinTable(name="setting_background_ability_boost")
      * @Assert\Count(min="2", max="2")
      */

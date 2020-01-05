@@ -5,6 +5,7 @@ namespace App\Entity\Setting;
 use App\Entity\Core\Traits\BaseFieldsTrait;
 use App\Entity\Core\Traits\ReleasableTrait;
 use App\Entity\Core\Traits\SimpleRarityTrait;
+use App\Entity\Core\Traits\SortOrderTrait;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
 
@@ -14,7 +15,7 @@ use Gedmo\Timestampable\Traits\TimestampableEntity;
  */
 class Language
 {
-    use BaseFieldsTrait, SimpleRarityTrait, ReleasableTrait, TimestampableEntity;
+    use BaseFieldsTrait, SimpleRarityTrait, ReleasableTrait, SortOrderTrait, TimestampableEntity;
 
     /**
      * @var Script

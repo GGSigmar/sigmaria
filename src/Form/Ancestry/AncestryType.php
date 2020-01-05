@@ -8,6 +8,7 @@ use App\Entity\Ancestry\Ancestry;
 use App\Entity\Core\Ability;
 use App\Entity\Core\Attribute;
 use App\Entity\Core\AttributeCategory;
+use App\Entity\Core\Feat;
 use App\Entity\Core\MoveSpeed;
 use App\Entity\Core\Size;
 use App\Entity\Setting\Culture;
@@ -51,8 +52,8 @@ class AncestryType extends AbstractType
                 'multiple' => true,
                 'expanded' => true,
                 'query_builder' => function (EntityRepository $er) {
-                    return $er->createQueryBuilder('t')
-                        ->innerJoin('t.category', 'c')
+                    return $er->createQueryBuilder('a')
+                        ->innerJoin('a.category', 'c')
                         ->andWhere('c.handle LIKE :ancestral_category')
                         ->setParameter('ancestral_category', AttributeCategory::ATTRIBUTE_CATEGORY_ANCESTRAL);
                 },
@@ -62,11 +63,26 @@ class AncestryType extends AbstractType
                 'label' => 'Kultury',
                 'multiple' => true,
                 'expanded' => true,
+                'by_reference' => false,
             ])
             ->add('ancestralFeatures', EntityType::class, [
                 'class' => AncestralFeature::class,
+                'label' => 'Zdolności rasowe',
                 'multiple' => true,
                 'expanded' => true,
+            ])
+            ->add('feats', EntityType::class, [
+                'class' => Feat::class,
+                'label' => 'Rasowe atuty',
+                'multiple' => true,
+                'expanded' => true,
+                'query_builder' => function (EntityRepository $er) {
+                    return $er->createQueryBuilder('f')
+                        ->innerJoin('f.attributes', 'a')
+                        ->innerJoin('a.category', 'c')
+                        ->andWhere('c.handle LIKE :ancestral_category')
+                        ->setParameter('ancestral_category', AttributeCategory::ATTRIBUTE_CATEGORY_ANCESTRAL);
+                },
             ])
         ;
     }

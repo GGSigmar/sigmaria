@@ -1,0 +1,76 @@
+{% extends "base/base.html.twig" %}
+
+{% block content %}
+    <div class="col-md-9">
+        <div class="mb-4">
+            <h1>
+                {{ culture.name }}
+                <div class="float-right">
+                    {% if is_granted('ROLE_ADMIN') %}
+                        {% include "base/buttons/entity_edit_button.html.twig" with {'entityName': entityName, 'entity': culture} %}
+                    {% endif %}
+                    {% include "base/buttons/entity_list_button.html.twig" with {'entityName': entityName} %}
+                </div>
+            </h1>
+
+            {% include "base/utilities/entity_release_note.html.twig" with {'entity': culture} %}
+        </div>
+
+        <p class="mb-4">
+            {{ culture.description|raw }}
+        </p>
+    </div>
+    <div class="col-md-3">
+        <h5>Pospolite rasy</h5>
+        <p class="mb-4">
+            {% for ancestry in culture.commonAncestries %}
+                {% include "base/badges/entity_show_badge.html.twig" with {'entityName': 'ancestry', 'entityId': ancestry.id} %} {{ ancestry.name }}
+
+                {% if not loop.last %}
+                    <br />
+                {% endif %}
+            {% endfor %}
+        </p>
+        <h5>Pospolite klasy</h5>
+        <p class="mb-4">
+            {% for class in culture.commonClasses %}
+                {{ class.name }}
+
+                {% if not loop.last %}
+                    <br />
+                {% endif %}
+            {% endfor %}
+        </p>
+        <h5>Pospolite pochodzenia</h5>
+        <p class="mb-4">
+            {% for background in culture.commonBackgrounds %}
+                {% include "base/badges/entity_show_badge.html.twig" with {'entityName': 'background', 'entityId': background.id} %} {{ background.name }}
+
+                {% if not loop.last %}
+                    <br />
+                {% endif %}
+            {% endfor %}
+        </p>
+        <h5>Pospolite języki</h5>
+        <p class="mb-4">
+            {% for language in culture.commonLanguages %}
+                {% include "base/badges/entity_show_badge.html.twig" with {'entityName': 'language', 'entityId': language.id} %} {{ language.name }}
+
+                {% if not loop.last %}
+                    <br />
+                {% endif %}
+            {% endfor %}
+        </p>
+    </div>
+    <div class="col-md-12">
+        <h5>Atuty kulturowe</h5>
+        {% if culture.feats is empty %}
+            Brak.
+        {% endif %}
+    </div>
+    {% if culture.feats is not empty %}
+        {% for feat in culture.feats %}
+            {% include "core/feat/entry.html.twig" with {'feat': feat} %}
+        {% endfor %}
+    {% endif %}
+{% endblock %}

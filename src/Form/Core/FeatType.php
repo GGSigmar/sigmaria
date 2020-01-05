@@ -50,7 +50,9 @@ class FeatType extends AbstractType
                 'label' => 'Atrybuty',
                 'class' => Attribute::class,
                 'multiple' => true,
-                'expanded' => true,
+                'group_by' => function (Attribute $attribute) {
+                    return $attribute->getCategory()->getName();
+                },
             ])
         ;
     }

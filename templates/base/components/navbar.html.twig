@@ -36,7 +36,7 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle {% if navTab is defined and navTab == constant('App\\Controller\\Base\\BaseController::NAV_TAB_SETTING') %}active{% endif %}" href="#" data-toggle="dropdown"><i class="fas fa-globe"></i> Świat</a>
                 <div class="dropdown-menu">
-                    <a href="{{ path('home') }}" class="dropdown-item">Kultury</a>
+                    <a href="{{ path('culture_list') }}" class="dropdown-item">Kultury</a>
                     <div class="dropdown-divider"></div>
                     <a href="{{ path('background_list') }}" class="dropdown-item">Pochodzenia</a>
                     <div class="dropdown-divider"></div>
