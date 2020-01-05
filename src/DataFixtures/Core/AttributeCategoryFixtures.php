@@ -26,8 +26,10 @@ class AttributeCategoryFixtures extends Fixture
         $cultureAttributeCategory->setHandle(AttributeCategory::ATTRIBUTE_CATEGORY_CULTURE);
         $cultureAttributeCategory->setName('Atrybuty kulturowe');
 
+        $manager->persist($genericAttributeCategory);
         $manager->persist($ancestralAttributeCategory);
         $manager->persist($classAttributeCategory);
+        $manager->persist($cultureAttributeCategory);
 
         $manager->flush();
     }
