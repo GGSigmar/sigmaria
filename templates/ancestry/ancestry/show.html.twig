@@ -19,6 +19,9 @@
         </p>
 
         <h5>Zdolności rasowe</h5>
+        {% if ancestry.ancestralFeatures is empty %}
+            Brak.
+        {% endif %}
         {% for feature in ancestry.ancestralFeatures %}
             <p class="mb-4"><b>{{ feature.name }}</b>
                 <br />

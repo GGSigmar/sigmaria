@@ -208,11 +208,27 @@ class Feat
     }
 
     /**
-     * @param ArrayCollection $attributes
+     * @param Attribute $attribute
      */
-    public function setAttributes(ArrayCollection $attributes): void
+    public function addAttribute(Attribute $attribute): void
     {
-        $this->attributes = $attributes;
+        if (!$this->attributes->contains($attribute)) {
+            $this->attributes->add($attribute);
+        }
+
+        return;
+    }
+
+    /**
+     * @param Attribute $attribute
+     */
+    public function removeAttribute(Attribute $attribute): void
+    {
+        if ($this->attributes->contains($attribute)) {
+            $this->attributes->removeElement($attribute);
+        }
+
+        return;
     }
 
     /**

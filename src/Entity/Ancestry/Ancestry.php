@@ -153,11 +153,27 @@ class Ancestry
     }
 
     /**
-     * @param ArrayCollection $abilityBoosts
+     * @param Ability $abilityBoost
      */
-    public function setAbilityBoosts(ArrayCollection $abilityBoosts): void
+    public function addAbilityBoost(Ability $abilityBoost): void
     {
-        $this->abilityBoosts = $abilityBoosts;
+        if (!$this->abilityBoosts->contains($abilityBoost)) {
+            $this->abilityBoosts->add($abilityBoost);
+        }
+
+        return;
+    }
+
+    /**
+     * @param Ability $abilityBoost
+     */
+    public function removeAbilityBoost(Ability $abilityBoost): void
+    {
+        if ($this->abilityBoosts->contains($abilityBoost)) {
+            $this->abilityBoosts->removeElement($abilityBoost);
+        }
+
+        return;
     }
 
     /**
@@ -171,11 +187,27 @@ class Ancestry
     }
 
     /**
-     * @param ArrayCollection $cultures
+     * @param Culture $culture
      */
-    public function setCultures(ArrayCollection $cultures): void
+    public function addCulture(Culture $culture): void
     {
-        $this->cultures = $cultures;
+        if (!$this->cultures->contains($culture)) {
+            $this->cultures->add($culture);
+        }
+
+        return;
+    }
+
+    /**
+     * @param Culture $culture
+     */
+    public function removeCulture(Culture $culture): void
+    {
+        if ($this->cultures->contains($culture)) {
+            $this->cultures->removeElement($culture);
+        }
+
+        return;
     }
 
     /**
@@ -189,11 +221,27 @@ class Ancestry
     }
 
     /**
-     * @param ArrayCollection $attributes
+     * @param Attribute $attribute
      */
-    public function setAttributes(ArrayCollection $attributes): void
+    public function addAttribute(Attribute $attribute): void
     {
-        $this->attributes = $attributes;
+        if (!$this->attributes->contains($attribute)) {
+            $this->attributes->add($attribute);
+        }
+
+        return;
+    }
+
+    /**
+     * @param Attribute $attribute
+     */
+    public function removeAttribute(Attribute $attribute): void
+    {
+        if ($this->attributes->contains($attribute)) {
+            $this->attributes->removeElement($attribute);
+        }
+
+        return;
     }
 
     /**
