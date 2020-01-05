@@ -33,7 +33,7 @@ class AdminAttributeController extends BaseController
 
     /**
      * @Route("/admin/core/attribute/create", name="attribute_create")
-     * @Template("core/attribute/form.html.twig")
+     * @Template("core/attribute/create.html.twig")
      */
     public function createAttributeAction(Request $request)
     {
@@ -63,7 +63,7 @@ class AdminAttributeController extends BaseController
 
     /**
      * @Route("/admin/core/attribute/{id}/edit", name="attribute_edit")
-     * @Template("core/attribute/form.html.twig")
+     * @Template("core/attribute/edit.html.twig")
      */
     public function editAttributeAction(Request $request, Attribute $attribute)
     {

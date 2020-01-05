@@ -33,7 +33,7 @@ class AdminScriptController extends BaseController
 
     /**
      * @Route("/admin/setting/script/create", name="script_create")
-     * @Template("setting/script/form.html.twig")
+     * @Template("setting/script/create.html.twig")
      */
     public function createScriptAction(Request $request)
     {
@@ -63,7 +63,7 @@ class AdminScriptController extends BaseController
 
     /**
      * @Route("/admin/setting/script/{id}/edit", name="script_edit")
-     * @Template("setting/script/form.html.twig")
+     * @Template("setting/script/edit.html.twig")
      */
     public function editScriptAction(Request $request, Script $script)
     {

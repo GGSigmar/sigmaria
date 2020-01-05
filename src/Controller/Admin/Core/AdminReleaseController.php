@@ -49,7 +49,7 @@ class AdminReleaseController extends BaseController
 
     /**
      * @Route("/admin/core/release/{id}/edit", name="release_edit")
-     * @Template("core/release/form.html.twig")
+     * @Template("core/release/edit.html.twig")
      */
     public function editContentChangedAction(Request $request, Release $release)
     {

@@ -17,7 +17,7 @@ class AdminFeatController extends BaseController
 {
     /**
      * @Route("/admin/core/feat/create", name="feat_create")
-     * @Template("core/feat/form.html.twig")
+     * @Template("core/feat/create.html.twig")
      */
     public function createFeatAction(Request $request)
     {
@@ -47,7 +47,7 @@ class AdminFeatController extends BaseController
 
     /**
      * @Route("/admin/core/feat/{id}/edit", name="feat_edit")
-     * @Template("core/feat/form.html.twig")
+     * @Template("core/feat/edit.html.twig")
      */
     public function editFeatAction(Request $request, Feat $feat)
     {

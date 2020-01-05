@@ -23,7 +23,10 @@ class Ancestry
 {
     use BaseFieldsTrait, ReleasableTrait, TimestampableEntity;
 
-    public const ADDITIONAL_LANGUAGES_MESSAGE = '';
+    public const LANGUAGES_MESSAGE = 'Znasz dwa języki pospolite dla twojej kultury lub rodzimego regionu
+    (najczęściej Wspólny oraz język ojczysty twojej rasy).
+    Jeżeli twój modyfikator Inteligencji jest dodatni, znasz dodatkową liczbę języków równą jego wartości.
+    Dodatkowe języki również muszą być językami pospolicie znanymi w twojej kulturze lub rodzimym regionie.';
 
     /**
      * @var AncestralHitPoints
@@ -227,6 +230,14 @@ class Ancestry
         }
 
         return;
+    }
+
+    /**
+     * @return string
+     */
+    public function getLanguagesMessage(): string
+    {
+        return self::LANGUAGES_MESSAGE;
     }
 
     /**

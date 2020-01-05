@@ -17,7 +17,7 @@ class AdminAncestryController extends BaseController
 {
     /**
      * @Route("/admin/ancestry/create", name="ancestry_create")
-     * @Template("ancestry/ancestry/form.html.twig")
+     * @Template("ancestry/ancestry/create.html.twig")
      */
     public function createAncestryAction(Request $request)
     {
@@ -47,7 +47,7 @@ class AdminAncestryController extends BaseController
 
     /**
      * @Route("/admin/ancestry/{id}/edit", name="ancestry_edit")
-     * @Template("ancestry/ancestry/form.html.twig")
+     * @Template("ancestry/ancestry/edit.html.twig")
      */
     public function editAncestryAction(Request $request, Ancestry $ancestry)
     {

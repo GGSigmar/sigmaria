@@ -17,7 +17,7 @@ class AdminLanguageController extends BaseController
 {
     /**
      * @Route("/admin/setting/language/create", name="language_create")
-     * @Template("setting/language/form.html.twig")
+     * @Template("setting/language/create.html.twig")
      */
     public function createLanguageAction(Request $request)
     {
@@ -47,7 +47,7 @@ class AdminLanguageController extends BaseController
 
     /**
      * @Route("/admin/setting/language/{id}/edit", name="language_edit")
-     * @Template("setting/language/form.html.twig")
+     * @Template("setting/language/edit.html.twig")
      */
     public function editLanguageAction(Request $request, Language $language)
     {

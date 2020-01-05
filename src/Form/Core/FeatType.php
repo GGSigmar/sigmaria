@@ -44,7 +44,7 @@ class FeatType extends AbstractType
                 'label' => 'Warunki',
             ])
             ->add('specialRules', TextareaType::class, [
-                'label' => 'Wyjątki/właściwość specjalna/specjalne zasady',
+                'label' => 'Właściwość specialna',
             ])
             ->add('attributes', EntityType::class, [
                 'label' => 'Atrybuty',

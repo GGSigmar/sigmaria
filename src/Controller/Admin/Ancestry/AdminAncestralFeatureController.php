@@ -33,7 +33,7 @@ class AdminAncestralFeatureController extends BaseController
 
     /**
      * @Route("/admin/ancestry/feature/create", name="ancestral_feature_create")
-     * @Template("ancestry/feature/form.html.twig")
+     * @Template("ancestry/feature/create.html.twig")
      */
     public function createAncestralFeatureAction(Request $request)
     {
@@ -63,7 +63,7 @@ class AdminAncestralFeatureController extends BaseController
 
     /**
      * @Route("/admin/ancestry/feature/{id}/edit", name="ancestral_feature_edit")
-     * @Template("ancestry/feature/form.html.twig")
+     * @Template("ancestry/feature/edit.html.twig")
      */
     public function editAncestralFeatureAction(Request $request, AncestralFeature $ancestralFeature)
     {

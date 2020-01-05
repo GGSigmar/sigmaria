@@ -33,7 +33,7 @@ class AdminLoreController extends BaseController
 
     /**
      * @Route("/admin/core/lore/create", name="lore_create")
-     * @Template("core/lore/form.html.twig")
+     * @Template("core/lore/create.html.twig")
      */
     public function createLoreAction(Request $request)
     {
@@ -63,7 +63,7 @@ class AdminLoreController extends BaseController
 
     /**
      * @Route("/admin/core/lore/{id}/edit", name="lore_edit")
-     * @Template("core/lore/form.html.twig")
+     * @Template("core/lore/edit.html.twig")
      */
     public function editLoreAction(Request $request, Lore $lore)
     {
