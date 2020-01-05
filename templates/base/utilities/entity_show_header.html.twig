@@ -1,0 +1,12 @@
+<div class="mb-4">
+    <h1>
+        {{ entity.name }}
+        <div class="float-right">
+            {% if is_granted('ROLE_ADMIN') %}
+                {% include "base/buttons/entity_edit_button.html.twig" with {'entityName': entityName, 'entity': entity} %}
+            {% endif %}
+            {% include "base/buttons/entity_list_button.html.twig" with {'entityName': entityName} %}
+        </div>
+    </h1>
+    {% include "base/utilities/entity_release_note.html.twig" with {'entity': entity} %}
+</div>

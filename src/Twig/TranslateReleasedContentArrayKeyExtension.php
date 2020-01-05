@@ -11,6 +11,8 @@ class TranslateReleasedContentArrayKeyExtension extends AbstractExtension
         'ancestry' => 'Rasy',
         'feat' => 'Atuty',
         'language' => 'Języki',
+        'background' => 'Pochodzenia',
+        'culture' => 'Kultury',
     ];
 
     public function getFilters()

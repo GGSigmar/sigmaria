@@ -2,19 +2,7 @@
 
 {% block content %}
     <div class="col-md-12">
-        <div class="mb-4">
-            <h1>
-                {{ background.name }}
-                <div class="float-right">
-                    {% if is_granted('ROLE_ADMIN') %}
-                        {% include "base/buttons/entity_edit_button.html.twig" with {'entityName': entityName, 'entity': background} %}
-                    {% endif %}
-                    {% include "base/buttons/entity_list_button.html.twig" with {'entityName': entityName} %}
-                </div>
-            </h1>
-
-            {% include "base/utilities/entity_release_note.html.twig" with {'entity': background} %}
-        </div>
+        {% include "base/utilities/entity_show_header.html.twig" with {'entity': background} %}
     </div>
 
     {% include "setting/background/entry.html.twig" with {'background': background} only %}

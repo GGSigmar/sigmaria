@@ -1,18 +1,7 @@
 {% extends "base/base.html.twig" %}
 {% block content %}
     <div class="col-md-9">
-        <div class="mb-4">
-            <h1>
-                {{ ancestry.name }}
-                <div class="float-right">
-                    {% if is_granted('ROLE_ADMIN') %}
-                        {% include "base/buttons/entity_edit_button.html.twig" with {'entityName': entityName, 'entity': ancestry} %}
-                    {% endif %}
-                    {% include "base/buttons/entity_list_button.html.twig" with {'entityName': entityName} %}
-                </div>
-            </h1>
-            {% include "base/utilities/entity_release_note.html.twig" with {'entity': ancestry} %}
-        </div>
+        {% include "base/utilities/entity_show_header.html.twig" with {'entity': ancestry} %}
 
         <p class="mb-4">
             {{ ancestry.description|raw }}
@@ -57,13 +46,17 @@
 
         <h5>Atrybuty</h5>
         <p class="mb-4">
-            {% for attribute in ancestry.attributes %}
-                {{ attribute.name}}
+            {% if ancestry.attributes is empty %}
+                Brak.
+            {% else %}
+                {% for attribute in ancestry.attributes %}
+                    {{ attribute.name}}
 
-                {% if not loop.last %}
-                    <br />
-                {% endif %}
-            {% endfor %}
+                    {% if not loop.last %}
+                        <br />
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
         </p>
 
         <h5>Kultury</h5>

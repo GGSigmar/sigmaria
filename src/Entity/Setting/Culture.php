@@ -62,6 +62,7 @@ class Culture
      * @var ArrayCollection
      *
      * @ORM\ManyToMany(targetEntity="App\Entity\Core\Feat", fetch="EXTRA_LAZY")
+     * @ORM\OrderBy({"level"="ASC"})
      * @ORM\JoinTable(name="setting_culture_feat")
      */
     private $feats;

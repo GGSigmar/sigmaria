@@ -55,7 +55,7 @@ class CultureType extends AbstractType
                         ->innerJoin('f.attributes', 'a')
                         ->innerJoin('a.category', 'c')
                         ->andWhere('c.handle LIKE :cultural_category')
-                        ->setParameter('ancestral_category', AttributeCategory::ATTRIBUTE_CATEGORY_CULTURE);
+                        ->setParameter('cultural_category', AttributeCategory::ATTRIBUTE_CATEGORY_ANCESTRAL);
                 },
             ])
         ;

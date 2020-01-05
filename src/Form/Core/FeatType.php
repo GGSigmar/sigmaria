@@ -32,18 +32,23 @@ class FeatType extends AbstractType
                 'label' => 'Poziom',
             ])
             ->add('prerequisites', TextareaType::class, [
+                'required' => false,
                 'label' => 'Wymagania',
             ])
             ->add('frequency', TextareaType::class, [
+                'required' => false,
                 'label' => 'Częstotliwość',
             ])
             ->add('trigger', TextareaType::class, [
+                'required' => false,
                 'label' => 'Wyzwalacz',
             ])
             ->add('requirements', TextareaType::class, [
+                'required' => false,
                 'label' => 'Warunki',
             ])
             ->add('specialRules', TextareaType::class, [
+                'required' => false,
                 'label' => 'Właściwość specialna',
             ])
             ->add('attributes', EntityType::class, [
