@@ -1,0 +1,24 @@
+{% extends "base/base_list.html.twig" %}
+
+{% block list_title %}
+    Atrybuty
+{% endblock %}
+
+{% block table_headers %}
+    <th>Nazwa</th>
+    <th>Kategoria</th>
+    <th>Akcje</th>
+{% endblock %}
+
+{% block table_rows %}
+    {% for attribute in attributes %}
+        <tr class="{% include "base/utilities/inactive_entity_row_classes.html.twig" with {'entity': attribute} %}">
+            <td class="align-middle">{{ attribute.name }}</td>
+            <td class="align-middle">{{ attribute.category.name }}</td>
+            <td class="align-middle text-nowrap">
+                {% include "base/buttons/entity_edit_button.html.twig" with {'entityName': entityName, 'entity': attribute} %}
+                {% include "base/buttons/entity_delete_buttons.html.twig" with {'entityName': entityName, 'entity': attribute} %}
+            </td>
+        </tr>
+    {% endfor %}
+{% endblock %}
