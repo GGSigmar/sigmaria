@@ -13,7 +13,7 @@ class AncestralHitPointsFixtures extends Fixture
         $hitPoints6 = new AncestralHitPoints();
         $hitPoints6->setHandle(AncestralHitPoints::ANCESTRAL_HIT_POINTS_6);
         $hitPoints6->setName('6');
-        $hitPoints6->setValue(-1);
+        $hitPoints6->setValue(0);
 
         $hitPoints8 = new AncestralHitPoints();
         $hitPoints8->setHandle(AncestralHitPoints::ANCESTRAL_HIT_POINTS_8);
@@ -23,7 +23,7 @@ class AncestralHitPointsFixtures extends Fixture
         $hitPoints10 = new AncestralHitPoints();
         $hitPoints10->setHandle(AncestralHitPoints::ANCESTRAL_HIT_POINTS_10);
         $hitPoints10->setName('10');
-        $hitPoints10->setValue(1);
+        $hitPoints10->setValue(0);
 
         $hitPoints12 = new AncestralHitPoints();
         $hitPoints12->setHandle(AncestralHitPoints::ANCESTRAL_HIT_POINTS_12);

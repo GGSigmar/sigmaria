@@ -25,7 +25,7 @@
         {% for entityId, entityName in entityNameArray %}
             {% set showPathName = (entityType ~ '_show') %}
 
-            {% include "base/badges/entity_show_badge.html.twig" with {'entityName': entityType, "entityId": entityId} %}
+            {% include "base/badges/entity_show_badge.html.twig" with {'entityName': entityType, "entityId": entityId} %} {{ entityName }}
             
             {% if not loop.last %}
                 <br />

@@ -2,34 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0b9a3871-3386-4d40-9261-e24049e96f75" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/templates/ancestry/ancestry/edit.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/ancestry/feature/edit.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/core/attribute/edit.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/core/feat/create.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/core/lore/edit.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/setting/language/edit.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/setting/script/edit.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/base/badges/attribute_badge.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Admin/Ancestry/AdminAncestralFeatureController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Admin/Ancestry/AdminAncestralFeatureController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Admin/Ancestry/AdminAncestryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Admin/Ancestry/AdminAncestryController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Admin/Core/AdminAttributeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Admin/Core/AdminAttributeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Admin/Core/AdminFeatController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Admin/Core/AdminFeatController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Admin/Core/AdminLoreController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Admin/Core/AdminLoreController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Admin/Core/AdminReleaseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Admin/Core/AdminReleaseController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Admin/Setting/AdminLanguageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Admin/Setting/AdminLanguageController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Admin/Setting/AdminScriptController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Admin/Setting/AdminScriptController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Ancestry/Ancestry.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Ancestry/Ancestry.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/Core/FeatType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/Core/FeatType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/ancestry/ancestry/form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/ancestry/ancestry/create.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/ancestry/ancestry/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/ancestry/ancestry/show.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/ancestry/feature/form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/ancestry/feature/create.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/core/attribute/form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/core/attribute/create.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DataFixtures/Ancestry/AncestralHitPointsFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/Ancestry/AncestralHitPointsFixtures.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/ancestry/ancestry/list.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/ancestry/ancestry/list.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/ancestry/feature/list.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/ancestry/feature/list.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/core/feat/entry.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/core/feat/entry.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/core/feat/form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/core/feat/edit.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/core/lore/form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/core/lore/create.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/core/release/form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/core/release/edit.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/setting/language/form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/setting/language/create.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/setting/script/form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/setting/script/create.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/core/feat/list.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/core/feat/list.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/core/release/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/core/release/show.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/core/user/list.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/core/user/list.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/setting/language/list.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/setting/language/list.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -242,7 +225,7 @@
       <workItem from="1578066436656" duration="8083000" />
       <workItem from="1578075173714" duration="8725000" />
       <workItem from="1578131951589" duration="29425000" />
-      <workItem from="1578225634774" duration="1371000" />
+      <workItem from="1578225634774" duration="4313000" />
     </task>
     <servers />
   </component>
@@ -273,9 +256,10 @@
     </state>
     <state x="625" y="231" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1578171318308" />
     <state x="568" y="221" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/70.27.1530.873@70.27.1530.873" timestamp="1577748604635" />
-    <state x="170" y="127" width="1330" height="673" key="DiffContextDialog" timestamp="1577789038253">
-      <screen x="70" y="27" width="1530" height="873" />
+    <state x="125" y="119" width="1670" height="802" key="DiffContextDialog" timestamp="1578227779373">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="125" y="119" width="1670" height="802" key="DiffContextDialog/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1578227779373" />
     <state x="170" y="127" width="1330" height="673" key="DiffContextDialog/70.27.1530.873@70.27.1530.873" timestamp="1577789038253" />
     <state x="618" y="221" width="424" height="491" key="FileChooserDialogImpl" timestamp="1577136336958">
       <screen x="70" y="27" width="1530" height="873" />
@@ -295,24 +279,25 @@
     </state>
     <state x="319" y="85" key="SettingsEditor/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1578067447032" />
     <state x="324" y="98" width="1022" height="737" key="SettingsEditor/70.27.1530.873@70.27.1530.873" timestamp="1577881803401" />
-    <state x="469" y="168" width="722" height="598" key="VCS.ChangeListViewerDialog" timestamp="1577789039156">
-      <screen x="70" y="27" width="1530" height="873" />
+    <state x="501" y="168" width="722" height="598" key="VCS.ChangeListViewerDialog" timestamp="1578227775116">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="501" y="168" key="VCS.ChangeListViewerDialog/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1578227775116" />
     <state x="469" y="168" width="722" height="598" key="VCS.ChangeListViewerDialog/70.27.1530.873@70.27.1530.873" timestamp="1577789039156" />
     <state x="528" y="315" key="com.intellij.ide.util.TipDialog" timestamp="1578225670931">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="528" y="315" key="com.intellij.ide.util.TipDialog/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1578225670931" />
     <state x="491" y="291" key="com.intellij.ide.util.TipDialog/70.27.1530.873@70.27.1530.873" timestamp="1577918559018" />
-    <state x="417" y="20" width="1032" height="1001" key="find.popup" timestamp="1578225962301">
+    <state x="417" y="20" width="1032" height="1001" key="find.popup" timestamp="1578229429383">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="417" y="20" width="1032" height="1001" key="find.popup/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1578225962301" />
+    <state x="417" y="20" width="1032" height="1001" key="find.popup/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1578229429383" />
     <state x="465" y="43" width="822" height="840" key="find.popup/70.27.1530.873@70.27.1530.873" timestamp="1577887556269" />
-    <state x="537" y="223" width="844" height="808" key="search.everywhere.popup" timestamp="1578226658234">
+    <state x="537" y="223" width="844" height="808" key="search.everywhere.popup" timestamp="1578229980915">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="537" y="223" width="844" height="808" key="search.everywhere.popup/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1578226658234" />
+    <state x="537" y="223" width="844" height="808" key="search.everywhere.popup/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1578229980915" />
     <state x="498" y="214" width="672" height="678" key="search.everywhere.popup/70.27.1530.873@70.27.1530.873" timestamp="1577887898996" />
   </component>
 </project>

@@ -5,8 +5,10 @@
 {% endblock %}
 
 {% block table_headers %}
-    <th>Nazwa</th>
-    <th>Akcje</th>
+    <th class="align-middle">Nazwa</th>
+    <th class="align-middle">Poziom</th>
+    <th class="align-middle">Atrybuty</th>
+    <th class="align-middle">Akcje</th>
 {% endblock %}
 
 {% block table_rows %}
@@ -14,6 +16,12 @@
         {% if is_granted('ROLE_ADMIN') or feat.isActive %}
             <tr class="{% include "base/utilities/inactive_entity_row_classes.html.twig" with {'entity': feat} %}">
                 <td class="align-middle">{{ feat.name }}</td>
+                <td class="align-middle">{{ feat.level }}</td>
+                <td class="align-middle">
+                    {% for attribute in feat.attributes %}
+                        {% include "base/badges/attribute_badge.html.twig" with {'attribute': attribute} %}
+                    {% endfor %}
+                </td>
                 <td class="align-middle text-nowrap">
                     {% include "base/buttons/entity_show_button.html.twig" with {'entityName': entityName, 'entity': feat} %}
                     {% if is_granted('ROLE_ADMIN') %}

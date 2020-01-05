@@ -8,7 +8,7 @@
     <div>
         <span class="badge badge-primary border border-white">{{ feat.rarity.name|masculine }}</span>
         {% for attribute in feat.attributes %}
-            <span class="badge badge-danger border border-white">{{ attribute.name }}</span>
+            {% include "base/badges/attribute_badge.html.twig" with {'attribute': attribute} %}
         {% endfor %}
     </div>
     <div>
