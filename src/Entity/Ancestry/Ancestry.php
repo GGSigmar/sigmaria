@@ -91,7 +91,7 @@ class Ancestry
      * @var ArrayCollection
      *
      * @ORM\ManyToMany(targetEntity="App\Entity\Core\Feat", fetch="EXTRA_LAZY")
-     * @ORM\OrderBy({"level"="ASC"})
+     * @ORM\OrderBy({"level"="ASC", "name"="ASC"})
      * @ORM\JoinTable(name="ancestry_ancestry_feat")
      */
     private $feats;
