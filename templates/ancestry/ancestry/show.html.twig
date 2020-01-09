@@ -13,8 +13,7 @@
         {% else %}
             {% for feature in ancestry.ancestralFeatures %}
                 <p class="mb-4">
-                    <b>{{ feature.name }}</b>
-                    <span class="float-right">{% include "base/badges/entity_edit_badge.html.twig" with {'entityName': 'ancestral_feature', 'entityId': feature.id} %}</span>
+                    <b>{{ feature.name }}</b> {% include "base/badges/entity_edit_badge.html.twig" with {'entityName': 'ancestral_feature', 'entityId': feature.id} %}
                     <br />
                     {{ feature.description }}
                 </p>
