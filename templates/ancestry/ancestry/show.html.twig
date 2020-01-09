@@ -12,7 +12,9 @@
             Brak.
         {% else %}
             {% for feature in ancestry.ancestralFeatures %}
-                <p class="mb-4"><b>{{ feature.name }}</b>
+                <p class="mb-4">
+                    <b>{{ feature.name }}</b>
+                    <span class="float-right">{% include "base/badges/entity_edit_badge.html.twig" with {'entityName': 'ancestral_feature', 'entityId': feature.id} %}</span>
                     <br />
                     {{ feature.description }}
                 </p>
