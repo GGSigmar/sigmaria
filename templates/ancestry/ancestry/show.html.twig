@@ -81,8 +81,14 @@
         {% endif %}
     </div>
     {% if ancestry.feats is not empty %}
-        {% for feat in ancestry.feats %}
-            {% include "core/feat/entry.html.twig" with {'feat': feat} %}
-        {% endfor %}
+        {% if is_granted('ROLE_ADMIN') %}
+            {% for feat in ancestry.allFeats %}
+                {% include "core/feat/entry.html.twig" with {'feat': feat} %}
+            {% endfor %}
+        {% else %}
+            {% for feat in ancestry.feats %}
+                {% include "core/feat/entry.html.twig" with {'feat': feat} %}
+            {% endfor %}
+        {% endif %}
     {% endif %}
 {% endblock %}

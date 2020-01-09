@@ -297,9 +297,25 @@ class Ancestry
      */
     public function getFeats(): Collection
     {
+        return $this->getActiveFeats();
+    }
+
+    /**
+     * @return Collection|Feat[]
+     */
+    public function getActiveFeats(): Collection
+    {
         return $this->feats->filter(function ($feat) {
             return $feat->isActive();
         });
+    }
+
+    /**
+     * @return Collection|Feat[]
+     */
+    public function getAllFeats(): Collection
+    {
+        return $this->feats;
     }
 
     /**
