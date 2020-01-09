@@ -297,7 +297,7 @@ class Ancestry
      */
     public function getFeats(): Collection
     {
-        return $this->getActiveFeats();
+        return $this->feats;
     }
 
     /**
@@ -308,14 +308,6 @@ class Ancestry
         return $this->feats->filter(function ($feat) {
             return $feat->isActive();
         });
-    }
-
-    /**
-     * @return Collection|Feat[]
-     */
-    public function getAllFeats(): Collection
-    {
-        return $this->feats;
     }
 
     /**

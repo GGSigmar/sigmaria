@@ -82,11 +82,11 @@
     </div>
     {% if ancestry.feats is not empty %}
         {% if is_granted('ROLE_ADMIN') %}
-            {% for feat in ancestry.allFeats %}
+            {% for feat in ancestry.feats %}
                 {% include "core/feat/entry.html.twig" with {'feat': feat} %}
             {% endfor %}
         {% else %}
-            {% for feat in ancestry.feats %}
+            {% for feat in ancestry.activeFeats %}
                 {% include "core/feat/entry.html.twig" with {'feat': feat} %}
             {% endfor %}
         {% endif %}
