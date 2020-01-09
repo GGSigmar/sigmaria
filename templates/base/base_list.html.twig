@@ -12,15 +12,17 @@
             </div>
         {% endif %}
 
-        <table class="table table-responsive table-striped bg-light text-center">
-            <thead>
+        <div class="table-responsive">
+            <table class="table table-striped bg-light text-center">
+                <thead>
                 <tr>
                     {% block table_headers %}{% endblock %}
                 </tr>
-            </thead>
-            <tbody>
+                </thead>
+                <tbody>
                 {% block table_rows %}{% endblock %}
-            </tbody>
-        </table>
+                </tbody>
+            </table>
+        </div>
     </div>
 {% endblock %}
