@@ -83,7 +83,6 @@ class Ancestry
      *
      * @ORM\ManyToMany(targetEntity="App\Entity\Ancestry\AncestralFeature", inversedBy="ancestries", fetch="EXTRA_LAZY")
      * @ORM\JoinTable(name="ancestry_ancestry_ancestral_feature")
-     * @Assert\Count(min="1")
      */
     private $ancestralFeatures;
 
@@ -191,6 +190,14 @@ class Ancestry
      */
     public function getCultures(): Collection
     {
+        return $this->cultures;
+    }
+
+    /**
+     * @return Collection|Culture[]
+     */
+    public function getActiveCultures(): Collection
+    {
         return $this->cultures->filter(function ($culture) {
             return $culture->isActive();
         });
@@ -260,6 +267,14 @@ class Ancestry
      * @return Collection|AncestralFeature[]
      */
     public function getAncestralFeatures(): Collection
+    {
+        return $this->ancestralFeatures;
+    }
+
+    /**
+     * @return Collection|AncestralFeature[]
+     */
+    public function getActiveAncestralFeatures(): Collection
     {
         return $this->ancestralFeatures->filter(function ($ancestralFeature) {
             return $ancestralFeature->isActive();
