@@ -1,0 +1,33 @@
+<div class="mb-4">
+    <div class="border-bottom border-white" style="width:100%;">
+        <h5>
+            {{ heritage.name|upper }}
+            <span class="float-right">
+                DZIEDZICTWO
+                {% if is_granted('ROLE_ADMIN') %}
+                    {% if heritage.value != heritage.ancestry.heritageValue %}
+                        {% include 'base/badges/warning_badge.html.twig' %}
+                    {% endif %}
+                    {% include "base/badges/entity_edit_badge.html.twig" with {'entityName': 'heritage', 'entityId': heritage.id} %}
+                {% endif %}
+            </span>
+        </h5>
+    </div>
+    <div>
+        <span class="badge badge-primary border border-white">{{ heritage.rarity.name|neuter }}</span>
+    </div>
+    <div class="mb-2">
+        {{ heritage.description }}
+    </div>
+    <div>
+        {% if is_granted('ROLE_ADMIN') %}
+            {% for feature in heritage.ancestralFeatures %}
+                {% include 'ancestry/feature/entry.html.twig' with {'feature': feature} %}
+            {% endfor %}
+        {% else %}
+            {% for feature in heritage.activeAncestralFeatures %}
+                {% include 'ancestry/feature/entry.html.twig' with {'feature': feature} %}
+            {% endfor %}
+        {% endif %}
+    </div>
+</div>

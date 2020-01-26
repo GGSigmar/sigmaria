@@ -89,6 +89,21 @@ class Ancestry
     /**
      * @var ArrayCollection
      *
+     * @ORM\OneToMany(targetEntity="App\Entity\Ancestry\Heritage", mappedBy="ancestry", fetch="EXTRA_LAZY")
+     * @ORM\JoinTable(name="ancestry_ancestry_heritage")
+     */
+    private $heritages;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(type="integer")
+     */
+    private $heritageValue;
+
+    /**
+     * @var ArrayCollection
+     *
      * @ORM\ManyToMany(targetEntity="App\Entity\Core\Feat", fetch="EXTRA_LAZY")
      * @ORM\OrderBy({"level"="ASC", "name"="ASC"})
      * @ORM\JoinTable(name="ancestry_ancestry_feat")
@@ -103,6 +118,7 @@ class Ancestry
         $this->attributes = new ArrayCollection();
         $this->ancestralFeatures = new ArrayCollection();
         $this->feats = new ArrayCollection();
+        $this->heritages = new ArrayCollection();
     }
 
     /**
@@ -305,6 +321,64 @@ class Ancestry
         }
 
         return;
+    }
+
+    /**
+     * @return Collection|Heritage[]
+     */
+    public function getHeritages(): Collection
+    {
+        return $this->heritages;
+    }
+
+    /**
+     * @return Collection|Heritage[]
+     */
+    public function getActiveHeritages(): Collection
+    {
+        return $this->heritages->filter(function ($heritage) {
+            return $heritage->isActive();
+        });
+    }
+
+    /**
+     * @param Heritage $heritage
+     */
+    public function addHeritage(Heritage $heritage): void
+    {
+        if (!$this->heritages->contains($heritage)) {
+            $this->heritages->add($heritage);
+        }
+
+        return;
+    }
+
+    /**
+     * @param Heritage $heritage
+     */
+    public function removeHeritage(Heritage $heritage): void
+    {
+        if ($this->heritages->contains($heritage)) {
+            $this->heritages->removeElement($heritage);
+        }
+
+        return;
+    }
+
+    /**
+     * @return int
+     */
+    public function getHeritageValue(): int
+    {
+        return $this->heritageValue;
+    }
+
+    /**
+     * @param int $heritageValue
+     */
+    public function setHeritageValue(int $heritageValue): void
+    {
+        $this->heritageValue = $heritageValue;
     }
 
     /**

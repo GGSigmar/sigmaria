@@ -1,0 +1,8 @@
+<p class="mb-2">
+    <b>{{ feature.name }}</b>
+    {% if is_granted('ROLE_ADMIN') %}
+        {% include "base/badges/entity_edit_badge.html.twig" with {'entityName': 'ancestral_feature', 'entityId': feature.id} %}
+    {% endif %}
+    <br />
+    {{ feature.description }}
+</p>

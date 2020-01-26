@@ -7,31 +7,17 @@
             {{ ancestry.description|raw }}
         </p>
 
-        <h5>Zdolności rasowe</h5>
+        <h3>Zdolności rasowe</h3>
         {% if ancestry.ancestralFeatures is empty %}
             Brak.
         {% else %}
             {% if is_granted('ROLE_ADMIN') %}
                 {% for feature in ancestry.ancestralFeatures %}
-                    <p class="mb-2">
-                        <b>{{ feature.name }}</b>
-                        {% if is_granted('ROLE_ADMIN') %}
-                            {% include "base/badges/entity_edit_badge.html.twig" with {'entityName': 'ancestral_feature', 'entityId': feature.id} %}
-                        {% endif %}
-                        <br />
-                        {{ feature.description }}
-                    </p>
+                    {% include 'ancestry/feature/entry.html.twig' with {'feature': feature} %}
                 {% endfor %}
             {% else %}
                 {% for feature in ancestry.activeAncestralFeatures %}
-                    <p class="mb-2">
-                        <b>{{ feature.name }}</b>
-                        {% if is_granted('ROLE_ADMIN') %}
-                            {% include "base/badges/entity_edit_badge.html.twig" with {'entityName': 'ancestral_feature', 'entityId': feature.id} %}
-                        {% endif %}
-                        <br />
-                        {{ feature.description }}
-                    </p>
+                    {% include 'ancestry/feature/entry.html.twig' with {'feature': feature} %}
                 {% endfor %}
             {% endif %}
         {% endif %}
@@ -40,6 +26,11 @@
         {% if is_granted('ROLE_ADMIN') %}
             <h5>Wartość</h5>
             <p class="mb-4">{{ ancestry.value }}</p>
+        {% endif %}
+
+        {% if is_granted('ROLE_ADMIN') %}
+            <h5>Wartość dziedzictwa</h5>
+            <p class="mb-4">{{ ancestry.heritageValue }}</p>
         {% endif %}
 
         <h5>Punkty zdrowia</h5>
@@ -102,7 +93,23 @@
         </p>
     </div>
     <div class="col-md-12">
-        <h5>Atuty rasowe</h5>
+        <h3>Dziedzictwa</h3>
+    </div>
+    {% if ancestry.heritages is not empty %}
+        {% if is_granted('ROLE_ADMIN') %}
+            {% for heritage in ancestry.heritages %}
+                <div class="col-md-6">
+                    {% include "ancestry/heritage/entry.html.twig" with {'heritage': heritage} %}
+                </div>
+            {% endfor %}
+        {% else %}
+            {% for heritage in ancestry.activeHeritages %}
+                <div class="col-md-6">{% include "ancestry/heritage/entry.html.twig" with {'heritage': heritage} %}</div>
+            {% endfor %}
+        {% endif %}
+    {% endif %}
+    <div class="col-md-12">
+        <h3>Atuty rasowe</h3>
         {% if ancestry.feats is empty %}
             Brak.
         {% endif %}

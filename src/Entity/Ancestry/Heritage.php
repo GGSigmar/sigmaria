@@ -5,6 +5,7 @@ namespace App\Entity\Ancestry;
 use App\Entity\Core\Traits\BaseFieldsTrait;
 use App\Entity\Core\Traits\ReleasableTrait;
 use App\Entity\Core\Traits\SimpleRarityTrait;
+use App\Entity\Core\Traits\ValueTrait;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
@@ -16,7 +17,14 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Heritage
 {
-    use BaseFieldsTrait, SimpleRarityTrait, ReleasableTrait, TimestampableEntity;
+    use BaseFieldsTrait, ValueTrait, SimpleRarityTrait, ReleasableTrait, TimestampableEntity;
+
+    /**
+     * @var Ancestry
+     *
+     * @ORM\ManyToOne(targetEntity="App\Entity\Ancestry\Ancestry", inversedBy="heritages")
+     */
+    private $ancestry;
 
     /**
      * @var ArrayCollection
@@ -30,6 +38,22 @@ class Heritage
     {
         $this->isActive = false;
         $this->ancestralFeatures = new ArrayCollection();
+    }
+
+    /**
+     * @return Ancestry|null
+     */
+    public function getAncestry(): ?Ancestry
+    {
+        return $this->ancestry;
+    }
+
+    /**
+     * @param Ancestry $ancestry
+     */
+    public function setAncestry(Ancestry $ancestry): void
+    {
+        $this->ancestry = $ancestry;
     }
 
     /**

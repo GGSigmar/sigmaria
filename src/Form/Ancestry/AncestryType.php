@@ -5,6 +5,7 @@ namespace App\Form\Ancestry;
 use App\Entity\Ancestry\AncestralFeature;
 use App\Entity\Ancestry\AncestralHitPoints;
 use App\Entity\Ancestry\Ancestry;
+use App\Entity\Ancestry\Heritage;
 use App\Entity\Core\Ability;
 use App\Entity\Core\Attribute;
 use App\Entity\Core\AttributeCategory;
@@ -16,6 +17,7 @@ use App\Form\Core\BaseEntityType;
 use Doctrine\ORM\EntityRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -70,6 +72,9 @@ class AncestryType extends AbstractType
                 'label' => 'Zdolności rasowe',
                 'multiple' => true,
                 'expanded' => true,
+            ])
+            ->add('heritageValue', IntegerType::class, [
+                'label' => 'Wartość dziedzictwa',
             ])
             ->add('feats', EntityType::class, [
                 'class' => Feat::class,
