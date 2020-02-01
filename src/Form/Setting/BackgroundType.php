@@ -43,9 +43,13 @@ class BackgroundType extends AbstractType
                 'class' => Feat::class,
                 'placeholder' => 'Wybierz atut',
             ])
-            ->add('additionalRules', TextType::class, [
+            ->add('atypicalAbilityBoosts', TextType::class, [
                 'required' => false,
-                'label' => 'Dodatkowe zasady',
+                'label' => 'Nietypowe premie do cech',
+            ])
+            ->add('atypicalRules', TextType::class, [
+                'required' => false,
+                'label' => 'Nietypowe zasady',
             ])
         ;
     }

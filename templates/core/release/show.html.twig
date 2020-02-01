@@ -23,8 +23,6 @@
     <div class="col-md-4">
         <h5>{{ entityType|releaseKey }}</h5>
         {% for entityId, entityName in entityNameArray %}
-            {% set showPathName = (entityType ~ '_show') %}
-
             {% include "base/badges/entity_show_badge.html.twig" with {'entityName': entityType, "entityId": entityId} %} {{ entityName }}
             
             {% if not loop.last %}

@@ -4,6 +4,7 @@ namespace App\Command;
 
 use App\Entity\Ancestry\AncestralFeature;
 use App\Entity\Ancestry\Ancestry;
+use App\Entity\Ancestry\Heritage;
 use App\Entity\Core\Feat;
 use App\Entity\Core\Release;
 use App\Entity\Setting\Background;
@@ -23,9 +24,6 @@ class ReleaseContentCommand extends Command
     use LockableTrait;
 
     protected static $defaultName = 'content:release';
-
-    private const ANCESTRY_RELEASE_MESSAGE = 'Wydawanie rasy %s';
-    private const FEAT_RELEASE_MESSAGE = 'Wydawanie atutu %s';
 
     /**
      * @var EntityManagerInterface
@@ -92,6 +90,21 @@ class ReleaseContentCommand extends Command
                 $releasedDataArray['ancestry'][$ancestry->getId()] = $ancestry->getName();
                 $ancestry->setRelease($release);
                 $this->em->persist($ancestry);
+            }
+        }
+
+        /* wydanie dziedzictw */
+
+        $heritageRepository = $this->em->getRepository(Heritage::class);
+
+        $heritagesToBeReleased = $heritageRepository->getHeritagesForRelease();
+
+        if ($heritagesToBeReleased) {
+            foreach ($heritagesToBeReleased as $heritage) {
+                $heritage->setIsActive(true);
+                $releasedDataArray['heritage'][$heritage->getId()] = $heritage->getName();
+                $heritage->setRelease($release);
+                $this->em->persist($heritage);
             }
         }
 

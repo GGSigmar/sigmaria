@@ -57,7 +57,14 @@ class Background
      *
      * @ORM\Column(type="string", nullable=true)
      */
-    private $additionalRules;
+    private $atypicalAbilityBoosts;
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(type="string", nullable=true)
+     */
+    private $atypicalRules;
 
     public function __construct()
     {
@@ -148,16 +155,34 @@ class Background
     /**
      * @return string|null
      */
-    public function getAdditionalRules(): ?string
+    public function getAtypicalAbilityBoosts(): ?string
     {
-        return $this->additionalRules;
+        return $this->atypicalAbilityBoosts;
     }
 
     /**
-     * @param string|null $additionalRules
+     * @param string|null $atypicalAbilityBoosts
      */
-    public function setAdditionalRules(?string $additionalRules): void
+    public function setAtypicalAbilityBoosts(?string $atypicalAbilityBoosts): void
     {
-        $this->additionalRules = $additionalRules;
+        $this->atypicalAbilityBoosts = $atypicalAbilityBoosts;
     }
+
+    /**
+     * @return string|null
+     */
+    public function getAtypicalRules(): ?string
+    {
+        return $this->atypicalRules;
+    }
+
+    /**
+     * @param string|null $atypicalRules
+     */
+    public function setAtypicalRules(?string $atypicalRules): void
+    {
+        $this->atypicalRules = $atypicalRules;
+    }
+    
+    
 }

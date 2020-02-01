@@ -21,7 +21,7 @@ class AdminReleaseController extends BaseController
      * @Route("/admin/core/release/list", name="release_list")
      * @Template("core/release/list.html.twig")
      */
-    public function listAttributesAction()
+    public function listReleasesAction()
     {
         $releases = $this->getDoctrine()->getRepository(Release::class)->findAll();
 
@@ -37,7 +37,7 @@ class AdminReleaseController extends BaseController
      * @Route("/admin/core/release/{id}/show", name="release_show")
      * @Template("core/release/show.html.twig")
      */
-    public function showFeatAction(Release $release)
+    public function showReleaseAction(Release $release)
     {
         $templateData = [
             'release' => $release,
@@ -51,7 +51,7 @@ class AdminReleaseController extends BaseController
      * @Route("/admin/core/release/{id}/edit", name="release_edit")
      * @Template("core/release/edit.html.twig")
      */
-    public function editContentChangedAction(Request $request, Release $release)
+    public function editReleaseAction(Request $request, Release $release)
     {
         $form = $this->createForm(ReleaseType::class, $release);
 
