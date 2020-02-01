@@ -22,22 +22,22 @@
         <div class="border-bottom border-white">
             {% if feat.prerequisites %}
                 <div>
-                    <b>Wymagania.</b> {{ feat.prerequisites }}
+                    <b>Wymagania:</b> {{ feat.prerequisites }}
                 </div>
             {% endif %}
             {% if feat.frequency %}
                 <div>
-                    <b>Częstotliwość.</b> {{ feat.frequency }}
+                    <b>Częstotliwość:</b> {{ feat.frequency }}
                 </div>
             {% endif %}
             {% if feat.trigger %}
                 <div>
-                    <b>Wyzwalacz.</b> {{ feat.trigger }}
+                    <b>Wyzwalacz:</b> {{ feat.trigger }}
                 </div>
             {% endif %}
             {% if feat.requirements %}
                 <div>
-                    <b>Warunki.</b> {{ feat.requirements }}
+                    <b>Warunki:</b> {{ feat.requirements }}
                 </div>
             {% endif %}
         </div>
@@ -47,7 +47,7 @@
     </div>
     {% if feat.specialRules %}
         <div class="indented">
-            <b>Właściwość specialna.</b> {{ feat.specialRules }}
+            <b>Właściwość specialna:</b> {{ feat.specialRules }}
         </div>
     {% endif %}
 </div>

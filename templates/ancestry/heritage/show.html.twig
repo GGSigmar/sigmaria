@@ -1,0 +1,85 @@
+{% extends "base/base.html.twig" %}
+
+{% block content %}
+    <div class="col-md-9">
+        {% include "base/utilities/entity_show_header.html.twig" with {'entity': heritage} %}
+
+        <p class="mb-4">
+            {{ heritage.description|raw }}
+        </p>
+
+        <h3>Zdolności dziedzictwa</h3>
+        {% if is_granted('ROLE_ADMIN') %}
+            {% set ancestralFeatures = heritage.ancestralFeatures %}
+        {% else %}
+            {% set ancestralFeatures = heritage.activeCncestralFeatures %}
+        {% endif %}
+
+        {% if ancestralFeatures is empty %}
+            Brak
+        {% else %}
+            {% for feature in ancestralFeatures %}
+                {% include 'ancestry/feature/entry.html.twig' with {'feature': feature} %}
+            {% endfor %}
+        {% endif %}
+    </div>
+    <div class="col-md-3">
+        {% if is_granted('ROLE_ADMIN') %}
+            <h5>Wartość</h5>
+            <p class="mb-4">
+                {{ heritage.value }}
+                {% if heritage.value != heritage.ancestry.heritageValue %}
+                    {% include 'base/badges/warning_badge.html.twig' with {'value': heritage.ancestry.heritageValue} %}
+                {% endif %}
+            </p>
+        {% endif %}
+
+        <h5>Rasa</h5>
+        <p class="mb-4">
+            {% include "base/badges/entity_show_badge.html.twig" with {'entityName': 'ancestry', 'entityId': heritage.ancestry.id} %}
+            {{ heritage.ancestry.name }}
+        </p>
+
+        {% if heritage.hitPoints %}
+            <h5>Punkty zdrowia</h5>
+            <p class="mb-4">{{ heritage.hitPoints.name }}</p>
+        {% endif %}
+
+        {% if heritage.size %}
+            <h5>Rozmiar</h5>
+            <p class="mb-4">{{ heritage.size.name }}</p>
+        {% endif %}
+
+        {% if heritage.speed %}
+            <h5>Prędkość</h5>
+            <p class="mb-4">{{ heritage.speed.name }} stóp</p>
+        {% endif %}
+
+        {% if heritage.abilityBoosts is not empty %}
+            <h5>Premie do cech</h5>
+            <p class="mb-4">
+
+                {{ heritage.abilityBoosts|first }} lub {{ heritage.abilityBoosts|last }}
+                <br />
+                Dowolna
+            </p>
+        {% endif %}
+
+        <h5>Atrybuty</h5>
+        <p class="mb-4">
+            {% if heritage.attributes is empty %}
+                Brak.
+            {% else %}
+                {% for attribute in heritage.attributes %}
+                    {{ attribute.name}}
+
+                    {% if not loop.last %}
+                        <br />
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+        </p>
+    </div>
+
+    {% include 'core/feat/entity_display.html.twig' with {'displayTitle': 'Atuty dziedzictwa', 'entity': heritage} %}
+{% endblock %}

@@ -24,6 +24,8 @@ class Ancestry
 {
     use BaseFieldsTrait, ReleasableTrait, TimestampableEntity;
 
+    public const ANCESTRY_VALUE = 6;
+
     public const LANGUAGES_MESSAGE = 'Znasz dwa języki pospolite dla twojej kultury lub rodzimego regionu
     (najczęściej Wspólny oraz język ojczysty twojej rasy).
     Jeżeli twój modyfikator Inteligencji jest dodatni, znasz dodatkową liczbę języków równą jego wartości.
@@ -444,8 +446,17 @@ class Ancestry
 
         $value += $this->getHitPoints()->getValue();
         $value += $this->getSpeed()->getValue();
+        $value += $this->getHeritageValue();
 
         return $value;
+    }
+
+    /**
+     * @return int
+     */
+    public function getNumberOfFreeFeats(): int
+    {
+        return self::ANCESTRY_VALUE - $this->getValue();
     }
 
     /**

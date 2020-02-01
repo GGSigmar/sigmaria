@@ -50,7 +50,7 @@ class AdminHeritageController extends BaseController
 
             $this->addFlash('success', 'Dziedzictwo stworzone!');
 
-            return $this->redirectToRoute('heritage_list');
+            return $this->redirectToRoute('heritage_show', ['id' => $heritage->getId()]);
         }
 
         $templateData = [
@@ -80,7 +80,7 @@ class AdminHeritageController extends BaseController
 
             $this->addFlash('success', 'Dziedzictwo edytowane!');
 
-            return $this->redirectToRoute('heritage_list');
+            return $this->redirectToRoute('heritage_show', ['id' => $heritage->getId()]);
         }
 
         $templateData = [

@@ -34,7 +34,7 @@ class AdminAncestryController extends BaseController
 
             $this->addFlash('success', 'Rasa stworzona!');
 
-            return $this->redirectToRoute('ancestry_list');
+            return $this->redirectToRoute('ancestry_show', ['id' => $ancestry->getId()]);
         }
 
         $templateData = [

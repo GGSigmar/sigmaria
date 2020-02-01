@@ -22,14 +22,19 @@ class AttributeCategoryFixtures extends Fixture
         $classAttributeCategory->setHandle(AttributeCategory::ATTRIBUTE_CATEGORY_CLASS);
         $classAttributeCategory->setName('Atrybuty klasowe');
 
-        $cultureAttributeCategory = new AttributeCategory();
-        $cultureAttributeCategory->setHandle(AttributeCategory::ATTRIBUTE_CATEGORY_CULTURE);
-        $cultureAttributeCategory->setName('Atrybuty kulturowe');
+        $culturalAttributeCategory = new AttributeCategory();
+        $culturalAttributeCategory->setHandle(AttributeCategory::ATTRIBUTE_CATEGORY_CULTURAL);
+        $culturalAttributeCategory->setName('Atrybuty kulturowe');
+
+        $heritageAttributeCategory = new AttributeCategory();
+        $heritageAttributeCategory->setHandle(AttributeCategory::ATTRIBUTE_CATEGORY_CULTURAL);
+        $heritageAttributeCategory->setName('Atrybuty dziedzictw');
 
         $manager->persist($genericAttributeCategory);
         $manager->persist($ancestralAttributeCategory);
         $manager->persist($classAttributeCategory);
-        $manager->persist($cultureAttributeCategory);
+        $manager->persist($culturalAttributeCategory);
+        $manager->persist($heritageAttributeCategory);
 
         $manager->flush();
     }

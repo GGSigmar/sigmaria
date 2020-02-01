@@ -1,4 +1,5 @@
 {% extends "base/base.html.twig" %}
+
 {% block content %}
     <div class="col-md-9">
         {% include "base/utilities/entity_show_header.html.twig" with {'entity': ancestry} %}
@@ -79,13 +80,21 @@
                 Brak
             {% else %}
                 {% for culture in cultures %}
-                    {% include "base/badges/entity_show_badge.html.twig" with {'entityName': 'culture', 'entityId': culture.id} %} {{ culture.name }}
+                    {% include "base/badges/entity_show_badge.html.twig" with {'entityName': 'culture', 'entityId': culture.id} %}
+                    {{ culture.name }}
 
                     {% if not loop.last %}
                         <br />
                     {% endif %}
                 {% endfor %}
             {% endif %}
+        </p>
+
+        <h5>Początkowe atuty rasowe</h5>
+        <p class="mb-4">
+            Bez dziedzictwa: {{ ancestry.getNumberOfFreeFeats + ancestry.heritageValue }}
+            <br />
+            Z dziedzictwem: {{ ancestry.getNumberOfFreeFeats }}
         </p>
     </div>
 
