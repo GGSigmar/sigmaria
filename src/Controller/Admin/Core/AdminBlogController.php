@@ -96,7 +96,7 @@ class AdminBlogController extends BaseController
     /**
      * @Route("/admin/core/blog/post/{id}/kill", name="blog_post_kill")
      */
-    public function killFeatAction(BlogPost $blogPost)
+    public function killBlogPostAction(BlogPost $blogPost)
     {
         $entityManager = $this->getDoctrine()->getManager();
 
@@ -113,7 +113,7 @@ class AdminBlogController extends BaseController
     /**
      * @Route("/admin/core/blog/post/{id}/revive", name="blog_post_revive")
      */
-    public function reviveFeatAction(BlogPost $blogPost)
+    public function reviveBlogPostAction(BlogPost $blogPost)
     {
         $entityManager = $this->getDoctrine()->getManager();
 
@@ -130,7 +130,7 @@ class AdminBlogController extends BaseController
     /**
      * @Route("/admin/core/blog/post/{id}/delete", name="blog_post_delete")
      */
-    public function deleteFeatAction(BlogPost $blogPost)
+    public function deleteBlogPostAction(BlogPost $blogPost)
     {
         $entityManager = $this->getDoctrine()->getManager();
 

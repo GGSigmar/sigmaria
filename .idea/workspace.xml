@@ -2,34 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0b9a3871-3386-4d40-9261-e24049e96f75" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/config/packages/knp_paginator.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/Admin/Core/AdminBlogController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/Core/BlogController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/Core/BlogPost.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Form/Core/BlogPostType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Migrations/Version20200201163613.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Repository/Core/BlogPostRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Security/ContentVoter.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/core/blog/blog.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/core/blog/post/create.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/core/blog/post/edit.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/core/blog/post/list.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/translations/KnpPaginatorBundle.pl.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/twig.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/twig.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Admin/Core/AdminReleaseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Admin/Core/AdminReleaseController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Ancestry/AncestryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Ancestry/AncestryController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Ancestry/HeritageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Ancestry/HeritageController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Setting/BackgroundController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Setting/BackgroundController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Setting/CultureController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Setting/CultureController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Setting/LanguageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Setting/LanguageController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/ancestry/ancestry/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/ancestry/ancestry/show.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base/components/navbar.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base/components/navbar.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Admin/Core/AdminBlogController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Admin/Core/AdminBlogController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -253,7 +227,7 @@
       <workItem from="1580059408569" duration="815000" />
       <workItem from="1580070268697" duration="7202000" />
       <workItem from="1580558814277" duration="9963000" />
-      <workItem from="1580572632762" duration="8639000" />
+      <workItem from="1580572632762" duration="8783000" />
     </task>
     <servers />
   </component>
