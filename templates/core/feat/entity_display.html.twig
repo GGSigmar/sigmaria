@@ -1,0 +1,19 @@
+<div class="col-md-12">
+    <h3>{{ displayTitle }}</h3>
+</div>
+
+{% if is_granted('ROLE_ADMIN') %}
+    {% set feats = entity.feats %}
+{% else %}
+    {% set feats = entity.activeFeats %}
+{% endif %}
+
+{% if feats is empty %}
+    Brak.
+{% else %}
+    {% for feat in feats %}
+        <div class="col-md-6">
+            {% include "core/feat/entry.html.twig" with {'feat': feat} %}
+        </div>
+    {% endfor %}
+{% endif %}

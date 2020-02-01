@@ -1,0 +1,19 @@
+<div class="col-md-12">
+    <h3>Dziedzictwa</h3>
+</div>
+
+{% if is_granted('ROLE_ADMIN') %}
+    {% set heritages = entity.heritages %}
+{% else %}
+    {% set heritages = entity.activeHeritages %}
+{% endif %}
+
+{% if heritages is empty %}
+    Brak.
+{% else %}
+    {% for heritage in heritages %}
+        <div class="col-md-6">
+            {% include "ancestry/heritage/entry.html.twig" with {'heritage': heritage} %}
+        </div>
+    {% endfor %}
+{% endif %}

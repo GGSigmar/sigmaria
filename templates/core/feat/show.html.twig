@@ -5,5 +5,7 @@
         {% include "base/utilities/entity_show_header.html.twig" with {'entity': feat} %}
     </div>
 
-    {% include "core/feat/entry.html.twig" with {'feat': feat} only %}
+    <div class="col-md-6">
+        {% include "core/feat/entry.html.twig" with {'feat': feat} only %}
+    </div>
 {% endblock %}
