@@ -31,6 +31,8 @@ class BackgroundController extends BaseController
      */
     public function showBackgroundAction(Background $background)
     {
+        $this->denyAccessUnlessGranted('view', $background);
+
         $templateData = [
             'background' => $background,
             'entityName' => 'background',

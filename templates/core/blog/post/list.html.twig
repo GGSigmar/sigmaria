@@ -1,0 +1,28 @@
+{% extends "base/base_list.html.twig" %}
+
+{% block list_title %}
+    Posty
+{% endblock %}
+
+{% block title_classes %}
+    mb-5
+{% endblock %}
+
+{% block top_right_buttons %}{% endblock %}
+
+{% block table_headers %}
+    <th>Tytuł</th>
+    <th>Akcje</th>
+{% endblock %}
+
+{% block table_rows %}
+    {% for post in blogPosts %}
+        <tr>
+            <td class="align-middle">{{ post.name }}</td>
+            <td class="align-middle text-nowrap">
+                {% include "base/buttons/entity_edit_button.html.twig" with {'entityName': entityName, 'entity': post} %}
+                {% include "base/buttons/entity_delete_buttons.html.twig" with {'entityName': entityName, 'entity': post} %}
+            </td>
+        </tr>
+    {% endfor %}
+{% endblock %}

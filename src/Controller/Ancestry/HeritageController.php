@@ -15,6 +15,8 @@ class HeritageController extends BaseController
      */
     public function showHeritageAction(Heritage $heritage)
     {
+        $this->denyAccessUnlessGranted('view', $heritage);
+
         $templateData = [
             'heritage' => $heritage,
             'entityName' => 'heritage',

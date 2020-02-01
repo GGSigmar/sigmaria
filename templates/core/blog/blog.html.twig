@@ -1,0 +1,39 @@
+{% extends "base/base.html.twig" %}
+
+{% block content %}
+    <div class="col-md-12">
+        <h1 class="{% if not is_granted('ROLE_ADMIN') %}mb-5{% endif %}">Blog</h1>
+
+        {% if is_granted('ROLE_ADMIN') %}
+            <div class="mb-2 float-right">
+                {% block top_right_buttons %}
+                    {% include "base/buttons/entity_create_button.html.twig" with {'entityName': entityName} %}
+                {% endblock %}
+            </div>
+        {% endif %}
+    </div>
+    <div class="col-md-12 mb-2">
+        <div class="accordion border border-white" id="blogAccordion">
+            {% for post in blogPosts %}
+                {% set id = post.id %}
+                <div class="card">
+                    <div class="card-header bg-danger" id="heading-{{ id }}" type="button" data-toggle="collapse" data-target="#collapse-{{ id }}" aria-expanded="false" aria-controls="collapse-{{ id }}">
+                        <h3>
+                            {{ post.name }}
+                        </h3>
+                    </div>
+                    <div id="collapse-{{ id }}" class="collapse" aria-labelledby="heading-{{ id }}" data-parent="#blogAccordion">
+                        <div class="card-body bg-dark">
+                            {{ post.description|raw }}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="col-md-12 d-inline-flex">
+        <div class="mx-auto">
+            {{ knp_pagination_render(blogPosts) }}
+        </div>
+    </div>
+{% endblock %}

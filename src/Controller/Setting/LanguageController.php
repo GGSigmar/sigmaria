@@ -31,6 +31,8 @@ class LanguageController extends BaseController
      */
     public function showLanguageAction(Language $language)
     {
+        $this->denyAccessUnlessGranted('view', $language);
+
         $templateData = [
             'language' => $language,
             'entityName' => 'language',

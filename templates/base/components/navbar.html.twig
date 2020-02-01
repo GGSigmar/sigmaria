@@ -13,7 +13,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="{{ path('home') }}" class="nav-link disabled {% if navTab is defined and navTab == constant('App\\Controller\\Base\\BaseController::NAV_TAB_BLOG') %}active{% endif %}">
+                <a href="{{ path('blog') }}" class="nav-link {% if navTab is defined and navTab == constant('App\\Controller\\Base\\BaseController::NAV_TAB_BLOG') %}active{% endif %}">
                     <i class="fas fa-newspaper"></i> Blog
                 </a>
             </li>
@@ -50,6 +50,8 @@
                     <a href="{{ path('user_list') }}" class="quest-location dropdown-item">Użytkownicy</a>
                     <div class="dropdown-divider"></div>
                     <a href="{{ path('release_list') }}" class="quest-location dropdown-item">Wydania</a>
+                    <div class="dropdown-divider"></div>
+                    <a href="{{ path('blog_post_list') }}" class="quest-location dropdown-item">Posty</a>
                     <div class="dropdown-divider"></div>
                     <a href="#" class="dropdown-item dropdown-toggle" data-toggle="dropdown">Core Admin</a>
                     <ul class="dropdown-menu">

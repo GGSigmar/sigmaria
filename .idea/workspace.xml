@@ -2,24 +2,32 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0b9a3871-3386-4d40-9261-e24049e96f75" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Controller/Admin/Ancestry/AdminHeritageController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Form/Ancestry/HeritageType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Migrations/Version20200126211424.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Migrations/Version20200126211943.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Migrations/Version20200126212228.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Twig/RarityNameToNeuterExtension.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/ancestry/feature/entry.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/ancestry/heritage/create.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/ancestry/heritage/edit.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/ancestry/heritage/entry.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/ancestry/heritage/list.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/base/badges/warning_badge.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/packages/knp_paginator.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/Admin/Core/AdminBlogController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/Core/BlogController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Entity/Core/BlogPost.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Form/Core/BlogPostType.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Migrations/Version20200201163613.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Repository/Core/BlogPostRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Security/ContentVoter.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/core/blog/blog.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/core/blog/post/create.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/core/blog/post/edit.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/core/blog/post/list.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/translations/KnpPaginatorBundle.pl.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Ancestry/Ancestry.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Ancestry/Ancestry.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Ancestry/Heritage.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Ancestry/Heritage.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/Ancestry/AncestryType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/Ancestry/AncestryType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/twig.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/twig.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Admin/Core/AdminReleaseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Admin/Core/AdminReleaseController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Ancestry/AncestryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Ancestry/AncestryController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Ancestry/HeritageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Ancestry/HeritageController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Setting/BackgroundController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Setting/BackgroundController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Setting/CultureController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Setting/CultureController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Setting/LanguageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Setting/LanguageController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/ancestry/ancestry/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/ancestry/ancestry/show.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base/components/navbar.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base/components/navbar.html.twig" afterDir="false" />
     </list>
@@ -154,6 +162,8 @@
       <path value="$PROJECT_DIR$/vendor/stof/doctrine-extensions-bundle" />
       <path value="$PROJECT_DIR$/vendor/symfony/lock" />
       <path value="$PROJECT_DIR$/vendor/symfony/apache-pack" />
+      <path value="$PROJECT_DIR$/vendor/knplabs/knp-components" />
+      <path value="$PROJECT_DIR$/vendor/knplabs/knp-paginator-bundle" />
     </include_path>
   </component>
   <component name="ProjectId" id="1VOu5FnL4GxueIMLlFHSG4wGC8F" />
@@ -166,7 +176,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Twig" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/core/blog/post" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -175,11 +185,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/Twig" />
-      <recent name="$PROJECT_DIR$/templates/ancestry/heritage" />
-      <recent name="$PROJECT_DIR$/src/Form/Ancestry" />
-      <recent name="$PROJECT_DIR$/src/Controller/Admin/Ancestry" />
-      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/templates/core/blog/post" />
+      <recent name="$PROJECT_DIR$/src/Controller/Admin/Core" />
+      <recent name="$PROJECT_DIR$/src/Form/Core" />
+      <recent name="$PROJECT_DIR$/templates/core/blog/blog_post" />
+      <recent name="$PROJECT_DIR$/src/Controller/Core" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/templates/base/badges" />
@@ -241,7 +251,9 @@
       <workItem from="1578255674847" duration="2218000" />
       <workItem from="1580042067032" duration="1424000" />
       <workItem from="1580059408569" duration="815000" />
-      <workItem from="1580070268697" duration="7105000" />
+      <workItem from="1580070268697" duration="7202000" />
+      <workItem from="1580558814277" duration="9963000" />
+      <workItem from="1580572632762" duration="8639000" />
     </task>
     <servers />
   </component>
@@ -255,11 +267,11 @@
     <state x="516" y="291" key="#com.intellij.fileTypes.FileTypeChooser/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1578231952372" />
     <state x="565" y="322" width="667" height="391" key="#com.intellij.fileTypes.FileTypeChooser/67.27.1853.1053@67.27.1853.1053" timestamp="1580076377637" />
     <state x="481" y="271" width="688" height="398" key="#com.intellij.fileTypes.FileTypeChooser/70.27.1530.873@70.27.1530.873" timestamp="1577751100858" />
-    <state x="713" y="214" width="454" height="577" key="#com.intellij.ide.util.MemberChooser" timestamp="1580072468763">
+    <state x="713" y="214" width="454" height="577" key="#com.intellij.ide.util.MemberChooser" timestamp="1580574954013">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="669" y="185" key="#com.intellij.ide.util.MemberChooser/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1578149180401" />
-    <state x="713" y="214" width="454" height="577" key="#com.intellij.ide.util.MemberChooser/67.27.1853.1053@67.27.1853.1053" timestamp="1580072468763" />
+    <state x="713" y="214" width="454" height="577" key="#com.intellij.ide.util.MemberChooser/67.27.1853.1053@67.27.1853.1053" timestamp="1580574954013" />
     <state x="603" y="182" width="454" height="569" key="#com.intellij.ide.util.MemberChooser/70.27.1530.873@70.27.1530.873" timestamp="1577747935395" />
     <state x="640" y="249" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1578066388151">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -269,25 +281,27 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="714" y="76" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1578167929644" />
-    <state x="670" y="261" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1580074780432">
+    <state x="670" y="261" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1580580951351">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="625" y="231" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1578245292751" />
-    <state x="670" y="261" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1580074780432" />
+    <state x="670" y="261" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1580580951351" />
     <state x="568" y="221" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/70.27.1530.873@70.27.1530.873" timestamp="1577748604635" />
-    <state x="125" y="119" width="1670" height="802" key="DiffContextDialog" timestamp="1578227779373">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="188" y="147" width="1612" height="813" key="DiffContextDialog" timestamp="1580562047391">
+      <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="125" y="119" width="1670" height="802" key="DiffContextDialog/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1578227779373" />
+    <state x="188" y="147" width="1612" height="813" key="DiffContextDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1580562047391" />
     <state x="170" y="127" width="1330" height="673" key="DiffContextDialog/70.27.1530.873@70.27.1530.873" timestamp="1577789038253" />
     <state x="618" y="221" width="424" height="491" key="FileChooserDialogImpl" timestamp="1577136336958">
       <screen x="70" y="27" width="1530" height="873" />
     </state>
     <state x="618" y="221" width="424" height="491" key="FileChooserDialogImpl/70.27.1530.873@70.27.1530.873" timestamp="1577136336958" />
-    <state x="848" y="318" width="614" height="387" key="NewPhpClassDialog" timestamp="1578167544509">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="885" y="349" width="542" height="380" key="NewPhpClassDialog" timestamp="1580575626465">
+      <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="848" y="318" key="NewPhpClassDialog/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1578167544509" />
+    <state x="885" y="349" width="542" height="380" key="NewPhpClassDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1580575626465" />
     <state x="535" y="273" width="614" height="387" key="NewPhpClassDialog/70.27.1530.873@70.27.1530.873" timestamp="1577888056471" />
     <state x="635" y="175" width="389" height="583" key="RollbackChangesDialog" timestamp="1577751250092">
       <screen x="70" y="27" width="1530" height="873" />
@@ -299,29 +313,38 @@
     <state x="319" y="85" key="SettingsEditor/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1578067447032" />
     <state x="375" y="113" key="SettingsEditor/67.27.1853.1053@67.27.1853.1053" timestamp="1580073128490" />
     <state x="324" y="98" width="1022" height="737" key="SettingsEditor/70.27.1530.873@70.27.1530.873" timestamp="1577881803401" />
-    <state x="501" y="168" width="722" height="598" key="VCS.ChangeListViewerDialog" timestamp="1578227775116">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="551" y="197" width="722" height="598" key="VCS.ChangeListViewerDialog" timestamp="1580562048038">
+      <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="501" y="168" key="VCS.ChangeListViewerDialog/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1578227775116" />
+    <state x="551" y="197" key="VCS.ChangeListViewerDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1580562048038" />
     <state x="469" y="168" width="722" height="598" key="VCS.ChangeListViewerDialog/70.27.1530.873@70.27.1530.873" timestamp="1577789039156" />
-    <state x="577" y="346" key="com.intellij.ide.util.TipDialog" timestamp="1580070285711">
+    <state x="577" y="346" key="com.intellij.ide.util.TipDialog" timestamp="1580572633796">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="528" y="315" key="com.intellij.ide.util.TipDialog/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1578255675726" />
-    <state x="577" y="346" key="com.intellij.ide.util.TipDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1580070285711" />
+    <state x="577" y="346" key="com.intellij.ide.util.TipDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1580572633796" />
     <state x="577" y="314" key="com.intellij.ide.util.TipDialog/67.27.1853.948@67.27.1853.948" timestamp="1580059409160" />
     <state x="491" y="291" key="com.intellij.ide.util.TipDialog/70.27.1530.873@70.27.1530.873" timestamp="1577918559018" />
-    <state x="469" y="47" width="996" height="1014" key="find.popup" timestamp="1580074769325">
+    <state x="511" y="158" width="954" height="789" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1580564273774">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="511" y="158" width="954" height="789" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/67.27.1853.1053@67.27.1853.1053" timestamp="1580564273774" />
+    <state x="469" y="47" width="996" height="1014" key="find.popup" timestamp="1580578977322">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="417" y="20" width="1032" height="1001" key="find.popup/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1578256915567" />
-    <state x="469" y="47" width="996" height="1014" key="find.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1580074769325" />
+    <state x="469" y="47" width="996" height="1014" key="find.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1580578977322" />
     <state x="465" y="43" width="822" height="840" key="find.popup/70.27.1530.873@70.27.1530.873" timestamp="1577887556269" />
-    <state x="585" y="253" width="815" height="819" key="search.everywhere.popup" timestamp="1580076604432">
+    <state x="657" y="253" key="run.anything.popup" timestamp="1580578200506">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="657" y="253" key="run.anything.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1580578200506" />
+    <state x="585" y="253" width="815" height="819" key="search.everywhere.popup" timestamp="1580581144617">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="537" y="223" width="844" height="808" key="search.everywhere.popup/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1578256918377" />
-    <state x="585" y="253" width="815" height="819" key="search.everywhere.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1580076604432" />
+    <state x="585" y="253" width="815" height="819" key="search.everywhere.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1580581144617" />
     <state x="498" y="214" width="672" height="678" key="search.everywhere.popup/70.27.1530.873@70.27.1530.873" timestamp="1577887898996" />
   </component>
 </project>

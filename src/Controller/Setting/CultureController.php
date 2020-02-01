@@ -31,6 +31,8 @@ class CultureController extends BaseController
      */
     public function showCultureAction(Culture $culture)
     {
+        $this->denyAccessUnlessGranted('view', $culture);
+
         $templateData = [
             'culture' => $culture,
             'entityName' => 'culture',

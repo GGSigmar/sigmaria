@@ -31,6 +31,8 @@ class AncestryController extends BaseController
      */
     public function showAncestryAction(Ancestry $ancestry)
     {
+        $this->denyAccessUnlessGranted('view', $ancestry);
+
         $templateData = [
             'ancestry' => $ancestry,
             'entityName' => 'ancestry',
