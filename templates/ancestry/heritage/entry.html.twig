@@ -22,17 +22,17 @@
     </div>
     {% if heritage.hitPoints or heritage.size or heritage.speed or heritage.abilityBoosts is not empty %}
         <div class="border-bottom border-white">
-            {% if heritage.hitPoints %}
+            {% if heritage.hitPoints and heritage.hitPoints.name != heritage.ancestry.hitPoints.name %}
                 <div>
                     <b>Punkty zdrowia:</b> {{ heritage.hitPoints }}
                 </div>
             {% endif %}
-            {% if heritage.size %}
+            {% if heritage.size and heritage.size.name != heritage.ancestry.size.name %}
                 <div>
                     <b>Rozmiar:</b> {{ heritage.size }}
                 </div>
             {% endif %}
-            {% if heritage.speed %}
+            {% if heritage.speed and heritage.speed.name != heritage.ancestry.speed.name %}
                 <div>
                     <b>Prędkość:</b> {{ heritage.speed }}
                 </div>

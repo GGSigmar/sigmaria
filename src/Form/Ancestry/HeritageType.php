@@ -13,7 +13,7 @@ use App\Entity\Core\Feat;
 use App\Entity\Core\MoveSpeed;
 use App\Entity\Core\Rarity;
 use App\Entity\Core\Size;
-use App\Form\Core\BaseValuedEntityType;
+use App\Form\Core\BaseEntityType;
 use Doctrine\ORM\EntityRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
@@ -101,7 +101,7 @@ class HeritageType extends AbstractType
 
     public function getParent()
     {
-        return BaseValuedEntityType::class;
+        return BaseEntityType::class;
     }
 
     public function configureOptions(OptionsResolver $resolver)

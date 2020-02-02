@@ -24,7 +24,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Heritage
 {
-    use BaseFieldsTrait, ShortDescriptionTrait, ValueTrait, SimpleRarityTrait, ReleasableTrait, TimestampableEntity;
+    use BaseFieldsTrait, ShortDescriptionTrait, SimpleRarityTrait, ReleasableTrait, TimestampableEntity;
 
     public const HERITAGE_FEATURES_NOTE = 'Zobacz podstronę dziedzictwa aby zapoznać się z jego zdolnościami.';
 
