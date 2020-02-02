@@ -60,7 +60,7 @@ class Ancestry
      *
      * @ORM\ManyToMany(targetEntity="App\Entity\Core\Ability", fetch="EXTRA_LAZY")
      * @ORM\JoinTable(name="ancestry_ancestry_ability_boost")
-     * @Assert\Count(min="2", max="2")
+     * @Assert\Count(max="2")
      */
     private $abilityBoosts;
 
@@ -101,7 +101,7 @@ class Ancestry
      *
      * @ORM\Column(type="integer")
      */
-    private $heritageValue;
+    private $heritageValue = 0;
 
     /**
      * @var ArrayCollection

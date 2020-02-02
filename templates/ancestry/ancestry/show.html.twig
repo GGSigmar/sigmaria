@@ -45,7 +45,11 @@
 
         <h5>Premie do cech</h5>
         <p class="mb-4">
-            {{ ancestry.abilityBoosts|first }} lub {{ ancestry.abilityBoosts|last }}
+            {% if ancestry.abilityBoosts|length == 2 %}
+                {{ ancestry.abilityBoosts|first }} lub {{ ancestry.abilityBoosts|last }}
+            {% else %}
+                Dowolna
+            {% endif %}
             <br />
             Dowolna
         </p>
