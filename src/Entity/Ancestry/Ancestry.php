@@ -24,7 +24,7 @@ class Ancestry
 {
     use BaseFieldsTrait, ReleasableTrait, TimestampableEntity;
 
-    public const ANCESTRY_VALUE = 6;
+    public const ANCESTRY_VALUE = 5;
 
     public const LANGUAGES_MESSAGE = 'Znasz dwa języki pospolite dla twojej kultury lub rodzimego regionu
     (najczęściej Wspólny oraz język ojczysty twojej rasy).
