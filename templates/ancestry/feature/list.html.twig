@@ -8,6 +8,7 @@
     <th class="align-middle">Nazwa</th>
     <th class="align-middle">Wartość</th>
     <th class="align-middle">Rasy</th>
+    <th class="align-middle">Dziedzictwa</th>
     <th class="align-middle">Akcje</th>
 {% endblock %}
 
@@ -19,6 +20,15 @@
             <td class="align-middle">
                 {% for ancestry in ancestralFeature.ancestries %}
                     {% include "base/badges/entity_show_badge.html.twig" with {'entityName': 'ancestry', 'entityId': ancestry.id} %} {{ ancestry.name }}
+
+                    {% if not loop.last %}
+                        <br />
+                    {% endif %}
+                {% endfor %}
+            </td>
+            <td class="align-middle">
+                {% for heritage in ancestralFeature.heritages %}
+                    {% include "base/badges/entity_show_badge.html.twig" with {'entityName': 'ancestry', 'entityId': heritage.id} %} {{ heritage.name }}
 
                     {% if not loop.last %}
                         <br />

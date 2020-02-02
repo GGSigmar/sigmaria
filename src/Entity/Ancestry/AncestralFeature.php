@@ -24,9 +24,17 @@ class AncestralFeature
      */
     private $ancestries;
 
+    /**
+     * @var ArrayCollection
+     *
+     * @ORM\ManyToMany(targetEntity="Heritage", mappedBy="ancestralFeatures", fetch="EXTRA_LAZY")
+     */
+    private $heritages;
+
     public function __construct()
     {
         $this->ancestries = new ArrayCollection();
+        $this->heritages = new ArrayCollection();
     }
 
     /**
@@ -68,6 +76,50 @@ class AncestralFeature
         if ($this->ancestries->contains($ancestry)) {
             $this->ancestries->removeElement($ancestry);
             $ancestry->removeAncestralFeature($this);
+        }
+
+        return;
+    }
+
+    /**
+     * @return Collection|Heritage[]
+     */
+    public function getHeritages(): Collection
+    {
+        return $this->heritages;
+    }
+
+    /**
+     * @return Collection|Heritage[]
+     */
+    public function getActiveHeritages(): Collection
+    {
+        return $this->heritages->filter(function ($heritage) {
+            return $heritage->isActive();
+        });
+    }
+
+    /**
+     * @param Heritage $heritage
+     */
+    public function addHeritage(Heritage $heritage): void
+    {
+        if (!$this->heritages->contains($heritage)) {
+            $this->heritages->add($heritage);
+            $heritage->addAncestralFeature($this);
+        }
+
+        return;
+    }
+
+    /**
+     * @param Heritage $heritage
+     */
+    public function removeHeritage(Heritage $heritage): void
+    {
+        if ($this->heritages->contains($heritage)) {
+            $this->heritages->removeElement($heritage);
+            $heritage->removeAncestralFeature($this);
         }
 
         return;
