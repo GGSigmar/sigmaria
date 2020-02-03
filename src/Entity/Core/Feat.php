@@ -2,9 +2,12 @@
 
 namespace App\Entity\Core;
 
+use App\Entity\Ancestry\Ancestry;
+use App\Entity\Ancestry\Heritage;
 use App\Entity\Core\Traits\BaseFieldsTrait;
 use App\Entity\Core\Traits\ReleasableTrait;
 use App\Entity\Core\Traits\SimpleRarityTrait;
+use App\Entity\Setting\Culture;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
@@ -81,10 +84,37 @@ class Feat
      */
     private $attributes;
 
+    /**
+     * @var ArrayCollection
+     *
+     * @ORM\ManyToMany(targetEntity="App\Entity\Ancestry\Ancestry", mappedBy="feats", fetch="EXTRA_LAZY")
+     * @ORM\OrderBy({"name"="ASC"})
+     */
+    private $ancestries;
+
+    /**
+     * @var ArrayCollection
+     *
+     * @ORM\ManyToMany(targetEntity="App\Entity\Ancestry\Heritage", mappedBy="feats", fetch="EXTRA_LAZY")
+     * @ORM\OrderBy({"name"="ASC"})
+     */
+    private $heritages;
+
+    /**
+     * @var ArrayCollection
+     *
+     * @ORM\ManyToMany(targetEntity="App\Entity\Setting\Culture", mappedBy="feats", fetch="EXTRA_LAZY")
+     * @ORM\OrderBy({"name"="ASC"})
+     */
+    private $cultures;
+
     public function __construct()
     {
         $this->isActive = false;
         $this->attributes = new ArrayCollection();
+        $this->ancestries = new ArrayCollection();
+        $this->heritages = new ArrayCollection();
+        $this->cultures = new ArrayCollection();
     }
 
     /**
@@ -229,6 +259,60 @@ class Feat
         }
 
         return;
+    }
+
+    /**
+     * @return Collection|Ancestry[]
+     */
+    public function getAncestries(): Collection
+    {
+        return $this->ancestries;
+    }
+
+    /**
+     * @return Collection|Ancestry[]
+     */
+    public function getActiveAncestries(): Collection
+    {
+        return $this->ancestries->filter(function ($feat) {
+            return $feat->isActive();
+        });
+    }
+
+    /**
+     * @return Collection|Heritage[]
+     */
+    public function getHeritages(): Collection
+    {
+        return $this->heritages;
+    }
+
+    /**
+     * @return Collection|Heritage[]
+     */
+    public function getActiveHeritages(): Collection
+    {
+        return $this->heritages->filter(function ($feat) {
+            return $feat->isActive();
+        });
+    }
+
+    /**
+     * @return Collection|Culture[]
+     */
+    public function getCultures(): Collection
+    {
+        return $this->cultures;
+    }
+
+    /**
+     * @return Collection|Culture[]
+     */
+    public function getActiveCultures(): Collection
+    {
+        return $this->cultures->filter(function ($feat) {
+            return $feat->isActive();
+        });
     }
 
     /**
