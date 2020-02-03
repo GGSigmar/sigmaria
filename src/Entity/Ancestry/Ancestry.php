@@ -9,6 +9,7 @@ use App\Entity\Core\MoveSpeed;
 use App\Entity\Core\Size;
 use App\Entity\Core\Traits\BaseFieldsTrait;
 use App\Entity\Core\Traits\ReleasableTrait;
+use App\Entity\Core\Traits\SimpleRarityTrait;
 use App\Entity\Setting\Culture;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -22,7 +23,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Ancestry
 {
-    use BaseFieldsTrait, ReleasableTrait, TimestampableEntity;
+    use BaseFieldsTrait, SimpleRarityTrait, ReleasableTrait, TimestampableEntity;
 
     public const ANCESTRY_VALUE = 6;
 

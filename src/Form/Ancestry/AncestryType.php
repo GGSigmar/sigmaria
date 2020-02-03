@@ -5,19 +5,18 @@ namespace App\Form\Ancestry;
 use App\Entity\Ancestry\AncestralFeature;
 use App\Entity\Ancestry\AncestralHitPoints;
 use App\Entity\Ancestry\Ancestry;
-use App\Entity\Ancestry\Heritage;
 use App\Entity\Core\Ability;
 use App\Entity\Core\Attribute;
 use App\Entity\Core\AttributeCategory;
 use App\Entity\Core\Feat;
 use App\Entity\Core\MoveSpeed;
+use App\Entity\Core\Rarity;
 use App\Entity\Core\Size;
 use App\Entity\Setting\Culture;
 use App\Form\Core\BaseEntityType;
 use Doctrine\ORM\EntityRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -26,6 +25,10 @@ class AncestryType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+            ->add('rarity', EntityType::class, [
+                'label' => 'Rzadkość',
+                'class' => Rarity::class
+            ])
             ->add('hitPoints', EntityType::class, [
                 'class' => AncestralHitPoints::class,
                 'label' => 'Punkty zdrowia',
