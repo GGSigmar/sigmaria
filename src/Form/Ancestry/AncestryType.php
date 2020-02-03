@@ -73,9 +73,6 @@ class AncestryType extends AbstractType
                 'multiple' => true,
                 'expanded' => true,
             ])
-            ->add('heritageValue', IntegerType::class, [
-                'label' => 'Wartość dziedzictwa',
-            ])
             ->add('feats', EntityType::class, [
                 'class' => Feat::class,
                 'label' => 'Rasowe atuty',

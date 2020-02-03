@@ -84,6 +84,7 @@ class Ancestry
      * @var ArrayCollection
      *
      * @ORM\ManyToMany(targetEntity="App\Entity\Ancestry\AncestralFeature", inversedBy="ancestries", fetch="EXTRA_LAZY")
+     * @ORM\OrderBy({"name"="ASC"})
      * @ORM\JoinTable(name="ancestry_ancestry_ancestral_feature")
      */
     private $ancestralFeatures;
@@ -92,16 +93,10 @@ class Ancestry
      * @var ArrayCollection
      *
      * @ORM\OneToMany(targetEntity="App\Entity\Ancestry\Heritage", mappedBy="ancestry", fetch="EXTRA_LAZY")
+     * @ORM\OrderBy({"name"="ASC"})
      * @ORM\JoinTable(name="ancestry_ancestry_heritage")
      */
     private $heritages;
-
-    /**
-     * @var int
-     *
-     * @ORM\Column(type="integer")
-     */
-    private $heritageValue = 0;
 
     /**
      * @var ArrayCollection
@@ -368,19 +363,24 @@ class Ancestry
     }
 
     /**
-     * @return int
+     * @return array
      */
-    public function getHeritageValue(): int
+    public function getHeritageValues(): array
     {
-        return $this->heritageValue;
-    }
+        $heritageValues = [];
 
-    /**
-     * @param int $heritageValue
-     */
-    public function setHeritageValue(int $heritageValue): void
-    {
-        $this->heritageValue = $heritageValue;
+        foreach ($this->getHeritages() as $heritage)
+        {
+            $value = $heritage->getValue();
+
+            if (!in_array($value, $heritageValues)) {
+                $heritageValues[] = $value;
+            }
+        }
+
+        sort($heritageValues);
+
+        return $heritageValues;
     }
 
     /**
@@ -446,7 +446,6 @@ class Ancestry
 
         $value += $this->getHitPoints()->getValue();
         $value += $this->getSpeed()->getValue();
-        $value += $this->getHeritageValue();
 
         return $value;
     }

@@ -79,6 +79,7 @@ class Heritage
      * @var ArrayCollection
      *
      * @ORM\ManyToMany(targetEntity="App\Entity\Ancestry\AncestralFeature", inversedBy="ancestries", fetch="EXTRA_LAZY")
+     * @ORM\OrderBy({"name"="ASC"})
      * @ORM\JoinTable(name="ancestry_heritage_ancestral_feature")
      */
     private $ancestralFeatures;

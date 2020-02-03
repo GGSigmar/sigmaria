@@ -3,13 +3,10 @@
         <h5>
             {{ heritage.name|upper }}
             <span class="float-right">
-                DZIEDZICTWO
+                DZIEDZICTWO ({{ heritage.value|roman }})
                 {% include "base/badges/entity_show_badge.html.twig" with {'entityName': 'heritage', 'entityId': heritage.id} %}
                 {% if is_granted('ROLE_ADMIN') %}
                     {% include "base/badges/entity_edit_badge.html.twig" with {'entityName': 'heritage', 'entityId': heritage.id} %}
-                    {% if heritage.value != heritage.ancestry.heritageValue %}
-                        {% include 'base/badges/warning_badge.html.twig' %}
-                    {% endif %}
                 {% endif %}
             </span>
         </h5>

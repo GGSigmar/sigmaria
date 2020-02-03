@@ -28,9 +28,6 @@
             <h5>Wartość</h5>
             <p class="mb-4">
                 {{ heritage.value }}
-                {% if heritage.value != heritage.ancestry.heritageValue %}
-                    {% include 'base/badges/warning_badge.html.twig' with {'value': heritage.ancestry.heritageValue} %}
-                {% endif %}
             </p>
         {% endif %}
 

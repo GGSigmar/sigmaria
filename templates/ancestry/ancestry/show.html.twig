@@ -29,11 +29,6 @@
             <p class="mb-4">{{ ancestry.value }}</p>
         {% endif %}
 
-        {% if is_granted('ROLE_ADMIN') %}
-            <h5>Wartość dziedzictwa</h5>
-            <p class="mb-4">{{ ancestry.heritageValue }}</p>
-        {% endif %}
-
         <h5>Punkty zdrowia</h5>
         <p class="mb-4">{{ ancestry.hitPoints.name }}</p>
 
@@ -96,9 +91,15 @@
 
         <h5>Początkowe atuty rasowe</h5>
         <p class="mb-4">
-            Bez dziedzictwa: {{ ancestry.getNumberOfFreeFeats + ancestry.heritageValue }}
+            Bez dziedzictwa: {{ ancestry.getNumberOfFreeFeats }}
             <br />
-            Z dziedzictwem: {{ ancestry.getNumberOfFreeFeats }}
+            {% for value in ancestry.getHeritageValues %}
+                Z dziedzictwem ({{ value|roman }}): {{ ancestry.getNumberOfFreeFeats - value }}
+
+                {% if not loop.last %}
+                    <br />
+                {% endif %}
+            {% endfor %}
         </p>
     </div>
 
