@@ -25,6 +25,8 @@ class Ancestry
 {
     use BaseFieldsTrait, SimpleRarityTrait, ReleasableTrait, TimestampableEntity;
 
+    public const ENTITY_NAME = 'ancestry';
+
     public const ANCESTRY_VALUE = 6;
 
     public const LANGUAGES_MESSAGE = 'Znasz dwa języki pospolite dla twojej kultury lub rodzimego regionu

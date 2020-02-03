@@ -1,5 +1,17 @@
 <div class="col-md-12">
-    <h3>{{ displayTitle }}</h3>
+    <h3>
+        {{ displayTitle }}
+        {% if is_granted('ROLE_ADMIN') %}
+            {% include 'base/buttons/entity_display_create_button.html.twig'
+                with
+                {
+                'baseEntityName': entityName,
+                'subEntityName': 'feat',
+                'baseEntity': entity
+                }
+            %}
+        {% endif %}
+    </h3>
 </div>
 
 {% if is_granted('ROLE_ADMIN') %}

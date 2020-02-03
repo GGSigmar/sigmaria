@@ -100,5 +100,11 @@
         </p>
     </div>
 
-    {% include 'core/feat/entity_display.html.twig' with {'displayTitle': 'Atuty dziedzictwa', 'entity': heritage} %}
+    {% include "core/feat/entity_display.html.twig"
+        with {
+        'displayTitle': 'Atuty dziedzictwa',
+        'entityName': 'heritage',
+        'entity': heritage,
+        }
+    %}
 {% endblock %}

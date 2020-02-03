@@ -118,5 +118,11 @@
 
     {% include 'ancestry/heritage/entity_display.html.twig' with {'entity': ancestry} %}
 
-    {% include 'core/feat/entity_display.html.twig' with {'displayTitle': 'Atuty rasowe', 'entity': ancestry} %}
+    {% include 'core/feat/entity_display.html.twig'
+        with {
+        'displayTitle': 'Atuty rasowe',
+        'entityName': 'ancestry',
+        'entity': ancestry,
+    }
+    %}
 {% endblock %}

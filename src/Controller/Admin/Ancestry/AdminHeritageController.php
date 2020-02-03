@@ -5,6 +5,7 @@ namespace App\Controller\Admin\Ancestry;
 use App\Controller\Base\BaseController;
 use App\Entity\Ancestry\Heritage;
 use App\Form\Ancestry\HeritageType;
+use App\Form\Core\FeatType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
@@ -25,7 +26,7 @@ class AdminHeritageController extends BaseController
 
         $templateData = [
             'heritages' => $heritages,
-            'entityName' => 'heritage',
+            'entityName' => Heritage::HERITAGE_ENTITY_NAME,
         ];
 
         return array_merge($templateData, $this->getTemplateData(BaseController::NAV_TAB_ADMIN));
@@ -55,7 +56,7 @@ class AdminHeritageController extends BaseController
 
         $templateData = [
             'form' => $form->createView(),
-            'entityName' => 'heritage'
+            'entityName' => Heritage::HERITAGE_ENTITY_NAME,
         ];
 
         return array_merge($templateData, $this->getTemplateData(BaseController::NAV_TAB_ADMIN));
@@ -85,7 +86,7 @@ class AdminHeritageController extends BaseController
 
         $templateData = [
             'form' => $form->createView(),
-            'entityName' => 'heritage'
+            'entityName' => Heritage::HERITAGE_ENTITY_NAME,
         ];
 
         return array_merge($templateData, $this->getTemplateData(BaseController::NAV_TAB_ADMIN));
@@ -138,5 +139,38 @@ class AdminHeritageController extends BaseController
         $this->addFlash('danger', 'Dziedzictwo usunięte!');
 
         return $this->redirectToRoute('heritage_list');
+    }
+
+    /**
+     * @Route("/admin/ancestry/heritage/{id}/feat/create", name="heritage_feat_create")
+     * @Template("core/feat/create.html.twig")
+     */
+    public function createHeritageFeatAction(Request $request, Heritage $heritage)
+    {
+        $form = $this->createForm(FeatType::class);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $feat = $form->getData();
+
+            $heritage->addFeat($feat);
+
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($feat);
+            $entityManager->persist($heritage);
+            $entityManager->flush();
+
+            $this->addFlash('success', 'Atut stworzony!');
+
+            return $this->redirectToRoute('heritage_show', ['id' => $heritage->getId()]);
+        }
+
+        $templateData = [
+            'form' => $form->createView(),
+            'entityName' => Heritage::ENTITY_NAME,
+        ];
+
+        return array_merge($templateData, $this->getTemplateData(BaseController::NAV_TAB_RULES));
     }
 }

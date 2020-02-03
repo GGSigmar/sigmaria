@@ -26,6 +26,8 @@ class Heritage
 {
     use BaseFieldsTrait, ShortDescriptionTrait, SimpleRarityTrait, ReleasableTrait, TimestampableEntity;
 
+    public const ENTITY_NAME = 'heritage';
+
     public const HERITAGE_FEATURES_NOTE = 'Zobacz podstronę dziedzictwa aby zapoznać się z jego zdolnościami.';
 
     /**

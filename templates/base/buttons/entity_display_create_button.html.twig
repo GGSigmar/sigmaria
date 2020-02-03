@@ -1,0 +1,3 @@
+{% set createPathName = (baseEntityName ~ '_' ~ subEntityName ~ '_create') %}
+
+<a href="{{ path(createPathName, {"id": baseEntity.id}) }}" class="btn btn-outline-success" role="button">Stwórz <i class="fas fa-plus"></i></a>

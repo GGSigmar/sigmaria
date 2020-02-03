@@ -5,6 +5,7 @@ namespace App\Controller\Admin\Ancestry;
 use App\Controller\Base\BaseController;
 use App\Entity\Ancestry\Ancestry;
 use App\Form\Ancestry\AncestryType;
+use App\Form\Core\FeatType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
@@ -156,5 +157,38 @@ class AdminAncestryController extends BaseController
         $this->addFlash('warning', 'Rasa wyłączona z wydania!');
 
         return $this->redirectToRoute('ancestry_list');
+    }
+
+    /**
+     * @Route("/admin/ancestry/{id}/feat/create", name="ancestry_feat_create")
+     * @Template("core/feat/create.html.twig")
+     */
+    public function createAncestryFeatAction(Request $request, Ancestry $ancestry)
+    {
+        $form = $this->createForm(FeatType::class);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $feat = $form->getData();
+
+            $ancestry->addFeat($feat);
+
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($feat);
+            $entityManager->persist($ancestry);
+            $entityManager->flush();
+
+            $this->addFlash('success', 'Atut stworzony!');
+
+            return $this->redirectToRoute('ancestry_show', ['id' => $ancestry->getId()]);
+        }
+
+        $templateData = [
+            'form' => $form->createView(),
+            'entityName' => Ancestry::ENTITY_NAME,
+        ];
+
+        return array_merge($templateData, $this->getTemplateData(BaseController::NAV_TAB_RULES));
     }
 }
