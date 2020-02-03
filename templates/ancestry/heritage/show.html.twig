@@ -37,30 +37,47 @@
             {{ heritage.ancestry.name }}
         </p>
 
-        {% if heritage.hitPoints %}
-            <h5>Punkty zdrowia</h5>
-            <p class="mb-4">{{ heritage.hitPoints.name }}</p>
-        {% endif %}
+        <h5>Punkty zdrowia</h5>
+        <p class="mb-4">
+            {% if heritage.hitPoints %}
+                {{ heritage.hitPoints.name }}
+            {% else %}
+                {{ heritage.ancestry.hitPoints.name }}
+            {% endif %}
+        </p>
 
-        {% if heritage.size %}
-            <h5>Rozmiar</h5>
-            <p class="mb-4">{{ heritage.size.name }}</p>
-        {% endif %}
+        <h5>Rozmiar</h5>
+        <p class="mb-4">
+            {% if heritage.size %}
+                {{ heritage.size.name }}
+            {% else %}
+                {{ heritage.ancestry.size.name }}
+            {% endif %}
+        </p>
 
-        {% if heritage.speed %}
-            <h5>Prędkość</h5>
-            <p class="mb-4">{{ heritage.speed.name }} stóp</p>
-        {% endif %}
+        <h5>Prędkość</h5>
+        <p class="mb-4">
+            {% if heritage.speed %}
+                {{ heritage.speed.name }} stóp
+            {% else %}
+                {{ heritage.ancestry.speed.name }} stóp
+            {% endif %}
+        </p>
 
-        {% if heritage.abilityBoosts is not empty %}
-            <h5>Premie do cech</h5>
-            <p class="mb-4">
-
+        <h5>Premie do cech</h5>
+        <p class="mb-4">
+            {% if heritage.abilityBoosts|length == 2 %}
                 {{ heritage.abilityBoosts|first }} lub {{ heritage.abilityBoosts|last }}
-                <br />
-                Dowolna
-            </p>
-        {% endif %}
+            {% else %}
+                {% if heritage.ancestry.abilityBoosts|length == 2 %}
+                    {{ heritage.ancestry.abilityBoosts|first }} lub {{ heritage.ancestry.abilityBoosts|last }}
+                {% else %}
+                    Dowolna
+                {% endif %}
+            {% endif %}
+            <br />
+            Dowolna
+        </p>
 
         <h5>Atrybuty</h5>
         <p class="mb-4">
