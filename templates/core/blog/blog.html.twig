@@ -18,9 +18,12 @@
                 {% set id = post.id %}
                 <div class="card">
                     <div class="card-header bg-danger" id="heading-{{ id }}" type="button" data-toggle="collapse" data-target="#collapse-{{ id }}" aria-expanded="false" aria-controls="collapse-{{ id }}">
-                        <h3>
+                        <h3 class="d-inline">
                             {{ post.name }}
                         </h3>
+                        <div class="d-inline float-right">
+                            {{ post.author.username }} - {{ post.createdAt|date('Y-m-d') }}
+                        </div>
                     </div>
                     <div id="collapse-{{ id }}" class="collapse" aria-labelledby="heading-{{ id }}" data-parent="#blogAccordion">
                         <div class="card-body bg-dark">

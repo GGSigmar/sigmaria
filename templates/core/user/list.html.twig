@@ -13,6 +13,7 @@
 
 {% block table_headers %}
     <th>Id</th>
+    <th>Nazwa</th>
     <th>Email</th>
     <th>Akcje</th>
 {% endblock %}
@@ -21,6 +22,7 @@
     {% for user in users %}
         <tr class="{% include "base/utilities/inactive_entity_row_classes.html.twig" with {'entity': user} %}">
             <td class="align-middle">{{ user.id }}</td>
+            <td class="align-middle">{{ user.username }}</td>
             <td class="align-middle">{{ user.email }}</td>
             <td class="align-middle text-nowrap">
                 <a href="{{ path('user_roles', {"id": user.id}) }}" class="btn btn-outline-primary" role="button">Uprawnienia <i class="fas fa-user-tag"></i></a>

@@ -23,6 +23,9 @@ class ReleaseType extends AbstractType
             ->add('contentChanges', TextareaType::class, [
                 'label' => 'Zmiany zawartości',
                 'required' => false,
+                'attr' => [
+                    'rows' => 8,
+                ]
             ])
         ;
     }

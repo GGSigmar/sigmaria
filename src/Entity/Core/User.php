@@ -21,18 +21,6 @@ class User extends BaseUser
     protected $id;
 
     /**
-     * @param string $email
-     *
-     * @return BaseUser|\FOS\UserBundle\Model\UserInterface
-     */
-    public function setEmail($email)
-    {
-        $this->setUsername($email);
-
-        return parent::setEmail($email);
-    }
-
-    /**
      * @return bool
      */
     public function isActive(): bool

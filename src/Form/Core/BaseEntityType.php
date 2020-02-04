@@ -22,6 +22,9 @@ class BaseEntityType extends AbstractType
             ->add('description', TextareaType::class, [
                 'label' => 'Opis',
                 'required' => false,
+                'attr' => [
+                    'rows' => 8,
+                ]
             ])
         ;
     }

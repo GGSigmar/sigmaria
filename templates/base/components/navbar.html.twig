@@ -76,7 +76,7 @@
         </ul>
         <ul class="navbar-nav navbar-right">
             {% if is_granted('ROLE_USER') %}
-                <li ><span class="navbar-text mr-1">Zalogowany jako {{ app.user.email }}</span></li>
+                <li ><span class="navbar-text mr-1">Zalogowany jako {{ app.user.username }}</span></li>
                 <li><a class="btn btn-secondary border border-white" href="{{ path('fos_user_security_logout') }}">Wyloguj <i class="fas fa-unlock"></i></a></li>
             {% else %}
                 <li><a class="btn btn-secondary border border-white mr-1" href="{{ path('fos_user_security_login') }}">Logowanie <i class="fas fa-lock"></i></a></li>

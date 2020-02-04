@@ -29,6 +29,9 @@ class HeritageType extends AbstractType
             ->add('shortDescription', TextareaType::class, [
                 'label' => 'Krótki opis',
                 'required' => false,
+                'attr' => [
+                    'rows' => 8,
+                ]
             ])
             ->add('rarity', EntityType::class, [
                 'label' => 'Rzadkość',
