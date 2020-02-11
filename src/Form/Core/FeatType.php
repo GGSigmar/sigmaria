@@ -61,6 +61,9 @@ class FeatType extends AbstractType
                 'group_by' => function (Attribute $attribute) {
                     return $attribute->getCategory()->getName();
                 },
+                'attr' => [
+                    'size' => 20,
+                ],
             ])
         ;
     }
