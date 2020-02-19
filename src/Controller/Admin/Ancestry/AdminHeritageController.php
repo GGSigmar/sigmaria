@@ -26,7 +26,7 @@ class AdminHeritageController extends BaseController
 
         $templateData = [
             'heritages' => $heritages,
-            'entityName' => Heritage::HERITAGE_ENTITY_NAME,
+            'entityName' => Heritage::ENTITY_NAME,
         ];
 
         return array_merge($templateData, $this->getTemplateData(BaseController::NAV_TAB_ADMIN));
@@ -56,7 +56,7 @@ class AdminHeritageController extends BaseController
 
         $templateData = [
             'form' => $form->createView(),
-            'entityName' => Heritage::HERITAGE_ENTITY_NAME,
+            'entityName' => Heritage::ENTITY_NAME,
         ];
 
         return array_merge($templateData, $this->getTemplateData(BaseController::NAV_TAB_ADMIN));
@@ -86,7 +86,7 @@ class AdminHeritageController extends BaseController
 
         $templateData = [
             'form' => $form->createView(),
-            'entityName' => Heritage::HERITAGE_ENTITY_NAME,
+            'entityName' => Heritage::ENTITY_NAME,
         ];
 
         return array_merge($templateData, $this->getTemplateData(BaseController::NAV_TAB_ADMIN));
