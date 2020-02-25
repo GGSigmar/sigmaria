@@ -24,4 +24,19 @@ class AncestryRepository extends ServiceEntityRepository
             ->getQuery()
             ->getResult();
     }
+
+    /**
+     * @return array|Ancestry[]
+     */
+    public function getCoreAncestries(): array
+    {
+        $qb = $this->createQueryBuilder('a');
+        $ex = $qb->expr();
+
+        return $this->createQueryBuilder('a')
+            ->andWhere('a.isActive = true')
+            ->andWhere($ex->in('a.handle', Ancestry::CORE_ANCESTRIES))
+            ->getQuery()
+            ->getResult();
+    }
 }

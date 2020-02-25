@@ -3,12 +3,14 @@
 /*    padding-top: 86px; !* 56 navbar + 30 *!*/
 /*}*/
 
-.margin-top-30
-{
+.margin-top-30  {
     margin-top: 30px;
 }
 
-.indented
-{
+.indented {
     text-indent: 1rem;
+}
+
+.select2-selection__choice {
+    color: #007bff;
 }

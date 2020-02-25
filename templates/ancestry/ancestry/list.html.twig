@@ -25,7 +25,11 @@
                 <td class="align-middle">{{ ancestry.size }}</td>
                 <td class="align-middle">{{ ancestry.speed }} stóp</td>
                 <td class="align-middle">
-                    {{ ancestry.abilityBoosts|first }} lub {{ ancestry.abilityBoosts|last }}
+                    {% if ancestry.abilityBoosts|length == 2 %}
+                        {{ ancestry.abilityBoosts|first }} lub {{ ancestry.abilityBoosts|last }}
+                    {% else %}
+                        Dowolna
+                    {% endif %}
                 </td>
                 <td class="align-middle">
                     {% for attribute in ancestry.attributes %}

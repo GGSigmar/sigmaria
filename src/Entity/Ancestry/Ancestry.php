@@ -10,6 +10,7 @@ use App\Entity\Core\Size;
 use App\Entity\Core\Traits\BaseFieldsTrait;
 use App\Entity\Core\Traits\ReleasableTrait;
 use App\Entity\Core\Traits\SimpleRarityTrait;
+use App\Entity\Core\Traits\SortOrderTrait;
 use App\Entity\Setting\Culture;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -23,7 +24,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Ancestry
 {
-    use BaseFieldsTrait, SimpleRarityTrait, ReleasableTrait, TimestampableEntity;
+    use BaseFieldsTrait, SimpleRarityTrait, ReleasableTrait, TimestampableEntity, SortOrderTrait;
 
     public const ENTITY_NAME = 'ancestry';
 
@@ -33,6 +34,18 @@ class Ancestry
     (najczęściej Wspólny oraz język ojczysty twojej rasy).
     Jeżeli twój modyfikator Inteligencji jest dodatni, znasz dodatkową liczbę języków równą jego wartości.
     Dodatkowe języki również muszą być językami pospolicie znanymi w twojej kulturze lub rodzimym regionie.';
+
+    public const ANCESTRY_HUMAN = 'ANCESTRY_HUMAN';
+    public const ANCESTRY_DWARF = 'ANCESTRY_DWARF';
+    public const ANCESTRY_ELF = 'ANCESTRY_ELF';
+    public const ANCESTRY_HALFLING = 'ANCESTRY_HALFLING';
+
+    public const CORE_ANCESTRIES = [
+        self::ANCESTRY_HUMAN,
+        self::ANCESTRY_DWARF,
+        self::ANCESTRY_ELF,
+        self::ANCESTRY_HALFLING,
+    ];
 
     /**
      * @var AncestralHitPoints
