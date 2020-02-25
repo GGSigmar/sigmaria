@@ -36,6 +36,7 @@ class AncestryRepository extends ServiceEntityRepository
         return $this->createQueryBuilder('a')
             ->andWhere('a.isActive = true')
             ->andWhere($ex->in('a.handle', Ancestry::CORE_ANCESTRIES))
+            ->orderBy('a.sortOrder', 'ASC')
             ->getQuery()
             ->getResult();
     }
