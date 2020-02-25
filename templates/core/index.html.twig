@@ -1,7 +1,7 @@
 {% extends "base/base.html.twig" %}
 
 {% block content %}
-    <div class="col-md-4">
+    <div class="col-md-4 mb-4">
         {% set title %}
             <i class="fas fa-chess-rook"></i>
             Na dobry początek
@@ -15,7 +15,7 @@
 
         {% include 'base/components/card.html.twig' with {'title': title, 'content': content} %}
     </div>
-    <div class="col-md-4">
+    <div class="col-md-4 mb-4">
         {% set title %}
             <i class="fas fa-hand-paper"></i>
             Podstawowe rasy
@@ -37,7 +37,7 @@
 
         {% include 'base/components/card.html.twig' with {'title': title, 'content': content} %}
     </div>
-    <div class="col-md-4">
+    <div class="col-md-4 mb-4">
         {% set title %}
             <i class="fas fa-paw"></i>
             Pozostałe rasy

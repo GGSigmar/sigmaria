@@ -12,6 +12,7 @@ use App\Entity\Core\Traits\ReleasableTrait;
 use App\Entity\Core\Traits\ShortDescriptionTrait;
 use App\Entity\Core\Traits\SimpleRarityTrait;
 use App\Entity\Core\Traits\ValueTrait;
+use App\Service\Core\UtilityService;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
@@ -277,21 +278,23 @@ class Heritage
     }
 
     /**
-     * @return Collection|Feat[]
+     * @return array|Feat[]
      */
-    public function getFeats(): Collection
+    public function getFeats(): array
     {
-        return $this->feats;
+        return UtilityService::groupFeatsByLevel($this->feats);
     }
 
     /**
-     * @return Collection|Feat[]
+     * @return array|Feat[]
      */
-    public function getActiveFeats(): Collection
+    public function getActiveFeats(): array
     {
-        return $this->feats->filter(function ($feat) {
-            return $feat->isActive();
-        });
+        return UtilityService::groupFeatsByLevel(
+            $this->feats->filter(function ($feat) {
+                $feat->isActive();
+            })
+        );
     }
 
     /**

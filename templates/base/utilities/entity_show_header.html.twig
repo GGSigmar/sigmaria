@@ -6,6 +6,7 @@
                 {% include "base/buttons/entity_edit_button.html.twig" with {'entityName': entityName, 'entity': entity} %}
             {% endif %}
             {% include "base/buttons/entity_list_button.html.twig" with {'entityName': entityName} %}
+            {% include 'base/components/activeness_badge.html.twig' with {'entity': entity} %}
         </div>
     </h1>
     {% include "base/utilities/entity_release_note.html.twig" with {'entity': entity} %}

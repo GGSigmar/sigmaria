@@ -1,1 +1,7 @@
-<span class="badge badge-danger border border-white">{{ attribute.name }}</span>
+<a class="badge badge-danger border border-white text-white"
+    {% if attribute.description %}
+        tabindex="0" data-toggle="popover" data-trigger="focus" data-content="{{ attribute.description }}"
+    {% endif %}
+>
+    {{ attribute.name }}
+</a>

@@ -1,5 +1,5 @@
-<div class="mb-4">
-    <div class="border-bottom border-white" style="width:100%;">
+<div class="mb-4 border border-white rounded p-1">
+    <div class="border-bottom border-white {% include 'base/components/activeness_bg_class.html.twig' with {'entity': feat} %}" style="width:100%;">
         <h5>
             {{ feat.name|upper }} {% if feat.actions %}({{ feat.actions.name }}){% endif %}
             {% if feat.level %}
@@ -13,7 +13,7 @@
         </h5>
     </div>
     <div>
-        <span class="badge badge-primary border border-white">{{ feat.rarity.name|masculine }}</span>
+        <a class="badge badge-primary border border-white">{{ feat.rarity.name|masculine }}</a>
         {% for attribute in feat.attributes %}
             {% include "base/badges/attribute_badge.html.twig" with {'attribute': attribute} %}
         {% endfor %}

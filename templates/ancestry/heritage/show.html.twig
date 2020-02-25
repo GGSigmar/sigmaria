@@ -34,7 +34,9 @@
         <h5>Rasa</h5>
         <p class="mb-4">
             {% include "base/badges/entity_show_badge.html.twig" with {'entityName': 'ancestry', 'entityId': heritage.ancestry.id} %}
-            {{ heritage.ancestry.name }}
+            <span class="{% include 'base/components/activeness_text_class.html.twig' with {'entity': heritage.ancestry} %}">
+                {{ heritage.ancestry.name }}
+            </span>
         </p>
 
         <h5>Rzadkość</h5>

@@ -1,0 +1,7 @@
+{% if not entity.isActive %}
+    {% if entity.isToBeReleased %}
+        bg-success
+    {% else %}
+        bg-danger
+    {% endif %}
+{% endif %}

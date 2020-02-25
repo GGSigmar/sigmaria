@@ -1,0 +1,7 @@
+{% if not entity.isActive %}
+    {% if entity.isToBeReleased %}
+        {% include 'base/badges/unreleased_badge.html.twig' %}
+    {% else %}
+        {% include 'base/badges/inactive_badge.html.twig' %}
+    {% endif %}
+{% endif %}

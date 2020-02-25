@@ -1,29 +1,31 @@
-<div class="border-bottom border-white" style="width:100%;">
-    <h3>
-        {{ background.name|upper }}
-        <span class="float-right">POCHODZENIE</span>
-    </h3>
-</div>
-<div>
-    {{ background.description|raw }}
-</div>
-<div class="indented">
-    {% if background.atypicalAbilityBoosts %}
-        {{ background.atypicalAbilityBoosts }}
-    {% else %}
-        Wybierz dwie premie do cech.
-        Jedna z premii musi być do cech {{ background.abilityBoosts|first }} lub {{ background.abilityBoosts|last }}, a druga jest dowolna.
-    {% endif %}
-</div>
-<div class="indented">
-    {% if background.atypicalRules %}
-        {{ background.atypicalRules }}
-    {% else %}
-        {% if background.trainedSkill and background.trainedLore %}
-            Jesteś wytrenowany w umiejętności {{ background.trainedSkill.name }} i w dziedzinie wiedzy {{ background.trainedLore.name }}.
+<div class="mb-4 border border-white rounded p-1">
+    <div class="border-bottom border-white {% include 'base/components/activeness_bg_class.html.twig' with {'entity': background} %}" style="width:100%;">
+        <h3>
+            {{ background.name|upper }}
+            <span class="float-right">POCHODZENIE</span>
+        </h3>
+    </div>
+    <div>
+        {{ background.description|raw }}
+    </div>
+    <div class="indented">
+        {% if background.atypicalAbilityBoosts %}
+            {{ background.atypicalAbilityBoosts }}
+        {% else %}
+            Wybierz dwie premie do cech.
+            Jedna z premii musi być do cech {{ background.abilityBoosts|first }} lub {{ background.abilityBoosts|last }}, a druga jest dowolna.
         {% endif %}
-        {% if background.feat %}
-            Zyskujesz umiejętnościowy atut {{ background.feat.name }}.
+    </div>
+    <div class="indented">
+        {% if background.atypicalRules %}
+            {{ background.atypicalRules }}
+        {% else %}
+            {% if background.trainedSkill and background.trainedLore %}
+                Jesteś wytrenowany w umiejętności {{ background.trainedSkill.name }} i w dziedzinie wiedzy {{ background.trainedLore.name }}.
+            {% endif %}
+            {% if background.feat %}
+                Zyskujesz umiejętnościowy atut {{ background.feat.name }}.
+            {% endif %}
         {% endif %}
-    {% endif %}
+    </div>
 </div>

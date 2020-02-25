@@ -30,6 +30,14 @@
                     $(this).find('li').removeClass('text-primary');
                     $(this).find('li:selected').addClass('text-primary');
                 });
+
+                $(function () {
+                    $('[data-toggle="popover"]').popover()
+                })
+
+                $('.popover-dismiss').popover({
+                    trigger: 'focus'
+                })
             </script>
         {% endblock %}
     </head>

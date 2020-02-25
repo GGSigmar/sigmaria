@@ -7,6 +7,7 @@ use App\Entity\Core\CharacterClass;
 use App\Entity\Core\Feat;
 use App\Entity\Core\Traits\BaseFieldsTrait;
 use App\Entity\Core\Traits\ReleasableTrait;
+use App\Service\Core\UtilityService;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -214,13 +215,23 @@ class Culture
     }
 
     /**
-     * @return Collection|Feat[]
+     * @return array|Feat[]
      */
-    public function getFeats(): Collection
+    public function getFeats(): array
     {
-        return $this->feats->filter(function ($feat) {
-            return $feat->isActive();
-        });
+        return UtilityService::groupFeatsByLevel($this->feats);
+    }
+
+    /**
+     * @return array|Feat[]
+     */
+    public function getActiveFeats(): array
+    {
+        return UtilityService::groupFeatsByLevel(
+            $this->feats->filter(function ($feat) {
+                $feat->isActive();
+            })
+        );
     }
 
     /**
