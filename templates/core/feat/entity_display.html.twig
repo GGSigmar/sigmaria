@@ -27,7 +27,13 @@
 {% else %}
     {% for featLevel, groupedFeats in feats %}
         <div class="col-md-12 mb-4">
-            <h3 class="mb-0"><span class="badge badge-primary border border-white">Poziom {{ featLevel }}</span></h3>
+            <h3 class="mb-0"><span class="badge badge-primary border border-white">
+                {% if featLevel == 0 %}
+                    Darmowe atuty
+                {% else %}
+                    Poziom {{ featLevel }}
+                {% endif %}
+            </span></h3>
         </div>
         {% for feat in groupedFeats %}
             <div class="col-md-6">
