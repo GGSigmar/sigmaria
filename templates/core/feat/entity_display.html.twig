@@ -15,7 +15,7 @@
 </div>
 
 {% if is_granted('ROLE_ADMIN') %}
-    {% set feats = entity.feats %}
+    {% set feats = entity.groupedFeats %}
 {% else %}
     {% set feats = entity.activeFeats %}
 {% endif %}

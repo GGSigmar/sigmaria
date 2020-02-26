@@ -215,9 +215,17 @@ class Culture
     }
 
     /**
+     * @return Collection|Feat[]
+     */
+    public function getFeats(): Collection
+    {
+        return $this->feats;
+    }
+
+    /**
      * @return array|Feat[]
      */
-    public function getFeats(): array
+    public function getGroupedFeats(): array
     {
         return UtilityService::groupFeatsByLevel($this->feats);
     }
@@ -226,6 +234,14 @@ class Culture
      * @return array|Feat[]
      */
     public function getActiveFeats(): array
+    {
+        return $this->getActiveGroupedFeats();
+    }
+
+    /**
+     * @return array|Feat[]
+     */
+    public function getActiveGroupedFeats(): array
     {
         return UtilityService::groupFeatsByLevel(
             $this->feats->filter(function ($feat) {
