@@ -29,6 +29,13 @@
             <p class="mb-4">
                 {{ heritage.value }}
             </p>
+
+            {% if heritage.valueAdjustment %}
+                <h5>Korekta wartości</h5>
+                <p class="mb-4">
+                    {{ heritage.valueAdjustment }}
+                </p>
+            {% endif %}
         {% endif %}
 
         <h5>Rasa</h5>

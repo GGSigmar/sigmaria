@@ -25,6 +25,9 @@
             <td class="align-middle text-nowrap">
                 {% include "base/buttons/entity_show_button.html.twig" with {'entityName': entityName, 'entity': heritage} %}
                 {% include "base/buttons/entity_edit_button.html.twig" with {'entityName': entityName, 'entity': heritage} %}
+                {% if not heritage.isActive %}
+                    {% include "base/buttons/entity_release_buttons.html.twig" with {'entityName': entityName, 'entity': heritage} %}
+                {% endif %}
                 {% include "base/buttons/entity_delete_buttons.html.twig" with {'entityName': entityName, 'entity': heritage} %}
             </td>
         </tr>

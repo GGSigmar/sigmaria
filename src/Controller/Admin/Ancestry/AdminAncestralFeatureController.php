@@ -94,7 +94,7 @@ class AdminAncestralFeatureController extends BaseController
     /**
      * @Route("/admin/ancestry/feature/{id}/kill", name="ancestral_feature_kill")
      */
-    public function killWeaponPropertyAction(AncestralFeature $ancestralFeature)
+    public function killAncestralFeatureAction(AncestralFeature $ancestralFeature)
     {
         $entityManager = $this->getDoctrine()->getManager();
 
@@ -111,7 +111,7 @@ class AdminAncestralFeatureController extends BaseController
     /**
      * @Route("/admin/ancestry/feature/{id}/revive", name="ancestral_feature_revive")
      */
-    public function reviveWeaponPropertyAction(AncestralFeature $ancestralFeature)
+    public function reviveAncestralFeatureAction(AncestralFeature $ancestralFeature)
     {
         $entityManager = $this->getDoctrine()->getManager();
 
@@ -128,7 +128,7 @@ class AdminAncestralFeatureController extends BaseController
     /**
      * @Route("/admin/ancestry/feature/{id}/delete", name="ancestral_feature_delete")
      */
-    public function deleteWeaponPropertyAction(AncestralFeature $ancestralFeature)
+    public function deleteAncestralFeatureAction(AncestralFeature $ancestralFeature)
     {
         $entityManager = $this->getDoctrine()->getManager();
 

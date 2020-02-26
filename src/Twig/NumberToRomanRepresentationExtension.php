@@ -37,6 +37,10 @@ class NumberToRomanRepresentationExtension extends AbstractExtension
      */
     public function numberToRomanRepresentation(int $number): string
     {
+        if ($number === 0 ) {
+            return 0;
+        }
+
         $returnValue = '';
 
         while ($number > 0) {

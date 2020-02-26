@@ -4,6 +4,7 @@ namespace App\Controller\Admin\Ancestry;
 
 use App\Controller\Base\BaseController;
 use App\Entity\Ancestry\Heritage;
+use App\Entity\Core\Feat;
 use App\Form\Ancestry\HeritageType;
 use App\Form\Core\FeatType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
@@ -95,7 +96,7 @@ class AdminHeritageController extends BaseController
     /**
      * @Route("/admin/ancestry/heritage/{id}/kill", name="heritage_kill")
      */
-    public function killWeaponPropertyAction(Heritage $heritage)
+    public function killHeritageAction(Heritage $heritage)
     {
         $entityManager = $this->getDoctrine()->getManager();
 
@@ -112,7 +113,7 @@ class AdminHeritageController extends BaseController
     /**
      * @Route("/admin/ancestry/heritage/{id}/revive", name="heritage_revive")
      */
-    public function reviveWeaponPropertyAction(Heritage $heritage)
+    public function reviveHeritageAction(Heritage $heritage)
     {
         $entityManager = $this->getDoctrine()->getManager();
 
@@ -129,7 +130,7 @@ class AdminHeritageController extends BaseController
     /**
      * @Route("/admin/ancestry/heritage/{id}/delete", name="heritage_delete")
      */
-    public function deleteWeaponPropertyAction(Heritage $heritage)
+    public function deleteHeritageAction(Heritage $heritage)
     {
         $entityManager = $this->getDoctrine()->getManager();
 
@@ -137,6 +138,40 @@ class AdminHeritageController extends BaseController
         $entityManager->flush();
 
         $this->addFlash('danger', 'Dziedzictwo usunięte!');
+
+        return $this->redirectToRoute('heritage_list');
+    }
+
+    /**
+     * @Route("/admin/heritage/heritage/{id}/stage", name="heritage_stage")
+     */
+    public function stageHeritageAction(Heritage $heritage)
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+
+        $heritage->setIsToBeReleased(true);
+
+        $entityManager->persist($heritage);
+        $entityManager->flush();
+
+        $this->addFlash('success', 'Dziedzictwo oznaczone do wydania!');
+
+        return $this->redirectToRoute('heritage_list');
+    }
+
+    /**
+     * @Route("/admin/heritage/heritage/{id}/unstage", name="heritage_unstage")
+     */
+    public function unstageHeritageAction(Heritage $heritage)
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+
+        $heritage->setIsToBeReleased(false);
+
+        $entityManager->persist($heritage);
+        $entityManager->flush();
+
+        $this->addFlash('warning', 'Dziedzictwo wyłączone z wydania!');
 
         return $this->redirectToRoute('heritage_list');
     }
@@ -164,6 +199,40 @@ class AdminHeritageController extends BaseController
             $this->addFlash('success', 'Atut stworzony!');
 
             return $this->redirectToRoute('heritage_show', ['id' => $heritage->getId()]);
+        }
+
+        $templateData = [
+            'form' => $form->createView(),
+            'entityName' => Heritage::ENTITY_NAME,
+        ];
+
+        return array_merge($templateData, $this->getTemplateData(BaseController::NAV_TAB_RULES));
+    }
+
+    /**
+     * @Route("/admin/ancestry/heritage/{heritageId}/feat/{featId}/edit", name="heritage_feat_edit")
+     * @Template("core/feat/create.html.twig")
+     */
+    public function editHeritageFeatAction(Request $request, int $heritageId, int $featId)
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+
+        $feat = $entityManager->getRepository(Feat::class)->find($featId);
+
+        $form = $this->createForm(FeatType::class, $feat);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $feat = $form->getData();
+
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($feat);
+            $entityManager->flush();
+
+            $this->addFlash('success', 'Atut zmieniony!');
+
+            return $this->redirectToRoute('heritage_show', ['id' => $heritageId]);
         }
 
         $templateData = [
