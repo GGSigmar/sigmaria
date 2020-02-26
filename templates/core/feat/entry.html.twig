@@ -2,14 +2,14 @@
     <div class="border-bottom border-white {% include 'base/components/activeness_bg_class.html.twig' with {'entity': feat} %}" style="width:100%;">
         <h5>
             {{ feat.name|upper }} {% if feat.actions %}({{ feat.actions.name }}){% endif %}
-            {% if feat.level %}
-                <span class="float-right">
+            <span class="float-right">
+                {% if feat.level %}
                     ATUT {{ feat.level }}
-                    {% if is_granted('ROLE_ADMIN') %}
-                        {% include "base/badges/entity_edit_badge.html.twig" with {'entityName': 'feat', 'entityId': feat.id} %}
-                    {% endif %}
-                </span>
-            {% endif %}
+                {% endif %}
+                {% if is_granted('ROLE_ADMIN') %}
+                    {% include "base/badges/entity_edit_badge.html.twig" with {'entityName': 'feat', 'entityId': feat.id} %}
+                {% endif %}
+            </span>
         </h5>
     </div>
     <div>
