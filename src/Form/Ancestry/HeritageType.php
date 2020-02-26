@@ -100,7 +100,7 @@ class HeritageType extends AbstractType
                     return $er->createQueryBuilder('f')
                         ->innerJoin('f.attributes', 'a')
                         ->innerJoin('a.category', 'c')
-                        ->andWhere('c.handle IN :ancestral_category')
+                        ->andWhere('c.handle IN (:categories)')
                         ->setParameter(
                             'categories',
                             [
