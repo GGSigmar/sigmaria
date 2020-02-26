@@ -96,6 +96,16 @@ class Heritage
      */
     private $feats;
 
+    /**
+     * @var int
+     *
+     * @ORM\Column(type="integer", nullable=true)
+     *
+     * @Assert\GreaterThanOrEqual(value="-3")
+     * @Assert\LessThanOrEqual(value="3")
+     */
+    private $valueAdjustment = 0;
+
     public function __construct()
     {
         $this->isActive = false;
@@ -346,6 +356,22 @@ class Heritage
     }
 
     /**
+     * @return int|null
+     */
+    public function getValueAdjustment(): ?int
+    {
+        return $this->valueAdjustment;
+    }
+
+    /**
+     * @param int|null $valueAdjustment
+     */
+    public function setValueAdjustment(?int $valueAdjustment): void
+    {
+        $this->valueAdjustment = $valueAdjustment;
+    }
+
+    /**
      * @return int
      */
     public function getValue(): int
@@ -362,6 +388,10 @@ class Heritage
 
         if ($this->getSpeed()) {
             $value += $this->getSpeed()->getValue();
+        }
+
+        if ($this->getValueAdjustment()) {
+            $value += $this->getValueAdjustment();
         }
 
         return $value;
