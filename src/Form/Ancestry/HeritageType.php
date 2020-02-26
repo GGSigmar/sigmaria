@@ -81,8 +81,14 @@ class HeritageType extends AbstractType
                 'query_builder' => function (EntityRepository $er) {
                     return $er->createQueryBuilder('a')
                         ->innerJoin('a.category', 'c')
-                        ->andWhere('c.handle LIKE :heritage_category')
-                        ->setParameter('heritage_category', AttributeCategory::ATTRIBUTE_CATEGORY_HERITAGE);
+                        ->andWhere('c.handle IN :heritage_category')
+                        ->setParameter(
+                            'heritage_category',
+                            [
+                                AttributeCategory::ATTRIBUTE_CATEGORY_HERITAGE,
+                                AttributeCategory::ATTRIBUTE_CATEGORY_ANCESTRAL,
+                            ]
+                        );
                 },
             ])
             ->add('ancestralFeatures', EntityType::class, [
