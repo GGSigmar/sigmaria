@@ -145,7 +145,7 @@ class AdminHeritageController extends BaseController
     /**
      * @Route("/admin/heritage/heritage/{id}/stage", name="heritage_stage")
      */
-    public function stageHeritageAction(Heritage $heritage)
+    public function stageHeritageAction(Request $request, Heritage $heritage)
     {
         $entityManager = $this->getDoctrine()->getManager();
 
@@ -156,13 +156,13 @@ class AdminHeritageController extends BaseController
 
         $this->addFlash('success', 'Dziedzictwo oznaczone do wydania!');
 
-        return $this->redirectToRoute('heritage_list');
+        $this->redirectToReferer($request);
     }
 
     /**
      * @Route("/admin/heritage/heritage/{id}/unstage", name="heritage_unstage")
      */
-    public function unstageHeritageAction(Heritage $heritage)
+    public function unstageHeritageAction(Request $request, Heritage $heritage)
     {
         $entityManager = $this->getDoctrine()->getManager();
 
@@ -173,7 +173,7 @@ class AdminHeritageController extends BaseController
 
         $this->addFlash('warning', 'Dziedzictwo wyłączone z wydania!');
 
-        return $this->redirectToRoute('heritage_list');
+        $this->redirectToReferer($request);
     }
 
     /**
