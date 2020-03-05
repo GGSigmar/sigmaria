@@ -6,7 +6,16 @@
                 DZIEDZICTWO ({{ heritage.value|roman }})
                 {% include "base/badges/entity_show_badge.html.twig" with {'entityName': 'heritage', 'entityId': heritage.id} %}
                 {% if is_granted('ROLE_ADMIN') %}
-                    {% include "base/badges/entity_edit_badge.html.twig" with {'entityName': 'heritage', 'entityId': heritage.id} %}
+                    {% include "base/badges/entity_display_edit_badge.html.twig"
+                        with
+                        {
+                            'baseEntityName': entityName,
+                            'subEntityName': 'heritage',
+                            'baseEntity': entity,
+                            'subEntity': heritage,
+                        }
+                    %}
+                    {% include "base/badges/entity_release_badge.html.twig" with {'entityName': 'heritage', 'entity': heritage} %}
                 {% endif %}
             </span>
         </h5>

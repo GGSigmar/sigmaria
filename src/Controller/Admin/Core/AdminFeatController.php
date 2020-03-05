@@ -127,7 +127,7 @@ class AdminFeatController extends BaseController
     /**
      * @Route("/admin/core/feat/{id}/stage", name="feat_stage")
      */
-    public function stageFeatAction(Feat $feat)
+    public function stageFeatAction(Request $request, Feat $feat)
     {
         $entityManager = $this->getDoctrine()->getManager();
 
@@ -138,13 +138,13 @@ class AdminFeatController extends BaseController
 
         $this->addFlash('success', 'Atut oznaczony do wydania!');
 
-        return $this->redirectToRoute('feat_list');
+        $this->redirectToReferer($request);
     }
 
     /**
      * @Route("/admin/core/feat/{id}/unstage", name="feat_unstage")
      */
-    public function unstageFeatAction(Feat $feat)
+    public function unstageFeatAction(Request $request, Feat $feat)
     {
         $entityManager = $this->getDoctrine()->getManager();
 
@@ -155,6 +155,6 @@ class AdminFeatController extends BaseController
 
         $this->addFlash('warning', 'Atut wyłączony z wydania!');
 
-        return $this->redirectToRoute('feat_list');
+        $this->redirectToReferer($request);
     }
 }

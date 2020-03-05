@@ -36,6 +36,7 @@ class HeritageType extends AbstractType
             ])
             ->add('valueAdjustment', IntegerType::class, [
                 'label' => 'Korekta wartości',
+                'required' => false,
             ])
             ->add('rarity', EntityType::class, [
                 'label' => 'Rzadkość',

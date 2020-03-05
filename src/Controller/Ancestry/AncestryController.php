@@ -15,7 +15,7 @@ class AncestryController extends BaseController
      */
     public function listAncestriesAction()
     {
-        $ancestries = $this->getDoctrine()->getRepository(Ancestry::class)->findAll();
+        $ancestries = $this->getDoctrine()->getRepository(Ancestry::class)->getAllAncestriesSorted();
 
         $templateData = [
             'ancestries' => $ancestries,

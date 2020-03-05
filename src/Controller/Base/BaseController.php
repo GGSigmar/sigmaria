@@ -3,6 +3,8 @@
 namespace App\Controller\Base;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\HttpFoundation\Request;
 
 class BaseController extends AbstractController
 {
@@ -21,6 +23,15 @@ class BaseController extends AbstractController
     protected function getTemplateData(string $navTabName): array
     {
         return $this->getNavigationTemplateData($navTabName);
+    }
+
+    /**
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     */
+    protected function redirectToReferer(Request $request): RedirectResponse
+    {
+        return $this->redirect($request->headers->get('referer'));
     }
 
     /**

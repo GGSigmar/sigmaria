@@ -13,6 +13,16 @@ class AncestryRepository extends ServiceEntityRepository
         parent::__construct($registry, Ancestry::class);
     }
 
+    public function getAllAncestriesSorted(): array
+    {
+        $qb = $this->createQueryBuilder('a');
+
+        return $this->createQueryBuilder('a')
+            ->orderBy('a.sortOrder', 'ASC')
+            ->getQuery()
+            ->getResult();
+    }
+
     /**
      * @return array|Ancestry[]
      */

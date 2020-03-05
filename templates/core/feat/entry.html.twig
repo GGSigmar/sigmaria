@@ -7,7 +7,16 @@
                     ATUT {{ feat.level }}
                 {% endif %}
                 {% if is_granted('ROLE_ADMIN') %}
-                    {% include "base/badges/entity_edit_badge.html.twig" with {'entityName': 'feat', 'entityId': feat.id} %}
+                    {% include "base/badges/entity_display_edit_badge.html.twig"
+                        with
+                        {
+                            'baseEntityName': entityName,
+                            'subEntityName': 'feat',
+                            'baseEntity': entity,
+                            'subEntity': feat,
+                        }
+                    %}
+                    {% include "base/badges/entity_release_badge.html.twig" with {'entityName': 'feat', 'entity': feat} %}
                 {% endif %}
             </span>
         </h5>

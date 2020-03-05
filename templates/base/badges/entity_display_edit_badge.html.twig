@@ -1,0 +1,3 @@
+{% set editPathName = (baseEntityName ~ '_' ~ subEntityName ~ '_edit') %}
+
+<a href="{{ path(editPathName, {'baseId': baseEntity.id, 'id': subEntity.id}) }}" class="badge badge-primary border border-white" role="button"><i class="fas fa-edit"></i></a>

@@ -210,14 +210,14 @@ class AdminHeritageController extends BaseController
     }
 
     /**
-     * @Route("/admin/ancestry/heritage/{heritageId}/feat/{featId}/edit", name="heritage_feat_edit")
+     * @Route("/admin/ancestry/heritage/{baseId}/feat/{id}/edit", name="heritage_feat_edit")
      * @Template("core/feat/create.html.twig")
      */
-    public function editHeritageFeatAction(Request $request, int $heritageId, int $featId)
+    public function editHeritageFeatAction(Request $request, int $baseId, int $id)
     {
         $entityManager = $this->getDoctrine()->getManager();
 
-        $feat = $entityManager->getRepository(Feat::class)->find($featId);
+        $feat = $entityManager->getRepository(Feat::class)->find($id);
 
         $form = $this->createForm(FeatType::class, $feat);
 
@@ -232,7 +232,7 @@ class AdminHeritageController extends BaseController
 
             $this->addFlash('success', 'Atut zmieniony!');
 
-            return $this->redirectToRoute('heritage_show', ['id' => $heritageId]);
+            return $this->redirectToRoute('heritage_show', ['id' => $baseId]);
         }
 
         $templateData = [
