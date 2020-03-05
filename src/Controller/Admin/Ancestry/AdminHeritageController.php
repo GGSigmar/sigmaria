@@ -156,7 +156,7 @@ class AdminHeritageController extends BaseController
 
         $this->addFlash('success', 'Dziedzictwo oznaczone do wydania!');
 
-        $this->redirectToReferer($request);
+        return $this->redirectToReferer($request);
     }
 
     /**
@@ -173,7 +173,7 @@ class AdminHeritageController extends BaseController
 
         $this->addFlash('warning', 'Dziedzictwo wyłączone z wydania!');
 
-        $this->redirectToReferer($request);
+        return $this->redirectToReferer($request);
     }
 
     /**
