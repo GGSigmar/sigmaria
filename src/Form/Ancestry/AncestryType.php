@@ -64,6 +64,7 @@ class AncestryType extends AbstractType
             ->add('abilityBoosts', EntityType::class, [
                 'class' => Ability::class,
                 'label' => 'Premie do cech',
+                'required' => false,
                 'multiple' => true,
                 'attr' => [
                     'class' => 'js-example-basic-single',
@@ -96,6 +97,7 @@ class AncestryType extends AbstractType
             ->add('ancestralFeatures', EntityType::class, [
                 'class' => AncestralFeature::class,
                 'label' => 'Zdolności rasowe',
+                'required' => false,
                 'multiple' => true,
                 'attr' => [
                     'class' => 'js-example-basic-multiple',
@@ -104,6 +106,7 @@ class AncestryType extends AbstractType
             ->add('feats', EntityType::class, [
                 'class' => Feat::class,
                 'label' => 'Rasowe atuty',
+                'required' => false,
                 'multiple' => true,
                 'query_builder' => function (EntityRepository $er) {
                     return $er->createQueryBuilder('f')
