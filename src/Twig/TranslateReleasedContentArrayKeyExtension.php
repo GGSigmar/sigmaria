@@ -9,6 +9,7 @@ class TranslateReleasedContentArrayKeyExtension extends AbstractExtension
 {
     private const ENTITY_ARRAY_KEYS_TO_POLISH_ARRAY = [
         'ancestry' => 'Rasy',
+        'heritage' => 'Dziedzictwa',
         'feat' => 'Atuty',
         'language' => 'Języki',
         'background' => 'Pochodzenia',
