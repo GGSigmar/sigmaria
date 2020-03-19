@@ -6,7 +6,7 @@
                 {% if feat.level %}
                     ATUT {{ feat.level }}
                 {% endif %}
-                {% if is_granted('ROLE_ADMIN') %}
+                {% if is_granted('ROLE_ADMIN') and entity is defined %}
                     {% include "base/badges/entity_display_edit_badge.html.twig"
                         with
                         {
@@ -59,4 +59,5 @@
             <b>Właściwość specialna:</b> {{ feat.specialRules }}
         </div>
     {% endif %}
+    {% include "base/components/entity_source.html.twig" with {'entity': feat} %}
 </div>

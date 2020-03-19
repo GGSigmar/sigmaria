@@ -6,6 +6,7 @@ use App\Entity\Core\Actions;
 use App\Entity\Core\Attribute;
 use App\Entity\Core\Feat;
 use App\Entity\Core\Rarity;
+use App\Entity\Core\Source;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
@@ -64,6 +65,19 @@ class FeatType extends AbstractType
                 'attr' => [
                     'size' => 20,
                 ],
+            ])
+            ->add('source', EntityType::class, [
+                'required' => false,
+                'label' => 'Źródło',
+                'class' => Source::class
+            ])
+            ->add('sourceStartingPageNumber', IntegerType::class, [
+                'required' => false,
+                'label' => 'Strona początkowa źródła',
+            ])
+            ->add('sourceEndingPageNumber', IntegerType::class, [
+                'required' => false,
+                'label' => 'Strona końcowa źródła',
             ])
         ;
     }

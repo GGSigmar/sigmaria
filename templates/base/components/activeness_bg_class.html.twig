@@ -1,7 +1,9 @@
-{% if not entity.isActive %}
-    {% if entity.isToBeReleased %}
-        bg-success
-    {% else %}
-        bg-danger
+{% if is_granted('ROLE_ADMIN') %}
+    {% if not entity.isActive %}
+        {% if entity.isToBeReleased %}
+            bg-success
+        {% else %}
+            bg-danger
+        {% endif %}
     {% endif %}
 {% endif %}

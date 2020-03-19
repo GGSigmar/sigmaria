@@ -115,7 +115,7 @@ class AdminAttributeController extends BaseController
     {
         $entityManager = $this->getDoctrine()->getManager();
 
-        $attribute->setIsActive(false);
+        $attribute->setIsActive(true);
 
         $entityManager->persist($attribute);
         $entityManager->flush();

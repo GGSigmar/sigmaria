@@ -1,0 +1,10 @@
+{% if entity.isActive %}
+    {% set killPathName = (entityName ~ '_kill') %}
+
+    <a href="{{ path(killPathName, {"id": entity.id}) }}" class="btn btn-outline-secondary" role="button">Zabij <i class="fas fa-skull"></i></a>
+{% else %}
+    {% set activatePathName = (entityName ~ '_revive') %}
+
+    <a href="{{ path(activatePathName, {"id": entity.id}) }}" class="btn btn-outline-info" role="button">Wskrześ <i class="fas fa-bolt"></i></a>
+{% endif %}
+

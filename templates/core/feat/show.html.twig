@@ -6,7 +6,7 @@
     </div>
 
     <div class="col-md-6">
-        {% include "core/feat/entry.html.twig" with {'feat': feat} only %}
+        {% include "core/feat/entry.html.twig" with {'feat': feat} %}
     </div>
 
     {% if is_granted('ROLE_ADMIN') %}
