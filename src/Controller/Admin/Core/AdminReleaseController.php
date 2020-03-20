@@ -5,6 +5,7 @@ namespace App\Controller\Admin\Core;
 use App\Controller\Base\BaseController;
 use App\Entity\Core\Release;
 use App\Form\Core\ReleaseType;
+use App\Service\Core\ReleaseService;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -40,6 +41,35 @@ class AdminReleaseController extends BaseController
         $templateData = [
             'release' => $release,
             'entityName' => 'release',
+        ];
+
+        return array_merge($templateData, $this->getTemplateData(BaseController::NAV_TAB_ADMIN));
+    }
+
+    /**
+     * @Route("/admin/core/release/create", name="release_create")
+     * @Template("core/release/create.html.twig")
+     */
+    public function createReleaseAction(Request $request, ReleaseService $releaseService)
+    {
+        $form = $this->createForm(ReleaseType::class);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $release = $form->getData();
+
+            $release = $releaseService->releaseContent($release);
+
+            $this->addFlash('success', 'Wydanie zrealizowane!');
+
+            return $this->redirectToRoute('release_show', ['id' => $release->getId()]);
+        }
+
+        $templateData = [
+            'form' => $form->createView(),
+            'entityName' => 'release',
+            'contentToBeReleased' => $releaseService->getContentToBeReleased(),
         ];
 
         return array_merge($templateData, $this->getTemplateData(BaseController::NAV_TAB_ADMIN));

@@ -1,0 +1,32 @@
+{% extends "base/base_form.html.twig" %}
+
+{% block form_title %}
+    Wydaj zawartość
+{% endblock %}
+
+{% block content %}
+    {{ parent() }}
+
+    <div class="col-md-12 mt-3">
+        <h3 class="mb-3">Zawartość do wydania:</h3>
+    </div>
+
+    {% if contentToBeReleased %}
+        {% for entityType, entityArray in contentToBeReleased %}
+            <div class="col-md-4 mb-4">
+                <h5>{{ entityType|releaseKey }}</h5>
+                {% for entity in entityArray %}
+                    {% include "base/badges/entity_show_badge.html.twig" with {'entityName': entityType, "entityId": entity.id} %} {{ entity.name }}
+
+                    {% if not loop.last %}
+                        <br />
+                    {% endif %}
+                {% endfor %}
+            </div>
+        {% endfor %}
+    {% else %}
+        <div class="col-md-12">
+            Brak.
+        </div>
+    {% endif %}
+{% endblock %}
