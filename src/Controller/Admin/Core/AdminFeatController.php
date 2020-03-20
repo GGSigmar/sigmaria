@@ -138,7 +138,7 @@ class AdminFeatController extends BaseController
 
         $this->addFlash('success', 'Atut oznaczony do wydania!');
 
-        $this->redirectToReferer($request);
+        return $this->redirectToReferer($request);
     }
 
     /**
@@ -155,6 +155,6 @@ class AdminFeatController extends BaseController
 
         $this->addFlash('warning', 'Atut wyłączony z wydania!');
 
-        $this->redirectToReferer($request);
+        return $this->redirectToReferer($request);
     }
 }
