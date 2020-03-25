@@ -1,0 +1,9 @@
+{% extends "base/base.html.twig" %}
+
+{% block content %}
+    <div class="col-md-12 mb-4">
+        <h1>Atuty ogólne</h1>
+    </div>
+
+    {% include "core/feat/tabbed_display.html.twig" with {'feats': feats} %}
+{% endblock %}

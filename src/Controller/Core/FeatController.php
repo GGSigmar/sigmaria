@@ -4,6 +4,7 @@ namespace App\Controller\Core;
 
 use App\Controller\Base\BaseController;
 use App\Entity\Core\Feat;
+use App\Service\Core\UtilityService;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -19,6 +20,22 @@ class FeatController extends BaseController
 
         $templateData = [
             'feats' => $feats,
+            'entityName' => 'feat',
+        ];
+
+        return array_merge($templateData, $this->getTemplateData(BaseController::NAV_TAB_RULES));
+    }
+
+    /**
+     * @Route("/core/feat/general", name="feat_general_display")
+     * @Template("core/feat/general_feats.html.twig")
+     */
+    public function generalFeatsAction()
+    {
+        $feats = $this->getDoctrine()->getRepository(Feat::class)->getGeneralFeats();
+
+        $templateData = [
+            'feats' => UtilityService::groupFeatsByLevel($feats),
             'entityName' => 'feat',
         ];
 

@@ -12,7 +12,7 @@ class UtilityService
      *
      * @return array
      */
-    public static function groupFeatsByLevel(Collection $featCollection): array
+    public static function groupFeatsByLevel($featCollection): array
     {
         $groupedFeats = [];
 

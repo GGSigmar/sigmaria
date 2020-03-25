@@ -37,9 +37,9 @@ trait SourceTrait
     }
 
     /**
-     * @param Source $source
+     * @param Source|null $source
      */
-    public function setSource(Source $source): void
+    public function setSource(?Source $source): void
     {
         $this->source = $source;
     }

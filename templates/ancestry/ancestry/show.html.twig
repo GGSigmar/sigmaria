@@ -116,13 +116,17 @@
         </p>
     </div>
 
-    {% include 'ancestry/heritage/entity_display.html.twig' with {'entity': ancestry} %}
+    {% if is_granted('ROLE_ADMIN') or ancestry.activeHeritages is not empty %}
+        {% include 'ancestry/heritage/entity_display.html.twig' with {'entity': ancestry} %}
+    {% endif %}
 
-    {% include 'core/feat/entity_display.html.twig'
-        with {
-        'displayTitle': 'Atuty rasowe',
-        'entityName': 'ancestry',
-        'entity': ancestry,
-    }
-    %}
+    {% if is_granted('ROLE_ADMIN') or ancestry.activeFeats is not empty %}
+        {% include 'core/feat/tabbed_entity_display.html.twig'
+            with {
+            'displayTitle': 'Atuty rasowe',
+            'entityName': 'ancestry',
+            'entity': ancestry,
+            }
+        %}
+    {% endif %}
 {% endblock %}

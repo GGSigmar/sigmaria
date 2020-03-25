@@ -15,6 +15,8 @@ class Attribute
 {
     use BaseFieldsTrait, TimestampableEntity;
 
+    public const ATTRIBUTE_GENERAL = 'ATTRIBUTE_GENERAL';
+
     /**
      * @var AttributeCategory
      *

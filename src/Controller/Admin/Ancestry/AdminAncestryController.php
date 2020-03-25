@@ -197,7 +197,7 @@ class AdminAncestryController extends BaseController
 
     /**
      * @Route("/admin/ancestry//{baseId}/feat/{id}/edit", name="ancestry_feat_edit")
-     * @Template("core/feat/create.html.twig")
+     * @Template("core/feat/edit.html.twig")
      */
     public function editAncestryFeatAction(Request $request, int $baseId, int $id)
     {

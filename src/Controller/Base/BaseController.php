@@ -22,7 +22,7 @@ class BaseController extends AbstractController
      */
     protected function getTemplateData(string $navTabName): array
     {
-        return $this->getNavigationTemplateData($navTabName);
+        return array_merge($this->getNavigationTemplateData($navTabName), $this->getSecurityTemplateData());
     }
 
     /**
@@ -41,10 +41,16 @@ class BaseController extends AbstractController
      */
     private function getNavigationTemplateData(string $navTabName): array
     {
-        $navigationData = [
+        return [
             'navTab' => $navTabName
         ];
+    }
 
-        return $navigationData;
+    private function getSecurityTemplateData(): array
+    {
+        return [
+            'isAdmin' => $this->isGranted('ROLE_ADMIN'),
+            'canPreview' => $this->isGranted('CONTENT_PREVIEW'),
+        ];
     }
 }

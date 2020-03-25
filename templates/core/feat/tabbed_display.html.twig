@@ -1,0 +1,47 @@
+<div class="col-md-12">
+    <ul class="nav nav-pills mb-4" id="pills-tab" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link active border border-white mr-1" id="pills-feat-all-tab" data-toggle="pill" href="#pills-feat-all" role="tab"><b>Wszystkie</b></a>
+        </li>
+        {% for featLevel, groupedFeats in feats %}
+            <li class="nav-item">
+                <a class="nav-link border border-white mr-1" id="pills-feat-{{ featLevel }}-tab" data-toggle="pill" href="#pills-feat-{{ featLevel }}" role="tab"><b>Poziom {{ featLevel }}</b></a>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+<div class="tab-content" id="pills-tabContent">
+    <div class="tab-pane fade show active" id="pills-feat-all" role="tabpanel">
+        <div class="row m-0">
+            {% for featLevel, groupedFeats in feats %}
+                <div class="col-md-12 mb-4">
+                    <h3 class="mb-0">
+                        <span class="badge badge-primary border border-white">
+                            {% if featLevel == 0 %}
+                                Darmowe atuty
+                            {% else %}
+                                Poziom {{ featLevel }}
+                            {% endif %}
+                        </span>
+                    </h3>
+                </div>
+                {% for feat in groupedFeats %}
+                    <div class="col-md-6">
+                        {% include "core/feat/entry.html.twig" with {'feat': feat} %}
+                    </div>
+                {% endfor %}
+            {% endfor %}
+        </div>
+    </div>
+    {% for featLevel, groupedFeats in feats %}
+        <div class="tab-pane fade" id="pills-feat-{{ featLevel }}" role="tabpanel">
+            <div class="row m-0">
+                {% for feat in groupedFeats %}
+                    <div class="col-md-6">
+                        {% include "core/feat/entry.html.twig" with {'feat': feat} %}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    {% endfor %}
+</div>

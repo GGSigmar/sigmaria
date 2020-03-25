@@ -30,7 +30,11 @@
                 <div class="dropdown-menu">
                     <a href="{{ path('ancestry_list') }}" class="dropdown-item">Rasy</a>
                     <div class="dropdown-divider"></div>
-                    <a href="{{ path('feat_list') }}" class="dropdown-item">Atuty</a>
+                    <a href="#" class="dropdown-item dropdown-toggle" data-toggle="dropdown">Atuty</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{{ path('feat_list') }}" class="dropdown-item">Lista atutów</a></li>
+                        <li><a href="{{ path('feat_general_display') }}" class="dropdown-item">Atuty ogólne</a></li>
+                    </ul>
                 </div>
             </li>
             <li class="nav-item dropdown">
