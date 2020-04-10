@@ -328,4 +328,21 @@ class Feat
             $this->isToBeReleased = false;
         }
     }
+
+    /**
+     * @return bool
+     */
+    public function isGeneral(): bool
+    {
+        $isGeneral = false;
+
+        foreach ($this->getAttributes() as $attribute) {
+            if ($attribute->getCategory()->getHandle() === AttributeCategory::ATTRIBUTE_CATEGORY_GENERAL) {
+                $isGeneral = true;
+                break;
+            }
+        }
+
+        return $isGeneral;
+    }
 }

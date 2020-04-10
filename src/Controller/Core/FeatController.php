@@ -3,8 +3,10 @@
 namespace App\Controller\Core;
 
 use App\Controller\Base\BaseController;
+use App\Entity\Core\AttributeCategory;
 use App\Entity\Core\Feat;
 use App\Service\Core\UtilityService;
+use Entity\Category;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -50,6 +52,7 @@ class FeatController extends BaseController
     {
         $templateData = [
             'feat' => $feat,
+            'isGeneral' => $feat->isGeneral(),
             'entityName' => 'feat',
         ];
 
