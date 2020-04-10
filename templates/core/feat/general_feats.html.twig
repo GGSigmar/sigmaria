@@ -5,5 +5,11 @@
         <h1>Atuty ogólne</h1>
     </div>
 
+    {% if is_granted('ROLE_ADMIN') %}
+        <div class="col-md-6 mb-4">
+            {% include "base/buttons/entity_create_button.html.twig" with {'entityName': entityName} %}
+        </div>
+    {% endif %}
+
     {% include "core/feat/tabbed_display.html.twig" with {'feats': feats} %}
 {% endblock %}
