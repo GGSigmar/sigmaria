@@ -6,16 +6,26 @@
                 {% if feat.level %}
                     ATUT {{ feat.level }}
                 {% endif %}
-                {% if is_granted('ROLE_ADMIN') and entity is defined %}
-                    {% include "base/badges/entity_display_edit_badge.html.twig"
-                        with
-                        {
-                            'baseEntityName': entityName,
-                            'subEntityName': 'feat',
-                            'baseEntity': entity,
-                            'subEntity': feat,
-                        }
-                    %}
+                {% if is_granted('ROLE_ADMIN') %}
+                    {% if entity is defined %}
+                        {% include "base/badges/entity_display_edit_badge.html.twig"
+                            with
+                            {
+                                'baseEntityName': entityName,
+                                'subEntityName': 'feat',
+                                'baseEntity': entity,
+                                'subEntity': feat,
+                            }
+                        %}
+                    {% else %}
+                        {% include "base/badges/entity_edit_badge.html.twig"
+                            with
+                            {
+                                'entityName': 'feat',
+                                'entityId': feat.id
+                            }
+                        %}
+                    {% endif %}
                     {% include "base/badges/entity_release_badge.html.twig" with {'entityName': 'feat', 'entity': feat} %}
                 {% endif %}
             </span>
