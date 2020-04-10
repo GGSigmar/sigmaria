@@ -128,4 +128,16 @@ class Release
     {
         $this->contentChanges = $contentChanges;
     }
+
+    /**
+     * @return bool
+     */
+    public function isLaunched(): bool
+    {
+        if ($this->contentReleased) {
+            return true;
+        }
+
+        return false;
+    }
 }

@@ -16,12 +16,17 @@
 
 {% block table_rows %}
     {% for release in releases %}
+        {% if isAdmin or release.isLaunched %}
         <tr>
             <td class="align-middle">{{ release.getContentVersion }}</td>
             <td class="align-middle">{{ release.name }}</td>
             <td class="align-middle text-nowrap">
                 {% include "base/buttons/entity_show_button.html.twig" with {'entityName': entityName, 'entity': release} %}
+                {% if isAdmin and not release.isLaunched %}
+                    <a href="{{ path('release_launch', {"id": release.id}) }}" class="btn btn-outline-info" role="button">Wydaj <i class="fas fa-bolt"></i></a>
+                {% endif %}
             </td>
         </tr>
+        {% endif %}
     {% endfor %}
 {% endblock %}

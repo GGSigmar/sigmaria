@@ -17,36 +17,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 class AdminReleaseController extends BaseController
 {
     /**
-     * @Route("/admin/core/release/list", name="release_list")
-     * @Template("core/release/list.html.twig")
-     */
-    public function listReleasesAction()
-    {
-        $releases = $this->getDoctrine()->getRepository(Release::class)->findAll();
-
-        $templateData = [
-            'releases' => $releases,
-            'entityName' => 'release',
-        ];
-
-        return array_merge($templateData, $this->getTemplateData(BaseController::NAV_TAB_ADMIN));
-    }
-
-    /**
-     * @Route("/admin/core/release/{id}/show", name="release_show")
-     * @Template("core/release/show.html.twig")
-     */
-    public function showReleaseAction(Release $release)
-    {
-        $templateData = [
-            'release' => $release,
-            'entityName' => 'release',
-        ];
-
-        return array_merge($templateData, $this->getTemplateData(BaseController::NAV_TAB_ADMIN));
-    }
-
-    /**
      * @Route("/admin/core/release/create", name="release_create")
      * @Template("core/release/create.html.twig")
      */
@@ -59,9 +29,11 @@ class AdminReleaseController extends BaseController
         if ($form->isSubmitted() && $form->isValid()) {
             $release = $form->getData();
 
-            $release = $releaseService->releaseContent($release);
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($release);
+            $entityManager->flush();
 
-            $this->addFlash('success', 'Wydanie zrealizowane!');
+            $this->addFlash('success', 'Wydanie stworzone!');
 
             return $this->redirectToRoute('release_show', ['id' => $release->getId()]);
         }
@@ -103,5 +75,17 @@ class AdminReleaseController extends BaseController
         ];
 
         return array_merge($templateData, $this->getTemplateData(BaseController::NAV_TAB_ADMIN));
+    }
+
+    /**
+     * @Route("/admin/core/release/{id}/launch", name="release_launch")
+     */
+    public function launchReleaseAction(Release $release, ReleaseService $releaseService)
+    {
+        $releaseService->releaseContent($release);
+
+        $this->addFlash('success', 'Wydanie zrealizowane!');
+
+        return $this->redirectToRoute('release_show', ['id' => $release->getId()]);
     }
 }

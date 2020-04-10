@@ -21,16 +21,20 @@
         <h3 class="mb-3">Wydana zawartość:</h3>
     </div>
 
-    {% for entityType, entityNameArray in release.getContentReleased %}
-    <div class="col-md-4 mb-4">
-        <h5>{{ entityType|releaseKey }}</h5>
-        {% for entityId, entityName in entityNameArray %}
-            {% include "base/badges/entity_show_badge.html.twig" with {'entityName': entityType, "entityId": entityId} %} {{ entityName }}
-            
-            {% if not loop.last %}
-                <br />
-            {% endif %}
+    {% if release.isLaunched %}
+        {% for entityType, entityNameArray in release.getContentReleased %}
+            <div class="col-md-4 mb-4">
+                <h5>{{ entityType|releaseKey }}</h5>
+                {% for entityId, entityName in entityNameArray %}
+                    {% include "base/badges/entity_show_badge.html.twig" with {'entityName': entityType, "entityId": entityId} %} {{ entityName }}
+
+                    {% if not loop.last %}
+                        <br />
+                    {% endif %}
+                {% endfor %}
+            </div>
         {% endfor %}
-    </div>
-    {% endfor %}
+    {% else %}
+        {% include 'core/release/content_array_display.html.twig' %}
+    {% endif %}
 {% endblock %}
