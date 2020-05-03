@@ -3,8 +3,10 @@
 namespace App\Controller\Admin\Core;
 
 use App\Controller\Base\BaseController;
+use App\Entity\Core\EntitySource;
 use App\Entity\Core\Feat;
 use App\Form\Core\FeatType;
+use App\Service\Core\SourcableService;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
@@ -19,7 +21,7 @@ class AdminFeatController extends BaseController
      * @Route("/admin/core/feat/create", name="feat_create")
      * @Template("core/feat/create.html.twig")
      */
-    public function createFeatAction(Request $request)
+    public function createFeatAction(Request $request, SourcableService $sourcableService)
     {
         $form = $this->createForm(FeatType::class);
 
@@ -27,6 +29,8 @@ class AdminFeatController extends BaseController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $feat = $form->getData();
+
+            $sourcableService->ensureEmptySourceNullification($feat);
 
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($feat);
@@ -49,7 +53,7 @@ class AdminFeatController extends BaseController
      * @Route("/admin/core/feat/{id}/edit", name="feat_edit")
      * @Template("core/feat/edit.html.twig")
      */
-    public function editFeatAction(Request $request, Feat $feat)
+    public function editFeatAction(Request $request, Feat $feat, SourcableService $sourcableService)
     {
         $form = $this->createForm(FeatType::class, $feat);
 
@@ -57,6 +61,8 @@ class AdminFeatController extends BaseController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $feat = $form->getData();
+
+            $sourcableService->ensureEmptySourceNullification($feat);
 
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($feat);
@@ -156,5 +162,43 @@ class AdminFeatController extends BaseController
         $this->addFlash('warning', 'Atut wyłączony z wydania!');
 
         return $this->redirectToReferer($request);
+    }
+
+    /**
+     * @Route("/admin/core/feat/fix-sources", name="feat_fix_sources")
+     */
+    public function fixFeatSourcesAction()
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+
+        $feats = $entityManager->getRepository(Feat::class)->findAll();
+
+        $sourcesAdded = 0;
+
+        foreach ($feats as $feat) {
+            $oldSource = $feat->getOldSource();
+
+            if ($feat->getOldSource() && !$feat->getSource()) {
+                $newSource = new EntitySource();
+                $newSource->setSource($oldSource);
+                $newSource->setSourceStartingPageNumber($feat->getSourceStartingPageNumber());
+                $newSource->setSourceEndingPageNumber($feat->getSourceEndingPageNumber() ? $feat->getSourceEndingPageNumber() : 0);
+
+                $entityManager = $this->getDoctrine()->getManager();
+                $entityManager->persist($newSource);
+                $entityManager->flush();
+
+                $feat->setSource($newSource);
+
+                $entityManager->persist($feat);
+                $entityManager->flush();
+
+                $sourcesAdded++;
+            }
+        }
+
+        $this->addFlash('warning', sprintf('Zmieniono źródła dla %d atutów', $sourcesAdded));
+
+        return $this->redirectToRoute('feat_list');
     }
 }

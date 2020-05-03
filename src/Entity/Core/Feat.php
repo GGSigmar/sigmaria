@@ -4,9 +4,11 @@ namespace App\Entity\Core;
 
 use App\Entity\Ancestry\Ancestry;
 use App\Entity\Ancestry\Heritage;
+use App\Entity\Core\Interfaces\SourcableInterface;
 use App\Entity\Core\Traits\BaseFieldsTrait;
 use App\Entity\Core\Traits\ReleasableTrait;
 use App\Entity\Core\Traits\SimpleRarityTrait;
+use App\Entity\Core\Traits\OldSourceTrait;
 use App\Entity\Core\Traits\SourceTrait;
 use App\Entity\Setting\Culture;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -19,9 +21,9 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity(repositoryClass="App\Repository\Core\FeatRepository")
  * @ORM\Table(name="core_feat")
  */
-class Feat
+class Feat implements SourcableInterface
 {
-    use BaseFieldsTrait, SimpleRarityTrait, ReleasableTrait, SourceTrait, TimestampableEntity;
+    use BaseFieldsTrait, SimpleRarityTrait, ReleasableTrait, OldSourceTrait, SourceTrait, TimestampableEntity;
 
     /**
      * @var Actions

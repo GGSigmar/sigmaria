@@ -1,10 +1,21 @@
-{% if entity.source %}
-    {% set source = entity.source %}
+{% if entity.oldSource %}
+    {% set source = entity.oldSource %}
     <div class="border-top border-white">
         <b>Źródło:</b>
-        <a href="{{ source.productLink }}" class="badge badge-primary border border-white" target="_blank">
+        <a href="{{ source.productLink }}" class="badge badge-danger border border-white" target="_blank">
             <abbr title="{{ source.copyrightNotice }} {% if entity.pagesInfo %}{{ entity.pagesInfo }}{% endif %}">
                 {{ source.name }}
+            </abbr>
+        </a>
+    </div>
+{% endif %}
+{% set source = entity.source %}
+{% if source %}
+    <div class="border-top border-white">
+        <b>Źródło:</b>
+        <a href="{{ source.source.productLink }}" class="badge badge-primary border border-white" target="_blank">
+            <abbr title="{{ source.source.copyrightNotice }} {% if source.pagesInfo %}{{ source.pagesInfo }}{% endif %}">
+                {{ source.source.name }}
             </abbr>
         </a>
     </div>
