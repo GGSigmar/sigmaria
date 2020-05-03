@@ -1,14 +1,3 @@
-{% if entity.oldSource %}
-    {% set source = entity.oldSource %}
-    <div class="border-top border-white">
-        <b>Źródło:</b>
-        <a href="{{ source.productLink }}" class="badge badge-danger border border-white" target="_blank">
-            <abbr title="{{ source.copyrightNotice }} {% if entity.pagesInfo %}{{ entity.pagesInfo }}{% endif %}">
-                {{ source.name }}
-            </abbr>
-        </a>
-    </div>
-{% endif %}
 {% set source = entity.source %}
 {% if source %}
     <div class="border-top border-white">
