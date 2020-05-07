@@ -9,6 +9,7 @@ use App\Entity\Core\Feat;
 use App\Form\Ancestry\AncestryType;
 use App\Form\Ancestry\HeritageType;
 use App\Form\Core\FeatType;
+use App\Service\Core\SourcableService;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
@@ -166,7 +167,7 @@ class AdminAncestryController extends BaseController
      * @Route("/admin/ancestry/{id}/feat/create", name="ancestry_feat_create")
      * @Template("core/feat/create.html.twig")
      */
-    public function createAncestryFeatAction(Request $request, Ancestry $ancestry)
+    public function createAncestryFeatAction(Request $request, Ancestry $ancestry, SourcableService $sourcableService)
     {
         $form = $this->createForm(FeatType::class);
 
@@ -176,6 +177,8 @@ class AdminAncestryController extends BaseController
             $feat = $form->getData();
 
             $ancestry->addFeat($feat);
+
+            $sourcableService->ensureEmptySourceNullification($feat);
 
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($feat);
@@ -199,7 +202,7 @@ class AdminAncestryController extends BaseController
      * @Route("/admin/ancestry/{baseId}/feat/{id}/edit", name="ancestry_feat_edit")
      * @Template("core/feat/edit.html.twig")
      */
-    public function editAncestryFeatAction(Request $request, int $baseId, int $id)
+    public function editAncestryFeatAction(Request $request, int $baseId, int $id, SourcableService $sourcableService)
     {
         $entityManager = $this->getDoctrine()->getManager();
 
@@ -211,6 +214,8 @@ class AdminAncestryController extends BaseController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $feat = $form->getData();
+
+            $sourcableService->ensureEmptySourceNullification($feat);
 
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($feat);

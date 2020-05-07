@@ -163,42 +163,4 @@ class AdminFeatController extends BaseController
 
         return $this->redirectToReferer($request);
     }
-
-    /**
-     * @Route("/admin/core/feat/fix-sources", name="feat_fix_sources")
-     */
-    public function fixFeatSourcesAction()
-    {
-        $entityManager = $this->getDoctrine()->getManager();
-
-        $feats = $entityManager->getRepository(Feat::class)->findAll();
-
-        $sourcesAdded = 0;
-
-        foreach ($feats as $feat) {
-            $oldSource = $feat->getOldSource();
-
-            if ($feat->getOldSource() && !$feat->getSource()) {
-                $newSource = new EntitySource();
-                $newSource->setSource($oldSource);
-                $newSource->setSourceStartingPageNumber($feat->getSourceStartingPageNumber());
-                $newSource->setSourceEndingPageNumber($feat->getSourceEndingPageNumber() ? $feat->getSourceEndingPageNumber() : 0);
-
-                $entityManager = $this->getDoctrine()->getManager();
-                $entityManager->persist($newSource);
-                $entityManager->flush();
-
-                $feat->setSource($newSource);
-
-                $entityManager->persist($feat);
-                $entityManager->flush();
-
-                $sourcesAdded++;
-            }
-        }
-
-        $this->addFlash('warning', sprintf('Zmieniono źródła dla %d atutów', $sourcesAdded));
-
-        return $this->redirectToRoute('feat_list');
-    }
 }
