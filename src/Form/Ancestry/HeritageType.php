@@ -31,6 +31,12 @@ class HeritageType extends AbstractType
             ->add('shortDescription', CKEditorType::class, [
                 'label' => 'Krótki opis',
                 'required' => false,
+                'config' => array(
+                    'toolbar' => 'custom_toolbar',
+                    'language' => 'pl',
+                    'entities_latin' => false,
+                    'height' => 100,
+                ),
             ])
             ->add('valueAdjustment', IntegerType::class, [
                 'label' => 'Korekta wartości',

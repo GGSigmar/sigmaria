@@ -3,3 +3,8 @@
 twig:
     form_themes:
         - '@FOSCKEditor/Form/ckeditor_widget.html.twig'
+
+fos_ck_editor:
+    toolbars:
+        configs:
+            custom_toolbar: [['Source'], "/", ['Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', '-', 'Font', 'FontSize', 'TextColor', 'BGColor', '-', 'RemoveFormat', '-', 'NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote', 'CreateDiv', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock', '-', 'HorizontalRule', 'SpecialChar']]

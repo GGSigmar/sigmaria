@@ -22,6 +22,12 @@ class BaseEntityType extends AbstractType
             ->add('description', CKEditorType::class, [
                 'label' => 'Opis',
                 'required' => false,
+                'config' => array(
+                    'toolbar' => 'custom_toolbar',
+                    'language' => 'pl',
+                    'entities_latin' => false,
+                    'height' => 300,
+                ),
             ])
         ;
     }
