@@ -3,7 +3,7 @@ security:
         App\Entity\Core\User: bcrypt
 
     role_hierarchy:
-        ROLE_ADMIN: [ROLE_USER]
+        ROLE_ADMIN: [ROLE_USER, ROLE_CONTENT_PREVIEW]
 
     # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
     providers:

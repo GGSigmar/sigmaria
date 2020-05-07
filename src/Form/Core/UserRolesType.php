@@ -2,6 +2,7 @@
 
 namespace App\Form\Core;
 
+use App\Entity\Core\Role;
 use App\Entity\Core\User;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -15,9 +16,7 @@ class UserRolesType extends AbstractType
         $builder
             ->add('roles', ChoiceType::class, [
                 'label' => 'Role',
-                'choices' => [
-                    'Admin' => 'ROLE_ADMIN',
-                ],
+                'choices' => Role::ROLES,
                 'multiple' => true,
                 'expanded' => true,
             ]);
