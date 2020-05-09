@@ -13,12 +13,12 @@
             Wydanie z dnia {{ release.createdAt|date('Y-m-d') }}
         </div>
         {% if release.contentChanges %}
-            <div class="mb-3">
-                <h3 class="mb-3">Zmiany zawartości:</h3>
+            <div class="mb-4">
+                <h3>Zmiany zawartości:</h3>
                 {{ release.contentChanges|raw }}
             </div>
         {% endif %}
-        <h3 class="mb-3">Wydana zawartość:</h3>
+        <h3>Wydana zawartość:</h3>
     </div>
 
     {% if release.isLaunched %}

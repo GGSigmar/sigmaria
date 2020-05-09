@@ -3,8 +3,8 @@
 namespace App\Form\Core;
 
 use App\Entity\Core\Release;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -20,12 +20,15 @@ class ReleaseType extends AbstractType
             ->add('contentVersion', TextType::class, [
                 'label' => 'Wersja zawartości',
             ])
-            ->add('contentChanges', TextareaType::class, [
+            ->add('contentChanges', CKEditorType::class, [
                 'label' => 'Zmiany zawartości',
                 'required' => false,
-                'attr' => [
-                    'rows' => 8,
-                ]
+                'config' => array(
+                    'toolbar' => 'custom_toolbar',
+                    'language' => 'pl',
+                    'entities_latin' => false,
+                    'height' => 300,
+                ),
             ])
         ;
     }
