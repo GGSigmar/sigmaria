@@ -4,24 +4,26 @@
     <div class="col-md-9">
         {% include "base/utilities/entity_show_header.html.twig" with {'entity': ancestry} %}
 
-        <p class="mb-4">
+        <div class="mb-4">
             {{ ancestry.description|raw }}
-        </p>
+        </div>
 
-        <h3>Zdolności rasowe</h3>
-        {% if is_granted('ROLE_ADMIN') %}
-            {% set ancestralFeatures = ancestry.ancestralFeatures %}
-        {% else %}
-            {% set ancestralFeatures = ancestry.activeAncestralFeatures %}
-        {% endif %}
+        <div class="mb-4">
+            <h3>Zdolności rasowe</h3>
+            {% if is_granted('ROLE_ADMIN') %}
+                {% set ancestralFeatures = ancestry.ancestralFeatures %}
+            {% else %}
+                {% set ancestralFeatures = ancestry.activeAncestralFeatures %}
+            {% endif %}
 
-        {% if ancestralFeatures is empty %}
-            Brak
-        {% else %}
-            {% for feature in ancestralFeatures %}
-                {% include 'ancestry/feature/entry.html.twig' with {'feature': feature} %}
-            {% endfor %}
-        {% endif %}
+            {% if ancestralFeatures is empty %}
+                Brak
+            {% else %}
+                {% for feature in ancestralFeatures %}
+                    {% include 'ancestry/feature/entry.html.twig' with {'feature': feature} %}
+                {% endfor %}
+            {% endif %}
+        </div>
     </div>
     <div class="col-md-3">
         {% if is_granted('ROLE_ADMIN') %}

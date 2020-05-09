@@ -11,7 +11,7 @@
     text-indent: 1rem;
 }
 
-p {
+p.popper {
     display: inline;
 }
 
