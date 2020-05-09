@@ -269,7 +269,7 @@ class AdminAncestryController extends BaseController
 
     /**
      * @Route("/admin/ancestry//{baseId}/heritage/{id}/edit", name="ancestry_heritage_edit")
-     * @Template("ancestry/heritage/create.html.twig")
+     * @Template("ancestry/heritage/edit.html.twig")
      */
     public function editAncestryHeritageAction(Request $request, int $baseId, int $id)
     {
