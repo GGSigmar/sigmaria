@@ -23,12 +23,7 @@ class ReleaseType extends AbstractType
             ->add('contentChanges', CKEditorType::class, [
                 'label' => 'Zmiany zawartości',
                 'required' => false,
-                'config' => array(
-                    'toolbar' => 'custom_toolbar',
-                    'language' => 'pl',
-                    'entities_latin' => false,
-                    'height' => 300,
-                ),
+                'config' => BaseEntityType::DEFAULT_CKEDITOR_CONFIG,
             ])
         ;
     }

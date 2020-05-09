@@ -9,6 +9,14 @@ use Symfony\Component\Form\FormBuilderInterface;
 
 class BaseEntityType extends AbstractType
 {
+    public const DEFAULT_CKEDITOR_CONFIG = [
+        'toolbar' => 'custom_toolbar',
+        'language' => 'pl',
+        'entities_latin' => false,
+        'height' => 300,
+        'enterMode' => 'CKEDITOR.ENTER_BR',
+    ];
+
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
@@ -22,12 +30,7 @@ class BaseEntityType extends AbstractType
             ->add('description', CKEditorType::class, [
                 'label' => 'Opis',
                 'required' => false,
-                'config' => array(
-                    'toolbar' => 'custom_toolbar',
-                    'language' => 'pl',
-                    'entities_latin' => false,
-                    'height' => 300,
-                ),
+                'config' => self::DEFAULT_CKEDITOR_CONFIG
             ])
         ;
     }
