@@ -11,10 +11,6 @@
     text-indent: 1rem;
 }
 
-p.popper {
-    display: inline;
-}
-
 .select2-selection__choice {
     color: #007bff;
 }
