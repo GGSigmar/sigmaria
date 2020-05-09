@@ -13,7 +13,7 @@
             {% if is_granted('ROLE_ADMIN') %}
                 {% set ancestralFeatures = heritage.ancestralFeatures %}
             {% else %}
-                {% set ancestralFeatures = heritage.activeCncestralFeatures %}
+                {% set ancestralFeatures = heritage.activeAncestralFeatures %}
             {% endif %}
 
             {% if ancestralFeatures is empty %}

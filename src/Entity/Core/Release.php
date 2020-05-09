@@ -140,4 +140,9 @@ class Release
 
         return false;
     }
+
+    public function __toString()
+    {
+        return sprintf('%s, (%s)', $this->getName(), $this->getContentVersion());
+    }
 }

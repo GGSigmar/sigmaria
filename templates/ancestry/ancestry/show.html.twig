@@ -123,6 +123,7 @@
     {% endif %}
 
     {% if is_granted('ROLE_ADMIN') or ancestry.activeFeats is not empty %}
+        LUL
         {% include 'core/feat/tabbed_entity_display.html.twig'
             with {
             'displayTitle': 'Atuty rasowe',

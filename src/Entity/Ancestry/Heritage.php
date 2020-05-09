@@ -11,7 +11,6 @@ use App\Entity\Core\Traits\BaseFieldsTrait;
 use App\Entity\Core\Traits\ReleasableTrait;
 use App\Entity\Core\Traits\ShortDescriptionTrait;
 use App\Entity\Core\Traits\SimpleRarityTrait;
-use App\Entity\Core\Traits\ValueTrait;
 use App\Service\Core\UtilityService;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -318,7 +317,7 @@ class Heritage
     {
         return UtilityService::groupFeatsByLevel(
             $this->feats->filter(function ($feat) {
-                $feat->isActive();
+                return $feat->isActive();
             })
         );
     }

@@ -431,7 +431,7 @@ class Ancestry
     {
         return UtilityService::groupFeatsByLevel(
             $this->feats->filter(function ($feat) {
-                $feat->isActive();
+                return $feat->isActive();
             })
         );
     }
