@@ -1,6 +1,6 @@
 <a class="badge badge-danger border border-white text-white"
     {% if attribute.description %}
-        tabindex="0" data-toggle="popover" data-trigger="focus" data-content="{{ attribute.description|raw }}"
+        tabindex="0" data-toggle="popover" data-trigger="focus" data-html="true" data-content="{{ attribute.description|raw }}"
     {% endif %}
 >
     {{ attribute.name }}

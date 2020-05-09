@@ -11,6 +11,10 @@
     text-indent: 1rem;
 }
 
+p {
+    display: inline;
+}
+
 .select2-selection__choice {
     color: #007bff;
 }
