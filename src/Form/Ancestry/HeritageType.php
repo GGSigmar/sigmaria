@@ -82,25 +82,25 @@ class HeritageType extends AbstractType
                 'class' => Attribute::class,
                 'label' => 'Atrybuty',
                 'multiple' => true,
-                'expanded' => true,
-                'query_builder' => function (EntityRepository $er) {
-                    return $er->createQueryBuilder('a')
-                        ->innerJoin('a.category', 'c')
-                        ->andWhere('c.handle LIKE :heritage_category')
-                        ->setParameter('heritage_category', AttributeCategory::ATTRIBUTE_CATEGORY_HERITAGE);
+                'group_by' => function (Attribute $attribute) {
+                    return $attribute->getCategory()->getName();
                 },
+                'attr' => [
+                    'class' => 'js-example-basic-multiple',
+                ]
             ])
             ->add('ancestralFeatures', EntityType::class, [
                 'class' => AncestralFeature::class,
                 'label' => 'Zdolności dziedzictwa',
                 'multiple' => true,
-                'expanded' => true,
+                'attr' => [
+                    'class' => 'js-example-basic-multiple',
+                ]
             ])
             ->add('feats', EntityType::class, [
                 'class' => Feat::class,
                 'label' => 'Atuty dziedzictwa',
                 'multiple' => true,
-                'expanded' => true,
                 'query_builder' => function (EntityRepository $er) {
                     return $er->createQueryBuilder('f')
                         ->innerJoin('f.attributes', 'a')
@@ -114,6 +114,9 @@ class HeritageType extends AbstractType
                             ]
                         );
                 },
+                'attr' => [
+                    'class' => 'js-example-basic-multiple',
+                ]
             ]);
     }
 

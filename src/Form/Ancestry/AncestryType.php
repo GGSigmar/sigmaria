@@ -116,7 +116,7 @@ class AncestryType extends AbstractType
                         ->setParameter('ancestral_category', AttributeCategory::ATTRIBUTE_CATEGORY_ANCESTRAL);
                 },
                 'attr' => [
-                    'class' => 'js-example-basic-multiple bg-danger'
+                    'class' => 'js-example-basic-multiple'
                 ],
             ])
         ;

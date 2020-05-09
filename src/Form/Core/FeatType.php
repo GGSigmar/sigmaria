@@ -64,8 +64,8 @@ class FeatType extends AbstractType
                     return $attribute->getCategory()->getName();
                 },
                 'attr' => [
-                    'size' => 20,
-                ],
+                    'class' => 'js-example-basic-multiple',
+                ]
             ])
             ->add('source', EntitySourceType::class, [
                 'label' => 'Copyright',
