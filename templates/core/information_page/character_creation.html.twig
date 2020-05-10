@@ -1,0 +1,25 @@
+{% extends "base/base.html.twig" %}
+
+{% block content %}
+    <div class="col-md-12">
+        <h1 class="mb-4">Tworzenie postaci</h1>
+    </div>
+    <div class="col-md-12">
+        <div class="mb-4">
+            Tworzenie postaci w Sigmarii jest bardzo podobne do oficjalnych zasad tworzenia postaci - Kyros, jak zwasze, tkwi w szczegółach.
+            Poniżej znajduje się lista kroków niezbędnych do stworzenia postaci.
+            Większość z nich działa dokładnie tak, jak sugeruje CRB (Core Rulebook) drugiej edycji Pathfindera, dlatego też odsyłam w nich do książki.
+            Nieliczne kroki, które różnią się od oficjalnych zasad, są (mam nadzieję) dobrze opisane.
+        </div>
+        <div class="mb-4">
+            <ol>
+                {% for step in steps %}
+                    <li>
+                        <b>{{ step.name }}.</b>
+                        {{ step.description }}
+                    </li>
+                {% endfor %}
+            </ol>
+        </div>
+    </div>
+{% endblock %}

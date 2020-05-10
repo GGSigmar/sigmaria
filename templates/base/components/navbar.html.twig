@@ -28,6 +28,8 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle {% if navTab is defined and navTab == constant('App\\Controller\\Base\\BaseController::NAV_TAB_RULES') %}active{% endif %}" href="#" data-toggle="dropdown"><i class="fas fa-book-open"></i> Zasady</a>
                 <div class="dropdown-menu">
+                    <a href="{{ path('character_creation') }}" class="dropdown-item">Tworzenie postaci</a>
+                    <div class="dropdown-divider"></div>
                     <a href="{{ path('ancestry_list') }}" class="dropdown-item">Rasy</a>
                     <div class="dropdown-divider"></div>
                     <a href="#" class="dropdown-item dropdown-toggle" data-toggle="dropdown">Atuty</a>
@@ -65,6 +67,7 @@
                     <div class="dropdown-divider"></div>
                     <a href="#" class="dropdown-item dropdown-toggle" data-toggle="dropdown">Core Admin</a>
                     <ul class="dropdown-menu">
+                        <li><a href="{{ path('character_creation_step_list') }}" class="dropdown-item">Kroki tworzenia postaci</a></li>
                         <li><a href="{{ path('attribute_list') }}" class="dropdown-item">Atrybuty</a></li>
                         <li><a href="{{ path('attribute_category_list') }}" class="dropdown-item">Kategorie atrybutów</a></li>
                         <li><a href="{{ path('lore_list') }}" class="dropdown-item">Dziedziny wiedzy</a></li>
