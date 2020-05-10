@@ -16,7 +16,7 @@
                 {% for step in steps %}
                     <li>
                         <b>{{ step.name }}.</b>
-                        {{ step.description }}
+                        {{ step.description|raw }}
                     </li>
                 {% endfor %}
             </ol>
