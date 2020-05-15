@@ -22,8 +22,11 @@
             <td class="align-middle">{{ release.name }}</td>
             <td class="align-middle text-nowrap">
                 {% include "base/buttons/entity_show_button.html.twig" with {'entityName': entityName, 'entity': release} %}
-                {% if isAdmin and not release.isLaunched %}
-                    <a href="{{ path('release_launch', {"id": release.id}) }}" class="btn btn-outline-info" role="button">Wydaj <i class="fas fa-bolt"></i></a>
+                {% if isAdmin %}
+                    <a href="{{ path('release_edit', {"id": release.id}) }}" class="btn btn-outline-primary" role="button">Edytuj <i class="fas fa-bolt"></i></a>
+                    {% if not release.isLaunched %}
+                        <a href="{{ path('release_launch', {"id": release.id}) }}" class="btn btn-outline-info" role="button">Wydaj <i class="fas fa-bolt"></i></a>
+                    {% endif %}
                 {% endif %}
             </td>
         </tr>
