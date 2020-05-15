@@ -83,6 +83,14 @@ class Culture
      */
     public function getCommonAncestries(): Collection
     {
+        return $this->commonAncestries;
+    }
+
+    /**
+     * @return Collection|Ancestry[]
+     */
+    public function getActiveCommonAncestries(): Collection
+    {
         return $this->commonAncestries->filter(function ($entity) {
             return $entity->isActive();
         });
@@ -151,6 +159,14 @@ class Culture
      */
     public function getCommonBackgrounds(): Collection
     {
+        return $this->commonBackgrounds;
+    }
+
+    /**
+     * @return Collection|Background[]
+     */
+    public function getActiveCommonBackgrounds(): Collection
+    {
         return $this->commonBackgrounds->filter(function ($entity) {
             return $entity->isActive();
         });
@@ -184,6 +200,14 @@ class Culture
      * @return Collection|Language[]
      */
     public function getCommonLanguages(): Collection
+    {
+        return $this->commonLanguages;
+    }
+
+    /**
+     * @return Collection|Language[]
+     */
+    public function getActiveCommonLanguages(): Collection
     {
         return $this->commonLanguages->filter(function ($entity) {
             return $entity->isActive();
