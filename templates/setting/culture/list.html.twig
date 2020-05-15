@@ -7,9 +7,6 @@
 {% block table_headers %}
     <th class="align-middle">Nazwa</th>
     <th class="align-middle">Pospolite rasy</th>
-    <th class="align-middle">Pospolite klasy</th>
-    <th class="align-middle">Pospolite pochodzenia</th>
-    <th class="align-middle">Pospolite języki</th>
     <th class="align-middle">Akcje</th>
 {% endblock %}
 
@@ -21,33 +18,6 @@
                 <td class="align-middle">
                     {% for ancestry in culture.commonAncestries %}
                         {% include "base/badges/entity_show_badge.html.twig" with {'entityName': 'ancestry', 'entityId': ancestry.id} %} {{ ancestry.name }}
-
-                        {% if not loop.last %}
-                            <br />
-                        {% endif %}
-                    {% endfor %}
-                </td>
-                <td class="align-middle">
-                    {% for class in culture.commonClasses %}
-                        {{ class.name }}
-
-                        {% if not loop.last %}
-                            <br />
-                        {% endif %}
-                    {% endfor %}
-                </td>
-                <td class="align-middle">
-                    {% for background in culture.commonBackgrounds %}
-                        {% include "base/badges/entity_show_badge.html.twig" with {'entityName': 'ancestry', 'entityId': background.id} %} {{ background.name }}
-
-                        {% if not loop.last %}
-                            <br />
-                        {% endif %}
-                    {% endfor %}
-                </td>
-                <td class="align-middle">
-                    {% for language in culture.commonLanguages %}
-                        {% include "base/badges/entity_show_badge.html.twig" with {'entityName': 'ancestry', 'entityId': language.id} %} {{ language.name }}
 
                         {% if not loop.last %}
                             <br />
