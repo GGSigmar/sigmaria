@@ -45,7 +45,6 @@ class Culture
      *
      * @ORM\ManyToMany(targetEntity="App\Entity\Setting\Background", fetch="EXTRA_LAZY")
      * @ORM\JoinTable(name="setting_culture_background")
-     * @Assert\Count(min="1")
      */
     private $commonBackgrounds;
 
@@ -55,7 +54,6 @@ class Culture
      * @ORM\ManyToMany(targetEntity="App\Entity\Setting\Language", fetch="EXTRA_LAZY")
      * @ORM\JoinTable(name="setting_culture_language")
      * @ORM\OrderBy({"sortOrder"="ASC", "name"="ASC"})
-     * @Assert\Count(min="1")
      */
     private $commonLanguages;
 
