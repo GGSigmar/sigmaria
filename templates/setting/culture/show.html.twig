@@ -54,7 +54,7 @@
         <h5>Pospolite języki</h5>
         <p class="mb-4">
             {% if culture.commonLanguages is empty %}
-                Brak
+                Brak.
             {% else %}
                 {% for language in culture.commonLanguages %}
                     {% include "base/badges/entity_show_badge.html.twig" with {'entityName': 'language', 'entityId': language.id} %} {{ language.name }}
