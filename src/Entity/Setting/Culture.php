@@ -22,6 +22,8 @@ class Culture
 {
     use BaseFieldsTrait, ReleasableTrait, TimestampableEntity;
 
+    public const ENTITY_NAME = 'culture';
+
     /**
      * @var ArrayCollection
      *
