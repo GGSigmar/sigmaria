@@ -7,6 +7,7 @@ use App\Entity\Core\Feat;
 use App\Entity\Core\Lore;
 use App\Entity\Core\Skill;
 use App\Entity\Core\Traits\BaseFieldsTrait;
+use App\Entity\Core\Traits\DescriptionTrait;
 use App\Entity\Core\Traits\ReleasableTrait;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -20,7 +21,9 @@ use Gedmo\Timestampable\Traits\TimestampableEntity;
  */
 class Background
 {
-    use BaseFieldsTrait, ReleasableTrait, TimestampableEntity;
+    use BaseFieldsTrait, DescriptionTrait, ReleasableTrait, TimestampableEntity;
+
+    public const ENTITY_NAME = 'background';
 
     /**
      * @var ArrayCollection

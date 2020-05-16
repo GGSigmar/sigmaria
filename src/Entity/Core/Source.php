@@ -3,6 +3,8 @@
 namespace App\Entity\Core;
 
 use App\Entity\Core\Traits\BaseFieldsTrait;
+use App\Entity\Core\Traits\DescriptionTrait;
+use App\Entity\Core\Traits\HandleTrait;
 use App\Entity\Core\Traits\SortOrderTrait;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -14,7 +16,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Source
 {
-    use BaseFieldsTrait, SortOrderTrait, TimestampableEntity;
+    use BaseFieldsTrait, HandleTrait, DescriptionTrait, SortOrderTrait, TimestampableEntity;
 
     /**
      * @var string

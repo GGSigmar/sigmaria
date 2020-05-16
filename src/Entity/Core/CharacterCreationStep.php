@@ -3,6 +3,8 @@
 namespace App\Entity\Core;
 
 use App\Entity\Core\Traits\BaseFieldsTrait;
+use App\Entity\Core\Traits\DescriptionTrait;
+use App\Entity\Core\Traits\HandleTrait;
 use App\Entity\Core\Traits\SortOrderTrait;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
 use Doctrine\ORM\Mapping as ORM;
@@ -13,6 +15,8 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class CharacterCreationStep
 {
+    use BaseFieldsTrait, HandleTrait, DescriptionTrait, SortOrderTrait, TimestampableEntity;
+
     public const ENTITY_NAME = 'character_creation_step';
 
     public const CHARACTER_CREATION_STEP_CONCEPT = 'CHARACTER_CREATION_STEP_CONCEPT';
@@ -25,6 +29,4 @@ class CharacterCreationStep
     public const CHARACTER_CREATION_STEP_EQUIPMENT = 'CHARACTER_CREATION_STEP_EQUIPMENT';
     public const CHARACTER_CREATION_STEP_MODIFIERS = 'CHARACTER_CREATION_STEP_MODIFIERS';
     public const CHARACTER_CREATION_STEP_FINISH = 'CHARACTER_CREATION_STEP_FINISH';
-
-    use BaseFieldsTrait, SortOrderTrait, TimestampableEntity;
 }

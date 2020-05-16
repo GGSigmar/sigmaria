@@ -63,6 +63,7 @@ class BackgroundType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => Background::class,
+            'has_description' => true,
         ]);
     }
 }

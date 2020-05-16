@@ -8,6 +8,8 @@ use App\Entity\Core\Feat;
 use App\Entity\Core\MoveSpeed;
 use App\Entity\Core\Size;
 use App\Entity\Core\Traits\BaseFieldsTrait;
+use App\Entity\Core\Traits\DescriptionTrait;
+use App\Entity\Core\Traits\HandleTrait;
 use App\Entity\Core\Traits\ReleasableTrait;
 use App\Entity\Core\Traits\ShortDescriptionTrait;
 use App\Entity\Core\Traits\SimpleRarityTrait;
@@ -24,7 +26,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Heritage
 {
-    use BaseFieldsTrait, ShortDescriptionTrait, SimpleRarityTrait, ReleasableTrait, TimestampableEntity;
+    use BaseFieldsTrait, HandleTrait, DescriptionTrait, ShortDescriptionTrait, SimpleRarityTrait, ReleasableTrait, TimestampableEntity;
 
     public const ENTITY_NAME = 'heritage';
 

@@ -30,6 +30,8 @@ class AttributeType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => Attribute::class,
+            'has_handle' => true,
+            'has_description' => true,
         ]);
     }
 }

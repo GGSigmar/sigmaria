@@ -131,6 +131,8 @@ class AncestryType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => Ancestry::class,
+            'has_handle' => true,
+            'has_description' => true,
         ]);
     }
 }

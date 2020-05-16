@@ -3,6 +3,7 @@
 namespace App\Entity\Core;
 
 use App\Entity\Core\Traits\BaseFieldsTrait;
+use App\Entity\Core\Traits\HandleTrait;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
 
@@ -12,7 +13,7 @@ use Gedmo\Timestampable\Traits\TimestampableEntity;
  */
 class Actions
 {
-    use BaseFieldsTrait, TimestampableEntity;
+    use BaseFieldsTrait, HandleTrait, TimestampableEntity;
 
     public const ACTIONS_ONE = 'ACTIONS_ONE';
     public const ACTIONS_TWO = 'ACTIONS_TWO';

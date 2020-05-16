@@ -28,6 +28,14 @@
                     <div id="collapse-{{ id }}" class="collapse" aria-labelledby="heading-{{ id }}" data-parent="#blogAccordion">
                         <div class="card-body bg-white text-dark">
                             {{ post.description|raw }}
+
+                            <br /><br />
+
+                            {% if post.release %}
+                                {% set release = post.release %}
+
+                                {% include "base/badges/entity_show_badge.html.twig" with {'entityName': 'release', 'entityId': release.id} %} {{ release }}
+                            {% endif %}
                         </div>
                     </div>
                 </div>

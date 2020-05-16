@@ -3,6 +3,7 @@
 namespace App\Entity\Core;
 
 use App\Entity\Core\Traits\BaseFieldsTrait;
+use App\Entity\Core\Traits\HandleTrait;
 use App\Entity\Core\Traits\ValueTrait;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
@@ -13,7 +14,7 @@ use Gedmo\Timestampable\Traits\TimestampableEntity;
  */
 class MoveSpeed
 {
-    use BaseFieldsTrait, ValueTrait, TimestampableEntity;
+    use BaseFieldsTrait, HandleTrait, ValueTrait, TimestampableEntity;
 
     public const MOVE_SPEED_20 = 'MOVE_SPEED_20';
     public const MOVE_SPEED_25 = 'MOVE_SPEED_25';

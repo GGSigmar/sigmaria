@@ -6,6 +6,7 @@ use App\Entity\Ancestry\Ancestry;
 use App\Entity\Core\CharacterClass;
 use App\Entity\Core\Feat;
 use App\Entity\Core\Traits\BaseFieldsTrait;
+use App\Entity\Core\Traits\DescriptionTrait;
 use App\Entity\Core\Traits\ReleasableTrait;
 use App\Service\Core\UtilityService;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -20,7 +21,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class Culture
 {
-    use BaseFieldsTrait, ReleasableTrait, TimestampableEntity;
+    use BaseFieldsTrait, DescriptionTrait, ReleasableTrait, TimestampableEntity;
 
     public const ENTITY_NAME = 'culture';
 

@@ -70,6 +70,7 @@ class CultureType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => Culture::class,
+            'has_description' => true,
         ]);
     }
 }

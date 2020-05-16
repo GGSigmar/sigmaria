@@ -18,6 +18,7 @@ class ScriptType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => Script::class,
+            'has_description' => true,
         ]);
     }
 }

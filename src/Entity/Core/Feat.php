@@ -6,6 +6,7 @@ use App\Entity\Ancestry\Ancestry;
 use App\Entity\Ancestry\Heritage;
 use App\Entity\Core\Interfaces\SourcableInterface;
 use App\Entity\Core\Traits\BaseFieldsTrait;
+use App\Entity\Core\Traits\DescriptionTrait;
 use App\Entity\Core\Traits\ReleasableTrait;
 use App\Entity\Core\Traits\SimpleRarityTrait;
 use App\Entity\Core\Traits\SourceTrait;
@@ -22,7 +23,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Feat implements SourcableInterface
 {
-    use BaseFieldsTrait, SimpleRarityTrait, ReleasableTrait, SourceTrait, TimestampableEntity;
+    use BaseFieldsTrait, DescriptionTrait, SimpleRarityTrait, ReleasableTrait, SourceTrait, TimestampableEntity;
 
     /**
      * @var Actions

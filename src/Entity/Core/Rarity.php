@@ -3,6 +3,8 @@
 namespace App\Entity\Core;
 
 use App\Entity\Core\Traits\BaseFieldsTrait;
+use App\Entity\Core\Traits\DescriptionTrait;
+use App\Entity\Core\Traits\HandleTrait;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
 
@@ -12,7 +14,7 @@ use Gedmo\Timestampable\Traits\TimestampableEntity;
  */
 class Rarity
 {
-    use BaseFieldsTrait, TimestampableEntity;
+    use BaseFieldsTrait, HandleTrait, DescriptionTrait, TimestampableEntity;
 
     public const RARITY_COMMON = 'RARITY_COMMON';
     public const RARITY_UNCOMMON = 'RARITY_UNCOMMON';

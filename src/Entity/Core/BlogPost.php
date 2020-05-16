@@ -3,6 +3,7 @@
 namespace App\Entity\Core;
 
 use App\Entity\Core\Traits\BaseFieldsTrait;
+use App\Entity\Core\Traits\DescriptionTrait;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -12,7 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class BlogPost
 {
-    use BaseFieldsTrait, TimestampableEntity;
+    use BaseFieldsTrait, DescriptionTrait, TimestampableEntity;
 
     /**
      * @var User

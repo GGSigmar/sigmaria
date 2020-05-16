@@ -31,6 +31,7 @@ class BlogPostType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => BlogPost::class,
+            'has_description' => true,
         ]);
     }
 }

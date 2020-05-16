@@ -3,6 +3,7 @@
 namespace App\Entity\Core;
 
 use App\Entity\Core\Traits\BaseFieldsTrait;
+use App\Entity\Core\Traits\HandleTrait;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
 use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
@@ -13,7 +14,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Skill
 {
-    use BaseFieldsTrait, TimestampableEntity;
+    use BaseFieldsTrait, HandleTrait, TimestampableEntity;
 
     public const SKILL_ACROBATICS = 'SKILL_ACROBATICS';
     public const SKILL_ARCANA = 'SKILL_ARCANA';

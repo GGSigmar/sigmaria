@@ -3,6 +3,7 @@
 namespace App\Entity\Core;
 
 use App\Entity\Core\Traits\BaseFieldsTrait;
+use App\Entity\Core\Traits\HandleTrait;
 use App\Entity\Core\Traits\SortOrderTrait;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
 use Doctrine\ORM\Mapping as ORM;
@@ -14,7 +15,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class Ability
 {
-    use BaseFieldsTrait, SortOrderTrait, TimestampableEntity;
+    use BaseFieldsTrait, HandleTrait, SortOrderTrait, TimestampableEntity;
 
     public const ABILITY_STRENGTH = 'ABILITY_STRENGTH';
     public const ABILITY_DEXTERITY = 'ABILITY_DEXTERITY';

@@ -3,6 +3,8 @@
 namespace App\Entity\Core;
 
 use App\Entity\Core\Traits\BaseFieldsTrait;
+use App\Entity\Core\Traits\DescriptionTrait;
+use App\Entity\Core\Traits\HandleTrait;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -13,7 +15,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class Attribute
 {
-    use BaseFieldsTrait, TimestampableEntity;
+    use BaseFieldsTrait, HandleTrait, DescriptionTrait, TimestampableEntity;
 
     public const ATTRIBUTE_GENERAL = 'ATTRIBUTE_GENERAL';
 

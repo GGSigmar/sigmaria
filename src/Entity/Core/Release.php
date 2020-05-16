@@ -14,6 +14,8 @@ class Release
 {
     use TimestampableEntity;
 
+    public const ENTITY_NAME = 'release';
+
     /**
      * @var int
      *
@@ -143,6 +145,6 @@ class Release
 
     public function __toString()
     {
-        return sprintf('%s, (%s)', $this->getName(), $this->getContentVersion());
+        return sprintf('%s (%s)', $this->getName(), $this->getContentVersion());
     }
 }

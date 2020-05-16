@@ -123,6 +123,8 @@ class HeritageType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => Heritage::class,
+            'has_handle' => true,
+            'has_description' => true,
         ]);
     }
 }

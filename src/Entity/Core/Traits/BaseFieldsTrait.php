@@ -27,23 +27,6 @@ trait BaseFieldsTrait
     private $name = '';
 
     /**
-     * @var string
-     *
-     * @ORM\Column(type="string", length=80, unique=true)
-     *
-     * @Assert\NotBlank
-     * @Assert\Length(max=80)
-     */
-    private $handle = '';
-
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(type="text", nullable=true)
-     */
-    private $description;
-
-    /**
      * @var bool
      *
      * @ORM\Column(type="boolean")
@@ -61,22 +44,6 @@ trait BaseFieldsTrait
     /**
      * @return string
      */
-    public function getHandle(): string
-    {
-        return $this->handle;
-    }
-
-    /**
-     * @param string $handle
-     */
-    public function setHandle(string $handle): void
-    {
-        $this->handle = str_replace(' ', '_', trim(strtoupper($handle)));
-    }
-
-    /**
-     * @return string
-     */
     public function getName(): string
     {
         return $this->name;
@@ -88,22 +55,6 @@ trait BaseFieldsTrait
     public function setName(string $name): void
     {
         $this->name = ucfirst($name);
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getDescription(): ?string
-    {
-        return $this->description;
-    }
-
-    /**
-     * @param string|null $description
-     */
-    public function setDescription(?string $description): void
-    {
-        $this->description = ucfirst($description);
     }
 
     /**

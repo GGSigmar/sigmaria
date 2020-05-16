@@ -15,8 +15,11 @@ class AttributeCategoryType extends AbstractType
 
     public function configureOptions(OptionsResolver $resolver)
     {
+        parent::configureOptions($resolver);
+
         $resolver->setDefaults([
             'data_class' => AttributeCategory::class,
+            'has_handle' => true,
         ]);
     }
 }

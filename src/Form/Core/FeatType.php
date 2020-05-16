@@ -82,6 +82,7 @@ class FeatType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => Feat::class,
+            'has_description' => true,
         ]);
     }
 }

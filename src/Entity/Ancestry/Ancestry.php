@@ -8,6 +8,8 @@ use App\Entity\Core\Feat;
 use App\Entity\Core\MoveSpeed;
 use App\Entity\Core\Size;
 use App\Entity\Core\Traits\BaseFieldsTrait;
+use App\Entity\Core\Traits\DescriptionTrait;
+use App\Entity\Core\Traits\HandleTrait;
 use App\Entity\Core\Traits\ReleasableTrait;
 use App\Entity\Core\Traits\SimpleRarityTrait;
 use App\Entity\Core\Traits\SortOrderTrait;
@@ -25,7 +27,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Ancestry
 {
-    use BaseFieldsTrait, SimpleRarityTrait, ReleasableTrait, TimestampableEntity, SortOrderTrait;
+    use BaseFieldsTrait, HandleTrait, DescriptionTrait, SimpleRarityTrait, ReleasableTrait, TimestampableEntity, SortOrderTrait;
 
     public const ENTITY_NAME = 'ancestry';
 

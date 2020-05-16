@@ -3,6 +3,7 @@
 namespace App\Entity\Ancestry;
 
 use App\Entity\Core\Traits\BaseFieldsTrait;
+use App\Entity\Core\Traits\DescriptionTrait;
 use App\Entity\Core\Traits\ValueTrait;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -15,7 +16,7 @@ use Gedmo\Timestampable\Traits\TimestampableEntity;
  */
 class AncestralFeature
 {
-    use BaseFieldsTrait, ValueTrait, TimestampableEntity;
+    use BaseFieldsTrait, DescriptionTrait, ValueTrait, TimestampableEntity;
 
     /**
      * @var ArrayCollection

@@ -42,6 +42,7 @@ class LanguageType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => Language::class,
+            'has_description' => true,
         ]);
     }
 }

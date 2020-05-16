@@ -28,6 +28,8 @@ class CharacterCreationStepType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => CharacterCreationStep::class,
+            'has_handle' => true,
+            'has_description' => true,
         ]);
     }
 }

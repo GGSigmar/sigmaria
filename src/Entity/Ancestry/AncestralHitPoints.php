@@ -3,6 +3,7 @@
 namespace App\Entity\Ancestry;
 
 use App\Entity\Core\Traits\BaseFieldsTrait;
+use App\Entity\Core\Traits\HandleTrait;
 use App\Entity\Core\Traits\ValueTrait;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
@@ -13,7 +14,7 @@ use Gedmo\Timestampable\Traits\TimestampableEntity;
  */
 class AncestralHitPoints
 {
-    use BaseFieldsTrait, ValueTrait, TimestampableEntity;
+    use BaseFieldsTrait, HandleTrait, ValueTrait, TimestampableEntity;
 
     public const ANCESTRAL_HIT_POINTS_6 = 'ANCESTRAL_HIT_POINTS_6';
     public const ANCESTRAL_HIT_POINTS_8 = 'ANCESTRAL_HIT_POINTS_8';

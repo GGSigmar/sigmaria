@@ -28,6 +28,8 @@ class SourceType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => Source::class,
+            'has_handle' => true,
+            'has_description' => true,
         ]);
     }
 }
