@@ -9,6 +9,7 @@ use App\Entity\Core\Skill;
 use App\Entity\Core\Traits\BaseFieldsTrait;
 use App\Entity\Core\Traits\DescriptionTrait;
 use App\Entity\Core\Traits\ReleasableTrait;
+use App\Entity\Core\Traits\SlugTrait;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -21,7 +22,7 @@ use Gedmo\Timestampable\Traits\TimestampableEntity;
  */
 class Background
 {
-    use BaseFieldsTrait, DescriptionTrait, ReleasableTrait, TimestampableEntity;
+    use BaseFieldsTrait, SlugTrait, DescriptionTrait, ReleasableTrait, TimestampableEntity;
 
     public const ENTITY_NAME = 'background';
 

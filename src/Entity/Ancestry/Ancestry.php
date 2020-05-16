@@ -12,6 +12,7 @@ use App\Entity\Core\Traits\DescriptionTrait;
 use App\Entity\Core\Traits\HandleTrait;
 use App\Entity\Core\Traits\ReleasableTrait;
 use App\Entity\Core\Traits\SimpleRarityTrait;
+use App\Entity\Core\Traits\SlugTrait;
 use App\Entity\Core\Traits\SortOrderTrait;
 use App\Entity\Setting\Culture;
 use App\Service\Core\UtilityService;
@@ -27,7 +28,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Ancestry
 {
-    use BaseFieldsTrait, HandleTrait, DescriptionTrait, SimpleRarityTrait, ReleasableTrait, TimestampableEntity, SortOrderTrait;
+    use BaseFieldsTrait, SlugTrait, HandleTrait, DescriptionTrait, SimpleRarityTrait, ReleasableTrait, TimestampableEntity, SortOrderTrait;
 
     public const ENTITY_NAME = 'ancestry';
 

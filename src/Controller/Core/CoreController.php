@@ -4,8 +4,13 @@ namespace App\Controller\Core;
 
 use App\Controller\Base\BaseController;
 use App\Entity\Ancestry\Ancestry;
+use App\Entity\Ancestry\Heritage;
 use App\Entity\Core\CharacterCreationStep;
 use App\Entity\Core\Feat;
+use App\Entity\Core\Release;
+use App\Entity\Setting\Background;
+use App\Entity\Setting\Culture;
+use App\Entity\Setting\Language;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -50,11 +55,65 @@ class CoreController extends BaseController
         $doctrine = $this->getDoctrine();
         $em = $doctrine->getManager();
 
-        $feats = $doctrine->getRepository(Feat::class)->findAll();
+        $entities = $doctrine->getRepository(Feat::class)->findAll();
 
-        foreach ($feats as $feat) {
-            $feat->setSlug(null);
-            $em->persist($feat);
+        foreach ($entities as $entity) {
+            $entity->setSlug(null);
+            $em->persist($entity);
+        }
+
+        $em->flush();
+
+        $entities = $doctrine->getRepository(Culture::class)->findAll();
+
+        foreach ($entities as $entity) {
+            $entity->setSlug(null);
+            $em->persist($entity);
+        }
+
+        $em->flush();
+
+        $entities = $doctrine->getRepository(Background::class)->findAll();
+
+        foreach ($entities as $entity) {
+            $entity->setSlug(null);
+            $em->persist($entity);
+        }
+
+        $em->flush();
+
+        $entities = $doctrine->getRepository(Language::class)->findAll();
+
+        foreach ($entities as $entity) {
+            $entity->setSlug(null);
+            $em->persist($entity);
+        }
+
+        $em->flush();
+
+        $entities = $doctrine->getRepository(Release::class)->findAll();
+
+        foreach ($entities as $entity) {
+            $entity->setSlug(null);
+            $em->persist($entity);
+        }
+
+        $em->flush();
+
+        $entities = $doctrine->getRepository(Heritage::class)->findAll();
+
+        foreach ($entities as $entity) {
+            $entity->setSlug(null);
+            $em->persist($entity);
+        }
+
+        $em->flush();
+
+        $entities = $doctrine->getRepository(Ancestry::class)->findAll();
+
+        foreach ($entities as $entity) {
+            $entity->setSlug(null);
+            $em->persist($entity);
         }
 
         $em->flush();
