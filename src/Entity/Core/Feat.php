@@ -9,6 +9,7 @@ use App\Entity\Core\Traits\BaseFieldsTrait;
 use App\Entity\Core\Traits\DescriptionTrait;
 use App\Entity\Core\Traits\ReleasableTrait;
 use App\Entity\Core\Traits\SimpleRarityTrait;
+use App\Entity\Core\Traits\SlugTrait;
 use App\Entity\Core\Traits\SourceTrait;
 use App\Entity\Setting\Culture;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -23,7 +24,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Feat implements SourcableInterface
 {
-    use BaseFieldsTrait, DescriptionTrait, SimpleRarityTrait, ReleasableTrait, SourceTrait, TimestampableEntity;
+    use BaseFieldsTrait, SlugTrait, DescriptionTrait, SimpleRarityTrait, ReleasableTrait, SourceTrait, TimestampableEntity;
 
     /**
      * @var Actions

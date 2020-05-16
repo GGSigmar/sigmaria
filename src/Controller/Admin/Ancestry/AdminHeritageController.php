@@ -230,6 +230,7 @@ class AdminHeritageController extends BaseController
             $feat = $form->getData();
 
             $sourcableService->ensureEmptySourceNullification($feat);
+            $feat->setSlug(null);
 
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($feat);
