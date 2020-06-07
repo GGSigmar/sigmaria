@@ -1,0 +1,46 @@
+{% extends "base/base.html.twig" %}
+
+{% block stylesheets %}
+    {{ parent() }}
+
+    <link rel="stylesheet" href="{{ asset('css/stuquery-hexmap.css') }}">
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    <script src="{{ asset('js/stuquery.js') }}"></script>
+    <script src="{{ asset('js/stuquery-hexmap.js') }}"></script>
+    <script>
+        $(document).ready(function(){
+            var hexmap = S.hexmap('hexmap');
+            hexmap.positionHexes().resize();
+        });
+    </script>
+{% endblock %}
+
+{% block content %}
+    <div class="col-md-6 mb-4">
+        Tu będzie opis
+    </div>
+    <div class="col-md-6 mb-4">
+        <div id="hexmap">
+            <code>
+                {
+                "layout":"odd-q",
+                "hexes": {
+                "A":{"n":"Hex a","q":-1,"r":0},
+                "B":{"n":"Hex b","q":-1,"r":1},
+                "C":{"n":"Hex c","q":0,"r":0},
+                "D":{"n":"Hex d","q":0,"r":1},
+                "E":{"n":"Hex e","q":1,"r":0},
+                "F":{"n":"Hex f","q":1,"r":1},
+                "G":{"n":"Hex g","q":-1,"r":2},
+                "H":{"n":"Hex h","q":0,"r":2},
+                "I":{"n":"Hex i","q":1,"r":2}
+                }
+                }
+            </code>
+        </div>
+    </div>
+{% endblock %}
