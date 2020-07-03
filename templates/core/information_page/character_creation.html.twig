@@ -1,8 +1,9 @@
 {% extends "base/base.html.twig" %}
 
 {% block content %}
-    <div class="col-md-12">
-        <h1 class="mb-4">Tworzenie postaci</h1>
+    <div class="col-md-12 text-center">
+        <h1>Tworzenie postaci</h1>
+        <div class="pf2-subtitle"></div>
     </div>
     <div class="col-md-12">
         <div class="mb-4">
@@ -11,15 +12,13 @@
             Większość z nich działa dokładnie tak, jak sugeruje CRB (Core Rulebook) drugiej edycji Pathfindera, dlatego też odsyłam w nich do książki (zasady te zaczynają się na stronie 19).
             Nieliczne kroki, które różnią się od oficjalnych zasad, są (mam nadzieję) dobrze opisane.
         </div>
-        <div class="mb-4">
-            <ol>
-                {% for step in steps %}
-                    <li class="mb-2">
-                        <b>{{ step.name }}.</b>
-                        {{ step.description|raw }}
-                    </li>
-                {% endfor %}
-            </ol>
+        <div>
+            {% for step in steps %}
+                <div {% if not loop.index == loop.last %}class="mb-4"{% endif %}>
+                    <h3>{{ loop.index }}. {{ step.name }}</h3>
+                    {{ step.description|raw }}
+                </div>
+            {% endfor %}
         </div>
     </div>
 {% endblock %}

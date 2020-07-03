@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-md sticky-top navbar-dark bg-blood border-bottom border-white pf2-nav-font">
-    <a href="{{ path('home') }}" class="navbar-brand"><i class="fas fa-dungeon"></i> Sigmaria</a>
+    <a href="{{ path('home') }}" class="navbar-brand pf2-nav-brand-font"><i class="fas fa-dungeon"></i> Sigmaria</a>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainmenu">
         <span class="navbar-toggler-icon"></span>
@@ -70,8 +70,6 @@
                     <div class="dropdown-divider"></div>
                     <a href="{{ path('source_list') }}" class="quest-location dropdown-item">Źródła</a>
                     <div class="dropdown-divider"></div>
-                    <a href="{{ path('update_slugs') }}" class="quest-location dropdown-item">Aktualizuj slugi</a>
-                    <div class="dropdown-divider"></div>
                     <a href="#" class="dropdown-item dropdown-toggle" data-toggle="dropdown">Core Admin</a>
                     <ul class="dropdown-menu">
                         <li><a href="{{ path('character_creation_step_list') }}" class="dropdown-item">Kroki tworzenia postaci</a></li>
@@ -89,6 +87,11 @@
                     <ul class="dropdown-menu">
                         <li><a href="{{ path('lore_list') }}" class="dropdown-item">Dziedziny wiedzy</a></li>
                         <li><a href="{{ path('script_list') }}" class="dropdown-item">Pisma</a></li>
+                    </ul>
+                    <div class="dropdown-divider"></div>
+                    <a href="#" class="dropdown-item dropdown-toggle" data-toggle="dropdown">Skrypty</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{{ path('update_slugs') }}" class="dropdown-item">Aktualizuj slugi</a></li>
                     </ul>
                 </div>
             </li>

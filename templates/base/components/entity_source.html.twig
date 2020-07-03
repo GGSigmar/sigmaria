@@ -1,8 +1,8 @@
 {% set source = entity.source %}
 {% if source %}
-    <div class="border-top border-white">
+    <div class="border-top border-blood">
         <b>Źródło:</b>
-        <a href="{{ source.source.productLink }}" class="badge badge-primary border border-white" target="_blank">
+        <a href="{{ source.source.productLink }}" class="badge badge-primary border border-blood" target="_blank">
             <abbr title="{{ source.source.copyrightNotice }} {% if source.pagesInfo %}{{ source.pagesInfo }}{% endif %}">
                 {{ source.source.name }}
             </abbr>

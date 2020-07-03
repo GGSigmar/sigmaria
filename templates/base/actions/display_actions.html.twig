@@ -1,0 +1,13 @@
+{% if actions.handle == 'ACTIONS_ONE' %}
+    {% include "base/actions/one_action.html.twig" %}
+{% elseif actions.handle == 'ACTIONS_TWO' %}
+    {% include "base/actions/two_action.html.twig" %}
+{% elseif actions.handle == 'ACTIONS_THREE' %}
+    {% include "base/actions/three_action.html.twig" %}
+{% elseif actions.handle == 'ACTIONS_REACTION' %}
+    {% include "base/actions/reaction.html.twig" %}
+{% elseif actions.handle == 'ACTIONS_FREE' %}
+    {% include "base/actions/free_action.html.twig" %}
+{% else %}
+    {% include "base/actions/passive_action.html.twig" %}
+{% endif %}

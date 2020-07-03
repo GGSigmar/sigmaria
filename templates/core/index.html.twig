@@ -7,10 +7,10 @@
             Na dobry początek
         {% endset %}
         {% set content %}
-            <a href="#" class="badge badge-danger border border-white" role="button"><i class="fas fa-search"></i></a> Prawdy o Sigmarii<br />
-            <a href="#" class="badge badge-danger border border-white" role="button"><i class="fas fa-search"></i></a> Planowane kampanie<br />
-            <a href="{{ path('character_creation') }}" class="badge badge-success border border-white" role="button"><i class="fas fa-search"></i></a> Tworzenie postaci<br />
-            <a href="#" class="badge badge-danger border border-white" role="button"><i class="fas fa-search"></i></a> Domowe zasady
+            <a href="#" class="badge badge-danger border border-blood" role="button"><i class="fas fa-search"></i></a> Prawdy o Sigmarii<br />
+            <a href="#" class="badge badge-danger border border-blood" role="button"><i class="fas fa-search"></i></a> Planowane kampanie<br />
+            <a href="{{ path('character_creation') }}" class="badge badge-success border border-blood" role="button"><i class="fas fa-search"></i></a> Tworzenie postaci<br />
+            <a href="#" class="badge badge-danger border border-blood" role="button"><i class="fas fa-search"></i></a> Domowe zasady
         {% endset %}
 
         {% include 'base/components/card.html.twig' with {'title': title, 'content': content} %}
@@ -43,7 +43,7 @@
             Pozostałe rasy
         {% endset %}
         {% set content %}
-            <h5 class="text-danger text-center"><i class="fas fa-times"></i> Brak!</h5>
+            <h3 class="text-danger text-center"><i class="fas fa-times"></i> Brak!</h3>
         {% endset %}
 
         {% include 'base/components/card.html.twig' with {'title': title, 'content': content} %}

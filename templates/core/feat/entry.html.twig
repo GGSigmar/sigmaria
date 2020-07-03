@@ -1,7 +1,7 @@
-<div class="mb-4 border border-white rounded p-1">
-    <div class="border-bottom border-white {% include 'base/components/activeness_bg_class.html.twig' with {'entity': feat} %}" style="width:100%;">
-        <h5>
-            {{ feat.name|upper }} {% if feat.actions %}({{ feat.actions.name }}){% endif %}
+<div class="mb-4 border border-blood rounded p-1">
+    <div class="border-bottom border-blood padding-bottom-5 {% include 'base/components/activeness_bg_class.html.twig' with {'entity': feat} %}" style="width:100%;">
+        <h4>
+            {{ feat.name|upper }} {% if feat.actions %}{% include 'base/actions/display_actions.html.twig' with {actions: feat.actions} %} {% endif %}
             <span class="float-right">
                 {% if feat.level %}
                     ATUT {{ feat.level }}
@@ -29,10 +29,10 @@
                     {% include "base/badges/entity_release_badge.html.twig" with {'entityName': 'feat', 'entity': feat} %}
                 {% endif %}
             </span>
-        </h5>
+        </h4>
     </div>
     <div>
-        <a class="badge badge-primary border border-white">{{ feat.rarity.name|masculine }}</a>
+        <a class="badge badge-primary border border-blood text-white">{{ feat.rarity.name|masculine }}</a>
         {% for attribute in feat.attributes %}
             {% include "base/badges/attribute_badge.html.twig" with {'attribute': attribute} %}
         {% endfor %}

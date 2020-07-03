@@ -2,7 +2,7 @@
 
 {% block content %}
     <div class="col-md-12">
-        <h1 class="{% if not is_granted('ROLE_ADMIN') %}mb-5{% endif %}">Blog</h1>
+        <h1 class="{% if not is_granted('ROLE_ADMIN') %}mb-4{% endif %}">Blog</h1>
 
         {% if is_granted('ROLE_ADMIN') %}
             <div class="mb-2 float-right">
@@ -12,8 +12,8 @@
             </div>
         {% endif %}
     </div>
-    <div class="col-md-12 mb-2">
-        <div class="accordion border border-white" id="blogAccordion">
+    <div class="col-md-12">
+        <div class="accordion border border-blood" id="blogAccordion">
             {% for post in blogPosts %}
                 {% set id = post.id %}
                 <div class="card">

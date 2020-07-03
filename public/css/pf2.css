@@ -23,8 +23,12 @@
     border-color: #5E0000 !important;
 }
 
-.pf2-nav-font {
+.pf2-nav-brand-font {
     font-family: 'Eczar', sans-serif;
+}
+
+.pf2-nav-font {
+    font-family: 'Open Sans', sans-serif;
 }
 
 .pf2-title {
@@ -64,12 +68,12 @@
 
 .pf2-subtitle {
     color: #58180D;
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     font-family: 'Eczar', sans-serif;
     background-image: url(../images/styling/subtitle_line.png);
     background-position: bottom;
     background-repeat: no-repeat;
-    background-size: 800px;
+    background-size: 50rem;
     padding-bottom: 35px;
     font-style: italic;
     margin-bottom: 0;
@@ -95,7 +99,7 @@
 
 .pf2-container h3 {
     color: #58180D;
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-family: 'Teko', sans-serif;
     font-weight: 400;
     text-transform: uppercase;
@@ -104,7 +108,7 @@
 
 .pf2-container h4 {
     color: #000000;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     font-family: 'Open Sans', sans-serif;
     font-weight: 800;
     text-transform: uppercase;
@@ -130,6 +134,7 @@
     border-bottom: 1px solid #002664;
     border-radius: 12px 12px 0px 0px;
     padding: 5px 8px 3px;
+    margin-bottom: 0;
 }
 
 /* Sidebar */

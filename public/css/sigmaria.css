@@ -16,6 +16,10 @@
     padding-bottom: 15px;
 }
 
+.padding-bottom-5 {
+    padding-bottom: 5px;
+}
+
 .indented {
     text-indent: 1rem;
 }

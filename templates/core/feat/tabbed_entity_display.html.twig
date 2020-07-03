@@ -1,5 +1,5 @@
 <div class="col-md-12">
-    <h3>
+    <h2 class="mb-2">
         {{ displayTitle }}
         {% if is_granted('ROLE_ADMIN') %}
             {% include 'base/buttons/entity_display_create_button.html.twig'
@@ -11,7 +11,7 @@
                 }
             %}
         {% endif %}
-    </h3>
+    </h2>
 </div>
 
 {% if is_granted('ROLE_ADMIN') %}
