@@ -1,0 +1,199 @@
+@import url('https://fonts.googleapis.com/css?family=Eczar|Open+Sans|Teko');
+
+@font-face {
+    font-family: 'Taroca';
+    src: url(../font/Taroca.ttf);
+}
+
+.pf2-container {
+    background-image: url(../images/styling/background.png);
+    border: 1px solid #58180D;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.bg-blood {
+    background-color: #5E0000;
+}
+
+.color-blood {
+    color: #5E0000;
+}
+
+.border-blood {
+    border-color: #5E0000 !important;
+}
+
+.pf2-nav-font {
+    font-family: 'Eczar', sans-serif;
+}
+
+.pf2-title {
+    font-family: 'Eczar', sans-serif;
+    font-weight: 8;
+    color: #4E0707;
+    border-color: #EFCD98;
+    border: 10px;
+    text-shadow:
+            1px 1px 0 #EFCD98,
+            -1px 1px 0 #EFCD98,
+            1px -1px 0 #EFCD98,
+            -1px -1px 0 #EFCD98,
+            0px 1px 0 #EFCD98,
+            0px -1px 0 #EFCD98,
+            -1px 0px 0 #EFCD98,
+            1px 0px 0 #EFCD98,
+            2px 2px 0 #EFCD98,
+            -2px 2px 0 #EFCD98,
+            2px -2px 0 #EFCD98,
+            -2px -2px 0 #EFCD98,
+            0px 2px 0 #EFCD98,
+            0px -2px 0 #EFCD98,
+            -2px 0px 0 #EFCD98,
+            2px 0px 0 #EFCD98,
+            1px 2px 0 #EFCD98,
+            -1px 2px 0 #EFCD98,
+            1px -2px 0 #EFCD98,
+            -1px -2px 0 #EFCD98,
+            2px 1px 0 #EFCD98,
+            -2px 1px 0 #EFCD98,
+            2px -1px 0 #EFCD98,
+            -2px -1px 0 #EFCD98;
+    font-size: 4em;
+    margin-bottom: 0;
+}
+
+.pf2-subtitle {
+    color: #58180D;
+    font-size: 1.25rem;
+    font-family: 'Eczar', sans-serif;
+    background-image: url(../images/styling/subtitle_line.png);
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: 800px;
+    padding-bottom: 35px;
+    font-style: italic;
+    margin-bottom: 0;
+}
+
+/* Headers */
+
+.pf2-container h1 {
+    color: #58180D;
+    font-size: 3rem;
+    font-family: 'Eczar', sans-serif;
+    font-weight: 800;
+    margin-bottom: 0;
+}
+
+.pf2-container h2 {
+    color: #02256E;
+    font-size: 2rem;
+    font-family: 'Eczar', sans-serif;
+    font-weight: 800;
+    margin-bottom: 0;
+}
+
+.pf2-container h3 {
+    color: #58180D;
+    font-size: 2rem;
+    font-family: 'Teko', sans-serif;
+    font-weight: 400;
+    text-transform: uppercase;
+    margin-bottom: 0;
+}
+
+.pf2-container h4 {
+    color: #000000;
+    font-size: 1.5rem;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: 0;
+}
+
+.pf2-container h5 {
+    color: #A76652;
+    font-size: 1.25rem;
+    font-variant: small-caps;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 800;
+    margin-bottom: 0;
+}
+
+.pf2-container h6 {
+    color: #EDE3C8;
+    font-size: 1.25rem;
+    font-family: 'Open Sans', sans-serif;
+    text-transform:uppercase;
+    font-weight: 800;
+    background-color: #002664;
+    border-bottom: 1px solid #002664;
+    border-radius: 12px 12px 0px 0px;
+    padding: 5px 8px 3px;
+}
+
+/* Sidebar */
+
+.sidebar h3 {
+    font-size: 1.5rem;
+    text-transform: none;
+}
+
+.sidebar-right {
+    border-left: 1px solid #58180D;
+}
+
+/* Actions */
+
+.one-action {
+    margin-top:-0px;
+    margin-bottom:-0px;
+    width:14px;
+    margin-right:-1px;
+    margin-left:-1px;
+}
+
+.two-action {
+    margin-top:-0px;
+    margin-bottom:-0px;
+    height:22px;
+    width:24px;
+    margin-right:-1px;
+    margin-left:-1px;
+}
+.three-action {
+    margin-top:0px;
+    margin-bottom:-0px;
+    height:28px;
+    width:32px;
+    margin-right:-1px;
+    margin-left:-1px;
+}
+
+h5 .one-action, h4 .one-action  {
+    margin-top:-10px;
+    margin-bottom:-6px;
+    width:16px;
+    margin-right:-1px;
+    margin-left:-1px;
+
+}
+h5 .two-action, h4 .two-action {
+    margin-top:-10px;
+    margin-bottom:-6px;
+    height:26px;
+    width:28px;
+    margin-right:-1px;
+    margin-left:-1px;
+}
+
+h5 .three-action, h4 .three-action {
+    margin-top:-10px;
+    margin-bottom:-6px;
+    height:34px;
+    width:38px;
+    margin-right:-1px;
+    margin-left:-1px;
+}
+
+

@@ -1,15 +1,17 @@
 {% extends "base/base.html.twig" %}
 
 {% block content %}
-    <div class="col-md-9">
+    <div class="col-md-12">
         {% include "base/utilities/entity_show_header.html.twig" with {'entity': ancestry} %}
+    </div>
 
-        <div class="mb-4">
+    <div class="col-md-9">
+        <div class="mb-4 text-justify">
             {{ ancestry.description|raw }}
         </div>
 
         <div class="mb-4">
-            <h3>Zdolności rasowe</h3>
+            <h2>Zdolności rasowe</h2>
             {% if is_granted('ROLE_ADMIN') %}
                 {% set ancestralFeatures = ancestry.ancestralFeatures %}
             {% else %}
@@ -25,33 +27,34 @@
             {% endif %}
         </div>
     </div>
-    <div class="col-md-3">
+
+    <div class="col-md-3 sidebar sidebar-right color-blood text-justify">
         {% if is_granted('ROLE_ADMIN') %}
-            <h5>Wartość</h5>
+            <h3>Wartość</h3>
             <p class="mb-4">{{ ancestry.value }}</p>
         {% endif %}
 
-        <h5>Rzadkość</h5>
+        <h3>Rzadkość</h3>
         <p class="mb-4">
             {{ ancestry.rarity.name }}
         </p>
 
-        <h5>Punkty zdrowia</h5>
+        <h3>Punkty zdrowia</h3>
         <p class="mb-4">
             {{ ancestry.hitPoints.name }}
         </p>
 
-        <h5>Rozmiar</h5>
+        <h3>Rozmiar</h3>
         <p class="mb-4">
             {{ ancestry.size.name }}
         </p>
 
-        <h5>Prędkość</h5>
+        <h3>Prędkość</h3>
         <p class="mb-4">
             {{ ancestry.speed.name }} stóp
         </p>
 
-        <h5>Premie do cech</h5>
+        <h3>Premie do cech</h3>
         <p class="mb-4">
             {% if ancestry.abilityBoosts|length == 2 %}
                 {{ ancestry.abilityBoosts|first }} lub {{ ancestry.abilityBoosts|last }}
@@ -62,12 +65,12 @@
             Dowolna
         </p>
 
-        <h5>Języki</h5>
+        <h3>Języki</h3>
         <p class="mb-4">
             {{ ancestry.languagesMessage }}
         </p>
 
-        <h5>Atrybuty</h5>
+        <h3>Atrybuty</h3>
         <p class="mb-4">
             {% if ancestry.attributes is empty %}
                 Brak.
@@ -82,7 +85,7 @@
             {% endif %}
         </p>
 
-        <h5>Kultury</h5>
+        <h3>Kultury</h3>
         <p class="mb-4">
             {% if is_granted('ROLE_ADMIN') %}
                 {% set cultures = ancestry.cultures %}
@@ -104,7 +107,7 @@
             {% endif %}
         </p>
 
-        <h5>Początkowe atuty rasowe</h5>
+        <h3>Początkowe atuty rasowe</h3>
         <p class="mb-4">
             Bez dziedzictwa: {{ ancestry.getNumberOfFreeFeats }}
             <br />

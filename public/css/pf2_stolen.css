@@ -1,0 +1,335 @@
+/* Created by Apostol Apostolov. V.1.041 7th of March 2020.  */
+/* For support, join Grit and Glory Discord at https://discord.gg/ZDtCmhm */
+/* Please do not remove this message. It allows people who copy the template from your work get dev support. */
+/* It also helps others find newer version of the template by comparing the version number with their own    */
+
+/* Fonts */
+@import url('https://fonts.googleapis.com/css?family=Eczar:800|Roboto+Condensed|Tauri|Teko:500|Changa+One|Gelasio|DM+Serif+Text:400i&display=swap'); /* Loads fonts from Google Web Fonts. Add additional @import if you license web fonts from elsewhere (such as from Monotype) */
+
+/* Proper Printing */
+@media print { .phb { height: 279.4mm; width: 215.9mm; } }
+
+/* Background */
+/* Sets two backgrounds. First image is the image margin column on each page, the second is the Pathfinder signature parchment. You can change the image margin depending on the content of your book but I suggest that you use the Imgur image I am using and just change the picture in the upper frame. I had to redesign the whole image margin and just using one from a Paizo PDF will not fit the whole length. On odd pages the parchment is horizontall flipped to emphasize odd and even pages. */
+/*.phb{ background-image: url('https://www.gmbinder.com/images/2B04yOU.png'), url('https://www.gmbinder.com/images/Nrkf77U.jpg'); background-size: 97px, 822px; background-repeat:no-repeat; }*/
+/*.phb:nth-child(odd){ background-image: url('https://www.gmbinder.com/images/8hcD3pd.png'), url('https://www.gmbinder.com/images/EABESdy.png'); background-size: 97px, 820px; background-repeat:no-repeat; background-position:right, center; }*/
+
+/* Cover */
+.cover-title { font-family: 'Eczar', sans-serif !important; color:#4E0707; border-color:#EFCD98; border 10px; text-shadow: 1px 1px 0 #EFCD98, -1px 1px 0 #EFCD98, 1px -1px 0 #EFCD98, -1px -1px 0 #EFCD98, 0px 1px 0 #EFCD98, 0px -1px 0 #EFCD98, -1px 0px 0 #EFCD98, 1px 0px 0 #EFCD98, 2px 2px 0 #EFCD98, -2px 2px 0 #EFCD98, 2px -2px 0 #EFCD98, -2px -2px 0 #EFCD98, 0px 2px 0 #EFCD98, 0px -2px 0 #EFCD98, -2px 0px 0 #EFCD98, 2px 0px 0 #EFCD98, 1px 2px 0 #EFCD98, -1px 2px 0 #EFCD98, 1px -2px 0 #EFCD98, -1px -2px 0 #EFCD98, 2px 1px 0 #EFCD98, -2px 1px 0 #EFCD98, 2px -1px 0 #EFCD98,-2px -1px 0 #EFCD98; font-size:7em; text-align: center; width:820px;}
+/*.phb#p1 {background-image: url('https://www.gmbinder.com/images/Nrkf77U.jpg'); background-size: 822px;} !* Fix for image-less covers *!*/
+
+/* Page Numbers */
+.phb:after { background-image:url('https://www.gmbinder.com/images/O3hOuX8.png?1') !important; background-size: 100px; background-repeat:no-repeat; z-index:-1; margin-bottom: 5px; margin-left: -25px; } /* Styles the box used by page number */
+.phb:nth-child(odd):after { transform: rotate(180deg); margin-bottom: 21px; margin-left: 25px; }
+.pageNumber.auto { font-family: 'Tauri', sans-serif; color:#58180D; font-size:2em; border-color:#EFCD98; border 10px; text-shadow: 1px 1px 0 #EFCD98, -1px 1px 0 #EFCD98, 1px -1px 0 #EFCD98, -1px -1px 0 #EFCD98, 0px 1px 0 #EFCD98, 0px -1px 0 #EFCD98, -1px 0px 0 #EFCD98, 1px 0px 0 #EFCD98, 2px 2px 0 #EFCD98, -2px 2px 0 #EFCD98, 2px -2px 0 #EFCD98, -2px -2px 0 #EFCD98, 0px 2px 0 #EFCD98, 0px -2px 0 #EFCD98, -2px 0px 0 #EFCD98, 2px 0px 0 #EFCD98, 1px 2px 0 #EFCD98, -1px 2px 0 #EFCD98, 1px -2px 0 #EFCD98, -1px -2px 0 #EFCD98, 2px 1px 0 #EFCD98, -2px 1px 0 #EFCD98, 2px -1px 0 #EFCD98,-2px -1px 0 #EFCD98;} /* Styles the automatically generated page number */
+.phb#p1 {counter-reset: phb-page-numbers 0;} /* Allows you to start the page count from a value different than 1st page. Change 0 to the value you want to add to the page number on the 1st page */
+.phb#p1 .pageNumber.auto { display:none } /* Hides the page number on the cover page. Remove "none" if you don't use a cover page */
+.phb#p1:after { display:none } /* Hides the box used by the page number on the cover page. Remove "none" if you don't use a cover page */
+
+/* Headers */
+.phb h1, .phb h2 {font-family: 'Eczar', sans-serif;} /* No Taroca, unless you license it yourself */
+.phb h1 {text-align: center;font-size: 5em; margin-bottom:30px;}
+.phb h2 {color:#02256E;font-size: 2.25em;}
+.phb h3, .phb h4, .phb h5 {font-family: 'Tauri', sans-serif;}
+.phb h3 {font-family: 'Teko', sans-serif; font-size: 2em; border-bottom:0px}
+.phb h4 {color:#000000;border-bottom:1px solid #000000;margin-bottom:0px; text-transform:uppercase; }
+.phb h5 { text-transform:uppercase; }
+.phb h6 {background-color:#002664; color:#EDE3C8;border-bottom:1px solid #002664;margin-bottom:5px; padding-left:8px; padding-top:5px; padding-bottom:3px;font-size: 1.25em;font-family: 'Tauri', sans-serif; text-transform:uppercase; border-radius: 12px 12px 0px 0px;}
+
+/* Content */
+.phb, .phb p, .phb p+p, .phb ul, .phb ol {font-family:'Gelasio', sans-serif; text-align: justify; text-justify: inter-character; line-height:1.4;}
+.phb hr+section blockquote{background : white;}
+.flavor {font-family: 'DM Serif Text', serif !important; text-align: justify; text-justify: inter-character; font-size: 1.25em; line-height: 1.4; padding-bottom:8px; padding-left:10px; padding-right:10px; }
+.subtitle { font-size: 1.4em; color: #5E0000 !important; background-color:transparent !important; margin-top:-30px; margin-bottom:px !important; margin-right:10px !important; margin-left:10px !important; background-image: url('https://www.gmbinder.com/images/5uPOPvf.png'); background-position:bottom; background-repeat:no-repeat; padding-bottom:35px; background-size:800px; }
+
+/* Tables */
+.phb table { background-color: #F5EFE0; margin-bottom:0px; }
+.phb table th { background-color: #5E0000; color:white; padding-top:4px; }
+.phb table tbody tr:nth-child(odd) { background-color: #EDE3C8 }
+.phb table tbody, .phb table th { font-family: 'Roboto Condensed', sans-serif;  }
+.tablefooter { background-color:#E6D8B0 !important; }
+
+/* Actions */
+.label {font-family: 'Tauri', sans-serif; float: right; text-align:right; inline-block; font-size:.4cm; color:black; margin-bottom:-3px; text-transform:uppercase; border: 0px;}
+
+/* Keywords */
+.taglist {height:22px; }
+.tag {font-family: 'Roboto Condensed', sans-serif; border-color:#DAC68A; border: 1px solid #DAC68A; border-left: 2px solid #DAC68A; border-right: 2px solid #DAC68A; border-radius:2px; background-color:#58180D; color:white; text-align:center; margin-top:2px; margin-right:2px; min-width:30px; float:left; margin-bottom:-5px; padding-left:3px; padding-right:3px; text-transform:uppercase; }
+/*Keyword for Rarities */
+.uncommon {background-color:#98513D !important;}
+.rare {background-color:#002664 !important;}
+.unique {background-color:#54166E !important;}
+/* Keyword for Creatures */
+.align {background-color:#576293 !important;}
+.size {background-color:#3B7B59 !important;}
+
+/* Compact Rules */
+.rule, .rule p, .rule p+p {font-family: 'Roboto Condensed', sans-serif; line-height:1.4; }
+.rule p, .rule p+p { text-indent:1.5em; line-height:1.4; font-size:100%; }
+p .oneaction  { margin-top:-0px; margin-bottom:-0px; width:14px; margin-right:-1px; margin-left:-1px; }
+p .twoaction { margin-top:-0px; margin-bottom:-0px; height:22px; width:24px; margin-right:-1px; margin-left:-1px; }
+p .threeaction { margin-top:0px; margin-bottom:-0px; height:28px; width:32px; margin-right:-1px; margin-left:-1px; }
+h5 .oneaction, h4 .oneaction  { margin-top:-10px; margin-bottom:-6px; width:16px; margin-right:-1px; margin-left:-1px; }
+h5 .twoaction, h4 .twoaction { margin-top:-10px; margin-bottom:-6px; height:26px; width:28px; margin-right:-1px; margin-left:-1px; }
+h5 .threeaction, h4 .threeaction { margin-top:-10px; margin-bottom:-6px; height:34px; width:38px; margin-right:-1px; margin-left:-1px; }
+.rule .oneaction  { width:14px; margin-top:-6px; margin-bottom:-6px; margin-right:-1px; margin-left:-1px; }
+.rule .twoaction { height:22px; width:24px; margin-top:-6px; margin-bottom:-6px; margin-right:-1px; margin-left:-1px;}
+.rule .threeaction { height:28px; width:32px; margin-top:-7px; margin-bottom:-6px; margin-right:-1px; margin-left:-1px; }
+.result {font-family: 'Roboto Condensed', sans-serif; padding-left: 1.5em;text-indent:-1.5em;}
+.ability {font-family: 'Roboto Condensed', sans-serif; padding-left: 1.5em;text-indent:-1.5em;}
+.abilityname { font-weight: bold; }
+.r4:before { content: "Critical Success "; font-weight: bold; }
+.r3:before { content: "Success "; font-weight: bold; }
+.r2:before { content: "Failure "; font-weight: bold; }
+.r1:before { content: "Critical Failure "; font-weight: bold; }
+/* Boxed Containers */
+.box {border-bottom:1px solid #000000; hyphens: manual; hyphens: auto; word-break: break-word; } /* Normal boxes just put a separator line at the bottom */
+.reqbox {border-bottom:1px solid #000000;padding-left: 1.5em;text-indent:-1.5em; hyphens: manual; overflow-wrap: break-word; overflow: hidden; } /* Boxes for requirements and prerequisites require the Pathfinder signature identation */
+.tab {text-indent:1.5em;  }
+/* Labels for Feats and Actions */
+.prereq:before { content: "Prerequisites "; font-weight: bold; }
+.req:before { content: "Requirements "; font-weight: bold; }
+.name { font-style:italic; }
+.name:before { content: "Name "; font-weight: bold; font-style:normal; }
+.name:after { content: "; "; }
+.hands:before { content: "Hands "; font-weight: bold; }
+.hands:after { content: "; "; }
+/*Labels for Spells */
+.traditions:before { content: "Traditions "; font-weight: bold; }
+.cast:before { content: "Cast "; font-weight: bold; }
+.range { float:left; margin-right:20px;  }
+.range:before { content: "Range "; font-weight: bold; }
+.range:after { content: ";"; }
+.targets:before { content: "Targets "; font-weight: bold; }
+.area:before { content: "Area "; font-weight: bold; }
+.savingthrow:before { content: "Saving Throw "; font-weight: bold; }
+.trigger:before { content: "Trigger "; font-weight: bold; }
+.trigger:after { content: "; "; }
+.duration:before { content: "Duration "; font-weight: bold; }
+.heightened:before { content: "Heightened "; font-weight: bold; }
+.heightenedp1:before { content: "Heightened (+1) "; font-weight: bold; }
+.heightenedp2:before { content: "Heightened (+2) "; font-weight: bold; }
+.heightenedp3:before { content: "Heightened (+3) "; font-weight: bold; }
+.heightenedp4:before { content: "Heightened (+4) "; font-weight: bold; }
+.heightened1:before { content: "Heightened (1st) "; font-weight: bold; }
+.heightened2:before { content: "Heightened (2nd) "; font-weight: bold; }
+.heightened3:before { content: "Heightened (3rd) "; font-weight: bold; }
+.heightened4:before { content: "Heightened (4th) "; font-weight: bold; }
+.heightened5:before { content: "Heightened (5th) "; font-weight: bold; }
+.heightened6:before { content: "Heightened (6th) "; font-weight: bold; }
+.heightened7:before { content: "Heightened (7th) "; font-weight: bold; }
+.heightened8:before { content: "Heightened (8th) "; font-weight: bold; }
+.heightened9:before { content: "Heightened (9th) "; font-weight: bold; }
+.heightened10:before { content: "Heightened (10th) "; font-weight: bold; }
+/*Labels for Spells */
+.perception:before { content: "Perception "; font-weight: bold; }
+.languages:before { content: "Languages "; font-weight: bold; }
+.skills:before { content: "Skills "; font-weight: bold; }
+.str { float:left; margin-right:19px;  }
+.str:before { content: "Str "; font-weight: bold; }
+.str:after { content: "; "; }
+.dex { float:left; margin-right:19px;  }
+.dex:before { content: "Dex "; font-weight: bold; }
+.dex:after { content: "; "; }
+.con { float:left; margin-right:19px;  }
+.con:before { content: "Con "; font-weight: bold; }
+.con:after { content: "; "; }
+.int { float:left; margin-right:19px;  }
+.int:before { content: "Int "; font-weight: bold; }
+.int:after { content: "; "; }
+.wis { float:left; margin-right:19px;  }
+.wis:before { content: "Wis "; font-weight: bold; }
+.wis:after { content: "; "; }
+.cha:before { content: "Cha "; font-weight: bold; }
+.ac { float:left; margin-right:19px;  }
+.ac:before { content: "AC "; font-weight: bold; }
+.ac:after { content: "; "; }
+.fort { float:left; margin-right:19px;  }
+.fort:before { content: "Fort "; font-weight: bold; }
+.fort:after { content: "; "; }
+.ref { float:left; margin-right:19px;  }
+.ref:before { content: "Ref "; font-weight: bold; }
+.ref:after { content: "; "; }
+.will:before { content: "Will "; font-weight: bold; }
+.hp:before { content: "HP "; font-weight: bold; }
+.hp:after { content: "; "; }
+.bt:before { content: "BT "; font-weight: bold; }
+.bt:after { content: "; "; }
+.hardness:before { content: "Hardness "; font-weight: bold; }
+.hardness:after { content: "; "; }
+.immunities:before { content: "Immunities "; font-weight: bold; }
+.immunities:after { content: "; "; }
+.weaknesses:before { content: "Weaknesses "; font-weight: bold; }
+.weaknesses:after { content: "; "; }
+.resistances:before { content: "Resistances "; font-weight: bold; }
+.speed { clear:left; }
+.speed:before { content: "Speed "; font-weight: bold; }
+.melee:before { content: "Melee "; font-weight: bold; }
+.melee:after { content: ", "; }
+.ranged:before { content: "Ranged "; font-weight: bold; }
+.ranged:after { content: ", "; }
+.damage { word-break: break-all; }
+.damage:before { content: "Damage "; font-weight: bold; }
+.innatespells { font-weight: bold; }
+.innatespells:after { content: " Innate Spells ";  font-weight: bold; }
+.preparedspells { font-weight: bold; }
+.preparedspells:after { content: " Prepared Spells ";  font-weight: bold; }
+.dc:before { content: "DC ";  }
+.dc:after { content: ", ";  }
+.spellattack:before { content: "attack ";  }
+.spellattack:after { content: "; ";  }
+.sp1, .sp2, .sp3, .sp4, .sp5, .sp6, .sp7, .sp8, .sp9, .sp10, .can1, .can2, .can3, .can4, .can5, .can6, .can7, .can8, .can9, .can10 { font-style: italic; }
+.sp1:before { content: " 1st "; font-weight: bold; font-style: normal; }
+.sp2:before { content: " 2nd "; font-weight: bold; font-style: normal; }
+.sp3:before { content: " 3rd "; font-weight: bold; font-style: normal; }
+.sp4:before { content: " 4th "; font-weight: bold; font-style: normal; }
+.sp5:before { content: " 5th "; font-weight: bold; font-style: normal; }
+.sp6:before { content: " 6th "; font-weight: bold; font-style: normal; }
+.sp7:before { content: " 7th "; font-weight: bold; font-style: normal; }
+.sp8:before { content: " 8th "; font-weight: bold; font-style: normal; }
+.sp9:before { content: " 9th "; font-weight: bold; font-style: normal; }
+.sp10:before { content: " 10th "; font-weight: bold; font-style: normal; }
+.can1:before { content: " Cantrips (1st) "; font-weight: bold; font-style: normal; }
+.can2:before { content: " Cantrips (2nd) "; font-weight: bold; font-style: normal; }
+.can3:before { content: " Cantrips (3rd) "; font-weight: bold; font-style: normal; }
+.can4:before { content: " Cantrips (4th) "; font-weight: bold; font-style: normal; }
+.can5:before { content: " Cantrips (5th) "; font-weight: bold; font-style: normal; }
+.can6:before { content: " Cantrips (6th) "; font-weight: bold; font-style: normal; }
+.can7:before { content: " Cantrips (7th) "; font-weight: bold; font-style: normal; }
+.can8:before { content: " Cantrips (8th) "; font-weight: bold; font-style: normal; }
+.can9:before { content: " Cantrips (9th) "; font-weight: bold; font-style: normal; }
+.can10:before { content: " Cantrips (10th) "; font-weight: bold; font-style: normal; }
+/* Labels for Hazards */
+.stealth:before { content: "Stealth "; font-weight: bold; }
+.description:before { content: "Description "; font-weight: bold; }
+.disable:before { content: "Disable "; font-weight: bold; }
+.routine:before { content: "Routine "; font-weight: bold; }
+.reset:before { content: "Reset "; font-weight: bold; }
+/* Labels for Items */
+.price:before { content: "Price "; font-weight: bold; }
+.usage:before { content: "Usage "; font-weight: bold; }
+.usage:after { content: "; ";  }
+.bulk:before { content: "Bulk "; font-weight: bold; }
+.bulk:after { content: "; ";  }
+.type { font-style:italic; }
+.type:before { content: "Type "; font-weight: bold; font-style:normal; }
+.level:before { content: "Level "; font-weight: bold; }
+.activate:before { content: "Activate "; font-weight: bold; }
+.activate:after { content: "; ";  }
+.effect:before { content: "Effect "; font-weight: bold; }
+.onset:before { content: "Onset "; font-weight: bold; }
+.maxduration:before { content: "Maximum Duration "; font-weight: bold; }
+.stage1:before { content: "Stage 1 "; font-weight: bold; }
+.stage2:before { content: "Stage 2 "; font-weight: bold; }
+.stage3:before { content: "Stage 3 "; font-weight: bold; }
+.stage4:before { content: "Stage 4 "; font-weight: bold; }
+.stage5:before { content: "Stage 5 "; font-weight: bold; }
+.stage6:before { content: "Stage 6 "; font-weight: bold; }
+.craftrequirements:before { content: "Craft Requirements "; font-weight: bold; }
+.savingthrow:after, .onset:after, .maxduration:after, .stage1:after, .stage2:after, .stage3:after, .stage4:after, .stage5:after, .stage6:after, .level:after, .type:after { content: "; "; }
+.quantity:before { content: "Quantity "; font-weight: bold; }
+.quantity:after { content: "; "; }
+.ammunition:before { content: "Ammunition "; font-weight: bold; }
+.special:before { content: "Special "; font-weight: bold; }
+.sageadvice:before { content: "Developer Feedback "; font-weight: bold; }
+.damage:before { content: "Damage "; font-weight: bold; }
+.damage:after { content: "; ";  }
+.thrown:before { content: "thrown "; font-weight: bold; }
+.criticalspecialization:before { content: "Critical Specialization "; font-weight: bold; }
+
+/* Sidebar */
+.smallsidebar { background-image: url("https://pf2.easytool.es/sheets/boxBorder2.png"); background-size: 350px; background-repeat:no-repeat; margin-left:-1em; margin-right:-3em; padding-left:2.6em; padding-right:3em; padding-top:2.5em; display:inline-block; padding-bottom:40px; }
+.smallsidebar h5 { text-align:center; padding-bottom:10px; text-transform:uppercase; }
+.smallsidebar p, .smallsidebar p+p { background-color: #DBD1BC; font-family: 'Roboto Condensed', sans-serif; margin-left:-10px; padding-left:13px; margin-right:-8px; padding-right:12px; width:309px; margin-top:-11px; }
+
+/* Dual Sidebar */
+.dualsidebar { background-image: url("https://www.gmbinder.com/images/M2t21DV.png"), url("https://www.gmbinder.com/images/sVseLe2.png"); background-position: -10% 100%, top left; background-size: 705px,705px; background-repeat:no-repeat; margin-left:0.7em; padding-left:1.75em; padding-right:3.5em; padding-top:3.2em; padding-bottom:40px; margin-right:-35px;}
+.phb:nth-child(odd) .dualsidebar { margin-left:-25px !important; margin-right:0px; padding-left:3.5em; padding-right:2em; } /* This code moves tables 35px right on odd pages, avoiding the table overlapping the page's image margin */
+.dualsidebar h5 { text-align:center; background-color: #C4B8A0; margin-left:px; margin-right:px; padding-bottom: 8px; margin-top:5px; margin-bottom:-2px; }
+.dualsidebar p, .dualsidebar p+p { background-color: #C4B8A0; font-family: 'Roboto Condensed', sans-serif; margin-left:-17px; padding-left:13px; margin-right:-15px; padding-right:12px; }
+
+/* Red Sidebar */
+.redsidebar { border-image-slice:35 41 37 41 fill;border-image-width:60px 60px 60px 60px;border-image-outset:0px 0px 0px 0px;border-image-repeat:stretch stretch;border-image-source:url("https://www.gmbinder.com/images/Gl8LTE9.png"); border-top:32px solid; border-bottom: 32 solid; margin-left:-3em; margin-right:-3em; padding-left:2.6em; padding-right:3em; padding-top:1.5em; padding-bottom:40px;}
+.redsidebar h2 { font-family: 'Eczar', sans-serif; text-align:center; color:#CFBF80; background-color: #5E0000; margin-left:-px; margin-right:-8px; padding-bottom: 8px; margin-top:-5px; margin-bottom:-2px; font-size:1.5em; }
+.redsidebar h3 { font-family: 'Eczar', sans-serif; text-align:center; color:WHITE; background-color: #5E0000; margin-left:-px; margin-right:-8px; padding-bottom: 8px; margin-top:-5px; margin-bottom:-2px; font-size:2em; }
+.redsidebar h3 span { text-align:left; }
+.redsidebar img { height: 450px; margin-top:-30px; align:right; display: block; margin-left: auto; margin-right: auto; }
+.redsidebar h5 { text-align:left; color:white; background-color: #5E0000; margin-left:-px; margin-right:-8px; padding-bottom: 8px; margin-top:7px; margin-bottom:-2px; }
+.redsidebar p, .redsidebar p+p, .redsidebar .flavor, .dualredsidebar .flavor { background-color: #5E0000; color:white; font-family: 'Roboto Condensed', sans-serif; margin-left:-13px; padding-left:13px; margin-right:-8px; padding-right:-12px; }
+.redseparatorfull { background-image: url("https://www.gmbinder.com/images/gRfVwlG.png"); background-size:390px; height:35px; margin-right:-20px; margin-left:-14px; margin-top:-6px; }
+.redseparatorsmall { background-image: url("https://www.gmbinder.com/images/LlbSin0.png"); background-size:375px; background-position:top center; height:4px; margin-bottom:5px; margin-top:-5px;  margin-right:-20px; margin-left:-14px; }
+.redsidebar .toc { background-image: url("https://www.gmbinder.com/images/Lw65fTb.png"), url("https://www.gmbinder.com/images/kCLyCck.png"); background-position: bottom right, top; background-size: 392px,392px; background-repeat:no-repeat;  }
+
+/* Dual Red Sidebar */
+.dualredsidebar { background-image: url("https://www.gmbinder.com/images/JwtgIpO.png"), url("https://www.gmbinder.com/images/SXJd6Hg.png"); background-position: bottom left, top left; background-size: 705px,705px; background-repeat:no-repeat; margin-left:0.7em; margin-right:-3em; padding-left:2.6em; padding-right:3em; padding-top:3.2em; padding-bottom:30px;}
+.dualredsidebar h5 { text-align:center; color:white; background-color: #5E0000; margin-left:px; margin-right:px; padding-bottom: 8px; margin-top:5px; margin-bottom:-2px; }
+.dualredsidebar p, .dualredsidebar p+p { background-color: #5E0000; color:white; font-family: 'Roboto Condensed', sans-serif; margin-left:-9px; padding-left:0px; margin-right:-6px; padding-right:12px; }
+.phb:nth-child(odd) .dualredsidebar { margin-left:-25px !important; margin-right:-21px; padding-left:45px;} /* This code moves tables 35px right on odd pages, avoiding the table overlapping the page's image margin */
+.dualredsidebar .flavor, .dualredsidebar h5 { margin-left:-15px !important; margin-right:15px !important; }
+
+/* Wide Page Sidebar */
+.widepage {display: grid; grid-template-columns: 530px 250px; } /* Creates a grid with two columns with variable width. The sidebar column is on the right. */
+.phb:nth-child(odd) .widepage {margin-left:-30px; } /* Moves the wide page grid to the right on odd pages */
+.widepageright {display: grid; grid-template-columns: 250px 530px; } /* Creates a grid with two columns with variable width. The sidebar column is on the left. */
+.phb:nth-child(odd) .widepageright {margin-left:-30px; }  /* Moves the wide page grid to the right on odd pages */
+.widebar { }
+.thinbar { color:#5E0004; font-size: 0.9em; margin-top:0px; margin-left:10px; padding-left:10px; margin-right:65px; border-left: 1px solid #5E0004; }
+.widebarright { margin-left:-50px; margin-right:60px; }
+.thinbarright { color:#5E0004; font-size: 0.9em; margin-top:0px; margin-right:10px; padding-right:10px; margin-right:65px; border-right: 1px solid #5E0004; }
+.thinbar h3, .thinbarright h3 { font-size:2em;font-weight: normal; } /* Sidebars use a smaller heading 3, so bold weight needs to be removed */
+.thinbar p, .thinbar p+p, .thinbar ul, .thinbar ol { font-family: 'Roboto Condensed', sans-serif;  }
+
+/* table of contents */
+.toc { padding-left:40px;padding-right:45px; margin-left:-37px; }
+.toc a {
+    color: #F2EFEA !important;	/*toc specifically wants black text. This resets the headers*/}
+.toc li span:nth-child(2){ /*Allow dot leaders to fill remaining space but not overlap*/
+    width: auto;
+    overflow: hidden;
+    white-space: nowrap;
+    display: block;
+    font-family: 'Roboto Condensed', sans-serif;}
+.toc li span:nth-child(2):after{
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 0.317cm;
+    font-weight: normal;
+    color: #F2EFEA;
+    content:" ........................................" "........................................." ".........................................";}
+.toc li span:first-child{ /*Remove any header styles from page numbers*/
+    float: right;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 0.317cm;
+    font-weight: normal;
+    color: #F2EFEA;
+    margin-left: 1px; /*Leaves a small space between page numbers and dot leaders*/}
+/*Special cases for headings*/
+.toc li h3 span:nth-child(2):after{content: " ";/*Remove dot leaders on h3*/}
+.toc li h3 {
+    margin-bottom: 4px !important;	/*Special spacing for h3*/
+    margin-top: 10px !important;
+    line-height: initial !important; /*For some reason Multi-line h3 line spacing changed*/}
+.toc li h3 span:first-child{line-height: 1.8em !important; /*Line page numbers up with Multi-line h3 better*/}
+.toc ul ul {margin-left: 10px !important; font-size: 0.375cm; /*Original lists intented too much*/}
+.toc>ul>li {margin-bottom: initial !important; /*margin for list items needs to be removed or 0*/}
+
+/* Fixes */
+.phb:after { content: ""; } /*  Removes Wizards of the Coast disclaimer. I should probably add OGL disclaimer. */
+.phb {padding-bottom:0.5cm;} /* Minimizes the bottom padding of pages so that less content spills across columns */
+.dualsidebarfix { margin-left:-65px; margin-right:75px; margin-top:-40px; padding-bottom:40px; } /* Dual Sidebars needs repositioning of two column content */
+.phb#p1 { padding-left: 0px; padding-right:0px; } /* Remove this if you do not use a cover */
+.phb:nth-child(even) { padding-left: 75px; padding-right:1.5cm }
+.phb:nth-child(odd) { padding-left: 55px; padding-right:75px; }
+
+/* Paizo Compatibility Fixes */
+/* .pathfinderlogo { display:none; } */
+/* .secondedition { display:none; } */
+.bookcover { display:none; }
+/* .phb#p1, .phb, .phb:nth-child(odd) {background-image: none; background-color:#EFECE7;} */
+/* .phb:after { display:none; } */
+/* The following lines remove the Page Margin Bauble completely */
+.p.hb { background-image: url('https://www.gmbinder.com/images/sPk1xm4.png'), url('https://www.gmbinder.com/images/EABESdy.png'); }
+.p.hb:nth-child(odd) { background-image: url('https://www.gmbinder.com/images/4PiRxoX.png'), url('https://www.gmbinder.com/images/EABESdy.png'); }
+/* The following lines put a non-Paizo Dragon in the Page Margin Bauble */
+/*.phb { background-image: url('https://www.gmbinder.com/images/REmFBe1.png'), url('https://www.gmbinder.com/images/EABESdy.png'); }*/
+/*.phb:nth-child(odd) { background-image: url('https://www.gmbinder.com/images/IQwl0gO.png'), url('https://www.gmbinder.com/images/EABESdy.png'); }*/
+/* .amiri { opacity: 0.0; } */

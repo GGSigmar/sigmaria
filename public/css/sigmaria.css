@@ -7,6 +7,15 @@
     margin-top: 30px;
 }
 
+.margin-top-15 {
+    margin-top: 15px;
+}
+
+.padding-top-botton-15 {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
 .indented {
     text-indent: 1rem;
 }

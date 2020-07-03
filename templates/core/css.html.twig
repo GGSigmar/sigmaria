@@ -1,0 +1,50 @@
+{% extends "base/base.html.twig" %}
+
+{% block content %}
+    <div class="col-md-12">
+        <span class="pf2-title">ĄĘÓĆŚŻŹŁ ąęóćśżźł</span>
+        <h1>Header 1</h1>
+        <h2>Header 2</h2>
+        <h3>Header 3</h3>
+        <h4>Header 4</h4>
+        <h5>Header 5</h5>
+        <h6>Header 6</h6>
+
+        {% include "base/actions/free_action.html.twig" %}
+        {% include "base/actions/one_action.html.twig" %}
+        {% include "base/actions/two_action.html.twig" %}
+        {% include "base/actions/three_action.html.twig" %}
+        {% include "base/actions/reaction.html.twig" %}
+        {% include "base/actions/passive_action.html.twig" %}
+
+        <h4>
+            {% include "base/actions/free_action.html.twig" %}
+            {% include "base/actions/one_action.html.twig" %}
+            {% include "base/actions/two_action.html.twig" %}
+            {% include "base/actions/three_action.html.twig" %}
+            {% include "base/actions/reaction.html.twig" %}
+            {% include "base/actions/passive_action.html.twig" %}
+        </h4>
+
+        <h5>
+            {% include "base/actions/free_action.html.twig" %}
+            {% include "base/actions/one_action.html.twig" %}
+            {% include "base/actions/two_action.html.twig" %}
+            {% include "base/actions/three_action.html.twig" %}
+            {% include "base/actions/reaction.html.twig" %}
+            {% include "base/actions/passive_action.html.twig" %}
+        </h5>
+    </div>
+    <div class="col-md-6">
+        <div class="mb-4 border border-blood rounded p-1">
+            <div class="border-bottom border-white" style="width:100%;">
+                <h4>
+                    Jakiś feat {% include "base/actions/three_action.html.twig" %}
+                    <span class="float-right">
+                        ATUT 5
+                    </span>
+                </h4>
+            </div>
+        </div>
+    </div>
+{% endblock %}

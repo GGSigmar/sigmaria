@@ -1,5 +1,5 @@
-<nav class="navbar navbar-expand-md sticky-top navbar-dark bg-primary border-bottom border-white">
-    <a href="{{ path('home') }}" class="navbar-brand"><i class="fas fa-dice-d20"></i> Sigmaria</a>
+<nav class="navbar navbar-expand-md sticky-top navbar-dark bg-blood border-bottom border-white pf2-nav-font">
+    <a href="{{ path('home') }}" class="navbar-brand"><i class="fas fa-dungeon"></i> Sigmaria</a>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainmenu">
         <span class="navbar-toggler-icon"></span>
@@ -31,7 +31,7 @@
                 </div>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle {% if navTab is defined and navTab == constant('App\\Controller\\Base\\BaseController::NAV_TAB_RULES') %}active{% endif %}" href="#" data-toggle="dropdown"><i class="fas fa-book-open"></i> Zasady</a>
+                <a class="nav-link dropdown-toggle {% if navTab is defined and navTab == constant('App\\Controller\\Base\\BaseController::NAV_TAB_RULES') %}active{% endif %}" href="#" data-toggle="dropdown"><i class="fas fa-book"></i> Zasady</a>
                 <div class="dropdown-menu">
                     <a href="{{ path('character_creation') }}" class="dropdown-item">Tworzenie postaci</a>
                     <div class="dropdown-divider"></div>
@@ -45,7 +45,7 @@
                 </div>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle {% if navTab is defined and navTab == constant('App\\Controller\\Base\\BaseController::NAV_TAB_SETTING') %}active{% endif %}" href="#" data-toggle="dropdown"><i class="fas fa-globe"></i> Świat</a>
+                <a class="nav-link dropdown-toggle {% if navTab is defined and navTab == constant('App\\Controller\\Base\\BaseController::NAV_TAB_SETTING') %}active{% endif %}" href="#" data-toggle="dropdown"><i class="fas fa-globe-africa"></i> Świat</a>
                 <div class="dropdown-menu">
                     <a href="{{ path('culture_list') }}" class="dropdown-item">Kultury</a>
                     <div class="dropdown-divider"></div>
@@ -55,7 +55,7 @@
                 </div>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle {% if navTab is defined and navTab == constant('App\\Controller\\Base\\BaseController::NAV_TAB_MISC') %}active{% endif %}" href="#" data-toggle="dropdown"><i class="fas fa-dungeon"></i> Inne</a>
+                <a class="nav-link dropdown-toggle {% if navTab is defined and navTab == constant('App\\Controller\\Base\\BaseController::NAV_TAB_MISC') %}active{% endif %}" href="#" data-toggle="dropdown"><i class="fas fa-chess-rook"></i> Inne</a>
                 <div class="dropdown-menu">
                     <a href="{{ path('release_list') }}" class="quest-location dropdown-item">Wydania</a>
                 </div>
