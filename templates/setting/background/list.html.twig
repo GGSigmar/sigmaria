@@ -32,7 +32,7 @@
                 <td class="align-middle text-nowrap">
                     {% include "base/buttons/entity_show_button.html.twig" with {'entityName': entityName, 'entity': background} %}
                     {% if is_granted('ROLE_ADMIN') %}
-                        {% include "base/buttons/entity_edit_button.html.twig" with {'entityName': entityName, 'entity': background} %}
+                        {% include "base/buttons/entity_list_edit_button.html.twig" with {'entityName': entityName, 'entity': background} %}
                         {% if not background.isActive %}
                             {% include "base/buttons/entity_release_buttons.html.twig" with {'entityName': entityName, 'entity': background} %}
                         {% endif %}

@@ -16,7 +16,7 @@
             <td class="align-middle">{{ source.name }}</td>
             <td class="align-middle">{{ source.copyrightNotice }}</td>
             <td class="align-middle text-nowrap">
-                {% include "base/buttons/entity_edit_button.html.twig" with {'entityName': entityName, 'entity': source} %}
+                {% include "base/buttons/entity_list_edit_button.html.twig" with {'entityName': entityName, 'entity': source} %}
                 {% include "base/buttons/entity_activate_buttons.html.twig" with {'entityName': entityName, 'entity': source} %}
             </td>
         </tr>

@@ -20,7 +20,7 @@
         <tr>
             <td class="align-middle">{{ post.name }}</td>
             <td class="align-middle text-nowrap">
-                {% include "base/buttons/entity_edit_button.html.twig" with {'entityName': entityName, 'entity': post} %}
+                {% include "base/buttons/entity_list_edit_button.html.twig" with {'entityName': entityName, 'entity': post} %}
                 {% include "base/buttons/entity_delete_buttons.html.twig" with {'entityName': entityName, 'entity': post} %}
             </td>
         </tr>

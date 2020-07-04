@@ -1,18 +1,21 @@
 {% extends "base/base.html.twig" %}
 
 {% block content %}
-    <div class="col-md-12">
-        <h1 class="{% if not is_granted('ROLE_ADMIN') %}mb-5{% endif %} {% block title_classes %}{% endblock %}">{% block list_title %}{% endblock %}</h1>
+    <div class="col-md-12 text-center">
+        <h1 class="{% if not is_granted('ROLE_ADMIN') %}mb-4{% endif %} {% block title_classes %}{% endblock %}">{% block list_title %}{% endblock %}</h1>
+        <div class="pf2-subtitle"></div>
 
         {% if is_granted('ROLE_ADMIN') %}
+        <div style="width: 100%; display: inline-block;">
             <div class="mb-2 float-right">
                 {% block top_right_buttons %}
                     {% include "base/buttons/entity_create_button.html.twig" with {'entityName': entityName} %}
                 {% endblock %}
             </div>
+        </div>
         {% endif %}
 
-        <div class="table-responsive-md">
+        <div class="table-responsive-md border border-blood">
             <table class="table table-striped bg-light text-center">
                 <thead>
                 <tr>

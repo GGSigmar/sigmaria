@@ -14,7 +14,7 @@
         <tr class="{% include "base/utilities/inactive_entity_row_classes.html.twig" with {'entity': script} %}">
             <td class="align-middle">{{ script.name }}</td>
             <td class="align-middle text-nowrap">
-                {% include "base/buttons/entity_edit_button.html.twig" with {'entityName': entityName, 'entity': script} %}
+                {% include "base/buttons/entity_list_edit_button.html.twig" with {'entityName': entityName, 'entity': script} %}
                 {% include "base/buttons/entity_delete_buttons.html.twig" with {'entityName': entityName, 'entity': script} %}
             </td>
         </tr>

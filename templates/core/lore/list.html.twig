@@ -14,7 +14,7 @@
         <tr class="{% include "base/utilities/inactive_entity_row_classes.html.twig" with {'entity': lore} %}">
             <td class="align-middle">{{ lore.name }}</td>
             <td class="align-middle text-nowrap">
-                {% include "base/buttons/entity_edit_button.html.twig" with {'entityName': entityName, 'entity': lore} %}
+                {% include "base/buttons/entity_list_edit_button.html.twig" with {'entityName': entityName, 'entity': lore} %}
                 {% include "base/buttons/entity_delete_buttons.html.twig" with {'entityName': entityName, 'entity': lore} %}
             </td>
         </tr>
