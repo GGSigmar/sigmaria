@@ -1,5 +1,5 @@
 {% if entity.release and is_granted('ROLE_ADMIN') %}
-    <div class="pf2-subtitle">
+    <div>
         Zawartość opublikowana dnia {{ entity.release.createdAt|date('Y-m-d') }} wraz z aktualizacją: "{{ entity.release.name }}" ({{ entity.release.contentVersion }})
         {% include "base/badges/entity_show_badge.html.twig" with {'entityName': 'release', 'entityId': entity.release.id} %}
     </div>

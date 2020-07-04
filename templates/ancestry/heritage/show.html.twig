@@ -1,15 +1,17 @@
 {% extends "base/base.html.twig" %}
 
 {% block content %}
-    <div class="col-md-9">
+    <div class="col-md-12 mb-2">
         {% include "base/utilities/entity_show_header.html.twig" with {'entity': heritage} %}
+    </div>
 
-        <div class="mb-4">
+    <div class="col-md-9 pt-2 pb-2">
+        <div class="mb-4 text-justify">
             {{ heritage.description|raw }}
         </div>
 
         <div class="mb-4">
-            <h3>Zdolności dziedzictwa</h3>
+            <h2>Zdolności dziedzictwa</h2>
             {% if is_granted('ROLE_ADMIN') %}
                 {% set ancestralFeatures = heritage.ancestralFeatures %}
             {% else %}
@@ -25,22 +27,23 @@
             {% endif %}
         </div>
     </div>
-    <div class="col-md-3">
+
+    <div class="col-md-3 sidebar sidebar-right color-blood text-justify pt-2 pb-2">
         {% if is_granted('ROLE_ADMIN') %}
-            <h5>Wartość</h5>
+            <h3>Wartość</h3>
             <p class="mb-4">
                 {{ heritage.value }}
             </p>
 
             {% if heritage.valueAdjustment %}
-                <h5>Korekta wartości</h5>
+                <h3>Korekta wartości</h3>
                 <p class="mb-4">
                     {{ heritage.valueAdjustment }}
                 </p>
             {% endif %}
         {% endif %}
 
-        <h5>Rasa</h5>
+        <h3>Rasa</h3>
         <p class="mb-4">
             {% include "base/badges/entity_show_badge.html.twig" with {'entityName': 'ancestry', 'entityId': heritage.ancestry.id} %}
             <span class="{% include 'base/components/activeness_text_class.html.twig' with {'entity': heritage.ancestry} %}">
@@ -48,12 +51,12 @@
             </span>
         </p>
 
-        <h5>Rzadkość</h5>
+        <h3>Rzadkość</h3>
         <p class="mb-4">
             {{ heritage.rarity.name }}
         </p>
 
-        <h5>Punkty zdrowia</h5>
+        <h3>Punkty zdrowia</h3>
         <p class="mb-4">
             {% if heritage.hitPoints %}
                 {{ heritage.hitPoints.name }}
@@ -62,7 +65,7 @@
             {% endif %}
         </p>
 
-        <h5>Rozmiar</h5>
+        <h3>Rozmiar</h3>
         <p class="mb-4">
             {% if heritage.size %}
                 {{ heritage.size.name }}
@@ -71,7 +74,7 @@
             {% endif %}
         </p>
 
-        <h5>Prędkość</h5>
+        <h3>Prędkość</h3>
         <p class="mb-4">
             {% if heritage.speed %}
                 {{ heritage.speed.name }} stóp
@@ -80,7 +83,7 @@
             {% endif %}
         </p>
 
-        <h5>Premie do cech</h5>
+        <h3>Premie do cech</h3>
         <p class="mb-4">
             {% if heritage.abilityBoosts|length == 2 %}
                 {{ heritage.abilityBoosts|first }} lub {{ heritage.abilityBoosts|last }}
@@ -95,8 +98,8 @@
             Dowolna
         </p>
 
-        <h5>Atrybuty</h5>
-        <p class="mb-4">
+        <h3>Atrybuty</h3>
+        <p class="mb-0">
             {% if heritage.attributes is empty %}
                 Brak.
             {% else %}
@@ -111,7 +114,7 @@
         </p>
     </div>
 
-    {% include "core/feat/entity_display.html.twig"
+    {% include "core/feat/tabbed_entity_display.html.twig"
         with {
         'displayTitle': 'Atuty dziedzictwa',
         'entityName': 'heritage',

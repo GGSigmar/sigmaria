@@ -1,5 +1,5 @@
-<div class="col-md-12">
-    <h2 class="mb-2">
+<div class="col-md-12 mt-2 mb-2">
+    <h2>
         {{ displayTitle }}
         {% if is_granted('ROLE_ADMIN') %}
             {% include 'base/buttons/entity_display_create_button.html.twig'
@@ -21,9 +21,9 @@
 {% endif %}
 
 {% if feats is empty %}
-<div class="col-md-12 mb-4">
-    Brak.
-</div>
+    <div class="col-md-12 mb-4">
+        Brak.
+    </div>
 {% else %}
     {% include "core/feat/tabbed_display.html.twig" with {'feats': feats} %}
 {% endif %}

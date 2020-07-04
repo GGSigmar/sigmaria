@@ -15,13 +15,11 @@
         <div class="row m-0">
             {% for featLevel, groupedFeats in feats %}
                 <div class="col-md-12 mb-4">
-                    <h3 class="mb-0">
-                        {% if featLevel == 0 %}
-                            <h6>Darmowe atuty</h6>
-                        {% else %}
-                            <h6>Poziom {{ featLevel }}</h6>
-                        {% endif %}
-                    </h3>
+                    {% if featLevel == 0 %}
+                        <h6>Darmowe atuty</h6>
+                    {% else %}
+                        <h6>Poziom {{ featLevel }}</h6>
+                    {% endif %}
                 </div>
                 {% for feat in groupedFeats %}
                     <div class="col-md-6">
