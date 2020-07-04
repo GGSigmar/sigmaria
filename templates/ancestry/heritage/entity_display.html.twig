@@ -1,17 +1,17 @@
 <div class="col-md-12 mt-2 mb-2">
-    <h2>
+    <h2 class="d-inline">
         Dziedzictwa
-        {% if is_granted('ROLE_ADMIN') %}
-            {% include 'base/buttons/entity_display_create_button.html.twig'
-                with
-                {
-                    'baseEntityName': entityName,
-                    'subEntityName': 'heritage',
-                    'baseEntity': entity
-                }
-            %}
-        {% endif %}
     </h2>
+    {% if is_granted('ROLE_ADMIN') %}
+        {% include 'base/buttons/entity_display_create_button.html.twig'
+            with
+            {
+                'baseEntityName': entityName,
+                'subEntityName': 'heritage',
+                'baseEntity': entity
+            }
+        %}
+    {% endif %}
 </div>
 
 {% if is_granted('ROLE_ADMIN') %}
