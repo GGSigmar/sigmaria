@@ -1,6 +1,6 @@
-<div class="mb-4 border border-white rounded p-1">
-    <div class="border-bottom border-white {% include 'base/components/activeness_bg_class.html.twig' with {'entity': heritage} %}" style="width:100%;">
-        <h5>
+<div class="mb-4 border border-blood rounded p-1">
+    <div class="border-bottom border-blood padding-bottom-5 {% include 'base/components/activeness_bg_class.html.twig' with {'entity': heritage} %}" style="width:100%;">
+        <h4>
             {{ heritage.name|upper }}
             <span class="float-right">
                 DZIEDZICTWO ({{ heritage.value|roman }})
@@ -18,10 +18,10 @@
                     {% include "base/badges/entity_release_badge.html.twig" with {'entityName': 'heritage', 'entity': heritage} %}
                 {% endif %}
             </span>
-        </h5>
+        </h4>
     </div>
     <div>
-        <a class="badge badge-primary border border-white">{{ heritage.rarity.name|neuter }}</a>
+        <a class="badge badge-primary border border-blood text-white">{{ heritage.rarity.name|neuter }}</a>
         {% for attribute in heritage.attributes %}
             {% include "base/badges/attribute_badge.html.twig" with {'attribute': attribute} %}
         {% endfor %}

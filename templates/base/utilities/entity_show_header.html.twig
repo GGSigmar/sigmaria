@@ -1,20 +1,18 @@
-<div class="mb-4">
-    <div class="mb-4" style="width: 100%; display: inline-block;">
-        <div class="float-right">
-            {% if is_granted('ROLE_ADMIN') %}
-                {% include "base/buttons/entity_edit_button.html.twig" with {'entityName': entityName, 'entity': entity} %}
-            {% endif %}
-            {% include "base/buttons/entity_list_button.html.twig" with {'entityName': entityName} %}
-        </div>
+<div style="width: 100%; display: inline-block;">
+    <div class="float-right">
+        {% if is_granted('ROLE_ADMIN') %}
+            {% include "base/buttons/entity_edit_button.html.twig" with {'entityName': entityName, 'entity': entity} %}
+        {% endif %}
+        {% include "base/buttons/entity_list_button.html.twig" with {'entityName': entityName} %}
     </div>
+</div>
 
-    <div class="text-center">
-        <h1 >
-            {{ entity.name }}
-            {% if is_granted('ROLE_ADMIN') %}
-                {% include 'base/components/activeness_badge.html.twig' with {'entity': entity} %}
-            {% endif %}
-        </h1>
-        {% include "base/utilities/entity_release_note.html.twig" with {'entity': entity} %}
-    </div>
+<div class="text-center">
+    <h1 >
+        {{ entity.name }}
+        {% if is_granted('ROLE_ADMIN') %}
+            {% include 'base/components/activeness_badge.html.twig' with {'entity': entity} %}
+        {% endif %}
+    </h1>
+    {% include "base/utilities/entity_release_note.html.twig" with {'entity': entity} %}
 </div>

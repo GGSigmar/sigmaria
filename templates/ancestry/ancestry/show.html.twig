@@ -1,11 +1,11 @@
 {% extends "base/base.html.twig" %}
 
 {% block content %}
-    <div class="col-md-12">
+    <div class="col-md-12 mb-2">
         {% include "base/utilities/entity_show_header.html.twig" with {'entity': ancestry} %}
     </div>
 
-    <div class="col-md-9">
+    <div class="col-md-9 pt-2 pb-2">
         <div class="mb-4 text-justify">
             {{ ancestry.description|raw }}
         </div>
@@ -28,7 +28,7 @@
         </div>
     </div>
 
-    <div class="col-md-3 sidebar sidebar-right color-blood text-justify">
+    <div class="col-md-3 sidebar sidebar-right color-blood text-justify pt-2 pb-2">
         {% if is_granted('ROLE_ADMIN') %}
             <h3>Wartość</h3>
             <p class="mb-4">{{ ancestry.value }}</p>
