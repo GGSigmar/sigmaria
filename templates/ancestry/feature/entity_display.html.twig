@@ -1,6 +1,6 @@
 <div class="mb-4">
     <h2>Zdolności rasowe</h2>
-    {% if is_granted('ROLE_ADMIN') %}
+    {% if isAdmin %}
         {% set ancestralFeatures = entity.ancestralFeatures %}
     {% else %}
         {% set ancestralFeatures = entity.activeAncestralFeatures %}

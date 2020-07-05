@@ -1,4 +1,4 @@
-{% if is_granted('ROLE_ADMIN') %}
+{% if isAdmin %}
     {% if not entity.isActive %}
         {% if entity.isToBeReleased %}
             bg-success

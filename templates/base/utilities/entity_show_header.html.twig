@@ -1,7 +1,7 @@
 <div class="mb-2">
     <div style="width: 100%; display: inline-block;">
         <div class="float-right">
-            {% if is_granted('ROLE_ADMIN') %}
+            {% if isAdmin %}
                 {% include "base/buttons/entity_edit_button.html.twig" with {'entityName': entityName, 'entity': entity} %}
             {% endif %}
             {% include "base/buttons/entity_list_button.html.twig" with {'entityName': entityName} %}
@@ -11,12 +11,18 @@
     <div class="text-center">
         <h1>
             {{ entity.name }}
-            {% if is_granted('ROLE_ADMIN') %}
+            {% if isAdmin %}
                 {% include 'base/components/activeness_badge.html.twig' with {'entity': entity} %}
             {% endif %}
         </h1>
         <div class="pf2-subtitle">
-            {{ entity.description|raw }}
+            <div class="text-justify">
+                {% if entity.description %}
+                    {{ entity.description|raw }}
+                {% else %}
+                    TBD...
+                {% endif %}
+            </div>
             {% include "base/utilities/entity_release_note.html.twig" with {'entity': entity} %}
         </div>
     </div>

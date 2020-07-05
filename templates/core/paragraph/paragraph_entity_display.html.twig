@@ -1,0 +1,27 @@
+{% if isAdmin %}
+    <div class="mb-2">
+        {% include 'base/buttons/entity_display_create_button.html.twig'
+            with
+            {
+                'baseEntityName': entityName,
+                'subEntityName': 'paragraph',
+                'baseEntity': entity
+            }
+        %}
+    </div>
+{% endif %}
+
+<div class="mb-4 text-justify">
+    {% if isAdmin %}
+        {% set paragraphs = entity.paragraphs %}
+    {% else %}
+        {% set paragraphs = entity.activeParagraphs %}
+    {% endif %}
+    {% if paragraphs is empty %}
+        TBD...
+    {% else %}
+        {% for paragraph in paragraphs %}
+            {% include 'core/paragraph/entry.html.twig' with {entityName: entityName, entity: entity} %}
+        {% endfor %}
+    {% endif %}
+</div>

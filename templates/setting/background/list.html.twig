@@ -14,7 +14,7 @@
 
 {% block table_rows %}
     {% for background in backgrounds %}
-        {% if is_granted('ROLE_ADMIN') or background.isActive %}
+        {% if isAdmin or background.isActive %}
             <tr class="{% include "base/utilities/inactive_entity_row_classes.html.twig" with {'entity': background} %}">
                 <td class="align-middle">{{ background.name }}</td>
                 <td class="align-middle">
@@ -31,7 +31,7 @@
                 </td>
                 <td class="align-middle text-nowrap">
                     {% include "base/buttons/entity_show_button.html.twig" with {'entityName': entityName, 'entity': background} %}
-                    {% if is_granted('ROLE_ADMIN') %}
+                    {% if isAdmin %}
                         {% include "base/buttons/entity_list_edit_button.html.twig" with {'entityName': entityName, 'entity': background} %}
                         {% if not background.isActive %}
                             {% include "base/buttons/entity_release_buttons.html.twig" with {'entityName': entityName, 'entity': background} %}

@@ -2,7 +2,7 @@
     <h2 class="d-inline">
         {{ displayTitle }}
     </h2>
-    {% if is_granted('ROLE_ADMIN') %}
+    {% if isAdmin %}
         {% include 'base/buttons/entity_display_create_button.html.twig'
             with
             {
@@ -14,7 +14,7 @@
     {% endif %}
 </div>
 
-{% if is_granted('ROLE_ADMIN') %}
+{% if isAdmin %}
     {% set feats = entity.groupedFeats %}
 {% else %}
     {% set feats = entity.activeFeats %}

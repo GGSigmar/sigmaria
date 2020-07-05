@@ -1,6 +1,6 @@
 <p class="mb-2">
     <h3 class="d-inline">{{ feature.name }}</h3>
-    {% if is_granted('ROLE_ADMIN') %}
+    {% if isAdmin %}
         {% include "base/badges/entity_edit_badge.html.twig" with {'entityName': 'ancestral_feature', 'entityId': feature.id} %}
     {% endif %}
     <br />

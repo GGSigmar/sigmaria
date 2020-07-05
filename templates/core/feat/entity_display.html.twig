@@ -1,7 +1,7 @@
 <div class="col-md-12 mt-2 mb-2">
     <h2>
         {{ displayTitle }}
-        {% if is_granted('ROLE_ADMIN') %}
+        {% if isAdmin %}
             {% include 'base/buttons/entity_display_create_button.html.twig'
                 with
                 {
@@ -14,7 +14,7 @@
     </h2>
 </div>
 
-{% if is_granted('ROLE_ADMIN') %}
+{% if isAdmin %}
     {% set feats = entity.groupedFeats %}
 {% else %}
     {% set feats = entity.activeFeats %}

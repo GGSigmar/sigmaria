@@ -6,15 +6,12 @@
     </div>
 
     <div class="col-md-9 pt-2 pb-2">
-        <div class="mb-4 text-justify">
-            {{ heritage.description|raw }}
-        </div>
-
+        {% include 'core/paragraph/paragraph_entity_display.html.twig' with {'entity': heritage} %}
         {% include 'ancestry/feature/entity_display.html.twig' with {'entity': heritage} %}
     </div>
 
     <div class="col-md-3 sidebar sidebar-right color-blood text-justify pt-2 pb-2">
-        {% if is_granted('ROLE_ADMIN') %}
+        {% if isAdmin %}
             <h3>Wartość</h3>
             <p class="mb-4">
                 {{ heritage.value }}

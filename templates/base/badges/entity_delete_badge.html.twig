@@ -1,0 +1,3 @@
+{% set showPathName = (entityName ~ '_delete') %}
+
+<a href="{{ path(showPathName, {"id": entityId}) }}" class="badge badge-danger border border-blood" role="button"><i class="fas fa-trash-alt"></i></a>

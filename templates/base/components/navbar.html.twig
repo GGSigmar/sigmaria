@@ -60,7 +60,7 @@
                     <a href="{{ path('release_list') }}" class="quest-location dropdown-item">Wydania</a>
                 </div>
             </li>
-            {% if is_granted('ROLE_ADMIN') %}
+            {% if isAdmin %}
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle {% if navTab is defined and navTab == constant('App\\Controller\\Base\\BaseController::NAV_TAB_ADMIN') %}active{% endif %}" href="#" data-toggle="dropdown" role="button"><i class="fas fa-tools"></i> Admin</a>
                 <div class="dropdown-menu">

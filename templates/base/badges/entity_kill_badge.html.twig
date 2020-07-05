@@ -1,0 +1,3 @@
+{% set showPathName = (entityName ~ '_kill') %}
+
+<a href="{{ path(showPathName, {"id": entityId}) }}" class="badge badge-secondary border border-blood" role="button"><i class="fas fa-skull"></i></a>

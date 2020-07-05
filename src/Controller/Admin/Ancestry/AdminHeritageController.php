@@ -5,10 +5,13 @@ namespace App\Controller\Admin\Ancestry;
 use App\Controller\Base\BaseController;
 use App\Entity\Ancestry\Heritage;
 use App\Entity\Core\Feat;
+use App\Entity\Core\Paragraph;
 use App\Form\Ancestry\HeritageType;
 use App\Form\Core\FeatType;
+use App\Form\Core\ParagraphType;
 use App\Service\Core\SourcableService;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\Request;
@@ -239,6 +242,72 @@ class AdminHeritageController extends BaseController
             $this->addFlash('success', 'Atut zmieniony!');
 
             return $this->redirectToRoute('heritage_show', ['id' => $baseId]);
+        }
+
+        $templateData = [
+            'form' => $form->createView(),
+            'entityName' => Heritage::ENTITY_NAME,
+        ];
+
+        return array_merge($templateData, $this->getTemplateData(BaseController::NAV_TAB_RULES));
+    }
+
+    /**
+     * @Route("/admin/heritage/{id}/paragraph/create", name="heritage_paragraph_create")
+     * @Template("core/paragraph/create.html.twig")
+     */
+    public function createHeritageParagraphAction(Request $request, Heritage $heritage)
+    {
+        $form = $this->createForm(ParagraphType::class);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $paragraph = $form->getData();
+
+            $heritage->addParagraph($paragraph);
+
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($paragraph);
+            $entityManager->persist($heritage);
+            $entityManager->flush();
+
+            $this->addFlash('success', 'Paragraf stworzony!');
+
+            return $this->redirectToRoute('heritage_show', ['id' => $heritage->getId()]);
+        }
+
+        $templateData = [
+            'form' => $form->createView(),
+            'entityName' => Heritage::ENTITY_NAME,
+        ];
+
+        return array_merge($templateData, $this->getTemplateData(BaseController::NAV_TAB_RULES));
+    }
+
+    /**
+     * @Route("/admin/heritage/{baseId}/paragraph/{id}/edit", name="heritage_paragraph_edit")
+     * @Template("core/paragraph/edit.html.twig")
+     * @ParamConverter("ancestry", class="App\Entity\Ancestry\Heritage", options={"id"="baseId"})
+     * @ParamConverter("paragraph", class="App\Entity\Core\Paragraph", options={"id"="id"})
+     */
+    public function editHeritageParagraphAction(Request $request, Heritage $heritage, Paragraph $paragraph)
+    {
+        $form = $this->createForm(ParagraphType::class, $paragraph);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $paragraph = $form->getData();
+
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($paragraph);
+            $entityManager->persist($heritage);
+            $entityManager->flush();
+
+            $this->addFlash('success', 'Paragraf edytowany!');
+
+            return $this->redirectToRoute('heritage_show', ['id' => $heritage->getId()]);
         }
 
         $templateData = [

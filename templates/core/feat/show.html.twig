@@ -9,7 +9,7 @@
         {% include "core/feat/entry.html.twig" with {'feat': feat} %}
     </div>
 
-    {% if is_granted('ROLE_ADMIN') and not isGeneral %}
+    {% if isAdmin and not isGeneral %}
         {% set ancestries = feat.ancestries %}
         {% set heritages = feat.heritages %}
         {% set cultures = feat.cultures %}

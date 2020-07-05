@@ -340,8 +340,8 @@ class AdminAncestryController extends BaseController
     /**
      * @Route("/admin/ancestry/{baseId}/paragraph/{id}/edit", name="ancestry_paragraph_edit")
      * @Template("core/paragraph/edit.html.twig")
-     * @ParamConverter("baseId", class="App\Entity\Ancestry\Ancestry")
-     * @ParamConverter("id", class="App\Entity\Core\Paragraph")
+     * @ParamConverter("ancestry", class="App\Entity\Ancestry\Ancestry", options={"id"="baseId"})
+     * @ParamConverter("paragraph", class="App\Entity\Core\Paragraph", options={"id"="id"})
      */
     public function editAncestryParagraphAction(Request $request, Ancestry $ancestry, Paragraph $paragraph)
     {
@@ -351,8 +351,6 @@ class AdminAncestryController extends BaseController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $paragraph = $form->getData();
-
-            $ancestry->addParagraph($paragraph);
 
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($paragraph);

@@ -12,7 +12,7 @@
 
 {% block table_rows %}
     {% for culture in cultures %}
-        {% if is_granted('ROLE_ADMIN') or culture.isActive %}
+        {% if isAdmin or culture.isActive %}
             <tr class="{% include "base/utilities/inactive_entity_row_classes.html.twig" with {'entity': culture} %}">
                 <td class="align-middle">{{ culture.name }}</td>
                 <td class="align-middle">
@@ -26,7 +26,7 @@
                 </td>
                 <td class="align-middle">
                     {% include "base/buttons/entity_show_button.html.twig" with {'entityName': entityName, 'entity': culture} %}
-                    {% if is_granted('ROLE_ADMIN') %}
+                    {% if isAdmin %}
                         {% include "base/buttons/entity_list_edit_button.html.twig" with {'entityName': entityName, 'entity': culture} %}
                         {% if not culture.isActive %}
                             {% include "base/buttons/entity_release_buttons.html.twig" with {'entityName': entityName, 'entity': culture} %}

@@ -12,6 +12,30 @@
                 'subEntity': paragraph,
             }
         %}
+        {% if paragraph.active %}
+            {% include "base/badges/entity_kill_badge.html.twig"
+                with
+                {
+                    'entityName': 'paragraph',
+                    'entityId': paragraph.id
+                }
+            %}
+        {% else %}
+            {% include "base/badges/entity_revive_badge.html.twig"
+                with
+                {
+                    'entityName': 'paragraph',
+                    'entityId': paragraph.id
+                }
+            %}
+            {% include "base/badges/entity_delete_badge.html.twig"
+                with
+                {
+                    'entityName': 'paragraph',
+                    'entityId': paragraph.id
+                }
+            %}
+        {% endif %}
     {% endif %}
     {% if isAdmin or paragraph.name %}<br />{% endif %}
     {{ paragraph.description }}

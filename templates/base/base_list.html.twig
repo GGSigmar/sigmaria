@@ -3,11 +3,11 @@
 {% block content %}
     <div class="col-md-12">
         <div class="text-center mb-2">
-            <div {% if not is_granted('ROLE_ADMIN') %}class="mb-4"{% endif %}>
+            <div {% if not isAdmin %}class="mb-4"{% endif %}>
                 <h1>{% block list_title %}{% endblock %}</h1>
                 <div class="pf2-subtitle"></div>
             </div>
-            {% if is_granted('ROLE_ADMIN') %}
+            {% if isAdmin %}
                 <div style="width: 100%; display: inline-block;">
                     <div class="float-right">
                         {% block top_right_buttons %}

@@ -6,7 +6,7 @@
                 {% if feat.level %}
                     ATUT {{ feat.level }}
                 {% endif %}
-                {% if is_granted('ROLE_ADMIN') %}
+                {% if isAdmin %}
                     {% if entity is defined %}
                         {% include "base/badges/entity_display_edit_badge.html.twig"
                             with

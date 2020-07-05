@@ -36,7 +36,7 @@ class Paragraph
     /**
      * @var bool
      *
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type="boolean", options={"default":true})
      */
     private $isActive = true;
 

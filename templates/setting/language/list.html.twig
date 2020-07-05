@@ -13,14 +13,14 @@
 
 {% block table_rows %}
     {% for language in languages %}
-        {% if is_granted('ROLE_ADMIN') or language.isActive %}
+        {% if isAdmin or language.isActive %}
             <tr class="{% include "base/utilities/inactive_entity_row_classes.html.twig" with {'entity': language} %}">
                 <td class="align-middle">{{ language.name }}</td>
                 <td class="align-middle">{{ language.rarity.name }}</td>
                 <td class="align-middle">{{ language.script.name }}</td>
                 <td class="align-middle text-nowrap">
                     {% include "base/buttons/entity_show_button.html.twig" with {'entityName': entityName, 'entity': language} %}
-                    {% if is_granted('ROLE_ADMIN') %}
+                    {% if isAdmin %}
                         {% include "base/buttons/entity_list_edit_button.html.twig" with {'entityName': entityName, 'entity': language} %}
                         {% if not language.isActive %}
                             {% include "base/buttons/entity_release_buttons.html.twig" with {'entityName': entityName, 'entity': language} %}

@@ -10,6 +10,7 @@ use App\Entity\Core\Size;
 use App\Entity\Core\Traits\BaseFieldsTrait;
 use App\Entity\Core\Traits\DescriptionTrait;
 use App\Entity\Core\Traits\HandleTrait;
+use App\Entity\Core\Traits\ParagraphsTrait;
 use App\Entity\Core\Traits\ReleasableTrait;
 use App\Entity\Core\Traits\SimpleRarityTrait;
 use App\Entity\Core\Traits\SlugTrait;
@@ -26,7 +27,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Heritage
 {
-    use BaseFieldsTrait, SlugTrait, HandleTrait, DescriptionTrait, SimpleRarityTrait, ReleasableTrait, TimestampableEntity;
+    use BaseFieldsTrait, SlugTrait, HandleTrait, DescriptionTrait, SimpleRarityTrait, ParagraphsTrait, ReleasableTrait, TimestampableEntity;
 
     public const ENTITY_NAME = 'heritage';
 
@@ -114,6 +115,7 @@ class Heritage
         $this->attributes = new ArrayCollection();
         $this->ancestralFeatures = new ArrayCollection();
         $this->feats = new ArrayCollection();
+        $this->paragraphs = new ArrayCollection();
     }
 
     /**

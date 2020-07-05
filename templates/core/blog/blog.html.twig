@@ -4,7 +4,7 @@
     <div class="col-md-12">
         {% include 'base/components/basic_header.html.twig' with {headerTitle: 'Blog'} %}
 
-        {% if is_granted('ROLE_ADMIN') %}
+        {% if isAdmin %}
             <div class="mb-2 float-right">
                 {% block top_right_buttons %}
                     {% include "base/buttons/entity_create_button.html.twig" with {'entityName': entityName} %}
