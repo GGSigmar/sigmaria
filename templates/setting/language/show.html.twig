@@ -5,15 +5,15 @@
         {% include "base/utilities/entity_show_header.html.twig" with {'entity': language} %}
     </div>
     <div class="col-md-6">
-        <h5>
+        <h3>
             Rzadkość
-        </h5>
+        </h3>
         <p class="mb-4">{{ language.rarity.name }}</p>
     </div>
     <div class="col-md-6">
-        <h5>
+        <h3>
             Pismo
-        </h5>
+        </h3>
         <p class="mb-4">{{ language.script ? language.script.name : 'Nie dotyczy' }}</p>
     </div>
     <div class="col-md-12">

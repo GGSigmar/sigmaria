@@ -1,15 +1,16 @@
 {% extends "base/base.html.twig" %}
 
 {% block content %}
-    <div class="col-md-9">
+    <div class="col-md-12">
         {% include "base/utilities/entity_show_header.html.twig" with {'entity': culture} %}
-
-        <p class="mb-4">
+    </div>
+    <div class="col-md-9 pt-2 pb-2">
+        <p class="mb-4 text-justify">
             {{ culture.description|raw }}
         </p>
     </div>
-    <div class="col-md-3">
-        <h5>Pospolite rasy</h5>
+    <div class="col-md-3 sidebar sidebar-right color-blood text-justify pt-2 pb-2">
+        <h3>Pospolite rasy</h3>
         <p class="mb-4">
             {% if culture.commonAncestries is empty %}
                 Brak.
@@ -23,7 +24,7 @@
                 {% endfor %}
             {% endif %}
         </p>
-        <h5>Pospolite klasy</h5>
+        <h3>Pospolite klasy</h3>
         <p class="mb-4">
             {% if culture.commonClasses is empty %}
                 Brak.
@@ -37,7 +38,7 @@
                 {% endfor %}
             {% endif %}
         </p>
-        <h5>Pospolite pochodzenia</h5>
+        <h3>Pospolite pochodzenia</h3>
         <p class="mb-4">
             {% if culture.commonBackgrounds is empty %}
                 Brak.
@@ -51,7 +52,7 @@
                 {% endfor %}
             {% endif %}
         </p>
-        <h5>Pospolite języki</h5>
+        <h3>Pospolite języki</h3>
         <p class="mb-4">
             {% if culture.commonLanguages is empty %}
                 Brak.

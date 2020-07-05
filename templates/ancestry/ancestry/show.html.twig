@@ -1,7 +1,7 @@
 {% extends "base/base.html.twig" %}
 
 {% block content %}
-    <div class="col-md-12 mb-2">
+    <div class="col-md-12">
         {% include "base/utilities/entity_show_header.html.twig" with {'entity': ancestry} %}
     </div>
 
@@ -10,22 +10,7 @@
             {{ ancestry.description|raw }}
         </div>
 
-        <div class="mb-4">
-            <h2>Zdolności rasowe</h2>
-            {% if is_granted('ROLE_ADMIN') %}
-                {% set ancestralFeatures = ancestry.ancestralFeatures %}
-            {% else %}
-                {% set ancestralFeatures = ancestry.activeAncestralFeatures %}
-            {% endif %}
-
-            {% if ancestralFeatures is empty %}
-                Brak
-            {% else %}
-                {% for feature in ancestralFeatures %}
-                    {% include 'ancestry/feature/entry.html.twig' with {'feature': feature} %}
-                {% endfor %}
-            {% endif %}
-        </div>
+        {% include 'ancestry/feature/entity_display.html.twig' with {'entity': ancestry} %}
     </div>
 
     <div class="col-md-3 sidebar sidebar-right color-blood text-justify pt-2 pb-2">

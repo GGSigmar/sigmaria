@@ -1,0 +1,16 @@
+<div class="mb-4">
+    <h2>Zdolności rasowe</h2>
+    {% if is_granted('ROLE_ADMIN') %}
+        {% set ancestralFeatures = entity.ancestralFeatures %}
+    {% else %}
+        {% set ancestralFeatures = entity.activeAncestralFeatures %}
+    {% endif %}
+
+    {% if ancestralFeatures is empty %}
+        Brak.
+    {% else %}
+        {% for feature in ancestralFeatures %}
+            {% include 'ancestry/feature/entry.html.twig' with {'feature': feature} %}
+        {% endfor %}
+    {% endif %}
+</div>

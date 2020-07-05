@@ -1,9 +1,8 @@
 {% extends "base/base.html.twig" %}
 
 {% block content %}
-    <div class="col-md-12 text-center mb-2">
-        <h1>Blog</h1>
-        <div class="pf2-subtitle"></div>
+    <div class="col-md-12">
+        {% include 'base/components/basic_header.html.twig' with {headerTitle: 'Blog'} %}
 
         {% if is_granted('ROLE_ADMIN') %}
             <div class="mb-2 float-right">
