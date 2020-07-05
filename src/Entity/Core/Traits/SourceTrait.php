@@ -10,7 +10,7 @@ trait SourceTrait
     /**
      * @var EntitySource
      *
-     * @ORM\OneToOne(targetEntity="App\Entity\Core\EntitySource", orphanRemoval=true, cascade={"persist", "remove"})
+     * @ORM\ManyToOne(targetEntity="App\Entity\Core\EntitySource")
      * @Assert\Valid
      */
     private $source;

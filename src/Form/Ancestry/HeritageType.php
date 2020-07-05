@@ -15,7 +15,6 @@ use App\Entity\Core\Rarity;
 use App\Entity\Core\Size;
 use App\Form\Core\BaseEntityType;
 use Doctrine\ORM\EntityRepository;
-use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
@@ -27,11 +26,6 @@ class HeritageType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('shortDescription', CKEditorType::class, [
-                'label' => 'Krótki opis',
-                'required' => false,
-                'config' => BaseEntityType::DEFAULT_CKEDITOR_CONFIG,
-            ])
             ->add('valueAdjustment', IntegerType::class, [
                 'label' => 'Korekta wartości',
                 'required' => false,

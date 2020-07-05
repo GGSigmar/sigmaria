@@ -11,7 +11,6 @@ use App\Entity\Core\Traits\BaseFieldsTrait;
 use App\Entity\Core\Traits\DescriptionTrait;
 use App\Entity\Core\Traits\HandleTrait;
 use App\Entity\Core\Traits\ReleasableTrait;
-use App\Entity\Core\Traits\ShortDescriptionTrait;
 use App\Entity\Core\Traits\SimpleRarityTrait;
 use App\Entity\Core\Traits\SlugTrait;
 use App\Service\Core\UtilityService;
@@ -27,7 +26,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Heritage
 {
-    use BaseFieldsTrait, SlugTrait, HandleTrait, DescriptionTrait, ShortDescriptionTrait, SimpleRarityTrait, ReleasableTrait, TimestampableEntity;
+    use BaseFieldsTrait, SlugTrait, HandleTrait, DescriptionTrait, SimpleRarityTrait, ReleasableTrait, TimestampableEntity;
 
     public const ENTITY_NAME = 'heritage';
 

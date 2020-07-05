@@ -10,6 +10,7 @@ use App\Entity\Core\Size;
 use App\Entity\Core\Traits\BaseFieldsTrait;
 use App\Entity\Core\Traits\DescriptionTrait;
 use App\Entity\Core\Traits\HandleTrait;
+use App\Entity\Core\Traits\ParagraphsTrait;
 use App\Entity\Core\Traits\ReleasableTrait;
 use App\Entity\Core\Traits\SimpleRarityTrait;
 use App\Entity\Core\Traits\SlugTrait;
@@ -28,7 +29,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Ancestry
 {
-    use BaseFieldsTrait, SlugTrait, HandleTrait, DescriptionTrait, SimpleRarityTrait, ReleasableTrait, TimestampableEntity, SortOrderTrait;
+    use BaseFieldsTrait, SlugTrait, HandleTrait, DescriptionTrait, SimpleRarityTrait, ParagraphsTrait, ReleasableTrait, TimestampableEntity, SortOrderTrait;
 
     public const ENTITY_NAME = 'ancestry';
 
@@ -136,6 +137,7 @@ class Ancestry
         $this->ancestralFeatures = new ArrayCollection();
         $this->feats = new ArrayCollection();
         $this->heritages = new ArrayCollection();
+        $this->paragraphs = new ArrayCollection();
     }
 
     /**

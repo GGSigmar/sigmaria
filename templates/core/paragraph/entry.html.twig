@@ -1,0 +1,18 @@
+<p class="mb-2">
+    {% if paragraph.name %}
+        <h3 class="d-inline">{{ paragraph.name }}</h3>
+    {% endif %}
+    {% if isAdmin %}
+        {% include "base/badges/entity_display_edit_badge.html.twig"
+            with
+            {
+                'baseEntityName': entityName,
+                'subEntityName': 'paragraph',
+                'baseEntity': entity,
+                'subEntity': paragraph,
+            }
+        %}
+    {% endif %}
+    {% if isAdmin or paragraph.name %}<br />{% endif %}
+    {{ paragraph.description }}
+</p>

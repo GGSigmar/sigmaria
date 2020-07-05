@@ -6,8 +6,32 @@
     </div>
 
     <div class="col-md-9 pt-2 pb-2">
+        {% if isAdmin %}
+            <div class="mb-2">
+                {% include 'base/buttons/entity_display_create_button.html.twig'
+                    with
+                    {
+                        'baseEntityName': entityName,
+                        'subEntityName': 'paragraph',
+                        'baseEntity': ancestry
+                    }
+                %}
+            </div>
+        {% endif %}
+
         <div class="mb-4 text-justify">
-            {{ ancestry.description|raw }}
+            {% if isAdmin %}
+                {% set paragraphs = ancestry.paragraphs %}
+            {% else %}
+                {% set paragraphs = ancestry.activeParagraphs %}
+            {% endif %}
+            {% if paragraphs is empty %}
+                TBD.
+            {% else %}
+                {% for paragraph in paragraphs %}
+                    {% include 'core/paragraph/entry.html.twig' with {entityName: entityName, entity: ancestry} %}
+                {% endfor %}
+            {% endif %}
         </div>
 
         {% include 'ancestry/feature/entity_display.html.twig' with {'entity': ancestry} %}

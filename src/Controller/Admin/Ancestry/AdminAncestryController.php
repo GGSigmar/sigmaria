@@ -6,11 +6,14 @@ use App\Controller\Base\BaseController;
 use App\Entity\Ancestry\Ancestry;
 use App\Entity\Ancestry\Heritage;
 use App\Entity\Core\Feat;
+use App\Entity\Core\Paragraph;
 use App\Form\Ancestry\AncestryType;
 use App\Form\Ancestry\HeritageType;
 use App\Form\Core\FeatType;
+use App\Form\Core\ParagraphType;
 use App\Service\Core\SourcableService;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\Request;
@@ -291,6 +294,74 @@ class AdminAncestryController extends BaseController
             $this->addFlash('success', 'Dziedzictwo zmienione!');
 
             return $this->redirectToRoute('ancestry_show', ['id' => $baseId]);
+        }
+
+        $templateData = [
+            'form' => $form->createView(),
+            'entityName' => Ancestry::ENTITY_NAME,
+        ];
+
+        return array_merge($templateData, $this->getTemplateData(BaseController::NAV_TAB_RULES));
+    }
+
+    /**
+     * @Route("/admin/ancestry/{id}/paragraph/create", name="ancestry_paragraph_create")
+     * @Template("core/paragraph/create.html.twig")
+     */
+    public function createAncestryParagraphAction(Request $request, Ancestry $ancestry)
+    {
+        $form = $this->createForm(ParagraphType::class);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $paragraph = $form->getData();
+
+            $ancestry->addParagraph($paragraph);
+
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($paragraph);
+            $entityManager->persist($ancestry);
+            $entityManager->flush();
+
+            $this->addFlash('success', 'Paragraf stworzony!');
+
+            return $this->redirectToRoute('ancestry_show', ['id' => $ancestry->getId()]);
+        }
+
+        $templateData = [
+            'form' => $form->createView(),
+            'entityName' => Ancestry::ENTITY_NAME,
+        ];
+
+        return array_merge($templateData, $this->getTemplateData(BaseController::NAV_TAB_RULES));
+    }
+
+    /**
+     * @Route("/admin/ancestry/{baseId}/paragraph/{id}/edit", name="ancestry_paragraph_edit")
+     * @Template("core/paragraph/edit.html.twig")
+     * @ParamConverter("baseId", class="App\Entity\Ancestry\Ancestry")
+     * @ParamConverter("id", class="App\Entity\Core\Paragraph")
+     */
+    public function editAncestryParagraphAction(Request $request, Ancestry $ancestry, Paragraph $paragraph)
+    {
+        $form = $this->createForm(ParagraphType::class, $paragraph);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $paragraph = $form->getData();
+
+            $ancestry->addParagraph($paragraph);
+
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($paragraph);
+            $entityManager->persist($ancestry);
+            $entityManager->flush();
+
+            $this->addFlash('success', 'Paragraf edytowany!');
+
+            return $this->redirectToRoute('ancestry_show', ['id' => $ancestry->getId()]);
         }
 
         $templateData = [

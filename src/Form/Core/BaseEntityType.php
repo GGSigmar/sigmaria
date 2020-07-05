@@ -24,6 +24,7 @@ class BaseEntityType extends AbstractType
         $builder
             ->add('name', TextType::class, [
                 'label' => 'Nazwa',
+                'required' => $options['is_name_required'],
             ]);
 
         if ($options['has_handle']) {
@@ -49,14 +50,22 @@ class BaseEntityType extends AbstractType
                     'label' => 'Wartość',
                 ]);
         }
+        if ($options['has_sort_order']) {
+            $builder
+                ->add('sortOrder', IntegerType::class, [
+                    'label' => 'Kolejność sortowania'
+                ]);
+        }
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
+            'is_name_required' => true,
             'has_handle' => false,
             'has_description' => false,
             'has_value' => false,
+            'has_sort_order' => false,
         ]);
     }
 }

@@ -16,6 +16,7 @@
             {% endif %}
         </h1>
         <div class="pf2-subtitle">
+            {{ entity.description|raw }}
             {% include "base/utilities/entity_release_note.html.twig" with {'entity': entity} %}
         </div>
     </div>

@@ -68,7 +68,7 @@
 
 .pf2-subtitle {
     color: #58180D;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     font-family: 'Eczar', sans-serif;
     background-image: url(../images/styling/subtitle_line.png);
     background-position: bottom;
@@ -200,5 +200,3 @@ h5 .three-action, h4 .three-action {
     margin-right:-1px;
     margin-left:-1px;
 }
-
-
