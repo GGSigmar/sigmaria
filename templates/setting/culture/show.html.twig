@@ -5,9 +5,7 @@
         {% include "base/utilities/entity_show_header.html.twig" with {'entity': culture} %}
     </div>
     <div class="col-md-9 pt-2 pb-2">
-        <p class="mb-4">
-            {{ culture.description|raw }}
-        </p>
+        {% include 'core/paragraph/paragraph_entity_display.html.twig' with {'entity': culture} %}
     </div>
     <div class="col-md-3 sidebar sidebar-right color-blood text-justify pt-2 pb-2">
         <h3>Pospolite rasy</h3>
@@ -17,7 +15,6 @@
             {% else %}
                 {% for ancestry in culture.commonAncestries %}
                     {% include "base/badges/entity_show_badge.html.twig" with {'entityName': 'ancestry', 'entityId': ancestry.id} %} {{ ancestry.name }}
-
                     {% if not loop.last %}
                         <br />
                     {% endif %}

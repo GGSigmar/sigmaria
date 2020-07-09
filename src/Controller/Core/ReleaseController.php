@@ -11,7 +11,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 class ReleaseController extends BaseController
 {
     /**
-     * @Route("/admin/core/release/list", name="release_list")
+     * @Route("/core/release/list", name="release_list")
      * @Template("core/release/list.html.twig")
      */
     public function listReleasesAction()

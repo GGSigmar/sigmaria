@@ -288,7 +288,7 @@ class AdminHeritageController extends BaseController
     /**
      * @Route("/admin/heritage/{baseId}/paragraph/{id}/edit", name="heritage_paragraph_edit")
      * @Template("core/paragraph/edit.html.twig")
-     * @ParamConverter("ancestry", class="App\Entity\Ancestry\Heritage", options={"id"="baseId"})
+     * @ParamConverter("heritage", class="App\Entity\Ancestry\Heritage", options={"id"="baseId"})
      * @ParamConverter("paragraph", class="App\Entity\Core\Paragraph", options={"id"="id"})
      */
     public function editHeritageParagraphAction(Request $request, Heritage $heritage, Paragraph $paragraph)

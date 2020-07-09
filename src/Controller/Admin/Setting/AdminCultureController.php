@@ -4,11 +4,14 @@ namespace App\Controller\Admin\Setting;
 
 use App\Controller\Base\BaseController;
 use App\Entity\Core\Feat;
+use App\Entity\Core\Paragraph;
 use App\Entity\Setting\Culture;
 use App\Form\Core\FeatType;
+use App\Form\Core\ParagraphType;
 use App\Form\Setting\CultureType;
 use App\Service\Core\SourcableService;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\Request;
@@ -162,7 +165,7 @@ class AdminCultureController extends BaseController
     }
 
     /**
-     * @Route("/admin/ancestry/culture/{id}/feat/create", name="culture_feat_create")
+     * @Route("/admin/setting/culture/{id}/feat/create", name="culture_feat_create")
      * @Template("core/feat/create.html.twig")
      */
     public function createCultureFeatAction(Request $request, Culture $culture, SourcableService $sourcableService)
@@ -197,7 +200,7 @@ class AdminCultureController extends BaseController
     }
 
     /**
-     * @Route("/admin/ancestry/culture/{baseId}/feat/{id}/edit", name="culture_feat_edit")
+     * @Route("/admin/setting/culture/{baseId}/feat/{id}/edit", name="culture_feat_edit")
      * @Template("core/feat/create.html.twig")
      */
     public function editCultureFeatAction(Request $request, int $baseId, int $id, SourcableService $sourcableService)
@@ -222,6 +225,72 @@ class AdminCultureController extends BaseController
             $this->addFlash('success', 'Atut zmieniony!');
 
             return $this->redirectToRoute('culture_show', ['id' => $baseId]);
+        }
+
+        $templateData = [
+            'form' => $form->createView(),
+            'entityName' => Culture::ENTITY_NAME,
+        ];
+
+        return array_merge($templateData, $this->getTemplateData(BaseController::NAV_TAB_RULES));
+    }
+
+    /**
+     * @Route("/admin/setting/culture/{id}/paragraph/create", name="culture_paragraph_create")
+     * @Template("core/paragraph/create.html.twig")
+     */
+    public function createCultureParagraphAction(Request $request, Culture $culture)
+    {
+        $form = $this->createForm(ParagraphType::class);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $paragraph = $form->getData();
+
+            $culture->addParagraph($paragraph);
+
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($paragraph);
+            $entityManager->persist($culture);
+            $entityManager->flush();
+
+            $this->addFlash('success', 'Paragraf stworzony!');
+
+            return $this->redirectToRoute('culture_show', ['id' => $culture->getId()]);
+        }
+
+        $templateData = [
+            'form' => $form->createView(),
+            'entityName' => Culture::ENTITY_NAME,
+        ];
+
+        return array_merge($templateData, $this->getTemplateData(BaseController::NAV_TAB_RULES));
+    }
+
+    /**
+     * @Route("/admin/setting/culture/{baseId}/paragraph/{id}/edit", name="culture_paragraph_edit")
+     * @Template("core/paragraph/edit.html.twig")
+     * @ParamConverter("culture", class="App\Entity\Culture\Culture", options={"id"="baseId"})
+     * @ParamConverter("paragraph", class="App\Entity\Core\Paragraph", options={"id"="id"})
+     */
+    public function editCultureParagraphAction(Request $request, Culture $culture, Paragraph $paragraph)
+    {
+        $form = $this->createForm(ParagraphType::class, $paragraph);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $paragraph = $form->getData();
+
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($paragraph);
+            $entityManager->persist($culture);
+            $entityManager->flush();
+
+            $this->addFlash('success', 'Paragraf edytowany!');
+
+            return $this->redirectToRoute('culture_show', ['id' => $culture->getId()]);
         }
 
         $templateData = [

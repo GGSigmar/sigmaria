@@ -2,31 +2,43 @@
 
 {% block content %}
     <div class="col-md-12">
-        <div class="mb-5">
-            <h1>
-                {{ release.name }} ({{ release.contentVersion }})
+        <div class="mb-2">
+            <div style="width: 100%; display: inline-block;">
                 <div class="float-right">
                     {% if isAdmin %}
-                        {% include "base/buttons/entity_list_edit_button.html.twig" with {'entityName': entityName, 'entity': release} %}
+                        {% include "base/buttons/entity_edit_button.html.twig" with {'entityName': entityName, 'entity': release} %}
                     {% endif %}
                     {% include "base/buttons/entity_list_button.html.twig" with {'entityName': entityName} %}
                 </div>
-            </h1>
-            Wydanie z dnia {{ release.createdAt|date('Y-m-d') }}
+            </div>
+
+            <div class="text-center">
+                <h1>
+                    {{ release }}
+                </h1>
+                <div class="pf2-subtitle">
+                    <div class="text-center">
+                        Wydanie z dnia {{ release.createdAt|date('Y-m-d') }}
+                    </div>
+                </div>
+            </div>
         </div>
+    </div>
+
+    <div class="col-md-12">
         {% if release.contentChanges %}
             <div class="mb-4">
-                <h3>Zmiany zawartości:</h3>
+                <h2>Zmiany zawartości:</h2>
                 {{ release.contentChanges|raw }}
             </div>
         {% endif %}
-        <h3>Wydana zawartość:</h3>
+        <h2>Wydana zawartość:</h2>
     </div>
 
     {% if release.isLaunched %}
         {% for entityType, entityNameArray in release.getContentReleased %}
             <div class="col-md-4 mb-4">
-                <h5>{{ entityType|releaseKey }}</h5>
+                <h3>{{ entityType|releaseKey }}</h3>
                 {% for entityId, entityName in entityNameArray %}
                     {% include "base/badges/entity_show_badge.html.twig" with {'entityName': entityType, "entityId": entityId} %} {{ entityName }}
 

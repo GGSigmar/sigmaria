@@ -7,6 +7,7 @@ use App\Entity\Core\CharacterClass;
 use App\Entity\Core\Feat;
 use App\Entity\Core\Traits\BaseFieldsTrait;
 use App\Entity\Core\Traits\DescriptionTrait;
+use App\Entity\Core\Traits\ParagraphsTrait;
 use App\Entity\Core\Traits\ReleasableTrait;
 use App\Entity\Core\Traits\SlugTrait;
 use App\Service\Core\UtilityService;
@@ -22,7 +23,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class Culture
 {
-    use BaseFieldsTrait, SlugTrait, DescriptionTrait, ReleasableTrait, TimestampableEntity;
+    use BaseFieldsTrait, SlugTrait, DescriptionTrait, ParagraphsTrait, ReleasableTrait, TimestampableEntity;
 
     public const ENTITY_NAME = 'culture';
 

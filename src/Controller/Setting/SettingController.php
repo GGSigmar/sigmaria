@@ -13,7 +13,7 @@ class SettingController extends BaseController
      * @Route("/setting/keystones", name="setting_keystones")
      * @Template("setting\information_page\setting_keystones.html.twig")
      */
-    public function characterCreationAction()
+    public function settingKeystonesAction()
     {
         $keystones = $this->getDoctrine()->getRepository(SettingKeystone::class)->getSortedActiveSettingKeystones();
 
@@ -21,6 +21,6 @@ class SettingController extends BaseController
             'keystones' => $keystones,
         ];
 
-        return array_merge($templateData, $this->getTemplateData(BaseController::NAV_TAB_RULES));
+        return array_merge($templateData, $this->getTemplateData(BaseController::NAV_TAB_SETTING));
     }
 }

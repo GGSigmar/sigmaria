@@ -33,7 +33,7 @@ class CoreController extends BaseController
     }
 
     /**
-     * @Route("/character-creation", name="character_creation")
+     * @Route("/core/character-creation", name="character_creation")
      * @Template("core\information_page\character_creation.html.twig")
      */
     public function characterCreationAction()
