@@ -28,11 +28,11 @@
     <div class="col-md-12">
         {% if release.contentChanges %}
             <div class="mb-4">
-                <h2>Zmiany zawartości:</h2>
+                <h2 class="mb-2">Zmiany zawartości:</h2>
                 {{ release.contentChanges|raw }}
             </div>
         {% endif %}
-        <h2>Wydana zawartość:</h2>
+        <h2 class="mb-2">Wydana zawartość:</h2>
     </div>
 
     {% if release.isLaunched %}
