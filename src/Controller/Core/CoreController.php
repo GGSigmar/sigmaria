@@ -55,68 +55,24 @@ class CoreController extends BaseController
         $doctrine = $this->getDoctrine();
         $em = $doctrine->getManager();
 
-        $entities = $doctrine->getRepository(Feat::class)->findAll();
+        $entities = [];
 
-        foreach ($entities as $entity) {
-            $entity->setSlug(null);
-            $em->persist($entity);
+        $entities[] = $doctrine->getRepository(Feat::class)->findAll();
+        $entities[] = $doctrine->getRepository(Culture::class)->findAll();
+        $entities[] = $doctrine->getRepository(Background::class)->findAll();
+        $entities[] = $doctrine->getRepository(Language::class)->findAll();
+        $entities[] = $doctrine->getRepository(Release::class)->findAll();
+        $entities[] = $doctrine->getRepository(Heritage::class)->findAll();
+        $entities[] = $doctrine->getRepository(Ancestry::class)->findAll();
+
+        foreach ($entities as $entityType) {
+            foreach ($entityType as $entity) {
+                $entity->setSlug(null);
+                $em->persist($entity);
+            }
+
+            $em->flush();
         }
-
-        $em->flush();
-
-        $entities = $doctrine->getRepository(Culture::class)->findAll();
-
-        foreach ($entities as $entity) {
-            $entity->setSlug(null);
-            $em->persist($entity);
-        }
-
-        $em->flush();
-
-        $entities = $doctrine->getRepository(Background::class)->findAll();
-
-        foreach ($entities as $entity) {
-            $entity->setSlug(null);
-            $em->persist($entity);
-        }
-
-        $em->flush();
-
-        $entities = $doctrine->getRepository(Language::class)->findAll();
-
-        foreach ($entities as $entity) {
-            $entity->setSlug(null);
-            $em->persist($entity);
-        }
-
-        $em->flush();
-
-        $entities = $doctrine->getRepository(Release::class)->findAll();
-
-        foreach ($entities as $entity) {
-            $entity->setSlug(null);
-            $em->persist($entity);
-        }
-
-        $em->flush();
-
-        $entities = $doctrine->getRepository(Heritage::class)->findAll();
-
-        foreach ($entities as $entity) {
-            $entity->setSlug(null);
-            $em->persist($entity);
-        }
-
-        $em->flush();
-
-        $entities = $doctrine->getRepository(Ancestry::class)->findAll();
-
-        foreach ($entities as $entity) {
-            $entity->setSlug(null);
-            $em->persist($entity);
-        }
-
-        $em->flush();
 
         $this->addFlash('success', 'Slugi zaktualizowane!');
 

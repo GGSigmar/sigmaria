@@ -1,0 +1,20 @@
+{% extends "base/base.html.twig" %}
+
+{% block content %}
+    <div class="col-md-12">
+        {% include 'base/components/basic_header.html.twig' with {headerTitle: 'Fundamenty świata'} %}
+    </div>
+    <div class="col-md-12">
+        <div class="mb-4">
+            ...
+        </div>
+        <div>
+            {% for keystone in keystones %}
+                <div {% if not loop.index == loop.last %}class="mb-4"{% endif %}>
+                    <h3>{{ loop.index }}. {{ keystone.name }}</h3>
+                    {{ keystone.description|raw }}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

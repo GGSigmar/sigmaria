@@ -5,6 +5,7 @@ namespace App\Entity\Core;
 use Doctrine\ORM\Mapping as ORM;
 use App\Entity\Core\Traits\DescriptionTrait;
 use App\Entity\Core\Traits\SortOrderTrait;
+use Gedmo\Timestampable\Traits\TimestampableEntity;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -13,7 +14,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class Paragraph
 {
-    use DescriptionTrait, SortOrderTrait;
+    use DescriptionTrait, SortOrderTrait, TimestampableEntity;
 
     /**
      * @var int
