@@ -341,7 +341,7 @@ class Feat implements SourcableInterface
         $isGeneral = false;
 
         foreach ($this->getAttributes() as $attribute) {
-            if ($attribute->getCategory()->getHandle() === AttributeCategory::ATTRIBUTE_CATEGORY_GENERAL) {
+            if ($attribute->getHandle() === Attribute::ATTRIBUTE_GENERAL) {
                 $isGeneral = true;
                 break;
             }
