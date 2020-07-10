@@ -11,11 +11,13 @@
 
 {% block table_rows %}
     {% for category in attributeCategories %}
-        <tr class="{% include "base/utilities/inactive_entity_row_classes.html.twig" with {'entity': category} %}">
+        <tr>
             <td class="align-middle">{{ category.name }}</td>
             <td class="align-middle text-nowrap">
                 {% include "base/buttons/entity_list_edit_button.html.twig" with {'entityName': entityName, 'entity': category} %}
-                {% include "base/buttons/entity_delete_buttons.html.twig" with {'entityName': entityName, 'entity': category} %}
+                {% if category.attributes is empty %}
+                    <a href="{{ path('attribute_category_delete', {"id": category.id}) }}" class="btn btn-outline-danger" role="button">Usuń <i class="fas fa-trash-alt"></i></a>
+                {% endif %}
             </td>
         </tr>
     {% endfor %}

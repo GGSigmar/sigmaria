@@ -23,7 +23,7 @@ class Attribute
     /**
      * @var AttributeCategory
      *
-     * @ORM\ManyToOne(targetEntity="App\Entity\Core\AttributeCategory")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Core\AttributeCategory", inversedBy="attributes")
      * @Assert\NotBlank
      */
     private $category;
