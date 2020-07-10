@@ -2,6 +2,7 @@
 
 namespace App\Entity\Core;
 
+use App\Entity\Core\Traits\ActiveTrait;
 use Doctrine\ORM\Mapping as ORM;
 use App\Entity\Core\Traits\DescriptionTrait;
 use App\Entity\Core\Traits\SortOrderTrait;
@@ -14,7 +15,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class Paragraph
 {
-    use DescriptionTrait, SortOrderTrait, TimestampableEntity;
+    use DescriptionTrait, ActiveTrait, SortOrderTrait, TimestampableEntity;
 
     /**
      * @var int

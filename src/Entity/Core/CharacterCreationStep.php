@@ -2,6 +2,7 @@
 
 namespace App\Entity\Core;
 
+use App\Entity\Core\Traits\ActiveTrait;
 use App\Entity\Core\Traits\BaseFieldsTrait;
 use App\Entity\Core\Traits\DescriptionTrait;
 use App\Entity\Core\Traits\HandleTrait;
@@ -15,7 +16,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class CharacterCreationStep
 {
-    use BaseFieldsTrait, HandleTrait, DescriptionTrait, SortOrderTrait, TimestampableEntity;
+    use BaseFieldsTrait, ActiveTrait, HandleTrait, DescriptionTrait, SortOrderTrait, TimestampableEntity;
 
     public const ENTITY_NAME = 'character_creation_step';
 

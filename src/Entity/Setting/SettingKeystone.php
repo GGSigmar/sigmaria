@@ -2,6 +2,7 @@
 
 namespace App\Entity\Setting;
 
+use App\Entity\Core\Traits\ActiveTrait;
 use App\Entity\Core\Traits\BaseFieldsTrait;
 use App\Entity\Core\Traits\DescriptionTrait;
 use App\Entity\Core\Traits\SortOrderTrait;
@@ -14,7 +15,7 @@ use Gedmo\Timestampable\Traits\TimestampableEntity;
  */
 class SettingKeystone
 {
-    use BaseFieldsTrait, DescriptionTrait, SortOrderTrait, TimestampableEntity;
+    use BaseFieldsTrait, ActiveTrait, DescriptionTrait, SortOrderTrait, TimestampableEntity;
 
     public const ENTITY_NAME = 'setting_keystone';
 }

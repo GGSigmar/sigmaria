@@ -27,13 +27,6 @@ trait BaseFieldsTrait
     private $name = '';
 
     /**
-     * @var bool
-     *
-     * @ORM\Column(type="boolean")
-     */
-    private $isActive = true;
-
-    /**
      * @return int
      */
     public function getId(): int
@@ -55,22 +48,6 @@ trait BaseFieldsTrait
     public function setName(string $name): void
     {
         $this->name = ucfirst($name);
-    }
-
-    /**
-     * @return bool
-     */
-    public function isActive(): bool
-    {
-        return $this->isActive;
-    }
-
-    /**
-     * @param bool $isActive
-     */
-    public function setIsActive(bool $isActive): void
-    {
-        $this->isActive = $isActive;
     }
 
     /**

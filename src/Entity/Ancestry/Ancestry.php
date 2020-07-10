@@ -7,6 +7,7 @@ use App\Entity\Core\Attribute;
 use App\Entity\Core\Feat;
 use App\Entity\Core\MoveSpeed;
 use App\Entity\Core\Size;
+use App\Entity\Core\Traits\ActiveTrait;
 use App\Entity\Core\Traits\BaseFieldsTrait;
 use App\Entity\Core\Traits\DescriptionTrait;
 use App\Entity\Core\Traits\HandleTrait;
@@ -29,7 +30,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Ancestry
 {
-    use BaseFieldsTrait, SlugTrait, HandleTrait, DescriptionTrait, SimpleRarityTrait, ParagraphsTrait, ReleasableTrait, TimestampableEntity, SortOrderTrait;
+    use BaseFieldsTrait, ActiveTrait, SlugTrait, HandleTrait, DescriptionTrait, SimpleRarityTrait, ParagraphsTrait, ReleasableTrait, TimestampableEntity, SortOrderTrait;
 
     public const ENTITY_NAME = 'ancestry';
 

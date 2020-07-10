@@ -2,6 +2,7 @@
 
 namespace App\Entity\Core;
 
+use App\Entity\Core\Traits\ActiveTrait;
 use App\Entity\Core\Traits\BaseFieldsTrait;
 use App\Entity\Core\Traits\DescriptionTrait;
 use App\Entity\Core\Traits\HandleTrait;
@@ -15,7 +16,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class Attribute
 {
-    use BaseFieldsTrait, HandleTrait, DescriptionTrait, TimestampableEntity;
+    use BaseFieldsTrait, ActiveTrait, HandleTrait, DescriptionTrait, TimestampableEntity;
 
     public const ATTRIBUTE_GENERAL = 'ATTRIBUTE_GENERAL';
 

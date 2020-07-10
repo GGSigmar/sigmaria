@@ -6,6 +6,7 @@ use App\Entity\Core\Ability;
 use App\Entity\Core\Feat;
 use App\Entity\Core\Lore;
 use App\Entity\Core\Skill;
+use App\Entity\Core\Traits\ActiveTrait;
 use App\Entity\Core\Traits\BaseFieldsTrait;
 use App\Entity\Core\Traits\DescriptionTrait;
 use App\Entity\Core\Traits\ReleasableTrait;
@@ -22,7 +23,7 @@ use Gedmo\Timestampable\Traits\TimestampableEntity;
  */
 class Background
 {
-    use BaseFieldsTrait, SlugTrait, DescriptionTrait, ReleasableTrait, TimestampableEntity;
+    use BaseFieldsTrait, ActiveTrait, SlugTrait, DescriptionTrait, ReleasableTrait, TimestampableEntity;
 
     public const ENTITY_NAME = 'background';
 

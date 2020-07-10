@@ -2,6 +2,7 @@
 
 namespace App\Entity\Ancestry;
 
+use App\Entity\Core\Traits\ActiveTrait;
 use App\Entity\Core\Traits\BaseFieldsTrait;
 use App\Entity\Core\Traits\DescriptionTrait;
 use App\Entity\Core\Traits\ValueTrait;
@@ -16,7 +17,7 @@ use Gedmo\Timestampable\Traits\TimestampableEntity;
  */
 class AncestralFeature
 {
-    use BaseFieldsTrait, DescriptionTrait, ValueTrait, TimestampableEntity;
+    use BaseFieldsTrait, ActiveTrait, DescriptionTrait, ValueTrait, TimestampableEntity;
 
     /**
      * @var ArrayCollection

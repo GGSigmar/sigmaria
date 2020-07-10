@@ -2,6 +2,7 @@
 
 namespace App\Entity\Setting;
 
+use App\Entity\Core\Traits\ActiveTrait;
 use App\Entity\Core\Traits\BaseFieldsTrait;
 use App\Entity\Core\Traits\DescriptionTrait;
 use Doctrine\ORM\Mapping as ORM;
@@ -13,5 +14,5 @@ use Gedmo\Timestampable\Traits\TimestampableEntity;
  */
 class Script
 {
-    use BaseFieldsTrait, DescriptionTrait, TimestampableEntity;
+    use BaseFieldsTrait, ActiveTrait, DescriptionTrait, TimestampableEntity;
 }

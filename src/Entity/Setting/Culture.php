@@ -5,6 +5,7 @@ namespace App\Entity\Setting;
 use App\Entity\Ancestry\Ancestry;
 use App\Entity\Core\CharacterClass;
 use App\Entity\Core\Feat;
+use App\Entity\Core\Traits\ActiveTrait;
 use App\Entity\Core\Traits\BaseFieldsTrait;
 use App\Entity\Core\Traits\DescriptionTrait;
 use App\Entity\Core\Traits\ParagraphsTrait;
@@ -23,7 +24,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class Culture
 {
-    use BaseFieldsTrait, SlugTrait, DescriptionTrait, ParagraphsTrait, ReleasableTrait, TimestampableEntity;
+    use BaseFieldsTrait, ActiveTrait, SlugTrait, DescriptionTrait, ParagraphsTrait, ReleasableTrait, TimestampableEntity;
 
     public const ENTITY_NAME = 'culture';
 

@@ -2,6 +2,7 @@
 
 namespace App\Entity\Setting;
 
+use App\Entity\Core\Traits\ActiveTrait;
 use App\Entity\Core\Traits\BaseFieldsTrait;
 use App\Entity\Core\Traits\DescriptionTrait;
 use App\Entity\Core\Traits\ReleasableTrait;
@@ -17,7 +18,7 @@ use Gedmo\Timestampable\Traits\TimestampableEntity;
  */
 class Language
 {
-    use BaseFieldsTrait, SlugTrait, DescriptionTrait, SimpleRarityTrait, ReleasableTrait, SortOrderTrait, TimestampableEntity;
+    use BaseFieldsTrait, ActiveTrait, SlugTrait, DescriptionTrait, SimpleRarityTrait, ReleasableTrait, SortOrderTrait, TimestampableEntity;
 
     public const ENTITY_NAME = 'language';
 
