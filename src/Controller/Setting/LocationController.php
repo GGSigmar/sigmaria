@@ -26,7 +26,7 @@ class LocationController extends BaseController
     }
 
     /**
-     * @Route("/setting/location/{id}/show", name="location_show")
+     * @Route("/setting/location/{slug}/show", name="location_show")
      * @Template("setting/location/show.html.twig")
      */
     public function showLocationAction(Location $location)

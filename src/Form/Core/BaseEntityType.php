@@ -15,7 +15,7 @@ class BaseEntityType extends AbstractType
         'toolbar' => 'custom_toolbar',
         'language' => 'pl',
         'entities_latin' => false,
-        'height' => 300,
+        'height' => 200,
         'enterMode' => 'CKEDITOR.ENTER_BR',
     ];
 

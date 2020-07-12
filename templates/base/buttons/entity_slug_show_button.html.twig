@@ -1,0 +1,3 @@
+{% set showPathName = (entityName ~ '_show') %}
+
+<a href="{{ path(showPathName, {"slug": entity.slug}) }}" class="btn btn-outline-success" role="button">Zobacz <i class="fas fa-search"></i></a>

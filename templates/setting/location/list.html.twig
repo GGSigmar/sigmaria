@@ -8,6 +8,7 @@
     <th class="align-middle">Nazwa</th>
     <th class="align-middle">Typ</th>
     <th class="align-middle">Lokacja nadrzędna</th>
+    <th class="align-middle">Lokacje podrzędne</th>
     <th class="align-middle">Akcje</th>
 {% endblock %}
 
@@ -18,13 +19,24 @@
                 <td class="align-middle">{{ location.name }}</td>
                 <td class="align-middle">{{ location.type.name }}</td>
                 <td class="align-middle">
-                    {% include "base/badges/entity_show_badge.html.twig" with {'entityName': 'location', 'entityId': location.parent.id} %} {{ location.parent.name }}
+                    {% if location.parentLocation %}
+                        {% include "base/badges/entity_slug_show_badge.html.twig" with {'entityName': 'location', 'entitySlug': location.parentLocation.slug} %} {{ location.parentLocation.name }}
+                    {% endif %}
+                </td>
+                <td class="align-middle">
+                    {% for sublocation in location.childrenLocations %}
+                        {% include "base/badges/entity_slug_show_badge.html.twig" with {'entityName': 'location', 'entitySlug': sublocation.slug} %} {{ sublocation.name }}
+
+                        {% if not loop.last %}
+                            <br />
+                        {% endif %}
+                    {% endfor %}
                 </td>
                 <td class="align-middle text-nowrap">
-                    {% include "base/buttons/entity_show_button.html.twig" with {'entityName': entityName, 'entity': location} %}
+                    {% include "base/buttons/entity_slug_show_button.html.twig" with {'entityName': entityName, 'entity': location} %}
                     {% if isAdmin %}
                         {% include "base/buttons/entity_list_edit_button.html.twig" with {'entityName': entityName, 'entity': location} %}
-                        {% if not language.isActive %}
+                        {% if not location.isActive %}
                             {% include "base/buttons/entity_release_buttons.html.twig" with {'entityName': entityName, 'entity': location} %}
                         {% endif %}
                         {% include "base/buttons/entity_delete_buttons.html.twig" with {'entityName': entityName, 'entity': location} %}

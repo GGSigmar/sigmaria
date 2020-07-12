@@ -9,6 +9,7 @@ use App\Entity\Core\Traits\ParagraphsTrait;
 use App\Entity\Core\Traits\ReleasableTrait;
 use App\Entity\Core\Traits\SlugTrait;
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -24,7 +25,7 @@ class Location
     public const ENTITY_NAME = 'location';
 
     /**
-     * @var LocationType
+     * @var LocationType|null
      *
      * @ORM\ManyToOne(targetEntity="App\Entity\Setting\LocationType", inversedBy="locations")
      * @Assert\NotBlank
@@ -32,7 +33,7 @@ class Location
     private $type;
 
     /**
-     * @var Location
+     * @var Location|null
      *
      * @ORM\ManyToOne(targetEntity="App\Entity\Setting\Location", inversedBy="childrenLocation")
      */
@@ -54,41 +55,41 @@ class Location
     }
 
     /**
-     * @return LocationType
+     * @return LocationType|null
      */
-    public function getType(): LocationType
+    public function getType(): ?LocationType
     {
         return $this->type;
     }
 
     /**
-     * @param LocationType $type
+     * @param LocationType|null $type
      */
-    public function setType(LocationType $type): void
+    public function setType(?LocationType $type): void
     {
         $this->type = $type;
     }
 
     /**
-     * @return Location
+     * @return Location|null
      */
-    public function getParentLocation(): Location
+    public function getParentLocation(): ?Location
     {
         return $this->parentLocation;
     }
 
     /**
-     * @param Location $parentLocation
+     * @param Location|null $parentLocation
      */
-    public function setParentLocation(Location $parentLocation): void
+    public function setParentLocation(?Location $parentLocation): void
     {
         $this->parentLocation = $parentLocation;
     }
 
     /**
-     * @return ArrayCollection
+     * @return Collection|Location[]
      */
-    public function getChildrenLocations(): ArrayCollection
+    public function getChildrenLocations(): Collection
     {
         return $this->childrenLocations;
     }
