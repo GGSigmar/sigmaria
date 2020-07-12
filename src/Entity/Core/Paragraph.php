@@ -36,13 +36,6 @@ class Paragraph
     private $name = '';
 
     /**
-     * @var bool
-     *
-     * @ORM\Column(type="boolean", options={"default":true})
-     */
-    private $isActive = true;
-
-    /**
      * @return int
      */
     public function getId(): int
@@ -64,22 +57,6 @@ class Paragraph
     public function setName(?string $name): void
     {
         $this->name = ucfirst($name);
-    }
-
-    /**
-     * @return bool
-     */
-    public function isActive(): bool
-    {
-        return $this->isActive;
-    }
-
-    /**
-     * @param bool $isActive
-     */
-    public function setIsActive(bool $isActive): void
-    {
-        $this->isActive = $isActive;
     }
 
     /**

@@ -12,24 +12,26 @@
 
 {% block table_rows %}
     {% for heritage in heritages %}
-        <tr class="{% include "base/utilities/inactive_entity_row_classes.html.twig" with {'entity': heritage} %}">
-            <td class="align-middle">
-                {{ heritage.name }}
-            </td>
-            <td class="align-middle">
-                {% include "base/badges/entity_slug_show_badge.html.twig" with {'entityName': 'ancestry', 'entitySlug': heritage.ancestry.slug} %} {{ heritage.ancestry.name }}
-            </td>
-            <td class="align-middle">
-                {{ heritage.value }}
-            </td>
-            <td class="align-middle text-nowrap">
-                {% include "base/buttons/entity_slug_show_button.html.twig" with {'entityName': entityName, 'entity': heritage} %}
-                {% include "base/buttons/entity_list_edit_button.html.twig" with {'entityName': entityName, 'entity': heritage} %}
-                {% if not heritage.isActive %}
-                    {% include "base/buttons/entity_release_buttons.html.twig" with {'entityName': entityName, 'entity': heritage} %}
-                {% endif %}
-                {% include "base/buttons/entity_delete_buttons.html.twig" with {'entityName': entityName, 'entity': heritage} %}
-            </td>
-        </tr>
+        {% if isAdmin or heritage.isActive %}
+            <tr class="{% include "base/utilities/inactive_entity_row_classes.html.twig" with {'entity': heritage} %}">
+                <td class="align-middle">
+                    {{ heritage.name }}
+                </td>
+                <td class="align-middle">
+                    {% include "base/badges/entity_slug_show_badge.html.twig" with {'entityName': 'ancestry', 'entitySlug': heritage.ancestry.slug} %} {{ heritage.ancestry.name }}
+                </td>
+                <td class="align-middle">
+                    {{ heritage.value }}
+                </td>
+                <td class="align-middle text-nowrap">
+                    {% include "base/buttons/entity_slug_show_button.html.twig" with {'entityName': entityName, 'entity': heritage} %}
+                    {% include "base/buttons/entity_list_edit_button.html.twig" with {'entityName': entityName, 'entity': heritage} %}
+                    {% if not heritage.isActive %}
+                        {% include "base/buttons/entity_release_buttons.html.twig" with {'entityName': entityName, 'entity': heritage} %}
+                    {% endif %}
+                    {% include "base/buttons/entity_delete_buttons.html.twig" with {'entityName': entityName, 'entity': heritage} %}
+                </td>
+            </tr>
+        {% endif %}
     {% endfor %}
 {% endblock %}

@@ -11,7 +11,7 @@ trait ActiveTrait
      *
      * @ORM\Column(type="boolean")
      */
-    private $isActive = true;
+    private $isActive = false;
 
     /**
      * @return bool
