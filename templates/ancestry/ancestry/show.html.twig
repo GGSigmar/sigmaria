@@ -1,108 +1,108 @@
-{% extends "base/base.html.twig" %}
+{% extends "base/components/entity_with_right_sidebar.html.twig" %}
 
-{% block content %}
-    <div class="col-md-12">
-        {% include "base/utilities/entity_show_header.html.twig" with {'entity': ancestry} %}
-    </div>
+{% block header %}
+    {% include "base/utilities/entity_show_header.html.twig" with {'entity': ancestry} %}
+{% endblock %}
 
-    <div class="col-md-9 pt-2 pb-2">
-        {% include 'core/paragraph/paragraph_entity_display.html.twig' with {'entity': ancestry} %}
-        {% include 'ancestry/feature/entity_display.html.twig' with {'entity': ancestry} %}
-    </div>
+{% block leftSection %}
+    {% include 'core/paragraph/paragraph_entity_display.html.twig' with {'entity': ancestry} %}
+    {% include 'ancestry/feature/entity_display.html.twig' with {'entity': ancestry} %}
+{% endblock %}
 
-    <div class="col-md-3 sidebar sidebar-right color-blood text-justify pt-2 pb-2">
-        {% if isAdmin %}
-            <h3>Wartość</h3>
-            <p class="mb-4">{{ ancestry.value }}</p>
-        {% endif %}
+{% block rightSidebar %}
+    {% if isAdmin %}
+        <h3>Wartość</h3>
+        <p class="mb-4">{{ ancestry.value }}</p>
+    {% endif %}
 
-        <h3>Rzadkość</h3>
-        <p class="mb-4">
-            {{ ancestry.rarity.name }}
-        </p>
+    <h3>Rzadkość</h3>
+    <p class="mb-4">
+        {{ ancestry.rarity.name }}
+    </p>
 
-        <h3>Punkty zdrowia</h3>
-        <p class="mb-4">
-            {{ ancestry.hitPoints.name }}
-        </p>
+    <h3>Punkty zdrowia</h3>
+    <p class="mb-4">
+        {{ ancestry.hitPoints.name }}
+    </p>
 
-        <h3>Rozmiar</h3>
-        <p class="mb-4">
-            {{ ancestry.size.name }}
-        </p>
+    <h3>Rozmiar</h3>
+    <p class="mb-4">
+        {{ ancestry.size.name }}
+    </p>
 
-        <h3>Prędkość</h3>
-        <p class="mb-4">
-            {{ ancestry.speed.name }} stóp
-        </p>
+    <h3>Prędkość</h3>
+    <p class="mb-4">
+        {{ ancestry.speed.name }} stóp
+    </p>
 
-        <h3>Premie do cech</h3>
-        <p class="mb-4">
-            {% if ancestry.abilityBoosts|length == 2 %}
-                {{ ancestry.abilityBoosts|first }} lub {{ ancestry.abilityBoosts|last }}
-            {% else %}
-                Dowolna
-            {% endif %}
-            <br />
+    <h3>Premie do cech</h3>
+    <p class="mb-4">
+        {% if ancestry.abilityBoosts|length == 2 %}
+            {{ ancestry.abilityBoosts|first }} lub {{ ancestry.abilityBoosts|last }}
+        {% else %}
             Dowolna
-        </p>
+        {% endif %}
+        <br />
+        Dowolna
+    </p>
 
-        <h3>Języki</h3>
-        <p class="mb-4">
-            {{ ancestry.languagesMessage }}
-        </p>
+    <h3>Języki</h3>
+    <p class="mb-4">
+        {{ ancestry.languagesMessage }}
+    </p>
 
-        <h3>Atrybuty</h3>
-        <p class="mb-4">
-            {% if ancestry.attributes is empty %}
-                Brak.
-            {% else %}
-                {% for attribute in ancestry.attributes %}
-                    {{ attribute.name}}
-
-                    {% if not loop.last %}
-                        <br />
-                    {% endif %}
-                {% endfor %}
-            {% endif %}
-        </p>
-
-        <h3>Kultury</h3>
-        <p class="mb-4">
-            {% if isAdmin %}
-                {% set cultures = ancestry.cultures %}
-            {% else %}
-                {% set cultures = ancestry.activeCultures %}
-            {% endif %}
-
-            {% if cultures is empty %}
-                Brak
-            {% else %}
-                {% for culture in cultures %}
-                    {% include "base/badges/entity_show_badge.html.twig" with {'entityName': 'culture', 'entityId': culture.id} %}
-                    {{ culture.name }}
-
-                    {% if not loop.last %}
-                        <br />
-                    {% endif %}
-                {% endfor %}
-            {% endif %}
-        </p>
-
-        <h3>Początkowe atuty rasowe</h3>
-        <p class="mb-0">
-            Bez dziedzictwa: {{ ancestry.getNumberOfFreeFeats }}
-            <br />
-            {% for value in ancestry.getHeritageValues %}
-                Z dziedzictwem ({{ value|roman }}): {{ ancestry.getNumberOfFreeFeats - value }}
+    <h3>Atrybuty</h3>
+    <p class="mb-4">
+        {% if ancestry.attributes is empty %}
+            Brak.
+        {% else %}
+            {% for attribute in ancestry.attributes %}
+                {{ attribute.name}}
 
                 {% if not loop.last %}
                     <br />
                 {% endif %}
             {% endfor %}
-        </p>
-    </div>
+        {% endif %}
+    </p>
 
+    <h3>Kultury</h3>
+    <p class="mb-4">
+        {% if isAdmin %}
+            {% set cultures = ancestry.cultures %}
+        {% else %}
+            {% set cultures = ancestry.activeCultures %}
+        {% endif %}
+
+        {% if cultures is empty %}
+            Brak
+        {% else %}
+            {% for culture in cultures %}
+                {% include "base/badges/entity_show_badge.html.twig" with {'entityName': 'culture', 'entityId': culture.id} %}
+                {{ culture.name }}
+
+                {% if not loop.last %}
+                    <br />
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+    </p>
+
+    <h3>Początkowe atuty rasowe</h3>
+    <p class="mb-0">
+        Bez dziedzictwa: {{ ancestry.getNumberOfFreeFeats }}
+        <br />
+        {% for value in ancestry.getHeritageValues %}
+            Z dziedzictwem ({{ value|roman }}): {{ ancestry.getNumberOfFreeFeats - value }}
+
+            {% if not loop.last %}
+                <br />
+            {% endif %}
+        {% endfor %}
+    </p>
+{% endblock %}
+
+{% block bottomSection %}
     {% if isAdmin or ancestry.activeHeritages is not empty %}
         {% include 'ancestry/heritage/entity_display.html.twig' with {'entity': ancestry} %}
     {% endif %}

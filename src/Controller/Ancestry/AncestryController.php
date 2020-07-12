@@ -26,7 +26,7 @@ class AncestryController extends BaseController
     }
 
     /**
-     * @Route("/ancestry/{id}/show", name="ancestry_show")
+     * @Route("/ancestry/{slug}/show", name="ancestry_show")
      * @Template("ancestry/ancestry/show.html.twig")
      */
     public function showAncestryAction(Ancestry $ancestry)

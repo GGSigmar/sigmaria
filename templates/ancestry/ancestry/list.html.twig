@@ -53,7 +53,7 @@
                     <td class="align-middle">{{ ancestry.value }}</td>
                 {% endif %}
                 <td class="align-middle">
-                    {% include "base/buttons/entity_show_button.html.twig" with {'entityName': entityName, 'entity': ancestry} %}
+                    {% include "base/buttons/entity_slug_show_button.html.twig" with {'entityName': entityName, 'entity': ancestry} %}
                     {% if isAdmin %}
                         {% include "base/buttons/entity_list_edit_button.html.twig" with {'entityName': entityName, 'entity': ancestry} %}
                         {% if not ancestry.isActive %}

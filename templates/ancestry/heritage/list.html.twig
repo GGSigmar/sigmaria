@@ -17,13 +17,13 @@
                 {{ heritage.name }}
             </td>
             <td class="align-middle">
-                {% include "base/badges/entity_show_badge.html.twig" with {'entityName': 'ancestry', 'entityId': heritage.ancestry.id} %} {{ heritage.ancestry.name }}
+                {% include "base/badges/entity_slug_show_badge.html.twig" with {'entityName': 'ancestry', 'entitySlug': heritage.ancestry.slug} %} {{ heritage.ancestry.name }}
             </td>
             <td class="align-middle">
                 {{ heritage.value }}
             </td>
             <td class="align-middle text-nowrap">
-                {% include "base/buttons/entity_show_button.html.twig" with {'entityName': entityName, 'entity': heritage} %}
+                {% include "base/buttons/entity_slug_show_button.html.twig" with {'entityName': entityName, 'entity': heritage} %}
                 {% include "base/buttons/entity_list_edit_button.html.twig" with {'entityName': entityName, 'entity': heritage} %}
                 {% if not heritage.isActive %}
                     {% include "base/buttons/entity_release_buttons.html.twig" with {'entityName': entityName, 'entity': heritage} %}

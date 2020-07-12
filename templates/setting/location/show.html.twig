@@ -1,7 +1,17 @@
-{% extends "base/base.html.twig" %}
+{% extends "base/components/entity_with_right_sidebar.html.twig" %}
 
-{% block content %}
-    <div class="col-md-12">
-        {% include "base/utilities/entity_show_header.html.twig" with {'entity': location} %}
-    </div>
+{% block header %}
+    {% include "base/utilities/entity_show_header.html.twig" with {'entity': location} %}
+{% endblock %}
+
+{% block leftSection %}
+    Left
+{% endblock %}
+
+{% block rightSidebar %}
+    Sidebar
+{% endblock %}
+
+{% block bottomSection %}
+    Bottom
 {% endblock %}

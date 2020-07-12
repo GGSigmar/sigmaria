@@ -1,1 +1,17 @@
-TBD.
+{% extends "base/base.html.twig" %}
+
+{% block content %}
+    <div class="col-md-12">
+        {% block header %}{% endblock %}
+    </div>
+
+    <div class="col-md-9 pt-2 pb-2">
+        {% block leftSection %}{% endblock %}
+    </div>
+
+    <div class="col-md-3 sidebar sidebar-right color-blood text-justify pt-2 pb-2">
+        {% block rightSidebar %}{% endblock %}
+    </div>
+
+    {% block bottomSection %}{% endblock %}
+{% endblock %}

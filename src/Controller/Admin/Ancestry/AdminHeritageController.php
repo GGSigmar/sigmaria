@@ -22,22 +22,6 @@ use Symfony\Component\HttpFoundation\Request;
 class AdminHeritageController extends BaseController
 {
     /**
-     * @Route("/admin/ancestry/heritage/list", name="heritage_list")
-     * @Template("ancestry/heritage/list.html.twig")
-     */
-    public function listHeritagesAction()
-    {
-        $heritages = $this->getDoctrine()->getRepository(Heritage::class)->findAll();
-
-        $templateData = [
-            'heritages' => $heritages,
-            'entityName' => Heritage::ENTITY_NAME,
-        ];
-
-        return array_merge($templateData, $this->getTemplateData(BaseController::NAV_TAB_ADMIN));
-    }
-
-    /**
      * @Route("/admin/ancestry/heritage/create", name="heritage_create")
      * @Template("ancestry/heritage/create.html.twig")
      */
@@ -147,7 +131,7 @@ class AdminHeritageController extends BaseController
     }
 
     /**
-     * @Route("/admin/heritage/heritage/{id}/stage", name="heritage_stage")
+     * @Route("/admin/ancestry/heritage/{id}/stage", name="heritage_stage")
      */
     public function stageHeritageAction(Request $request, Heritage $heritage)
     {
@@ -164,7 +148,7 @@ class AdminHeritageController extends BaseController
     }
 
     /**
-     * @Route("/admin/heritage/heritage/{id}/unstage", name="heritage_unstage")
+     * @Route("/admin/ancestry/heritage/{id}/unstage", name="heritage_unstage")
      */
     public function unstageHeritageAction(Request $request, Heritage $heritage)
     {
@@ -253,7 +237,7 @@ class AdminHeritageController extends BaseController
     }
 
     /**
-     * @Route("/admin/heritage/{id}/paragraph/create", name="heritage_paragraph_create")
+     * @Route("/admin/ancestry/heritage/{id}/paragraph/create", name="heritage_paragraph_create")
      * @Template("core/paragraph/create.html.twig")
      */
     public function createHeritageParagraphAction(Request $request, Heritage $heritage)
@@ -286,7 +270,7 @@ class AdminHeritageController extends BaseController
     }
 
     /**
-     * @Route("/admin/heritage/{baseId}/paragraph/{id}/edit", name="heritage_paragraph_edit")
+     * @Route("/admin/ancestry/heritage/{baseId}/paragraph/{id}/edit", name="heritage_paragraph_edit")
      * @Template("core/paragraph/edit.html.twig")
      * @ParamConverter("heritage", class="App\Entity\Ancestry\Heritage", options={"id"="baseId"})
      * @ParamConverter("paragraph", class="App\Entity\Core\Paragraph", options={"id"="id"})

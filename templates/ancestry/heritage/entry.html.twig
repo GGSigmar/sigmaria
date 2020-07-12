@@ -4,7 +4,7 @@
             {{ heritage.name|upper }}
             <span class="float-right">
                 DZIEDZICTWO ({{ heritage.value|roman }})
-                {% include "base/badges/entity_show_badge.html.twig" with {'entityName': 'heritage', 'entityId': heritage.id} %}
+                {% include "base/badges/entity_slug_show_badge.html.twig" with {'entityName': 'heritage', 'entitySlug': heritage.slug} %}
                 {% if isAdmin %}
                     {% include "base/badges/entity_display_edit_badge.html.twig"
                         with

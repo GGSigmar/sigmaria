@@ -1,106 +1,106 @@
-{% extends "base/base.html.twig" %}
+{% extends "base/components/entity_with_right_sidebar.html.twig" %}
 
-{% block content %}
-    <div class="col-md-12">
-        {% include "base/utilities/entity_show_header.html.twig" with {'entity': heritage} %}
-    </div>
+{% block header %}
+    {% include "base/utilities/entity_show_header.html.twig" with {'entity': heritage} %}
+{% endblock %}
 
-    <div class="col-md-9 pt-2 pb-2">
-        {% include 'core/paragraph/paragraph_entity_display.html.twig' with {'entity': heritage} %}
-        {% include 'ancestry/feature/entity_display.html.twig' with {'entity': heritage} %}
-    </div>
+{% block leftSection %}
+    {% include 'core/paragraph/paragraph_entity_display.html.twig' with {'entity': heritage} %}
+    {% include 'ancestry/feature/entity_display.html.twig' with {'entity': heritage} %}
+{% endblock %}
 
-    <div class="col-md-3 sidebar sidebar-right color-blood text-justify pt-2 pb-2">
-        {% if isAdmin %}
-            <h3>Wartość</h3>
+{% block rightSidebar %}
+    {% if isAdmin %}
+        <h3>Wartość</h3>
+        <p class="mb-4">
+            {{ heritage.value }}
+        </p>
+
+        {% if heritage.valueAdjustment %}
+            <h3>Korekta wartości</h3>
             <p class="mb-4">
-                {{ heritage.value }}
+                {{ heritage.valueAdjustment }}
             </p>
+        {% endif %}
+    {% endif %}
 
-            {% if heritage.valueAdjustment %}
-                <h3>Korekta wartości</h3>
-                <p class="mb-4">
-                    {{ heritage.valueAdjustment }}
-                </p>
+    <h3>Rasa</h3>
+    <p class="mb-4">
+        {% include "base/badges/entity_slug_show_badge.html.twig" with {'entityName': 'ancestry', 'entitySlug': heritage.ancestry.slug} %}
+        <span class="{% include 'base/components/activeness_text_class.html.twig' with {'entity': heritage.ancestry} %}">
+            {{ heritage.ancestry.name }}
+        </span>
+    </p>
+
+    <h3>Rzadkość</h3>
+    <p class="mb-4">
+        {{ heritage.rarity.name }}
+    </p>
+
+    <h3>Punkty zdrowia</h3>
+    <p class="mb-4">
+        {% if heritage.hitPoints %}
+            {{ heritage.hitPoints.name }}
+        {% else %}
+            {{ heritage.ancestry.hitPoints.name }}
+        {% endif %}
+    </p>
+
+    <h3>Rozmiar</h3>
+    <p class="mb-4">
+        {% if heritage.size %}
+            {{ heritage.size.name }}
+        {% else %}
+            {{ heritage.ancestry.size.name }}
+        {% endif %}
+    </p>
+
+    <h3>Prędkość</h3>
+    <p class="mb-4">
+        {% if heritage.speed %}
+            {{ heritage.speed.name }} stóp
+        {% else %}
+            {{ heritage.ancestry.speed.name }} stóp
+        {% endif %}
+    </p>
+
+    <h3>Premie do cech</h3>
+    <p class="mb-4">
+        {% if heritage.abilityBoosts|length == 2 %}
+            {{ heritage.abilityBoosts|first }} lub {{ heritage.abilityBoosts|last }}
+        {% else %}
+            {% if heritage.ancestry.abilityBoosts|length == 2 %}
+                {{ heritage.ancestry.abilityBoosts|first }} lub {{ heritage.ancestry.abilityBoosts|last }}
+            {% else %}
+                Dowolna
             {% endif %}
         {% endif %}
+        <br />
+        Dowolna
+    </p>
 
-        <h3>Rasa</h3>
-        <p class="mb-4">
-            {% include "base/badges/entity_show_badge.html.twig" with {'entityName': 'ancestry', 'entityId': heritage.ancestry.id} %}
-            <span class="{% include 'base/components/activeness_text_class.html.twig' with {'entity': heritage.ancestry} %}">
-                {{ heritage.ancestry.name }}
-            </span>
-        </p>
+    <h3>Atrybuty</h3>
+    <p class="mb-0">
+        {% if heritage.attributes is empty %}
+            Brak.
+        {% else %}
+            {% for attribute in heritage.attributes %}
+                {{ attribute.name}}
 
-        <h3>Rzadkość</h3>
-        <p class="mb-4">
-            {{ heritage.rarity.name }}
-        </p>
-
-        <h3>Punkty zdrowia</h3>
-        <p class="mb-4">
-            {% if heritage.hitPoints %}
-                {{ heritage.hitPoints.name }}
-            {% else %}
-                {{ heritage.ancestry.hitPoints.name }}
-            {% endif %}
-        </p>
-
-        <h3>Rozmiar</h3>
-        <p class="mb-4">
-            {% if heritage.size %}
-                {{ heritage.size.name }}
-            {% else %}
-                {{ heritage.ancestry.size.name }}
-            {% endif %}
-        </p>
-
-        <h3>Prędkość</h3>
-        <p class="mb-4">
-            {% if heritage.speed %}
-                {{ heritage.speed.name }} stóp
-            {% else %}
-                {{ heritage.ancestry.speed.name }} stóp
-            {% endif %}
-        </p>
-
-        <h3>Premie do cech</h3>
-        <p class="mb-4">
-            {% if heritage.abilityBoosts|length == 2 %}
-                {{ heritage.abilityBoosts|first }} lub {{ heritage.abilityBoosts|last }}
-            {% else %}
-                {% if heritage.ancestry.abilityBoosts|length == 2 %}
-                    {{ heritage.ancestry.abilityBoosts|first }} lub {{ heritage.ancestry.abilityBoosts|last }}
-                {% else %}
-                    Dowolna
+                {% if not loop.last %}
+                    <br />
                 {% endif %}
-            {% endif %}
-            <br />
-            Dowolna
-        </p>
+            {% endfor %}
+        {% endif %}
+    </p>
+{% endblock %}
 
-        <h3>Atrybuty</h3>
-        <p class="mb-0">
-            {% if heritage.attributes is empty %}
-                Brak.
-            {% else %}
-                {% for attribute in heritage.attributes %}
-                    {{ attribute.name}}
-
-                    {% if not loop.last %}
-                        <br />
-                    {% endif %}
-                {% endfor %}
-            {% endif %}
-        </p>
-    </div>
-
+{% block bottomSection %}
     {% include "core/feat/tabbed_entity_display.html.twig"
         with {
         'displayTitle': 'Atuty dziedzictwa',
         'entityName': 'heritage',
         'entity': heritage,
-        }
+    }
     %}
 {% endblock %}
