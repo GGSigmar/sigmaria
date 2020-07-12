@@ -66,7 +66,7 @@ class Culture
     /**
      * @var ArrayCollection
      *
-     * @ORM\ManyToMany(targetEntity="App\Entity\Core\Feat", fetch="EXTRA_LAZY")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Core\Feat", inversedBy="cultures", fetch="EXTRA_LAZY")
      * @ORM\OrderBy({"level"="ASC"})
      * @ORM\JoinTable(name="setting_culture_feat")
      */
@@ -80,6 +80,7 @@ class Culture
         $this->commonBackgrounds = new ArrayCollection();
         $this->commonLanguages = new ArrayCollection();
         $this->feats = new ArrayCollection();
+        $this->paragraphs = new ArrayCollection();
     }
 
     /**

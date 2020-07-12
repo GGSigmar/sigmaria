@@ -44,9 +44,9 @@ class AttributeCategory
     }
 
     /**
-     * @param Ability $attribute
+     * @param Attribute $attribute
      */
-    public function addAttribute(Ability $attribute): void
+    public function addAttribute(Attribute $attribute): void
     {
         if (!$this->attributes->contains($attribute)) {
             $this->attributes->add($attribute);

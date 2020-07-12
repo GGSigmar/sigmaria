@@ -19,7 +19,7 @@ class Session
     /**
      * @var Campaign
      *
-     * @ORM\ManyToOne(targetEntity="Campaign")
+     * @ORM\ManyToOne(targetEntity="Campaign", inversedBy="sessions")
      * @Assert\NotBlank
      */
     private $campaign;

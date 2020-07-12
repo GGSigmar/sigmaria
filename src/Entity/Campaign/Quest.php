@@ -16,6 +16,13 @@ use Doctrine\ORM\Mapping as ORM;
 class Quest
 {
     use BaseFieldsTrait, DescriptionTrait, TimestampableEntity;
+    /**
+     * @var Campaign
+     *
+     * @ORM\ManyToOne(targetEntity="Campaign", inversedBy="quests")
+     * @Assert\NotBlank
+     */
+    private $campaign;
 
     /**
      * @var Location
@@ -41,6 +48,22 @@ class Quest
      * @ORM\Column(type="text", nullable=true)
      */
     private $reward;
+
+    /**
+     * @return Campaign
+     */
+    public function getCampaign(): Campaign
+    {
+        return $this->campaign;
+    }
+
+    /**
+     * @param Campaign $campaign
+     */
+    public function setCampaign(Campaign $campaign): void
+    {
+        $this->campaign = $campaign;
+    }
 
     /**
      * @return Location

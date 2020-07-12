@@ -93,7 +93,7 @@ class Heritage
     /**
      * @var ArrayCollection
      *
-     * @ORM\ManyToMany(targetEntity="App\Entity\Core\Feat", fetch="EXTRA_LAZY")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Core\Feat", inversedBy="heritages", fetch="EXTRA_LAZY")
      * @ORM\OrderBy({"level"="ASC", "name"="ASC"})
      * @ORM\JoinTable(name="ancestry_heritage_feat")
      */
@@ -274,6 +274,7 @@ class Heritage
     {
         if (!$this->ancestralFeatures->contains($ancestralFeature)) {
             $this->ancestralFeatures->add($ancestralFeature);
+            $ancestralFeature->addHeritage($this);
         }
 
         return;
@@ -286,6 +287,7 @@ class Heritage
     {
         if ($this->ancestralFeatures->contains($ancestralFeature)) {
             $this->ancestralFeatures->removeElement($ancestralFeature);
+            $ancestralFeature->removeHeritage($this);
         }
 
         return;
