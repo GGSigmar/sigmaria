@@ -17,6 +17,8 @@ class LocationType
 {
     use BaseFieldsTrait, HandleTrait, TimestampableEntity;
 
+    public const ENTITY_NAME = 'location_type';
+
     /**
      * @var ArrayCollection
      *

@@ -5,12 +5,14 @@ namespace App\Controller\Core;
 use App\Controller\Base\BaseController;
 use App\Entity\Ancestry\Ancestry;
 use App\Entity\Ancestry\Heritage;
+use App\Entity\Campaign\Campaign;
 use App\Entity\Core\CharacterCreationStep;
 use App\Entity\Core\Feat;
 use App\Entity\Core\Release;
 use App\Entity\Setting\Background;
 use App\Entity\Setting\Culture;
 use App\Entity\Setting\Language;
+use App\Entity\Setting\Location;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -64,6 +66,8 @@ class CoreController extends BaseController
         $entities[] = $doctrine->getRepository(Release::class)->findAll();
         $entities[] = $doctrine->getRepository(Heritage::class)->findAll();
         $entities[] = $doctrine->getRepository(Ancestry::class)->findAll();
+        $entities[] = $doctrine->getRepository(Location::class)->findAll();
+        $entities[] = $doctrine->getRepository(Campaign::class)->findAll();
 
         foreach ($entities as $entityType) {
             foreach ($entityType as $entity) {

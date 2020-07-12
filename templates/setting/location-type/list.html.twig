@@ -1,0 +1,24 @@
+{% extends "base/base_list.html.twig" %}
+
+{% block list_title %}
+    Typ lokacji
+{% endblock %}
+
+{% block table_headers %}
+    <th>Nazwa</th>
+    <th>Akcje</th>
+{% endblock %}
+
+{% block table_rows %}
+    {% for type in locationTypes %}
+        <tr>
+            <td class="align-middle">{{ type.name }}</td>
+            <td class="align-middle text-nowrap">
+                {% include "base/buttons/entity_list_edit_button.html.twig" with {'entityName': entityName, 'entity': type} %}
+                {% if type.locations is empty %}
+                    <a href="{{ path('attribute_category_delete', {"id": type.id}) }}" class="btn btn-outline-danger" role="button">Usuń <i class="fas fa-trash-alt"></i></a>
+                {% endif %}
+            </td>
+        </tr>
+    {% endfor %}
+{% endblock %}

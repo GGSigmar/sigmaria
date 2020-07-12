@@ -19,7 +19,7 @@ class LanguageController extends BaseController
 
         $templateData = [
             'languages' => $languages,
-            'entityName' => 'language',
+            'entityName' => Language::ENTITY_NAME,
         ];
 
         return array_merge($templateData, $this->getTemplateData(BaseController::NAV_TAB_SETTING));
@@ -35,7 +35,7 @@ class LanguageController extends BaseController
 
         $templateData = [
             'language' => $language,
-            'entityName' => 'language',
+            'entityName' => Language::ENTITY_NAME,
         ];
 
         return array_merge($templateData, $this->getTemplateData(BaseController::NAV_TAB_SETTING));

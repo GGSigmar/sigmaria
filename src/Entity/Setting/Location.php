@@ -2,9 +2,11 @@
 
 namespace App\Entity\Setting;
 
+use App\Entity\Core\Traits\ActiveTrait;
 use App\Entity\Core\Traits\BaseFieldsTrait;
 use App\Entity\Core\Traits\DescriptionTrait;
 use App\Entity\Core\Traits\ParagraphsTrait;
+use App\Entity\Core\Traits\ReleasableTrait;
 use App\Entity\Core\Traits\SlugTrait;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
@@ -17,7 +19,9 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class Location
 {
-    use BaseFieldsTrait, DescriptionTrait, ParagraphsTrait, SlugTrait, TimestampableEntity;
+    use BaseFieldsTrait, ActiveTrait, DescriptionTrait, ParagraphsTrait, SlugTrait, ReleasableTrait, TimestampableEntity;
+
+    public const ENTITY_NAME = 'location';
 
     /**
      * @var LocationType

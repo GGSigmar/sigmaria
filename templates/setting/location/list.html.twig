@@ -1,0 +1,36 @@
+{% extends "base/base_list.html.twig" %}
+
+{% block list_title %}
+    Lokacje
+{% endblock %}
+
+{% block table_headers %}
+    <th class="align-middle">Nazwa</th>
+    <th class="align-middle">Typ</th>
+    <th class="align-middle">Lokacja nadrzędna</th>
+    <th class="align-middle">Akcje</th>
+{% endblock %}
+
+{% block table_rows %}
+    {% for location in locations %}
+        {% if isAdmin or location.isActive %}
+            <tr class="{% include "base/utilities/inactive_entity_row_classes.html.twig" with {'entity': location} %}">
+                <td class="align-middle">{{ location.name }}</td>
+                <td class="align-middle">{{ location.type.name }}</td>
+                <td class="align-middle">
+                    {% include "base/badges/entity_show_badge.html.twig" with {'entityName': 'location', 'entityId': location.parent.id} %} {{ location.parent.name }}
+                </td>
+                <td class="align-middle text-nowrap">
+                    {% include "base/buttons/entity_show_button.html.twig" with {'entityName': entityName, 'entity': location} %}
+                    {% if isAdmin %}
+                        {% include "base/buttons/entity_list_edit_button.html.twig" with {'entityName': entityName, 'entity': location} %}
+                        {% if not language.isActive %}
+                            {% include "base/buttons/entity_release_buttons.html.twig" with {'entityName': entityName, 'entity': location} %}
+                        {% endif %}
+                        {% include "base/buttons/entity_delete_buttons.html.twig" with {'entityName': entityName, 'entity': location} %}
+                    {% endif %}
+                </td>
+            </tr>
+        {% endif %}
+    {% endfor %}
+{% endblock %}
