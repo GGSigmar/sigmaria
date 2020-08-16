@@ -36,10 +36,10 @@ class Ancestry
 
     public const ANCESTRY_VALUE = 6;
 
-    public const LANGUAGES_MESSAGE = 'Znasz dwa języki pospolite dla twojej kultury lub rodzimego regionu
-    (najczęściej Wspólny oraz język ojczysty twojej rasy).
-    Jeżeli twój modyfikator Inteligencji jest dodatni, znasz dodatkową liczbę języków równą jego wartości.
-    Dodatkowe języki również muszą być językami pospolicie znanymi w twojej kulturze lub rodzimym regionie.';
+    public const LANGUAGES_MESSAGE = 'You know 2 languages common to your culture or prevalent in your region
+    (usually Common and the language of your ancestry). If your Intelligence modifier is positive, 
+    you know additional languages equal to its value. Additional languages should also be common to you.
+    ';
 
     public const ANCESTRY_HUMAN = 'ANCESTRY_HUMAN';
     public const ANCESTRY_DWARF = 'ANCESTRY_DWARF';

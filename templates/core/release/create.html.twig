@@ -1,14 +1,14 @@
 {% extends "base/base_form.html.twig" %}
 
 {% block form_title %}
-    Wydaj zawartość
+    Release content
 {% endblock %}
 
 {% block content %}
     {{ parent() }}
 
     <div class="col-md-12 mt-3">
-        <h3 class="mb-3">Zawartość do wydania:</h3>
+        <h3 class="mb-3">Staged content:</h3>
     </div>
 
     {% include 'core/release/content_array_display.html.twig' %}

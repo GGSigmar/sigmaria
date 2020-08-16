@@ -64,6 +64,6 @@ class Paragraph
      */
     public function __toString(): string
     {
-        return $this->name ?? 'Paragraf bez nazwy';
+        return $this->name ?? 'Paragraph with no name';
     }
 }

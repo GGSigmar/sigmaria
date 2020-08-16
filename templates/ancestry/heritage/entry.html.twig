@@ -3,7 +3,7 @@
         <h4>
             {{ heritage.name|upper }}
             <span class="float-right">
-                DZIEDZICTWO ({{ heritage.value|roman }})
+                HERITAGE ({{ heritage.value|roman }})
                 {% include "base/badges/entity_slug_show_badge.html.twig" with {'entityName': 'heritage', 'entitySlug': heritage.slug} %}
                 {% if isAdmin %}
                     {% include "base/badges/entity_display_edit_badge.html.twig"
@@ -30,22 +30,22 @@
         <div class="border-bottom border-white">
             {% if heritage.hitPoints and heritage.hitPoints.name != heritage.ancestry.hitPoints.name %}
                 <div>
-                    <b>Punkty zdrowia:</b> {{ heritage.hitPoints }}
+                    <b>Hit Points:</b> {{ heritage.hitPoints }}
                 </div>
             {% endif %}
             {% if heritage.size and heritage.size.name != heritage.ancestry.size.name %}
                 <div>
-                    <b>Rozmiar:</b> {{ heritage.size }}
+                    <b>Size:</b> {{ heritage.size }}
                 </div>
             {% endif %}
             {% if heritage.speed and heritage.speed.name != heritage.ancestry.speed.name %}
                 <div>
-                    <b>Prędkość:</b> {{ heritage.speed }}
+                    <b>Speed:</b> {{ heritage.speed }} feet
                 </div>
             {% endif %}
             {% if heritage.abilityBoosts|length == 2 %}
                 <div>
-                    <b>Premie do cech:</b> {{ heritage.abilityBoosts|first }} lub {{ heritage.abilityBoosts|last }}, dowolna
+                    <b>Ability Boosts:</b> {{ heritage.abilityBoosts|first }} or {{ heritage.abilityBoosts|last }}, Free
                 </div>
             {% endif %}
         </div>

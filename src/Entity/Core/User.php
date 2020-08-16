@@ -9,7 +9,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 /**
  * @ORM\Entity
  * @ORM\Table(name="`user`")
- * @UniqueEntity(fields={"email"}, message="Wygląda na to, że już masz konto :)")
+ * @UniqueEntity(fields={"email"}, message="Looks like you have an account already :)")
  */
 class User extends BaseUser
 {

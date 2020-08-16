@@ -32,7 +32,7 @@ class Heritage
 
     public const ENTITY_NAME = 'heritage';
 
-    public const HERITAGE_FEATURES_NOTE = 'Zobacz podstronę dziedzictwa aby zapoznać się z jego zdolnościami.';
+    public const HERITAGE_FEATURES_NOTE = 'See the Heritage\'s page to find its features, feats and details.';
 
     /**
      * @var Ancestry

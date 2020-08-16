@@ -32,13 +32,13 @@
 
     <h3>Speed</h3>
     <p class="mb-4">
-        {{ ancestry.speed.name }} stóp
+        {{ ancestry.speed.name }} feet
     </p>
 
-    <h3>Ability boosts</h3>
+    <h3>Ability Boosts</h3>
     <p class="mb-4">
         {% if ancestry.abilityBoosts|length == 2 %}
-            {{ ancestry.abilityBoosts|first }} lub {{ ancestry.abilityBoosts|last }}
+            {{ ancestry.abilityBoosts|first }} or {{ ancestry.abilityBoosts|last }}
         {% else %}
             Free
         {% endif %}
@@ -54,7 +54,7 @@
     <h3>Traits</h3>
     <p class="mb-4">
         {% if ancestry.attributes is empty %}
-            None.
+            None
         {% else %}
             {% for attribute in ancestry.attributes %}
                 {{ attribute.name}}
@@ -75,7 +75,7 @@
         {% endif %}
 
         {% if cultures is empty %}
-            None.
+            None
         {% else %}
             {% for culture in cultures %}
                 {% include "base/badges/entity_show_badge.html.twig" with {'entityName': 'culture', 'entityId': culture.id} %}
@@ -88,7 +88,7 @@
         {% endif %}
     </p>
 
-    <h3>Starting ancestry feats</h3>
+    <h3>Starting Ancestry Feats</h3>
     <p class="mb-0">
         No Heritage: {{ ancestry.getNumberOfFreeFeats }}
         <br />

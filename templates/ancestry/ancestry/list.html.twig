@@ -1,19 +1,19 @@
 {% extends "base/base_list.html.twig" %}
 
 {% block list_title %}
-    Rasy
+    Ancestries
 {% endblock %}
 
 {% block table_headers %}
-    <th class="align-middle">Nazwa</th>
-    <th class="align-middle">Punkty zdrowia</th>
-    <th class="align-middle">Rozmiar</th>
-    <th class="align-middle">Prędkość</th>
-    <th class="align-middle">Premie do cech</th>
-    <th class="align-middle">Atrybuty</th>
-    <th class="align-middle">Kultury</th>
-    {% if isAdmin %}<th class="align-middle">Wartość</th>{% endif %}
-    <th class="align-middle">Akcje</th>
+    <th class="align-middle">Name</th>
+    <th class="align-middle">Hit Points</th>
+    <th class="align-middle">Size</th>
+    <th class="align-middle">Speed</th>
+    <th class="align-middle">Ability Boosts</th>
+    <th class="align-middle">Traits</th>
+    <th class="align-middle">Cultures</th>
+    {% if isAdmin %}<th class="align-middle">Value</th>{% endif %}
+    <th class="align-middle">Action</th>
 {% endblock %}
 
 {% block table_rows %}
@@ -23,12 +23,12 @@
                 <td class="align-middle">{{ ancestry.name }}</td>
                 <td class="align-middle">{{ ancestry.hitPoints }}</td>
                 <td class="align-middle">{{ ancestry.size }}</td>
-                <td class="align-middle">{{ ancestry.speed }} stóp</td>
+                <td class="align-middle">{{ ancestry.speed }} feet</td>
                 <td class="align-middle">
                     {% if ancestry.abilityBoosts|length == 2 %}
-                        {{ ancestry.abilityBoosts|first }} lub {{ ancestry.abilityBoosts|last }}
+                        {{ ancestry.abilityBoosts|first }} or {{ ancestry.abilityBoosts|last }}
                     {% else %}
-                        Dowolna
+                        Free
                     {% endif %}
                 </td>
                 <td class="align-middle">
@@ -38,7 +38,7 @@
                 </td>
                 <td class="align-middle">
                     {% if ancestry.cultures is empty %}
-                        Brak
+                        None
                     {% else %}
                         {% for culture in ancestry.cultures %}
                             {% include "base/badges/entity_show_badge.html.twig" with {'entityName': 'culture', 'entityId': culture.id} %} {{ culture.name }}

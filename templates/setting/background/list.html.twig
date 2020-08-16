@@ -18,7 +18,7 @@
             <tr class="{% include "base/utilities/inactive_entity_row_classes.html.twig" with {'entity': background} %}">
                 <td class="align-middle">{{ background.name }}</td>
                 <td class="align-middle">
-                    {{ background.abilityBoosts|first }} lub {{ background.abilityBoosts|last }}
+                    {{ background.abilityBoosts|first }} or {{ background.abilityBoosts|last }}
                 </td>
                 <td class="align-middle">
                     {% if background.trainedSkill %}{{ background.trainedSkill.name }}{% endif %}

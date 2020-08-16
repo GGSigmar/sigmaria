@@ -11,20 +11,20 @@
 
 {% block rightSidebar %}
     {% if isAdmin %}
-        <h3>Wartość</h3>
+        <h3>Value</h3>
         <p class="mb-4">
             {{ heritage.value }}
         </p>
 
         {% if heritage.valueAdjustment %}
-            <h3>Korekta wartości</h3>
+            <h3>Value correction</h3>
             <p class="mb-4">
                 {{ heritage.valueAdjustment }}
             </p>
         {% endif %}
     {% endif %}
 
-    <h3>Rasa</h3>
+    <h3>Ancestry</h3>
     <p class="mb-4">
         {% include "base/badges/entity_slug_show_badge.html.twig" with {'entityName': 'ancestry', 'entitySlug': heritage.ancestry.slug} %}
         <span class="{% include 'base/components/activeness_text_class.html.twig' with {'entity': heritage.ancestry} %}">
@@ -32,12 +32,12 @@
         </span>
     </p>
 
-    <h3>Rzadkość</h3>
+    <h3>Rarity</h3>
     <p class="mb-4">
         {{ heritage.rarity.name }}
     </p>
 
-    <h3>Punkty zdrowia</h3>
+    <h3>Hit Points</h3>
     <p class="mb-4">
         {% if heritage.hitPoints %}
             {{ heritage.hitPoints.name }}
@@ -46,7 +46,7 @@
         {% endif %}
     </p>
 
-    <h3>Rozmiar</h3>
+    <h3>Size</h3>
     <p class="mb-4">
         {% if heritage.size %}
             {{ heritage.size.name }}
@@ -55,34 +55,34 @@
         {% endif %}
     </p>
 
-    <h3>Prędkość</h3>
+    <h3>Speed</h3>
     <p class="mb-4">
         {% if heritage.speed %}
-            {{ heritage.speed.name }} stóp
+            {{ heritage.speed.name }} feet
         {% else %}
-            {{ heritage.ancestry.speed.name }} stóp
+            {{ heritage.ancestry.speed.name }} feet
         {% endif %}
     </p>
 
-    <h3>Premie do cech</h3>
+    <h3>Ability Boosts</h3>
     <p class="mb-4">
         {% if heritage.abilityBoosts|length == 2 %}
-            {{ heritage.abilityBoosts|first }} lub {{ heritage.abilityBoosts|last }}
+            {{ heritage.abilityBoosts|first }} or {{ heritage.abilityBoosts|last }}
         {% else %}
             {% if heritage.ancestry.abilityBoosts|length == 2 %}
-                {{ heritage.ancestry.abilityBoosts|first }} lub {{ heritage.ancestry.abilityBoosts|last }}
+                {{ heritage.ancestry.abilityBoosts|first }} or {{ heritage.ancestry.abilityBoosts|last }}
             {% else %}
-                Dowolna
+                Free
             {% endif %}
         {% endif %}
         <br />
-        Dowolna
+        Free
     </p>
 
-    <h3>Atrybuty</h3>
+    <h3>Traits</h3>
     <p class="mb-0">
         {% if heritage.attributes is empty %}
-            Brak.
+            None
         {% else %}
             {% for attribute in heritage.attributes %}
                 {{ attribute.name}}

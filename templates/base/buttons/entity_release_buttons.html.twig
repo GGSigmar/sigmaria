@@ -1,10 +1,10 @@
 {% if entity.isToBeReleased %}
     {% set unstagePathName = (entityName ~ '_unstage') %}
 
-    <a href="{{ path(unstagePathName, {"id": entity.id}) }}" class="btn btn-outline-danger" role="button">Nie wydawaj <i class="fas fa-minus-square"></i></a>
+    <a href="{{ path(unstagePathName, {"id": entity.id}) }}" class="btn btn-outline-danger" role="button">Unstage <i class="fas fa-minus-square"></i></a>
 {% else %}
     {% set stagePathName = (entityName ~ '_stage') %}
 
-    <a href="{{ path(stagePathName, {"id": entity.id}) }}" class="btn btn-outline-success" role="button">Wydaj <i class="fas fa-plus-square"></i></a>
+    <a href="{{ path(stagePathName, {"id": entity.id}) }}" class="btn btn-outline-success" role="button">Stage <i class="fas fa-plus-square"></i></a>
 {% endif %}
 
