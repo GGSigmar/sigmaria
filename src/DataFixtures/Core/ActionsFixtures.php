@@ -12,23 +12,23 @@ class ActionsFixtures extends Fixture
     {
         $actionsOne = new Actions();
         $actionsOne->setHandle(Actions::ACTIONS_ONE);
-        $actionsOne->setName('Jedna akcja');
+        $actionsOne->setName('One Action');
 
         $actionsTwo = new Actions();
         $actionsTwo->setHandle(Actions::ACTIONS_TWO);
-        $actionsTwo->setName('Dwie akcje');
+        $actionsTwo->setName('Two Actions');
 
         $actionsThree = new Actions();
         $actionsThree->setHandle(Actions::ACTIONS_THREE);
-        $actionsThree->setName('Trzy akcje');
+        $actionsThree->setName('Three Actions');
 
         $actionsReaction = new Actions();
         $actionsReaction->setHandle(Actions::ACTIONS_REACTION);
-        $actionsReaction->setName('Reakcja');
+        $actionsReaction->setName('Reaction');
 
         $actionsFree = new Actions();
         $actionsFree->setHandle(Actions::ACTIONS_FREE);
-        $actionsFree->setName('Wolna akcja');
+        $actionsFree->setName('Free Action');
 
         $manager->persist($actionsOne);
         $manager->persist($actionsTwo);

@@ -12,23 +12,23 @@ class AttributeCategoryFixtures extends Fixture
     {
         $genericAttributeCategory = new AttributeCategory();
         $genericAttributeCategory->setHandle(AttributeCategory::ATTRIBUTE_CATEGORY_GENERIC);
-        $genericAttributeCategory->setName('Atrybuty ogólne');
+        $genericAttributeCategory->setName('General Traits');
 
         $ancestralAttributeCategory = new AttributeCategory();
         $ancestralAttributeCategory->setHandle(AttributeCategory::ATTRIBUTE_CATEGORY_ANCESTRAL);
-        $ancestralAttributeCategory->setName('Atrybuty rasowe');
+        $ancestralAttributeCategory->setName('Ancestral Traits');
 
         $classAttributeCategory = new AttributeCategory();
         $classAttributeCategory->setHandle(AttributeCategory::ATTRIBUTE_CATEGORY_CLASS);
-        $classAttributeCategory->setName('Atrybuty klasowe');
+        $classAttributeCategory->setName('Class Traits');
 
         $culturalAttributeCategory = new AttributeCategory();
         $culturalAttributeCategory->setHandle(AttributeCategory::ATTRIBUTE_CATEGORY_CULTURAL);
-        $culturalAttributeCategory->setName('Atrybuty kulturowe');
+        $culturalAttributeCategory->setName('Cultural Traits');
 
         $heritageAttributeCategory = new AttributeCategory();
         $heritageAttributeCategory->setHandle(AttributeCategory::ATTRIBUTE_CATEGORY_CULTURAL);
-        $heritageAttributeCategory->setName('Atrybuty dziedzictw');
+        $heritageAttributeCategory->setName('Heritage Traits');
 
         $manager->persist($genericAttributeCategory);
         $manager->persist($ancestralAttributeCategory);

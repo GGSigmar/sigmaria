@@ -27,26 +27,21 @@ class HeritageType extends AbstractType
     {
         $builder
             ->add('valueAdjustment', IntegerType::class, [
-                'label' => 'Korekta wartości',
                 'required' => false,
             ])
             ->add('rarity', EntityType::class, [
-                'label' => 'Rzadkość',
                 'class' => Rarity::class
             ])
             ->add('ancestry', EntityType::class, [
                 'class' => Ancestry::class,
-                'label' => 'Rasa',
             ])
             ->add('hitPoints', EntityType::class, [
                 'class' => AncestralHitPoints::class,
-                'label' => 'Punkty zdrowia',
                 'required' => false,
                 'placeholder' => 'Wybierz',
             ])
             ->add('size', EntityType::class, [
                 'class' => Size::class,
-                'label' => 'Rozmiar',
                 'required' => false,
                 'placeholder' => 'Wybierz',
                 'query_builder' => function (EntityRepository $er) {
@@ -56,19 +51,16 @@ class HeritageType extends AbstractType
             ])
             ->add('speed', EntityType::class, [
                 'class' => MoveSpeed::class,
-                'label' => 'Prędkość ruchu',
                 'required' => false,
                 'placeholder' => 'Wybierz',
             ])
             ->add('abilityBoosts', EntityType::class, [
                 'class' => Ability::class,
-                'label' => 'Premie do cech',
                 'multiple' => true,
                 'expanded' => true,
             ])
             ->add('attributes', EntityType::class, [
                 'class' => Attribute::class,
-                'label' => 'Atrybuty',
                 'multiple' => true,
                 'group_by' => function (Attribute $attribute) {
                     return $attribute->getCategory()->getName();
@@ -79,7 +71,6 @@ class HeritageType extends AbstractType
             ])
             ->add('ancestralFeatures', EntityType::class, [
                 'class' => AncestralFeature::class,
-                'label' => 'Zdolności dziedzictwa',
                 'multiple' => true,
                 'attr' => [
                     'class' => 'js-example-basic-multiple',
@@ -87,7 +78,6 @@ class HeritageType extends AbstractType
             ])
             ->add('feats', EntityType::class, [
                 'class' => Feat::class,
-                'label' => 'Atuty dziedzictwa',
                 'multiple' => true,
                 'query_builder' => function (EntityRepository $er) {
                     return $er->createQueryBuilder('f')

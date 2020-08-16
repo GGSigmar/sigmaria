@@ -12,29 +12,29 @@ class SizeFixtures extends Fixture
     {
         $tinySize = new Size();
         $tinySize->setHandle(Size::SIZE_TINY);
-        $tinySize->setName('Drobny');
+        $tinySize->setName('Tiny');
 
         $smallSize = new Size();
         $smallSize->setHandle(Size::SIZE_SMALL);
-        $smallSize->setName('Mały');
+        $smallSize->setName('Small');
         $smallSize->setIsPlayerCharacterSize(true);
 
         $mediumSize = new Size();
         $mediumSize->setHandle(Size::SIZE_MEDIUM);
-        $mediumSize->setName('Średni');
+        $mediumSize->setName('Medium');
         $mediumSize->setIsPlayerCharacterSize(true);
 
         $largeSize = new Size();
         $largeSize->setHandle(Size::SIZE_LARGE);
-        $largeSize->setName('Duży');
+        $largeSize->setName('Large');
 
         $hugeSize = new Size();
         $hugeSize->setHandle(Size::SIZE_HUGE);
-        $hugeSize->setName('Wielki');
+        $hugeSize->setName('Huge');
 
         $gargantuanSize = new Size();
         $gargantuanSize->setHandle(Size::SIZE_GARGANTUAN);
-        $gargantuanSize->setName('Ogromny');
+        $gargantuanSize->setName('Gargantuan');
 
         $manager->persist($tinySize);
         $manager->persist($smallSize);

@@ -12,11 +12,11 @@ class CharacterClassFixtures extends Fixture
     {
         $alchemist = new CharacterClass();
         $alchemist->setHandle(CharacterClass::CHARACTER_CLASS_ALCHEMIST);
-        $alchemist->setName('Alchemik');
+        $alchemist->setName('Alchemist');
 
         $barbarian = new CharacterClass();
         $barbarian->setHandle(CharacterClass::CHARACTER_CLASS_BARBARIAN);
-        $barbarian->setName('Barbarzyńca');
+        $barbarian->setName('Barbarian');
 
         $bard = new CharacterClass();
         $bard->setHandle(CharacterClass::CHARACTER_CLASS_BARD);
@@ -24,11 +24,11 @@ class CharacterClassFixtures extends Fixture
 
         $champion = new CharacterClass();
         $champion->setHandle(CharacterClass::CHARACTER_CLASS_CHAMPION);
-        $champion->setName('Czempion');
+        $champion->setName('Champion');
 
         $cleric = new CharacterClass();
         $cleric->setHandle(CharacterClass::CHARACTER_CLASS_CLERIC);
-        $cleric->setName('Kleryk');
+        $cleric->setName('Cleric');
 
         $druid = new CharacterClass();
         $druid->setHandle(CharacterClass::CHARACTER_CLASS_DRUID);
@@ -36,43 +36,43 @@ class CharacterClassFixtures extends Fixture
 
         $fighter = new CharacterClass();
         $fighter->setHandle(CharacterClass::CHARACTER_CLASS_FIGHTER);
-        $fighter->setName('Wojownik');
+        $fighter->setName('Fighter');
 
         $monk = new CharacterClass();
         $monk->setHandle(CharacterClass::CHARACTER_CLASS_MONK);
-        $monk->setName('Mnich');
+        $monk->setName('Monk');
 
         $ranger = new CharacterClass();
         $ranger->setHandle(CharacterClass::CHARACTER_CLASS_RANGER);
-        $ranger->setName('Łowca');
+        $ranger->setName('Ranger');
 
         $rogue = new CharacterClass();
         $rogue->setHandle(CharacterClass::CHARACTER_CLASS_ROGUE);
-        $rogue->setName('Łotr');
+        $rogue->setName('Rogue');
 
         $sorcerer = new CharacterClass();
         $sorcerer->setHandle(CharacterClass::CHARACTER_CLASS_SORCERER);
-        $sorcerer->setName('Czarownik');
+        $sorcerer->setName('Sorcerer');
 
         $wizard = new CharacterClass();
         $wizard->setHandle(CharacterClass::CHARACTER_CLASS_WIZARD);
-        $wizard->setName('Czarodziej');
+        $wizard->setName('Wizard');
 
         $investigator = new CharacterClass();
         $investigator->setHandle(CharacterClass::CHARACTER_CLASS_INVESTIGATOR);
-        $investigator->setName('Śledczy');
+        $investigator->setName('Investigator');
 
         $oracle = new CharacterClass();
         $oracle->setHandle(CharacterClass::CHARACTER_CLASS_ORACLE);
-        $oracle->setName('Wyrocznia');
+        $oracle->setName('Oracle');
 
         $swashbuckler = new CharacterClass();
         $swashbuckler->setHandle(CharacterClass::CHARACTER_CLASS_SWASHBUCKLER);
-        $swashbuckler->setName('Zawadiaka');
+        $swashbuckler->setName('Swashbuckler');
 
         $witch = new CharacterClass();
         $witch->setHandle(CharacterClass::CHARACTER_CLASS_WITCH);
-        $witch->setName('Wiedźma');
+        $witch->setName('Witch');
 
         $manager->persist($alchemist);
         $manager->persist($barbarian);

@@ -26,11 +26,8 @@ class AncestryType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('sortOrder', IntegerType::class, [
-                'label' => 'Kolejność sortowania'
-            ])
+            ->add('sortOrder', IntegerType::class, [])
             ->add('rarity', EntityType::class, [
-                'label' => 'Rzadkość',
                 'class' => Rarity::class,
                 'attr' => [
                     'class' => 'js-example-basic-single',
@@ -38,14 +35,12 @@ class AncestryType extends AbstractType
             ])
             ->add('hitPoints', EntityType::class, [
                 'class' => AncestralHitPoints::class,
-                'label' => 'Punkty zdrowia',
                 'attr' => [
                     'class' => 'js-example-basic-single',
                 ]
             ])
             ->add('size', EntityType::class, [
                 'class' => Size::class,
-                'label' => 'Rozmiar',
                 'query_builder' => function (EntityRepository $er) {
                     return $er->createQueryBuilder('s')
                         ->andWhere('s.isPlayerCharacterSize = true');
@@ -56,14 +51,12 @@ class AncestryType extends AbstractType
             ])
             ->add('speed', EntityType::class, [
                 'class' => MoveSpeed::class,
-                'label' => 'Prędkość ruchu',
                 'attr' => [
                     'class' => 'js-example-basic-single',
                 ]
             ])
             ->add('abilityBoosts', EntityType::class, [
                 'class' => Ability::class,
-                'label' => 'Premie do cech',
                 'required' => false,
                 'multiple' => true,
                 'attr' => [
@@ -72,7 +65,6 @@ class AncestryType extends AbstractType
             ])
             ->add('attributes', EntityType::class, [
                 'class' => Attribute::class,
-                'label' => 'Atrybuty',
                 'multiple' => true,
                 'query_builder' => function (EntityRepository $er) {
                     return $er->createQueryBuilder('a')
@@ -87,7 +79,6 @@ class AncestryType extends AbstractType
             ->add('cultures', EntityType::class, [
                 'required' => false,
                 'class' => Culture::class,
-                'label' => 'Kultury',
                 'multiple' => true,
                 'by_reference' => false,
                 'attr' => [
@@ -96,7 +87,6 @@ class AncestryType extends AbstractType
             ])
             ->add('ancestralFeatures', EntityType::class, [
                 'class' => AncestralFeature::class,
-                'label' => 'Zdolności rasowe',
                 'required' => false,
                 'multiple' => true,
                 'attr' => [
@@ -105,7 +95,6 @@ class AncestryType extends AbstractType
             ])
             ->add('feats', EntityType::class, [
                 'class' => Feat::class,
-                'label' => 'Rasowe atuty',
                 'required' => false,
                 'multiple' => true,
                 'query_builder' => function (EntityRepository $er) {
