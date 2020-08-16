@@ -11,7 +11,7 @@ class AttributeCategoryFixtures extends Fixture
     public function load(ObjectManager $manager)
     {
         $genericAttributeCategory = new AttributeCategory();
-        $genericAttributeCategory->setHandle(AttributeCategory::ATTRIBUTE_CATEGORY_GENERIC);
+        $genericAttributeCategory->setHandle(AttributeCategory::ATTRIBUTE_CATEGORY_GENERAL);
         $genericAttributeCategory->setName('General Traits');
 
         $ancestralAttributeCategory = new AttributeCategory();
