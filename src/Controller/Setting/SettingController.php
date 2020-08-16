@@ -3,22 +3,22 @@
 namespace App\Controller\Setting;
 
 use App\Controller\Base\BaseController;
-use App\Entity\Setting\SettingKeystone;
+use App\Entity\Setting\SettingFoundation;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\Routing\Annotation\Route;
 
 class SettingController extends BaseController
 {
     /**
-     * @Route("/setting/keystones", name="setting_keystones")
+     * @Route("/setting/foundations", name="setting_foundations")
      * @Template("setting\information_page\setting_keystones.html.twig")
      */
     public function settingKeystonesAction()
     {
-        $keystones = $this->getDoctrine()->getRepository(SettingKeystone::class)->getSortedActiveSettingKeystones();
+        $foundations = $this->getDoctrine()->getRepository(SettingFoundation::class)->getSortedActiveSettingKeystones();
 
         $templateData = [
-            'keystones' => $keystones,
+            'foundations' => $foundations,
         ];
 
         return array_merge($templateData, $this->getTemplateData(BaseController::NAV_TAB_SETTING));

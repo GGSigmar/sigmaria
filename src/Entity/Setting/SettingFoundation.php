@@ -10,12 +10,12 @@ use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\Setting\SettingKeystoneRepository")
- * @ORM\Table(name="setting_keystone")
+ * @ORM\Entity(repositoryClass="App\Repository\Setting\SettingFoundationRepository")
+ * @ORM\Table(name="setting_foundation")
  */
-class SettingKeystone
+class SettingFoundation
 {
     use BaseFieldsTrait, ActiveTrait, DescriptionTrait, SortOrderTrait, TimestampableEntity;
 
-    public const ENTITY_NAME = 'setting_keystone';
+    public const ENTITY_NAME = 'setting_foundation';
 }

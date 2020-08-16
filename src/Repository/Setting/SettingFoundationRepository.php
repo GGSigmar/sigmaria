@@ -2,15 +2,15 @@
 
 namespace App\Repository\Setting;
 
-use App\Entity\Setting\SettingKeystone;
+use App\Entity\Setting\SettingFoundation;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
 
-class SettingKeystoneRepository extends ServiceEntityRepository
+class SettingFoundationRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, SettingKeystone::class);
+        parent::__construct($registry, SettingFoundation::class);
     }
 
     /**
@@ -18,11 +18,11 @@ class SettingKeystoneRepository extends ServiceEntityRepository
      */
     public function getSortedActiveSettingKeystones(): array
     {
-        $qb = $this->createQueryBuilder('sk');
+        $qb = $this->createQueryBuilder('sf');
 
-        return $this->createQueryBuilder('sk')
-            ->andWhere('sk.isActive = true')
-            ->orderBy('sk.sortOrder', 'ASC')
+        return $this->createQueryBuilder('sf')
+            ->andWhere('sf.isActive = true')
+            ->orderBy('sf.sortOrder', 'ASC')
             ->getQuery()
             ->getResult();
     }
