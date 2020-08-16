@@ -11,7 +11,7 @@ class SettingController extends BaseController
 {
     /**
      * @Route("/setting/foundations", name="setting_foundations")
-     * @Template("setting\information_page\setting_keystones.html.twig")
+     * @Template("setting\information_page\setting_foundations.html.twig")
      */
     public function settingKeystonesAction()
     {
