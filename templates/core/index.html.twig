@@ -4,13 +4,13 @@
     <div class="col-md-4 mb-4">
         {% set title %}
             <i class="fas fa-book-open"></i>
-            Na dobry początek
+            Start here
         {% endset %}
         {% set content %}
-            <a href="{{ path('setting_keystones') }}" class="badge badge-danger border border-blood" role="button"><i class="fas fa-search"></i></a> Fundamenty świata<br />
-            <a href="#" class="badge badge-danger border border-blood" role="button"><i class="fas fa-search"></i></a> Planowane kampanie<br />
-            <a href="{{ path('character_creation') }}" class="badge badge-success border border-blood" role="button"><i class="fas fa-search"></i></a> Tworzenie postaci<br />
-            <a href="#" class="badge badge-danger border border-blood" role="button"><i class="fas fa-search"></i></a> Domowe zasady
+            <a href="{{ path('setting_keystones') }}" class="badge badge-danger border border-blood" role="button"><i class="fas fa-search"></i></a> Setting foundations<br />
+            <a href="#" class="badge badge-danger border border-blood" role="button"><i class="fas fa-search"></i></a> Planned campaigns<br />
+            <a href="{{ path('character_creation') }}" class="badge badge-success border border-blood" role="button"><i class="fas fa-search"></i></a> Character creation<br />
+            <a href="#" class="badge badge-danger border border-blood" role="button"><i class="fas fa-search"></i></a> Homebrew
         {% endset %}
 
         {% include 'base/components/card.html.twig' with {'title': title, 'content': content} %}
@@ -18,7 +18,7 @@
     <div class="col-md-4 mb-4">
         {% set title %}
             <i class="fas fa-hand-paper"></i>
-            Podstawowe rasy
+            Primary ancestries
         {% endset %}
         {% set content %}
             {% if coreAncestries is not empty %}
@@ -31,7 +31,7 @@
                     {% endif %}
                 {% endfor %}
             {% else %}
-                <h5 class="text-danger text-center"><i class="fas fa-times"></i> Brak!</h5>
+                <h5 class="text-danger text-center"><i class="fas fa-times"></i> None!</h5>
             {% endif %}
         {% endset %}
 
@@ -40,10 +40,10 @@
     <div class="col-md-4 mb-4">
         {% set title %}
             <i class="fas fa-paw"></i>
-            Pozostałe rasy
+            Secondary ancestries
         {% endset %}
         {% set content %}
-            <h3 class="text-danger text-center"><i class="fas fa-times"></i> Brak!</h3>
+            <h3 class="text-danger text-center"><i class="fas fa-times"></i> None!</h3>
         {% endset %}
 
         {% include 'base/components/card.html.twig' with {'title': title, 'content': content} %}

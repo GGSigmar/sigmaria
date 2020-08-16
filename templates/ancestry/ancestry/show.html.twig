@@ -11,50 +11,50 @@
 
 {% block rightSidebar %}
     {% if isAdmin %}
-        <h3>Wartość</h3>
+        <h3>Value</h3>
         <p class="mb-4">{{ ancestry.value }}</p>
     {% endif %}
 
-    <h3>Rzadkość</h3>
+    <h3>Rarity</h3>
     <p class="mb-4">
         {{ ancestry.rarity.name }}
     </p>
 
-    <h3>Punkty zdrowia</h3>
+    <h3>Hit Points</h3>
     <p class="mb-4">
         {{ ancestry.hitPoints.name }}
     </p>
 
-    <h3>Rozmiar</h3>
+    <h3>Size</h3>
     <p class="mb-4">
         {{ ancestry.size.name }}
     </p>
 
-    <h3>Prędkość</h3>
+    <h3>Speed</h3>
     <p class="mb-4">
         {{ ancestry.speed.name }} stóp
     </p>
 
-    <h3>Premie do cech</h3>
+    <h3>Ability boosts</h3>
     <p class="mb-4">
         {% if ancestry.abilityBoosts|length == 2 %}
             {{ ancestry.abilityBoosts|first }} lub {{ ancestry.abilityBoosts|last }}
         {% else %}
-            Dowolna
+            Free
         {% endif %}
         <br />
-        Dowolna
+        Free
     </p>
 
-    <h3>Języki</h3>
+    <h3>Languages</h3>
     <p class="mb-4">
         {{ ancestry.languagesMessage }}
     </p>
 
-    <h3>Atrybuty</h3>
+    <h3>Traits</h3>
     <p class="mb-4">
         {% if ancestry.attributes is empty %}
-            Brak.
+            None.
         {% else %}
             {% for attribute in ancestry.attributes %}
                 {{ attribute.name}}
@@ -66,7 +66,7 @@
         {% endif %}
     </p>
 
-    <h3>Kultury</h3>
+    <h3>Cultures</h3>
     <p class="mb-4">
         {% if isAdmin %}
             {% set cultures = ancestry.cultures %}
@@ -75,7 +75,7 @@
         {% endif %}
 
         {% if cultures is empty %}
-            Brak
+            None.
         {% else %}
             {% for culture in cultures %}
                 {% include "base/badges/entity_show_badge.html.twig" with {'entityName': 'culture', 'entityId': culture.id} %}
@@ -88,12 +88,12 @@
         {% endif %}
     </p>
 
-    <h3>Początkowe atuty rasowe</h3>
+    <h3>Starting ancestry feats</h3>
     <p class="mb-0">
-        Bez dziedzictwa: {{ ancestry.getNumberOfFreeFeats }}
+        No Heritage: {{ ancestry.getNumberOfFreeFeats }}
         <br />
         {% for value in ancestry.getHeritageValues %}
-            Z dziedzictwem ({{ value|roman }}): {{ ancestry.getNumberOfFreeFeats - value }}
+            With Heritage ({{ value|roman }}): {{ ancestry.getNumberOfFreeFeats - value }}
 
             {% if not loop.last %}
                 <br />

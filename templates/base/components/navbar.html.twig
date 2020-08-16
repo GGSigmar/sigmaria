@@ -9,7 +9,7 @@
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
                 <a href="{{ path('home') }}" class="nav-link {% if navTab is defined and navTab == constant('App\\Controller\\Base\\BaseController::NAV_TAB_HOME') %}active{% endif %}">
-                    <i class="fas fa-home"></i> Strona główna
+                    <i class="fas fa-home"></i> Home
                 </a>
             </li>
             <li class="nav-item">
@@ -23,7 +23,7 @@
                 </a>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle disabled {% if navTab is defined and navTab == constant('App\\Controller\\Base\\BaseController::NAV_TAB_CAMPAIGN') %}active{% endif %}" href="#" data-toggle="dropdown" role="button" id="quests-btn"><i class="fas fa-flag"></i> Kampanie</a>
+                <a class="nav-link dropdown-toggle disabled {% if navTab is defined and navTab == constant('App\\Controller\\Base\\BaseController::NAV_TAB_CAMPAIGN') %}active{% endif %}" href="#" data-toggle="dropdown" role="button" id="quests-btn"><i class="fas fa-flag"></i> Campaigns</a>
                 <div class="dropdown-menu">
                     <a href="/" class="quest-location dropdown-item">Kedernas</a>
                     <div class="dropdown-divider"></div>
@@ -31,73 +31,73 @@
                 </div>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle {% if navTab is defined and navTab == constant('App\\Controller\\Base\\BaseController::NAV_TAB_RULES') %}active{% endif %}" href="#" data-toggle="dropdown"><i class="fas fa-book"></i> Zasady</a>
+                <a class="nav-link dropdown-toggle {% if navTab is defined and navTab == constant('App\\Controller\\Base\\BaseController::NAV_TAB_RULES') %}active{% endif %}" href="#" data-toggle="dropdown"><i class="fas fa-book"></i> Rules</a>
                 <div class="dropdown-menu">
-                    <a href="{{ path('character_creation') }}" class="dropdown-item">Tworzenie postaci</a>
+                    <a href="{{ path('character_creation') }}" class="dropdown-item">Character Creation</a>
                     <div class="dropdown-divider"></div>
-                    <a href="{{ path('ancestry_list') }}" class="dropdown-item">Rasy</a>
-                    <a href="{{ path('heritage_list') }}" class="dropdown-item">Dziedzictwa</a>
+                    <a href="{{ path('ancestry_list') }}" class="dropdown-item">Ancestries</a>
+                    <a href="{{ path('heritage_list') }}" class="dropdown-item">Heritages</a>
                     <div class="dropdown-divider"></div>
-                    <a href="#" class="dropdown-item dropdown-toggle" data-toggle="dropdown">Atuty</a>
+                    <a href="#" class="dropdown-item dropdown-toggle" data-toggle="dropdown">Feats</a>
                     <ul class="dropdown-menu">
-                        <li><a href="{{ path('feat_list') }}" class="dropdown-item">Lista atutów</a></li>
-                        <li><a href="{{ path('feat_general_display') }}" class="dropdown-item">Atuty ogólne</a></li>
+                        <li><a href="{{ path('feat_list') }}" class="dropdown-item">Feat list</a></li>
+                        <li><a href="{{ path('feat_general_display') }}" class="dropdown-item">General feats</a></li>
                     </ul>
                 </div>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle {% if navTab is defined and navTab == constant('App\\Controller\\Base\\BaseController::NAV_TAB_SETTING') %}active{% endif %}" href="#" data-toggle="dropdown"><i class="fas fa-globe-africa"></i> Świat</a>
+                <a class="nav-link dropdown-toggle {% if navTab is defined and navTab == constant('App\\Controller\\Base\\BaseController::NAV_TAB_SETTING') %}active{% endif %}" href="#" data-toggle="dropdown"><i class="fas fa-globe-africa"></i> Setting</a>
                 <div class="dropdown-menu">
-                    <a href="{{ path('setting_keystones') }}" class="dropdown-item">Fundamenty świata</a>
+                    <a href="{{ path('setting_keystones') }}" class="dropdown-item">Foundations</a>
                     <div class="dropdown-divider"></div>
-                    <a href="{{ path('culture_list') }}" class="dropdown-item">Kultury</a>
+                    <a href="{{ path('culture_list') }}" class="dropdown-item">Cultures</a>
                     <div class="dropdown-divider"></div>
-                    <a href="{{ path('background_list') }}" class="dropdown-item">Pochodzenia</a>
+                    <a href="{{ path('background_list') }}" class="dropdown-item">Backgrounds</a>
                     <div class="dropdown-divider"></div>
-                    <a href="{{ path('language_list') }}" class="dropdown-item">Języki</a>
+                    <a href="{{ path('language_list') }}" class="dropdown-item">Languages</a>
                     <div class="dropdown-divider"></div>
-                    <a href="{{ path('location_list') }}" class="dropdown-item">Lokacje</a>
+                    <a href="{{ path('location_list') }}" class="dropdown-item">Locations</a>
                 </div>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle {% if navTab is defined and navTab == constant('App\\Controller\\Base\\BaseController::NAV_TAB_MISC') %}active{% endif %}" href="#" data-toggle="dropdown"><i class="fas fa-chess-rook"></i> Inne</a>
+                <a class="nav-link dropdown-toggle {% if navTab is defined and navTab == constant('App\\Controller\\Base\\BaseController::NAV_TAB_MISC') %}active{% endif %}" href="#" data-toggle="dropdown"><i class="fas fa-chess-rook"></i> Misc</a>
                 <div class="dropdown-menu">
-                    <a href="{{ path('release_list') }}" class="quest-location dropdown-item">Wydania</a>
+                    <a href="{{ path('release_list') }}" class="quest-location dropdown-item">Releases</a>
                 </div>
             </li>
             {% if isAdmin %}
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle {% if navTab is defined and navTab == constant('App\\Controller\\Base\\BaseController::NAV_TAB_ADMIN') %}active{% endif %}" href="#" data-toggle="dropdown" role="button"><i class="fas fa-tools"></i> Admin</a>
                 <div class="dropdown-menu">
-                    <a href="{{ path('user_list') }}" class="quest-location dropdown-item">Użytkownicy</a>
+                    <a href="{{ path('user_list') }}" class="quest-location dropdown-item">Users</a>
                     <div class="dropdown-divider"></div>
-                    <a href="{{ path('blog_post_list') }}" class="quest-location dropdown-item">Posty</a>
+                    <a href="{{ path('blog_post_list') }}" class="quest-location dropdown-item">Blog posts</a>
                     <div class="dropdown-divider"></div>
-                    <a href="{{ path('source_list') }}" class="quest-location dropdown-item">Źródła</a>
+                    <a href="{{ path('source_list') }}" class="quest-location dropdown-item">Sources</a>
                     <div class="dropdown-divider"></div>
                     <a href="#" class="dropdown-item dropdown-toggle" data-toggle="dropdown">Core Admin</a>
                     <ul class="dropdown-menu">
-                        <li><a href="{{ path('character_creation_step_list') }}" class="dropdown-item">Kroki tworzenia postaci</a></li>
-                        <li><a href="{{ path('attribute_list') }}" class="dropdown-item">Atrybuty</a></li>
-                        <li><a href="{{ path('attribute_category_list') }}" class="dropdown-item">Kategorie atrybutów</a></li>
+                        <li><a href="{{ path('character_creation_step_list') }}" class="dropdown-item">Character creation steps</a></li>
+                        <li><a href="{{ path('attribute_list') }}" class="dropdown-item">Traits</a></li>
+                        <li><a href="{{ path('attribute_category_list') }}" class="dropdown-item">Trait categories</a></li>
                     </ul>
                     <div class="dropdown-divider"></div>
                     <a href="#" class="dropdown-item dropdown-toggle" data-toggle="dropdown">Ancestry Admin</a>
                     <ul class="dropdown-menu">
-                        <li><a href="{{ path('ancestral_feature_list') }}" class="dropdown-item">Zdolności rasowe</a></li>
+                        <li><a href="{{ path('ancestral_feature_list') }}" class="dropdown-item">Ancestral features</a></li>
                     </ul>
                     <div class="dropdown-divider"></div>
                     <a href="#" class="dropdown-item dropdown-toggle" data-toggle="dropdown">Setting Admin</a>
                     <ul class="dropdown-menu">
-                        <li><a href="{{ path('setting_keystone_list') }}" class="dropdown-item">Fundamenty świata</a></li>
-                        <li><a href="{{ path('lore_list') }}" class="dropdown-item">Dziedziny wiedzy</a></li>
-                        <li><a href="{{ path('script_list') }}" class="dropdown-item">Pisma</a></li>
-                        <li><a href="{{ path('location_type_list') }}" class="dropdown-item">Typy lokacji</a></li>
+                        <li><a href="{{ path('setting_keystone_list') }}" class="dropdown-item">Setting foundations</a></li>
+                        <li><a href="{{ path('lore_list') }}" class="dropdown-item">Lores</a></li>
+                        <li><a href="{{ path('script_list') }}" class="dropdown-item">Scripts</a></li>
+                        <li><a href="{{ path('location_type_list') }}" class="dropdown-item">Location types</a></li>
                     </ul>
                     <div class="dropdown-divider"></div>
-                    <a href="#" class="dropdown-item dropdown-toggle" data-toggle="dropdown">Skrypty</a>
+                    <a href="#" class="dropdown-item dropdown-toggle" data-toggle="dropdown">Scripts</a>
                     <ul class="dropdown-menu">
-                        <li><a href="{{ path('update_slugs') }}" class="dropdown-item">Aktualizuj slugi</a></li>
+                        <li><a href="{{ path('update_slugs') }}" class="dropdown-item">Update slugs</a></li>
                     </ul>
                 </div>
             </li>
@@ -105,11 +105,11 @@
         </ul>
         <ul class="navbar-nav navbar-right">
             {% if is_granted('ROLE_USER') %}
-                <li ><span class="navbar-text mr-1">Zalogowany jako {{ app.user.username }}</span></li>
-                <li><a class="btn btn-secondary border border-white" href="{{ path('fos_user_security_logout') }}">Wyloguj <i class="fas fa-unlock"></i></a></li>
+                <li ><span class="navbar-text mr-1">Logged in as {{ app.user.username }}</span></li>
+                <li><a class="btn btn-secondary border border-white" href="{{ path('fos_user_security_logout') }}">Logout <i class="fas fa-unlock"></i></a></li>
             {% else %}
-                <li><a class="btn btn-secondary border border-white mr-1" href="{{ path('fos_user_security_login') }}">Logowanie <i class="fas fa-lock"></i></a></li>
-                <li><a class="btn btn-secondary border border-white" href="{{ path('fos_user_registration_register') }}">Rejestracja <i class="fas fa-user-plus"></i></a></li>
+                <li><a class="btn btn-secondary border border-white mr-1" href="{{ path('fos_user_security_login') }}">Login <i class="fas fa-lock"></i></a></li>
+                <li><a class="btn btn-secondary border border-white" href="{{ path('fos_user_registration_register') }}">Register <i class="fas fa-user-plus"></i></a></li>
             {% endif %}
         </ul>
     </div>

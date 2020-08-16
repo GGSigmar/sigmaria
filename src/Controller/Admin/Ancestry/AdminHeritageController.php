@@ -40,7 +40,7 @@ class AdminHeritageController extends BaseController
 
             $this->addFlash('success', 'Dziedzictwo stworzone!');
 
-            return $this->redirectToRoute('heritage_show', ['id' => $heritage->getId()]);
+            return $this->redirectToRoute('heritage_show', ['slug' => $heritage->getSlug()]);
         }
 
         $templateData = [
@@ -70,7 +70,7 @@ class AdminHeritageController extends BaseController
 
             $this->addFlash('success', 'Dziedzictwo edytowane!');
 
-            return $this->redirectToRoute('heritage_show', ['id' => $heritage->getId()]);
+            return $this->redirectToRoute('heritage_show', ['slug' => $heritage->getSlug()]);
         }
 
         $templateData = [
@@ -188,7 +188,7 @@ class AdminHeritageController extends BaseController
 
             $this->addFlash('success', 'Atut stworzony!');
 
-            return $this->redirectToRoute('heritage_show', ['id' => $heritage->getId()]);
+            return $this->redirectToRoute('heritage_show', ['slug' => $heritage->getSlug()]);
         }
 
         $templateData = [
@@ -202,13 +202,11 @@ class AdminHeritageController extends BaseController
     /**
      * @Route("/admin/ancestry/heritage/{baseId}/feat/{id}/edit", name="heritage_feat_edit")
      * @Template("core/feat/create.html.twig")
+     * @ParamConverter("heritage", class="App\Entity\Ancestry\Heritage", options={"id"="baseId"})
+     * @ParamConverter("feat", class="App\Entity\Core\Feat", options={"id"="id"})
      */
-    public function editHeritageFeatAction(Request $request, int $baseId, int $id, SourcableService $sourcableService)
+    public function editHeritageFeatAction(Request $request, Heritage $heritage, Feat $feat, SourcableService $sourcableService)
     {
-        $entityManager = $this->getDoctrine()->getManager();
-
-        $feat = $entityManager->getRepository(Feat::class)->find($id);
-
         $form = $this->createForm(FeatType::class, $feat);
 
         $form->handleRequest($request);
@@ -225,7 +223,7 @@ class AdminHeritageController extends BaseController
 
             $this->addFlash('success', 'Atut zmieniony!');
 
-            return $this->redirectToRoute('heritage_show', ['id' => $baseId]);
+            return $this->redirectToRoute('heritage_show', ['slug' => $heritage->getSlug()]);
         }
 
         $templateData = [
@@ -258,7 +256,7 @@ class AdminHeritageController extends BaseController
 
             $this->addFlash('success', 'Paragraf stworzony!');
 
-            return $this->redirectToRoute('heritage_show', ['id' => $heritage->getId()]);
+            return $this->redirectToRoute('heritage_show', ['slug' => $heritage->getSlug()]);
         }
 
         $templateData = [
@@ -291,7 +289,7 @@ class AdminHeritageController extends BaseController
 
             $this->addFlash('success', 'Paragraf edytowany!');
 
-            return $this->redirectToRoute('heritage_show', ['id' => $heritage->getId()]);
+            return $this->redirectToRoute('heritage_show', ['slug' => $heritage->getSlug()]);
         }
 
         $templateData = [

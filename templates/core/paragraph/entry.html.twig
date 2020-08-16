@@ -1,6 +1,6 @@
 <p class="mb-2">
     {% if paragraph.name %}
-        <h3 class="d-inline">{{ paragraph.name }}</h3>
+        <h3 class="d-inline {% if not paragraph.active %}bg-warning{% endif %}">{{ paragraph.name }}</h3>
     {% endif %}
     {% if isAdmin %}
         {% include "base/badges/entity_display_edit_badge.html.twig"

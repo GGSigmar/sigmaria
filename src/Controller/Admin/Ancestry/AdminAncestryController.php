@@ -42,7 +42,7 @@ class AdminAncestryController extends BaseController
 
             $this->addFlash('success', 'Rasa stworzona!');
 
-            return $this->redirectToRoute('ancestry_show', ['id' => $ancestry->getId()]);
+            return $this->redirectToRoute('ancestry_show', ['slug' => $ancestry->getSlug()]);
         }
 
         $templateData = [
@@ -72,7 +72,7 @@ class AdminAncestryController extends BaseController
 
             $this->addFlash('success', 'Rasa edytowana!');
 
-            return $this->redirectToRoute('ancestry_show', ['id' => $ancestry->getId()]);
+            return $this->redirectToRoute('ancestry_show', ['slug' => $ancestry->getSlug()]);
         }
 
         $templateData = [
@@ -190,7 +190,7 @@ class AdminAncestryController extends BaseController
 
             $this->addFlash('success', 'Atut stworzony!');
 
-            return $this->redirectToRoute('ancestry_show', ['id' => $ancestry->getId()]);
+            return $this->redirectToRoute('ancestry_show', ['slug' => $ancestry->getSlug()]);
         }
 
         $templateData = [
@@ -204,13 +204,11 @@ class AdminAncestryController extends BaseController
     /**
      * @Route("/admin/ancestry/{baseId}/feat/{id}/edit", name="ancestry_feat_edit")
      * @Template("core/feat/edit.html.twig")
+     * @ParamConverter("ancestry", class="App\Entity\Ancestry\Ancestry", options={"id"="baseId"})
+     * @ParamConverter("feat", class="App\Entity\Core\Feat", options={"id"="id"})
      */
-    public function editAncestryFeatAction(Request $request, int $baseId, int $id, SourcableService $sourcableService)
+    public function editAncestryFeatAction(Request $request, Ancestry $ancestry, Feat $feat, SourcableService $sourcableService)
     {
-        $entityManager = $this->getDoctrine()->getManager();
-
-        $feat = $entityManager->getRepository(Feat::class)->find($id);
-
         $form = $this->createForm(FeatType::class, $feat);
 
         $form->handleRequest($request);
@@ -226,7 +224,7 @@ class AdminAncestryController extends BaseController
 
             $this->addFlash('success', 'Atut zmieniony!');
 
-            return $this->redirectToRoute('ancestry_show', ['id' => $baseId]);
+            return $this->redirectToRoute('ancestry_show', ['slug' => $ancestry->getSlug()]);
         }
 
         $templateData = [
@@ -259,7 +257,7 @@ class AdminAncestryController extends BaseController
 
             $this->addFlash('success', 'Dziedzictwo stworzone!');
 
-            return $this->redirectToRoute('ancestry_show', ['id' => $ancestry->getId()]);
+            return $this->redirectToRoute('ancestry_show', ['slug' => $ancestry->getSlug()]);
         }
 
         $templateData = [
@@ -273,13 +271,11 @@ class AdminAncestryController extends BaseController
     /**
      * @Route("/admin/ancestry//{baseId}/heritage/{id}/edit", name="ancestry_heritage_edit")
      * @Template("ancestry/heritage/edit.html.twig")
+     * @ParamConverter("ancestry", class="App\Entity\Ancestry\Ancestry", options={"id"="baseId"})
+     * @ParamConverter("heritage", class="App\Entity\Ancestry\Heritage", options={"id"="id"})
      */
-    public function editAncestryHeritageAction(Request $request, int $baseId, int $id)
+    public function editAncestryHeritageAction(Request $request, Ancestry $ancestry, Heritage $heritage)
     {
-        $entityManager = $this->getDoctrine()->getManager();
-
-        $heritage = $entityManager->getRepository(Heritage::class)->find($id);
-
         $form = $this->createForm(HeritageType::class, $heritage);
 
         $form->handleRequest($request);
@@ -293,7 +289,7 @@ class AdminAncestryController extends BaseController
 
             $this->addFlash('success', 'Dziedzictwo zmienione!');
 
-            return $this->redirectToRoute('ancestry_show', ['id' => $baseId]);
+            return $this->redirectToRoute('ancestry_show', ['slug' => $ancestry->getSlug()]);
         }
 
         $templateData = [
@@ -326,7 +322,7 @@ class AdminAncestryController extends BaseController
 
             $this->addFlash('success', 'Paragraf stworzony!');
 
-            return $this->redirectToRoute('ancestry_show', ['id' => $ancestry->getId()]);
+            return $this->redirectToRoute('ancestry_show', ['slug' => $ancestry->getSlug()]);
         }
 
         $templateData = [
@@ -359,7 +355,7 @@ class AdminAncestryController extends BaseController
 
             $this->addFlash('success', 'Paragraf edytowany!');
 
-            return $this->redirectToRoute('ancestry_show', ['id' => $ancestry->getId()]);
+            return $this->redirectToRoute('ancestry_show', ['slug' => $ancestry->getSlug()]);
         }
 
         $templateData = [
