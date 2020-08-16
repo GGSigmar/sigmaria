@@ -6,10 +6,10 @@
     </div>
     <div class="col-md-12">
         <div>
-            {% for keystone in keystones %}
+            {% for foundation in foundations %}
                 <div {% if not loop.index == loop.last %}class="mb-4"{% endif %}>
-                    <h3>{{ loop.index }}. {{ keystone.name }}</h3>
-                    {{ keystone.description|raw }}
+                    <h3>{{ loop.index }}. {{ foundation.name }}</h3>
+                    {{ foundation.description|raw }}
                 </div>
             {% endfor %}
         </div>
