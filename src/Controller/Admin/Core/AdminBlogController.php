@@ -25,7 +25,7 @@ class AdminBlogController extends BaseController
 
         $templateData = [
             'blogPosts' => $blogPosts,
-            'entityName' => 'blog_post',
+            'entityName' => BlogPost::ENTITY_NAME,
         ];
 
         return array_merge($templateData, $this->getTemplateData(BaseController::NAV_TAB_ADMIN));
@@ -33,7 +33,7 @@ class AdminBlogController extends BaseController
 
     /**
      * @Route("admin/core/blog/post/create", name="blog_post_create")
-     * @Template("core/blog/post/create.html.twig")
+     * @Template("base/base_form.html.twig")
      */
     public function createBlogPostAction(Request $request)
     {
@@ -49,14 +49,16 @@ class AdminBlogController extends BaseController
             $entityManager->persist($blogPost);
             $entityManager->flush();
 
-            $this->addFlash('success', 'Post stworzony!');
+            $this->addEntityActionFlash(BlogPost::getFormattedName(), BaseController::ENTITY_CREATE_ACTION);
 
             return $this->redirectToRoute('blog_post_list');
         }
 
         $templateData = [
             'form' => $form->createView(),
-            'entityName' => 'blog_post',
+            'entityName' => BlogPost::ENTITY_NAME,
+            'formattedEntityName' => BlogPost::getFormattedName(),
+            'actionName' => BaseController::ENTITY_CREATE_ACTION,
         ];
 
         return array_merge($templateData, $this->getTemplateData(BaseController::NAV_TAB_BLOG));
@@ -64,7 +66,7 @@ class AdminBlogController extends BaseController
 
     /**
      * @Route("admin/core/blog/post/{id}/edit", name="blog_post_edit")
-     * @Template("core/blog/post/edit.html.twig")
+     * @Template("base/base_form.html.twig")
      */
     public function editBlogPostAction(Request $request, BlogPost $blogPost)
     {
@@ -80,14 +82,16 @@ class AdminBlogController extends BaseController
             $entityManager->persist($blogPost);
             $entityManager->flush();
 
-            $this->addFlash('success', 'Post zmieniony!');
+            $this->addEntityActionFlash(BlogPost::getFormattedName(), BaseController::ENTITY_EDIT_ACTION);
 
             return $this->redirectToRoute('blog_post_list');
         }
 
         $templateData = [
             'form' => $form->createView(),
-            'entityName' => 'blog_post',
+            'entityName' => BlogPost::ENTITY_NAME,
+            'formattedEntityName' => BlogPost::getFormattedName(),
+            'actionName' => BaseController::ENTITY_EDIT_ACTION,
         ];
 
         return array_merge($templateData, $this->getTemplateData(BaseController::NAV_TAB_BLOG));
@@ -105,7 +109,7 @@ class AdminBlogController extends BaseController
         $entityManager->persist($blogPost);
         $entityManager->flush();
 
-        $this->addFlash('warning', 'Post zabity!');
+        $this->addEntityActionFlash(BlogPost::getFormattedName(), BaseController::ENTITY_KILL_ACTION);
 
         return $this->redirectToRoute('blog_post_list');
     }
@@ -122,7 +126,7 @@ class AdminBlogController extends BaseController
         $entityManager->persist($blogPost);
         $entityManager->flush();
 
-        $this->addFlash('success', 'Post wskrzeszony!');
+        $this->addEntityActionFlash(BlogPost::getFormattedName(), BaseController::ENTITY_REVIVE_ACTION);
 
         return $this->redirectToRoute('blog_post_list');
     }
@@ -137,7 +141,7 @@ class AdminBlogController extends BaseController
         $entityManager->remove($blogPost);
         $entityManager->flush();
 
-        $this->addFlash('danger', 'Post usunięty!');
+        $this->addEntityActionFlash(BlogPost::getFormattedName(), BaseController::ENTITY_DELETE_ACTION);
 
         return $this->redirectToRoute('blog_post_list');
     }

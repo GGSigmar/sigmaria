@@ -13,6 +13,8 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
  */
 class User extends BaseUser
 {
+    public const ENTITY_NAME = 'user';
+
     /**
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")

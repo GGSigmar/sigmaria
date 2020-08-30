@@ -13,9 +13,7 @@ class CharacterCreationStepType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('sortOrder', IntegerType::class, [
-                'label' => 'Kolejność sortowania'
-            ])
+            ->add('sortOrder', IntegerType::class)
         ;
     }
 

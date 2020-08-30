@@ -18,7 +18,7 @@ class AdminReleaseController extends BaseController
 {
     /**
      * @Route("/admin/core/release/create", name="release_create")
-     * @Template("core/release/create.html.twig")
+     * @Template("base/base_form.html.twig")
      */
     public function createReleaseAction(Request $request, ReleaseService $releaseService)
     {
@@ -33,15 +33,17 @@ class AdminReleaseController extends BaseController
             $entityManager->persist($release);
             $entityManager->flush();
 
-            $this->addFlash('success', 'Wydanie stworzone!');
+            $this->addEntityActionFlash(Release::getFormattedName(), BaseController::ENTITY_CREATE_ACTION);
 
             return $this->redirectToRoute('release_show', ['id' => $release->getId()]);
         }
 
         $templateData = [
             'form' => $form->createView(),
-            'entityName' => 'release',
+            'entityName' => Release::ENTITY_NAME,
             'contentToBeReleased' => $releaseService->getContentToBeReleased(),
+            'formattedEntityName' => Release::getFormattedName(),
+            'actionName' => BaseController::ENTITY_CREATE_ACTION,
         ];
 
         return array_merge($templateData, $this->getTemplateData(BaseController::NAV_TAB_ADMIN));
@@ -49,7 +51,7 @@ class AdminReleaseController extends BaseController
 
     /**
      * @Route("/admin/core/release/{id}/edit", name="release_edit")
-     * @Template("core/release/edit.html.twig")
+     * @Template("base/base_form.html.twig")
      */
     public function editReleaseAction(Request $request, Release $release)
     {
@@ -64,14 +66,16 @@ class AdminReleaseController extends BaseController
             $entityManager->persist($release);
             $entityManager->flush();
 
-            $this->addFlash('success', 'Wydanie zmienione!');
+            $this->addEntityActionFlash(Release::getFormattedName(), BaseController::ENTITY_EDIT_ACTION);
 
             return $this->redirectToRoute('release_show', ['id' => $release->getId()]);
         }
 
         $templateData = [
             'form' => $form->createView(),
-            'entityName' => 'release',
+            'entityName' => Release::ENTITY_NAME,
+            'formattedEntityName' => Release::getFormattedName(),
+            'actionName' => BaseController::ENTITY_EDIT_ACTION,
         ];
 
         return array_merge($templateData, $this->getTemplateData(BaseController::NAV_TAB_ADMIN));
@@ -84,7 +88,7 @@ class AdminReleaseController extends BaseController
     {
         $releaseService->releaseContent($release);
 
-        $this->addFlash('success', 'Wydanie zrealizowane!');
+        $this->addFlash('success', 'Release launched!');
 
         return $this->redirectToRoute('release_show', ['id' => $release->getId()]);
     }

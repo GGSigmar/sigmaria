@@ -25,7 +25,7 @@ class AdminParagraphController extends BaseController
         $entityManager->persist($paragraph);
         $entityManager->flush();
 
-        $this->addFlash('warning', 'Paragraf zabity!');
+        $this->addEntityActionFlash(Paragraph::getFormattedName(), BaseController::ENTITY_KILL_ACTION);
 
         return $this->redirectToReferer($request);
     }
@@ -42,7 +42,7 @@ class AdminParagraphController extends BaseController
         $entityManager->persist($paragraph);
         $entityManager->flush();
 
-        $this->addFlash('success', 'Paragraf wskrzeszony!');
+        $this->addEntityActionFlash(Paragraph::getFormattedName(), BaseController::ENTITY_REVIVE_ACTION);
 
         return $this->redirectToReferer($request);
     }
@@ -57,7 +57,7 @@ class AdminParagraphController extends BaseController
         $entityManager->remove($paragraph);
         $entityManager->flush();
 
-        $this->addFlash('danger', 'Paragraf usunięty!');
+        $this->addEntityActionFlash(Paragraph::getFormattedName(), BaseController::ENTITY_DELETE_ACTION);
 
         return $this->redirectToReferer($request);
     }

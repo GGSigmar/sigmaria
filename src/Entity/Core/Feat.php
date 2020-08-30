@@ -23,9 +23,11 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity(repositoryClass="App\Repository\Core\FeatRepository")
  * @ORM\Table(name="core_feat")
  */
-class Feat implements SourcableInterface
+class Feat extends BaseEntity implements SourcableInterface
 {
     use BaseFieldsTrait, ActiveTrait, SlugTrait, DescriptionTrait, SimpleRarityTrait, ReleasableTrait, SourceTrait, TimestampableEntity;
+
+    public const ENTITY_NAME = 'feat';
 
     /**
      * @var Actions

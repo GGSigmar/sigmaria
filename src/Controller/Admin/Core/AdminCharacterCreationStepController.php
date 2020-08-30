@@ -33,7 +33,7 @@ class AdminCharacterCreationStepController extends BaseController
 
     /**
      * @Route("/admin/core/character-creation-step/create", name="character_creation_step_create")
-     * @Template("core/character_creation_step/create.html.twig")
+     * @Template("base/base_form.html.twig")
      */
     public function createCharacterCreationStepAction(Request $request)
     {
@@ -48,7 +48,7 @@ class AdminCharacterCreationStepController extends BaseController
             $entityManager->persist($characterCreationStep);
             $entityManager->flush();
 
-            $this->addFlash('success', 'Krok tworznia postaci stworzony!');
+            $this->addEntityActionFlash(CharacterCreationStep::getFormattedName(), BaseController::ENTITY_CREATE_ACTION);
 
             return $this->redirectToRoute('character_creation_step_list');
         }
@@ -56,6 +56,8 @@ class AdminCharacterCreationStepController extends BaseController
         $templateData = [
             'form' => $form->createView(),
             'entityName' => CharacterCreationStep::ENTITY_NAME,
+            'formattedEntityName' => CharacterCreationStep::getFormattedName(),
+            'actionName' => BaseController::ENTITY_CREATE_ACTION,
         ];
 
         return array_merge($templateData, $this->getTemplateData(BaseController::NAV_TAB_ADMIN));
@@ -63,7 +65,7 @@ class AdminCharacterCreationStepController extends BaseController
 
     /**
      * @Route("/admin/core/character-creation-step/{id}/edit", name="character_creation_step_edit")
-     * @Template("core/character_creation_step/edit.html.twig")
+     * @Template("base/base_form.html.twig")
      */
     public function editCharacterCreationStepAction(Request $request, CharacterCreationStep $characterCreationStep)
     {
@@ -78,7 +80,7 @@ class AdminCharacterCreationStepController extends BaseController
             $entityManager->persist($characterCreationStep);
             $entityManager->flush();
 
-            $this->addFlash('success', 'Krok tworznia postaci zmieniony!');
+            $this->addEntityActionFlash(CharacterCreationStep::getFormattedName(), BaseController::ENTITY_EDIT_ACTION);
 
             return $this->redirectToRoute('character_creation_step_list');
         }
@@ -86,6 +88,8 @@ class AdminCharacterCreationStepController extends BaseController
         $templateData = [
             'form' => $form->createView(),
             'entityName' => CharacterCreationStep::ENTITY_NAME,
+            'formattedEntityName' => CharacterCreationStep::getFormattedName(),
+            'actionName' => BaseController::ENTITY_EDIT_ACTION,
         ];
 
         return array_merge($templateData, $this->getTemplateData(BaseController::NAV_TAB_ADMIN));
@@ -103,7 +107,7 @@ class AdminCharacterCreationStepController extends BaseController
         $entityManager->persist($characterCreationStep);
         $entityManager->flush();
 
-        $this->addFlash('warning', 'Krok tworznia postaci zabity!');
+        $this->addEntityActionFlash(CharacterCreationStep::getFormattedName(), BaseController::ENTITY_KILL_ACTION);
 
         return $this->redirectToRoute('character_creation_step_list');
     }
@@ -120,7 +124,7 @@ class AdminCharacterCreationStepController extends BaseController
         $entityManager->persist($characterCreationStep);
         $entityManager->flush();
 
-        $this->addFlash('success', 'Krok tworznia postaci wskrzeszony!');
+        $this->addEntityActionFlash(CharacterCreationStep::getFormattedName(), BaseController::ENTITY_REVIVE_ACTION);
 
         return $this->redirectToRoute('character_creation_step_list');
     }
@@ -135,7 +139,7 @@ class AdminCharacterCreationStepController extends BaseController
         $entityManager->remove($characterCreationStep);
         $entityManager->flush();
 
-        $this->addFlash('danger', 'Krok tworznia postaci usunięty!');
+        $this->addEntityActionFlash(CharacterCreationStep::getFormattedName(), BaseController::ENTITY_DELETE_ACTION);
 
         return $this->redirectToRoute('character_creation_step_list');
     }

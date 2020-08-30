@@ -16,7 +16,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class AdminAttributeController extends BaseController
 {
     /**
-     * @Route("/admin/core/attribute/list", name="attribute_list")
+     * @Route("/admin/core/trait/list", name="trait_list")
      * @Template("core/attribute/list.html.twig")
      */
     public function listAttributesAction()
@@ -25,15 +25,15 @@ class AdminAttributeController extends BaseController
 
         $templateData = [
             'attributes' => $attributes,
-            'entityName' => 'attribute',
+            'entityName' => Attribute::ENTITY_NAME,
         ];
 
         return array_merge($templateData, $this->getTemplateData(BaseController::NAV_TAB_ADMIN));
     }
 
     /**
-     * @Route("/admin/core/attribute/create", name="attribute_create")
-     * @Template("core/attribute/create.html.twig")
+     * @Route("/admin/core/trait/create", name="trait_create")
+     * @Template("base/base_form.html.twig")
      */
     public function createAttributeAction(Request $request)
     {
@@ -48,22 +48,24 @@ class AdminAttributeController extends BaseController
             $entityManager->persist($attribute);
             $entityManager->flush();
 
-            $this->addFlash('success', 'Cecha stworzona!');
+            $this->addEntityActionFlash(Attribute::getFormattedName(), BaseController::ENTITY_CREATE_ACTION);
 
-            return $this->redirectToRoute('attribute_list');
+            return $this->redirectToRoute('trait_list');
         }
 
         $templateData = [
             'form' => $form->createView(),
-            'entityName' => 'attribute',
+            'entityName' => Attribute::ENTITY_NAME,
+            'formattedEntityName' => Attribute::getFormattedName(),
+            'actionName' => BaseController::ENTITY_CREATE_ACTION,
         ];
 
         return array_merge($templateData, $this->getTemplateData(BaseController::NAV_TAB_ADMIN));
     }
 
     /**
-     * @Route("/admin/core/attribute/{id}/edit", name="attribute_edit")
-     * @Template("core/attribute/edit.html.twig")
+     * @Route("/admin/core/trait/{id}/edit", name="trait_edit")
+     * @Template("base/base_form.html.twig")
      */
     public function editAttributeAction(Request $request, Attribute $attribute)
     {
@@ -78,21 +80,23 @@ class AdminAttributeController extends BaseController
             $entityManager->persist($attribute);
             $entityManager->flush();
 
-            $this->addFlash('success', 'Cecha zmieniona!');
+            $this->addEntityActionFlash(Attribute::getFormattedName(), BaseController::ENTITY_EDIT_ACTION);
 
-            return $this->redirectToRoute('attribute_list');
+            return $this->redirectToRoute('trait_list');
         }
 
         $templateData = [
             'form' => $form->createView(),
-            'entityName' => 'attribute',
+            'entityName' => Attribute::ENTITY_NAME,
+            'formattedEntityName' => Attribute::getFormattedName(),
+            'actionName' => BaseController::ENTITY_EDIT_ACTION,
         ];
 
         return array_merge($templateData, $this->getTemplateData(BaseController::NAV_TAB_ADMIN));
     }
 
     /**
-     * @Route("/admin/core/attribute/{id}/kill", name="attribute_kill")
+     * @Route("/admin/core/trait/{id}/kill", name="trait_kill")
      */
     public function killAttributeAction(Attribute $attribute)
     {
@@ -103,13 +107,13 @@ class AdminAttributeController extends BaseController
         $entityManager->persist($attribute);
         $entityManager->flush();
 
-        $this->addFlash('warning', 'Cecha zabita!');
+        $this->addEntityActionFlash(Attribute::getFormattedName(), BaseController::ENTITY_KILL_ACTION);
 
-        return $this->redirectToRoute('attribute_list');
+        return $this->redirectToRoute('trait_list');
     }
 
     /**
-     * @Route("/admin/core/attribute/{id}/revive", name="attribute_revive")
+     * @Route("/admin/core/trait/{id}/revive", name="trait_revive")
      */
     public function reviveAttributeAction(Attribute $attribute)
     {
@@ -120,13 +124,13 @@ class AdminAttributeController extends BaseController
         $entityManager->persist($attribute);
         $entityManager->flush();
 
-        $this->addFlash('success', 'Cecha wskrzeszona!');
+        $this->addEntityActionFlash(Attribute::getFormattedName(), BaseController::ENTITY_REVIVE_ACTION);
 
-        return $this->redirectToRoute('attribute_list');
+        return $this->redirectToRoute('trait_list');
     }
 
     /**
-     * @Route("/admin/core/attribute/{id}/delete", name="attribute_delete")
+     * @Route("/admin/core/trait/{id}/delete", name="trait_delete")
      */
     public function deleteAttributeAction(Attribute $attribute)
     {
@@ -135,8 +139,8 @@ class AdminAttributeController extends BaseController
         $entityManager->remove($attribute);
         $entityManager->flush();
 
-        $this->addFlash('danger', 'Cecha usunięta!');
+        $this->addEntityActionFlash(Attribute::getFormattedName(), BaseController::ENTITY_DELETE_ACTION);
 
-        return $this->redirectToRoute('attribute_list');
+        return $this->redirectToRoute('trait_list');
     }
 }

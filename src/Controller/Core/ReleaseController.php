@@ -20,7 +20,7 @@ class ReleaseController extends BaseController
 
         $templateData = [
             'releases' => $releases,
-            'entityName' => 'release',
+            'entityName' => Release::ENTITY_NAME,
         ];
 
         return array_merge($templateData, $this->getTemplateData(BaseController::NAV_TAB_ADMIN));
@@ -34,7 +34,7 @@ class ReleaseController extends BaseController
     {
         $templateData = [
             'release' => $release,
-            'entityName' => 'release',
+            'entityName' => Release::ENTITY_NAME,
             'contentToBeReleased' => $releaseService->getContentToBeReleased(),
         ];
 

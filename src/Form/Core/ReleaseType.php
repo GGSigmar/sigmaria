@@ -14,14 +14,9 @@ class ReleaseType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name', TextType::class, [
-                'label' => 'Nazwa wydania',
-            ])
-            ->add('contentVersion', TextType::class, [
-                'label' => 'Wersja zawartości',
-            ])
+            ->add('name', TextType::class)
+            ->add('contentVersion', TextType::class)
             ->add('contentChanges', CKEditorType::class, [
-                'label' => 'Zmiany zawartości',
                 'required' => false,
                 'config' => BaseEntityType::DEFAULT_CKEDITOR_CONFIG,
             ])

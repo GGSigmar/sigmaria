@@ -47,14 +47,14 @@ class AdminUserController extends BaseController
             $entityManager->persist($user);
             $entityManager->flush();
 
-            $this->addFlash('success', 'Uprawnienia zaktualizowane!');
+            $this->addFlash('success', 'Privileges updated!');
 
             return $this->redirectToRoute('user_roles', ['id' => $user->getId()]);
         }
 
         $templateData = [
             'form' => $form->createView(),
-            'entityName' => 'user'
+            'entityName' => User::ENTITY_NAME,
         ];
 
         return array_merge($templateData, $this->getTemplateData(BaseController::NAV_TAB_ADMIN));
@@ -72,7 +72,7 @@ class AdminUserController extends BaseController
         $entityManager->persist($user);
         $entityManager->flush();
 
-        $this->addFlash('warning', 'Użytkownik dezaktywowany!');
+        $this->addFlash('warning', 'User disabled!');
 
         return $this->redirectToRoute('user_list');
     }
@@ -89,7 +89,7 @@ class AdminUserController extends BaseController
         $entityManager->persist($user);
         $entityManager->flush();
 
-        $this->addFlash('success', 'Użytkownik aktywowany!');
+        $this->addFlash('success', 'User enabled!');
 
         return $this->redirectToRoute('user_list');
     }

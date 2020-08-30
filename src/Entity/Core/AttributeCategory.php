@@ -13,9 +13,11 @@ use Gedmo\Timestampable\Traits\TimestampableEntity;
  * @ORM\Entity(repositoryClass="App\Repository\Core\AttributeCategoryRepository")
  * @ORM\Table(name="core_attribute_category")
  */
-class AttributeCategory
+class AttributeCategory extends BaseEntity
 {
     use BaseFieldsTrait, HandleTrait, TimestampableEntity;
+
+    public const ENTITY_NAME = 'trait_category';
 
     public const ATTRIBUTE_CATEGORY_GENERAL = 'ATTRIBUTE_CATEGORY_GENERAL';
     public const ATTRIBUTE_CATEGORY_ANCESTRAL = 'ATTRIBUTE_CATEGORY_ANCESTRAL';

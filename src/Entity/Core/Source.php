@@ -15,7 +15,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity(repositoryClass="App\Repository\Core\SourceRepository")
  * @ORM\Table(name="core_source")
  */
-class Source
+class Source extends BaseEntity
 {
     use BaseFieldsTrait, ActiveTrait, HandleTrait, DescriptionTrait, SortOrderTrait, TimestampableEntity;
 

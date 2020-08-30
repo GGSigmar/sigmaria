@@ -17,7 +17,6 @@ class BlogPostType extends AbstractType
             ->add('release', EntityType::class, [
                 'required' => false,
                 'class' => Release::class,
-                'label' => 'Wydanie',
             ])
         ;
     }

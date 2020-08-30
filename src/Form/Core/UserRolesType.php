@@ -15,7 +15,6 @@ class UserRolesType extends AbstractType
     {
         $builder
             ->add('roles', ChoiceType::class, [
-                'label' => 'Role',
                 'choices' => Role::ROLES,
                 'multiple' => true,
                 'expanded' => true,

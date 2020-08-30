@@ -11,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity(repositoryClass="App\Repository\Core\ReleaseRepository")
  * @ORM\Table(name="core_release")
  */
-class Release
+class Release extends BaseEntity
 {
     use SlugTrait, TimestampableEntity;
 

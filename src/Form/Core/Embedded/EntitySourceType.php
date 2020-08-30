@@ -17,16 +17,13 @@ class EntitySourceType extends AbstractType
         $builder
             ->add('source', EntityType::class, [
                 'required' => false,
-                'label' => 'Źródło',
                 'class' => Source::class
             ])
             ->add('sourceStartingPageNumber', IntegerType::class, [
                 'required' => false,
-                'label' => 'Strona początkowa źródła',
             ])
             ->add('sourceEndingPageNumber', IntegerType::class, [
                 'required' => false,
-                'label' => 'Strona końcowa źródła',
             ])
         ;
     }

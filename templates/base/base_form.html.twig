@@ -3,7 +3,7 @@
 {% block content %}
     <div class="col-md-12">
         <h1>
-            {% block form_title %}{% endblock %}
+            {{ actionName|capitalize }} {{ formattedEntityName }}
         </h1>
 
         {{ form_start(form) }}

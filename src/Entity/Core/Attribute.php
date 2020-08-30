@@ -14,9 +14,11 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\Entity(repositoryClass="App\Repository\Core\AttributeRepository")
  * @ORM\Table(name="core_attribute")
  */
-class Attribute
+class Attribute extends BaseEntity
 {
     use BaseFieldsTrait, ActiveTrait, HandleTrait, DescriptionTrait, TimestampableEntity;
+
+    public const ENTITY_NAME = 'trait';
 
     public const ATTRIBUTE_GENERAL = 'ATTRIBUTE_GENERAL';
 

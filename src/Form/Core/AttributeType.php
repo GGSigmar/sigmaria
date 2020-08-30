@@ -16,7 +16,7 @@ class AttributeType extends AbstractType
         $builder
             ->add('category', EntityType::class, [
                 'class' => AttributeCategory::class,
-                'label' => 'Kategoria atrybutów',
+                'label' => 'Trait Category',
             ])
         ;
     }

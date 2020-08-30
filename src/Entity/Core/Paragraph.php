@@ -13,9 +13,11 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\Entity(repositoryClass="App\Repository\Core\ParagraphRepository")
  * @ORM\Table(name="core_paragraph")
  */
-class Paragraph
+class Paragraph extends BaseEntity
 {
     use DescriptionTrait, ActiveTrait, SortOrderTrait, TimestampableEntity;
+
+    public const ENTITY_NAME = 'paragraph';
 
     /**
      * @var int

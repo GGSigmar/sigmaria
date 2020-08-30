@@ -20,7 +20,7 @@ class FeatController extends BaseController
 
         $templateData = [
             'feats' => $feats,
-            'entityName' => 'feat',
+            'entityName' => Feat::ENTITY_NAME,
         ];
 
         return array_merge($templateData, $this->getTemplateData(BaseController::NAV_TAB_RULES));
@@ -36,7 +36,7 @@ class FeatController extends BaseController
 
         $templateData = [
             'feats' => UtilityService::groupFeatsByLevel($feats),
-            'entityName' => 'feat',
+            'entityName' => Feat::ENTITY_NAME,
         ];
 
         return array_merge($templateData, $this->getTemplateData(BaseController::NAV_TAB_RULES));
@@ -51,7 +51,7 @@ class FeatController extends BaseController
         $templateData = [
             'feat' => $feat,
             'isGeneral' => $feat->isGeneral(),
-            'entityName' => 'feat',
+            'entityName' => Feat::ENTITY_NAME,
         ];
 
         return array_merge($templateData, $this->getTemplateData(BaseController::NAV_TAB_RULES));

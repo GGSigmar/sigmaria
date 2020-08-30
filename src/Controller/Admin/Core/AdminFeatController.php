@@ -3,7 +3,6 @@
 namespace App\Controller\Admin\Core;
 
 use App\Controller\Base\BaseController;
-use App\Entity\Core\EntitySource;
 use App\Entity\Core\Feat;
 use App\Form\Core\FeatType;
 use App\Service\Core\SourcableService;
@@ -19,7 +18,7 @@ class AdminFeatController extends BaseController
 {
     /**
      * @Route("/admin/core/feat/create", name="feat_create")
-     * @Template("core/feat/create.html.twig")
+     * @Template("base/base_form.html.twig")
      */
     public function createFeatAction(Request $request, SourcableService $sourcableService)
     {
@@ -36,14 +35,16 @@ class AdminFeatController extends BaseController
             $entityManager->persist($feat);
             $entityManager->flush();
 
-            $this->addFlash('success', 'Atut stworzony!');
+            $this->addEntityActionFlash(Feat::getFormattedName(), BaseController::ENTITY_CREATE_ACTION);
 
             return $this->redirectToRoute('feat_list');
         }
 
         $templateData = [
             'form' => $form->createView(),
-            'entityName' => 'feat',
+            'entityName' => Feat::ENTITY_NAME,
+            'formattedEntityName' => Feat::getFormattedName(),
+            'actionName' => BaseController::ENTITY_CREATE_ACTION,
         ];
 
         return array_merge($templateData, $this->getTemplateData(BaseController::NAV_TAB_RULES));
@@ -51,7 +52,7 @@ class AdminFeatController extends BaseController
 
     /**
      * @Route("/admin/core/feat/{id}/edit", name="feat_edit")
-     * @Template("core/feat/edit.html.twig")
+     * @Template("base/base_form.html.twig")
      */
     public function editFeatAction(Request $request, Feat $feat, SourcableService $sourcableService)
     {
@@ -68,14 +69,16 @@ class AdminFeatController extends BaseController
             $entityManager->persist($feat);
             $entityManager->flush();
 
-            $this->addFlash('success', 'Atut zmieniony!');
+            $this->addEntityActionFlash(Feat::getFormattedName(), BaseController::ENTITY_EDIT_ACTION);
 
             return $this->redirectToRoute('feat_show', ['id' => $feat->getId()]);
         }
 
         $templateData = [
             'form' => $form->createView(),
-            'entityName' => 'feat',
+            'entityName' => Feat::ENTITY_NAME,
+            'formattedEntityName' => Feat::getFormattedName(),
+            'actionName' => BaseController::ENTITY_EDIT_ACTION,
         ];
 
         return array_merge($templateData, $this->getTemplateData(BaseController::NAV_TAB_RULES));
@@ -93,7 +96,7 @@ class AdminFeatController extends BaseController
         $entityManager->persist($feat);
         $entityManager->flush();
 
-        $this->addFlash('warning', 'Atut zabity!');
+        $this->addEntityActionFlash(Feat::getFormattedName(), BaseController::ENTITY_KILL_ACTION);
 
         return $this->redirectToRoute('feat_list');
     }
@@ -110,7 +113,7 @@ class AdminFeatController extends BaseController
         $entityManager->persist($feat);
         $entityManager->flush();
 
-        $this->addFlash('success', 'Atut wskrzeszony!');
+        $this->addEntityActionFlash(Feat::getFormattedName(), BaseController::ENTITY_REVIVE_ACTION);
 
         return $this->redirectToRoute('feat_list');
     }
@@ -125,7 +128,7 @@ class AdminFeatController extends BaseController
         $entityManager->remove($feat);
         $entityManager->flush();
 
-        $this->addFlash('danger', 'Atut usunięty!');
+        $this->addEntityActionFlash(Feat::getFormattedName(), BaseController::ENTITY_DELETE_ACTION);
 
         return $this->redirectToRoute('feat_list');
     }
@@ -142,7 +145,7 @@ class AdminFeatController extends BaseController
         $entityManager->persist($feat);
         $entityManager->flush();
 
-        $this->addFlash('success', 'Atut oznaczony do wydania!');
+        $this->addEntityActionFlash(Feat::getFormattedName(), BaseController::ENTITY_STAGE_ACTION);
 
         return $this->redirectToReferer($request);
     }
@@ -159,7 +162,7 @@ class AdminFeatController extends BaseController
         $entityManager->persist($feat);
         $entityManager->flush();
 
-        $this->addFlash('warning', 'Atut wyłączony z wydania!');
+        $this->addEntityActionFlash(Feat::getFormattedName(), BaseController::ENTITY_UNSTAGE_ACTION);
 
         return $this->redirectToReferer($request);
     }

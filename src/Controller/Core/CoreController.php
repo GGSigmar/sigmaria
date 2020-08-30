@@ -78,8 +78,17 @@ class CoreController extends BaseController
             $em->flush();
         }
 
-        $this->addFlash('success', 'Slugi zaktualizowane!');
+        $this->addFlash('success', 'Slugs updated!');
 
         return $this->redirectToReferer($request);
+    }
+
+    /**
+     * @Route("/css", name="css")
+     * @Template("core/css.html.twig")
+     */
+    public function cssTest()
+    {
+        return $this->getTemplateData(BaseController::NAV_TAB_HOME);
     }
 }

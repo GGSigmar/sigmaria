@@ -18,9 +18,7 @@ class SourceType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('sourceProductLink', TextType::class, [
-                'label' => 'Link do produktu',
-            ])
+            ->add('sourceProductLink', TextType::class)
         ;
     }
 

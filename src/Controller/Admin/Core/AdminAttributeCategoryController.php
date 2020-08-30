@@ -16,24 +16,24 @@ use Symfony\Component\Routing\Annotation\Route;
 class AdminAttributeCategoryController extends BaseController
 {
     /**
-     * @Route("/admin/core/attribute-category/list", name="attribute_category_list")
+     * @Route("/admin/core/trait-category/list", name="trait_category_list")
      * @Template("core/attribute_category/list.html.twig")
      */
     public function listAttributeCategoriesAction()
     {
-        $attributeCategorys = $this->getDoctrine()->getRepository(AttributeCategory::class)->findAll();
+        $attributeCategories = $this->getDoctrine()->getRepository(AttributeCategory::class)->findAll();
 
         $templateData = [
-            'attributeCategories' => $attributeCategorys,
-            'entityName' => 'attribute_category',
+            'attributeCategories' => $attributeCategories,
+            'entityName' => AttributeCategory::ENTITY_NAME,
         ];
 
         return array_merge($templateData, $this->getTemplateData(BaseController::NAV_TAB_ADMIN));
     }
 
     /**
-     * @Route("/admin/core/attribute_category/create", name="attribute_category_create")
-     * @Template("core/attribute_category/create.html.twig")
+     * @Route("/admin/core/trait_category/create", name="trait_category_create")
+     * @Template("base/base_form.html.twig")
      */
     public function createAttributeCategoryAction(Request $request)
     {
@@ -48,22 +48,24 @@ class AdminAttributeCategoryController extends BaseController
             $entityManager->persist($attributeCategory);
             $entityManager->flush();
 
-            $this->addFlash('success', 'Kategoria atrybutów stworzona!');
+            $this->addEntityActionFlash(AttributeCategory::getFormattedName(), BaseController::ENTITY_CREATE_ACTION);
 
-            return $this->redirectToRoute('attribute_category_list');
+            return $this->redirectToRoute('trait_category_list');
         }
 
         $templateData = [
             'form' => $form->createView(),
-            'entityName' => 'attribute_category',
+            'entityName' => AttributeCategory::ENTITY_NAME,
+            'formattedEntityName' => AttributeCategory::getFormattedName(),
+            'actionName' => BaseController::ENTITY_CREATE_ACTION,
         ];
 
         return array_merge($templateData, $this->getTemplateData(BaseController::NAV_TAB_ADMIN));
     }
 
     /**
-     * @Route("/admin/core/attribute_category/{id}/edit", name="attribute_category_edit")
-     * @Template("core/attribute_category/edit.html.twig")
+     * @Route("/admin/core/trait_category/{id}/edit", name="trait_category_edit")
+     * @Template("base/base_form.html.twig")
      */
     public function editAttributeCategoryAction(Request $request, AttributeCategory $attributeCategory)
     {
@@ -78,55 +80,23 @@ class AdminAttributeCategoryController extends BaseController
             $entityManager->persist($attributeCategory);
             $entityManager->flush();
 
-            $this->addFlash('success', 'Kategoria atrybutów zmieniona!');
+            $this->addEntityActionFlash(AttributeCategory::getFormattedName(), BaseController::ENTITY_EDIT_ACTION);
 
-            return $this->redirectToRoute('attribute_category_list');
+            return $this->redirectToRoute('trait_category_list');
         }
 
         $templateData = [
             'form' => $form->createView(),
-            'entityName' => 'attribute_category',
+            'entityName' => AttributeCategory::ENTITY_NAME,
+            'formattedEntityName' => AttributeCategory::getFormattedName(),
+            'actionName' => BaseController::ENTITY_EDIT_ACTION,
         ];
 
         return array_merge($templateData, $this->getTemplateData(BaseController::NAV_TAB_ADMIN));
     }
 
     /**
-     * @Route("/admin/core/attribute_category/{id}/kill", name="attribute_category_kill")
-     */
-    public function killAttributeCategoryAction(AttributeCategory $attributeCategory)
-    {
-        $entityManager = $this->getDoctrine()->getManager();
-
-        $attributeCategory->setIsActive(false);
-
-        $entityManager->persist($attributeCategory);
-        $entityManager->flush();
-
-        $this->addFlash('warning', 'Kategoria atrybutów zabita!');
-
-        return $this->redirectToRoute('attribute_category_list');
-    }
-
-    /**
-     * @Route("/admin/core/attribute_category/{id}/revive", name="attribute_category_revive")
-     */
-    public function reviveAttributeCategoryAction(AttributeCategory $attributeCategory)
-    {
-        $entityManager = $this->getDoctrine()->getManager();
-
-        $attributeCategory->setIsActive(false);
-
-        $entityManager->persist($attributeCategory);
-        $entityManager->flush();
-
-        $this->addFlash('success', 'Kategoria atrybutów wskrzeszona!');
-
-        return $this->redirectToRoute('attribute_category_list');
-    }
-
-    /**
-     * @Route("/admin/core/attribute_category/{id}/delete", name="attribute_category_delete")
+     * @Route("/admin/core/trait_category/{id}/delete", name="trait_category_delete")
      */
     public function deleteAttributeCategoryAction(AttributeCategory $attributeCategory)
     {
@@ -135,8 +105,8 @@ class AdminAttributeCategoryController extends BaseController
         $entityManager->remove($attributeCategory);
         $entityManager->flush();
 
-        $this->addFlash('danger', 'Kategoria atrybutów usunięta!');
+        $this->addEntityActionFlash(AttributeCategory::getFormattedName(), BaseController::ENTITY_DELETE_ACTION);
 
-        return $this->redirectToRoute('attribute_category_list');
+        return $this->redirectToRoute('trait_category_list');
     }
 }

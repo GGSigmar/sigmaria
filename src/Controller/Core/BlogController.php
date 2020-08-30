@@ -26,18 +26,9 @@ class BlogController extends BaseController
 
         $templateData = [
             'blogPosts' => $pagination,
-            'entityName' => 'blog_post',
+            'entityName' => BlogPost::ENTITY_NAME,
         ];
 
         return array_merge($templateData, $this->getTemplateData(BaseController::NAV_TAB_BLOG));
-    }
-
-    /**
-     * @Route("/css", name="css")
-     * @Template("core/css.html.twig")
-     */
-    public function cssTest()
-    {
-
     }
 }

@@ -25,7 +25,7 @@ class AdminLoreController extends BaseController
 
         $templateData = [
             'lores' => $lores,
-            'entityName' => 'lore',
+            'entityName' => Lore::ENTITY_NAME,
         ];
 
         return array_merge($templateData, $this->getTemplateData(BaseController::NAV_TAB_ADMIN));
@@ -33,7 +33,7 @@ class AdminLoreController extends BaseController
 
     /**
      * @Route("/admin/core/lore/create", name="lore_create")
-     * @Template("core/lore/create.html.twig")
+     * @Template("base/base_form.html.twig")
      */
     public function createLoreAction(Request $request)
     {
@@ -48,14 +48,16 @@ class AdminLoreController extends BaseController
             $entityManager->persist($lore);
             $entityManager->flush();
 
-            $this->addFlash('success', 'Dziedzina wiedzy stworzona!');
+            $this->addEntityActionFlash(Lore::getFormattedName(), BaseController::ENTITY_CREATE_ACTION);
 
             return $this->redirectToRoute('lore_list');
         }
 
         $templateData = [
             'form' => $form->createView(),
-            'entityName' => 'lore',
+            'entityName' => Lore::ENTITY_NAME,
+            'formattedEntityName' => Lore::getFormattedName(),
+            'actionName' => BaseController::ENTITY_CREATE_ACTION,
         ];
 
         return array_merge($templateData, $this->getTemplateData(BaseController::NAV_TAB_ADMIN));
@@ -63,7 +65,7 @@ class AdminLoreController extends BaseController
 
     /**
      * @Route("/admin/core/lore/{id}/edit", name="lore_edit")
-     * @Template("core/lore/edit.html.twig")
+     * @Template("base/base_form.html.twig")
      */
     public function editLoreAction(Request $request, Lore $lore)
     {
@@ -78,14 +80,16 @@ class AdminLoreController extends BaseController
             $entityManager->persist($lore);
             $entityManager->flush();
 
-            $this->addFlash('success', 'Dziedzina wiedzy zmieniona!');
+            $this->addEntityActionFlash(Lore::getFormattedName(), BaseController::ENTITY_EDIT_ACTION);
 
             return $this->redirectToRoute('lore_list');
         }
 
         $templateData = [
             'form' => $form->createView(),
-            'entityName' => 'lore',
+            'entityName' => Lore::ENTITY_NAME,
+            'formattedEntityName' => Lore::getFormattedName(),
+            'actionName' => BaseController::ENTITY_EDIT_ACTION,
         ];
 
         return array_merge($templateData, $this->getTemplateData(BaseController::NAV_TAB_ADMIN));
@@ -103,7 +107,7 @@ class AdminLoreController extends BaseController
         $entityManager->persist($lore);
         $entityManager->flush();
 
-        $this->addFlash('warning', 'Dziedzina wiedzy zabita!');
+        $this->addEntityActionFlash(Lore::getFormattedName(), BaseController::ENTITY_KILL_ACTION);
 
         return $this->redirectToRoute('lore_list');
     }
@@ -120,7 +124,7 @@ class AdminLoreController extends BaseController
         $entityManager->persist($lore);
         $entityManager->flush();
 
-        $this->addFlash('success', 'Dziedzina wiedzy wskrzeszona!');
+        $this->addEntityActionFlash(Lore::getFormattedName(), BaseController::ENTITY_REVIVE_ACTION);
 
         return $this->redirectToRoute('lore_list');
     }
@@ -135,7 +139,7 @@ class AdminLoreController extends BaseController
         $entityManager->remove($lore);
         $entityManager->flush();
 
-        $this->addFlash('danger', 'Dziedzina wiedzy usunięta!');
+        $this->addEntityActionFlash(Lore::getFormattedName(), BaseController::ENTITY_DELETE_ACTION);
 
         return $this->redirectToRoute('lore_list');
     }

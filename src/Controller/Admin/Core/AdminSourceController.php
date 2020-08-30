@@ -25,7 +25,7 @@ class AdminSourceController extends BaseController
 
         $templateData = [
             'sources' => $sources,
-            'entityName' => 'source',
+            'entityName' => Source::ENTITY_NAME,
         ];
 
         return array_merge($templateData, $this->getTemplateData(BaseController::NAV_TAB_ADMIN));
@@ -33,7 +33,7 @@ class AdminSourceController extends BaseController
 
     /**
      * @Route("/admin/core/source/create", name="source_create")
-     * @Template("core/source/create.html.twig")
+     * @Template("base/base_form.html.twig")
      */
     public function createSourceAction(Request $request)
     {
@@ -48,14 +48,16 @@ class AdminSourceController extends BaseController
             $entityManager->persist($source);
             $entityManager->flush();
 
-            $this->addFlash('success', 'Źródło stworzone!');
+            $this->addEntityActionFlash(Source::getFormattedName(), BaseController::ENTITY_CREATE_ACTION);
 
             return $this->redirectToRoute('source_list');
         }
 
         $templateData = [
             'form' => $form->createView(),
-            'entityName' => 'source',
+            'entityName' => Source::ENTITY_NAME,
+            'formattedEntityName' => Source::getFormattedName(),
+            'actionName' => BaseController::ENTITY_CREATE_ACTION,
         ];
 
         return array_merge($templateData, $this->getTemplateData(BaseController::NAV_TAB_ADMIN));
@@ -63,7 +65,7 @@ class AdminSourceController extends BaseController
 
     /**
      * @Route("/admin/core/source/{id}/edit", name="source_edit")
-     * @Template("core/source/edit.html.twig")
+     * @Template("base/base_form.html.twig")
      */
     public function editSourceAction(Request $request, Source $source)
     {
@@ -78,14 +80,16 @@ class AdminSourceController extends BaseController
             $entityManager->persist($source);
             $entityManager->flush();
 
-            $this->addFlash('success', 'Źródło zmienione!');
+            $this->addEntityActionFlash(Source::getFormattedName(), BaseController::ENTITY_EDIT_ACTION);
 
             return $this->redirectToRoute('source_list');
         }
 
         $templateData = [
             'form' => $form->createView(),
-            'entityName' => 'source',
+            'entityName' => Source::ENTITY_NAME,
+            'formattedEntityName' => Source::getFormattedName(),
+            'actionName' => BaseController::ENTITY_EDIT_ACTION,
         ];
 
         return array_merge($templateData, $this->getTemplateData(BaseController::NAV_TAB_ADMIN));
@@ -103,7 +107,7 @@ class AdminSourceController extends BaseController
         $entityManager->persist($source);
         $entityManager->flush();
 
-        $this->addFlash('warning', 'Źródło zabite!');
+        $this->addEntityActionFlash(Source::getFormattedName(), BaseController::ENTITY_KILL_ACTION);
 
         return $this->redirectToRoute('source_list');
     }
@@ -120,7 +124,7 @@ class AdminSourceController extends BaseController
         $entityManager->persist($source);
         $entityManager->flush();
 
-        $this->addFlash('success', 'Źródło wskrzeszone!');
+        $this->addEntityActionFlash(Source::getFormattedName(), BaseController::ENTITY_REVIVE_ACTION);
 
         return $this->redirectToRoute('source_list');
     }
@@ -135,7 +139,7 @@ class AdminSourceController extends BaseController
         $entityManager->remove($source);
         $entityManager->flush();
 
-        $this->addFlash('danger', 'Dziedzina wiedzy usunięta!');
+        $this->addEntityActionFlash(Source::getFormattedName(), BaseController::ENTITY_DELETE_ACTION);
 
         return $this->redirectToRoute('source_list');
     }

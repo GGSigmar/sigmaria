@@ -16,7 +16,7 @@
             <td class="align-middle text-nowrap">
                 {% include "base/buttons/entity_list_edit_button.html.twig" with {'entityName': entityName, 'entity': type} %}
                 {% if type.locations is empty %}
-                    <a href="{{ path('attribute_category_delete', {"id": type.id}) }}" class="btn btn-outline-danger" role="button">Usuń <i class="fas fa-trash-alt"></i></a>
+                    <a href="{{ path('trait_category_delete', {"id": type.id}) }}" class="btn btn-outline-danger" role="button">Usuń <i class="fas fa-trash-alt"></i></a>
                 {% endif %}
             </td>
         </tr>

@@ -12,9 +12,11 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity(repositoryClass="App\Repository\Core\BlogPostRepository")
  * @ORM\Table(name="core_blog_post")
  */
-class BlogPost
+class BlogPost extends BaseEntity
 {
     use BaseFieldsTrait, ActiveTrait, DescriptionTrait, TimestampableEntity;
+
+    public const ENTITY_NAME = 'blog_post';
 
     /**
      * @var User

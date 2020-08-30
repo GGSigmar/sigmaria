@@ -21,43 +21,35 @@ class FeatType extends AbstractType
     {
         $builder
             ->add('rarity', EntityType::class, [
-                'label' => 'Rzadkość',
                 'class' => Rarity::class
             ])
             ->add('actions', EntityType::class, [
                 'required' => false,
-                'label' => 'Akcje',
                 'class' => Actions::class,
                 'placeholder' => 'Nie dotyczy',
             ])
             ->add('level', IntegerType::class, [
-                'label' => 'Poziom',
             ])
             ->add('prerequisites', TextareaType::class, [
                 'required' => false,
-                'label' => 'Wymagania',
             ])
             ->add('frequency', TextareaType::class, [
                 'required' => false,
-                'label' => 'Częstotliwość',
             ])
             ->add('trigger', TextareaType::class, [
                 'required' => false,
-                'label' => 'Wyzwalacz',
             ])
             ->add('requirements', TextareaType::class, [
                 'required' => false,
-                'label' => 'Warunki',
             ])
             ->add('specialRules', TextareaType::class, [
                 'required' => false,
-                'label' => 'Właściwość specialna',
                 'attr' => [
                     'rows' => 5,
                 ]
             ])
             ->add('attributes', EntityType::class, [
-                'label' => 'Atrybuty',
+                'label' => 'Traits',
                 'class' => Attribute::class,
                 'multiple' => true,
                 'group_by' => function (Attribute $attribute) {

@@ -23,22 +23,19 @@ class BaseEntityType extends AbstractType
     {
         $builder
             ->add('name', TextType::class, [
-                'label' => 'Nazwa',
                 'required' => $options['is_name_required'],
             ]);
 
         if ($options['has_handle']) {
             $builder
                 ->add('handle', TextType::class, [
-                    'label' => 'Identyfikator',
-
+                    'label' => 'Identifier',
                 ]);
         }
 
         if ($options['has_description']) {
             $builder
                 ->add('description', CKEditorType::class, [
-                    'label' => 'Opis',
                     'required' => false,
                     'config' => self::DEFAULT_CKEDITOR_CONFIG
                 ]);
@@ -46,15 +43,11 @@ class BaseEntityType extends AbstractType
 
         if ($options['has_value']) {
             $builder
-                ->add('value', IntegerType::class, [
-                    'label' => 'Wartość',
-                ]);
+                ->add('value', IntegerType::class);
         }
         if ($options['has_sort_order']) {
             $builder
-                ->add('sortOrder', IntegerType::class, [
-                    'label' => 'Kolejność sortowania'
-                ]);
+                ->add('sortOrder', IntegerType::class);
         }
     }
 
