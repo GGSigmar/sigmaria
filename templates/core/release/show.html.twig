@@ -39,8 +39,8 @@
         {% for entityType, entityNameArray in release.getContentReleased %}
             <div class="col-md-4 mb-4">
                 <h3>{{ entityType|releaseKey }}</h3>
-                {% for entityId, entityName in entityNameArray %}
-                    {% include "base/badges/entity_show_badge.html.twig" with {'entityName': entityType, "entityId": entityId} %} {{ entityName }}
+                {% for entitySlug, entityName in entityNameArray %}
+                    {% include "base/badges/entity_slug_show_badge.html.twig" with {'entityName': entityType, "entitySlug": entitySlug} %} {{ entityName }}
 
                     {% if not loop.last %}
                         <br />

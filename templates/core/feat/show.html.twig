@@ -30,7 +30,7 @@
                 <h3>Rasa</h3>
 
                 {% for ancestry in ancestries %}
-                    {% include "base/badges/entity_show_badge.html.twig" with {'entityName': 'ancestry', 'entityId': ancestry.id} %}
+                    {% include "base/badges/entity_slug_show_badge.html.twig" with {'entityName': 'ancestry', 'entitySlug': ancestry.slug} %}
                     {{ ancestry.name }}
 
                     {% if not loop.last %}
@@ -43,7 +43,7 @@
                 <h3>Dziedzictwo</h3>
 
                 {% for heritage in heritages %}
-                    {% include "base/badges/entity_show_badge.html.twig" with {'entityName': 'heritage', 'entityId': heritage.id} %}
+                    {% include "base/badges/entity_slug_show_badge.html.twig" with {'entityName': 'heritage', 'entitySlug': heritage.slug} %}
                     {{ heritage.name }}
 
                     {% if not loop.last %}
@@ -56,7 +56,7 @@
                 <h3>Kultura</h3>
 
                 {% for culture in cultures %}
-                    {% include "base/badges/entity_show_badge.html.twig" with {'entityName': 'culture', 'entityId': culture.id} %}
+                    {% include "base/badges/entity_slug_show_badge.html.twig" with {'entityName': 'culture', 'entitySlug': culture.slug} %}
                     {{ culture.name }}
 
                     {% if not loop.last %}

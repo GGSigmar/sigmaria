@@ -19,6 +19,8 @@ class Source extends BaseEntity
 {
     use BaseFieldsTrait, ActiveTrait, HandleTrait, DescriptionTrait, SortOrderTrait, TimestampableEntity;
 
+    public const ENTITY_NAME = 'source';
+
     /**
      * @var string
      *
