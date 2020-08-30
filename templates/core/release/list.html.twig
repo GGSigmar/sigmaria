@@ -1,18 +1,18 @@
 {% extends "base/base_list.html.twig" %}
 
 {% block list_title %}
-    Wydania
+    Releases
 {% endblock %}
 
 {% block table_headers %}
-    <th>Wersja</th>
-    <th>Nazwa</th>
-    <th>Akcje</th>
+    <th>Version</th>
+    <th>Name</th>
+    <th>Actions</th>
 {% endblock %}
 
 {% block table_rows %}
     {% for release in releases %}
-        {% if isAdmin or release.isLaunched %}
+        {% if isAdmin or release.launchDate is defined %}
         <tr>
             <td class="align-middle">{{ release.getContentVersion }}</td>
             <td class="align-middle">{{ release.name }}</td>
@@ -20,7 +20,7 @@
                 {% include "base/buttons/entity_show_button.html.twig" with {'entityName': entityName, 'entity': release} %}
                 {% if isAdmin %}
                     <a href="{{ path('release_edit', {"id": release.id}) }}" class="btn btn-outline-primary" role="button">Edit <i class="fas fa-bolt"></i></a>
-                    {% if not release.isLaunched %}
+                    {% if release.launchDate is not defined %}
                         <a href="{{ path('release_launch', {"id": release.id}) }}" class="btn btn-outline-info" role="button">Release <i class="fas fa-bolt"></i></a>
                     {% endif %}
                 {% endif %}

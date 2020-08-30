@@ -9,6 +9,7 @@ use App\Entity\Core\Release;
 use App\Entity\Setting\Background;
 use App\Entity\Setting\Culture;
 use App\Entity\Setting\Language;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\EntityManagerInterface;
 
 class ReleaseService
@@ -29,6 +30,11 @@ class ReleaseService
     private $releaseData;
 
     /**
+     * @var ContentToBeReleasedBag|null
+     */
+    private $contentBag = null;
+
+    /**
      * @param EntityManagerInterface $em
      */
     public function __construct(EntityManagerInterface $em)
@@ -43,17 +49,16 @@ class ReleaseService
     public function releaseContent(Release $release): Release
     {
         $this->release = $release;
-        $this->releaseData = [];
+        $this->getContentToBeReleased();
 
+        $this->releaseFeats();
         $this->releaseAncestries();
         $this->releaseHeritages();
         $this->releaseCultures();
-        $this->releaseFeats();
         $this->releaseBackgrounds();
         $this->releaseLanguages();
 
-        $release->setContentReleased($this->releaseData);
-
+        $this->release->setLaunchDate(new \DateTime());
         $this->em->persist($release);
         $this->em->flush();
 
@@ -61,151 +66,121 @@ class ReleaseService
     }
 
     /**
-     * @return array
+     * @return ContentToBeReleasedBag
      */
-    public function getContentToBeReleased(): array
+    public function getContentToBeReleased(): ContentToBeReleasedBag
     {
-        $contentToBeReleased = [];
+        $contentBag = new ContentToBeReleasedBag();
 
         $ancestryRepository = $this->em->getRepository(Ancestry::class);
-        $ancestriesToBeReleased = $ancestryRepository->getAncestriesForRelease();
-
-        if ($ancestriesToBeReleased) {
-            $contentToBeReleased['ancestry'] = $ancestriesToBeReleased;
-        }
+        $contentBag->setAncestries($ancestryRepository->getAncestriesForRelease());
 
         $heritageRepository = $this->em->getRepository(Heritage::class);
-        $heritagesToBeReleased = $heritageRepository->getHeritagesForRelease();
-
-        if ($heritagesToBeReleased) {
-            $contentToBeReleased['heritage'] = $heritagesToBeReleased;
-        }
+        $contentBag->setHeritages($heritageRepository->getHeritagesForRelease());
 
         $cultureRepository = $this->em->getRepository(Culture::class);
-        $culturesToBeReleased = $cultureRepository->getCulturesForRelease();
-
-        if ($culturesToBeReleased) {
-            $contentToBeReleased['culture'] = $culturesToBeReleased;
-        }
+        $contentBag->setCultures($cultureRepository->getCulturesForRelease());
 
         $featRepository = $this->em->getRepository(Feat::class);
-        $featsToBeReleased = $featRepository->getFeatsForRelease();
-
-        if ($featsToBeReleased) {
-            $contentToBeReleased['feat'] = $featsToBeReleased;
-        }
+        $contentBag->setFeats($featRepository->getFeatsForRelease());
 
         $backgroundRepository = $this->em->getRepository(Background::class);
-        $backgroundsToBeReleased = $backgroundRepository->getBackgroundsForRelease();
-
-        if ($backgroundsToBeReleased) {
-            $contentToBeReleased['background'] = $backgroundsToBeReleased;
-        }
+        $contentBag->setBackgrounds($backgroundRepository->getBackgroundsForRelease());
 
         $languageRepository = $this->em->getRepository(Language::class);
-        $languagesToBeReleased = $languageRepository->getLanguagesForRelease();
+        $contentBag->setLanguages($languageRepository->getLanguagesForRelease());
 
-        if ($languagesToBeReleased)
-        {
-            $contentToBeReleased['language'] = $languagesToBeReleased;
+        $this->contentBag = $contentBag;
+        return $contentBag;
+    }
+
+    private function releaseFeats(): void
+    {
+        $feats = $this->contentBag->getFeats();
+
+        if ($feats) {
+            foreach ($feats as $feat) {
+                $feat->setIsActive(true);
+                $feat->setRelease($this->release);
+                $this->em->persist($feat);
+            }
+
+            $this->release->setFeats(new ArrayCollection($feats));
         }
-
-        return $contentToBeReleased;
     }
 
     private function releaseAncestries(): void
     {
-        $ancestryRepository = $this->em->getRepository(Ancestry::class);
+        $ancestries = $this->contentBag->getAncestries();
 
-        $ancestriesToBeReleased = $ancestryRepository->getAncestriesForRelease();
-
-        if ($ancestriesToBeReleased) {
-            foreach ($ancestriesToBeReleased as $ancestry) {
+        if ($ancestries) {
+            foreach ($this->contentBag->getAncestries() as $ancestry) {
                 $ancestry->setIsActive(true);
-                $this->releaseData['ancestry'][$ancestry->getId()] = $ancestry->getName();
                 $ancestry->setRelease($this->release);
                 $this->em->persist($ancestry);
             }
+
+            $this->release->setAncestries(new ArrayCollection($ancestries));
         }
     }
 
     private function releaseHeritages(): void
     {
-        $heritageRepository = $this->em->getRepository(Heritage::class);
+        $heritages = $this->contentBag->getHeritages();
 
-        $heritagesToBeReleased = $heritageRepository->getHeritagesForRelease();
-
-        if ($heritagesToBeReleased) {
-            foreach ($heritagesToBeReleased as $heritage) {
+        if ($heritages) {
+            foreach ($heritages as $heritage) {
                 $heritage->setIsActive(true);
-                $this->releaseData['heritage'][$heritage->getId()] = $heritage->getName();
                 $heritage->setRelease($this->release);
                 $this->em->persist($heritage);
             }
+
+            $this->release->setHeritages(new ArrayCollection($heritages));
         }
     }
 
     private function releaseCultures(): void
     {
-        $cultureRepository = $this->em->getRepository(Culture::class);
+        $cultures = $this->contentBag->getCultures();
 
-        $culturesToBeReleased = $cultureRepository->getCulturesForRelease();
-
-        if ($culturesToBeReleased) {
-            foreach ($culturesToBeReleased as $culture) {
+        if ($cultures) {
+            foreach ($cultures as $culture) {
                 $culture->setIsActive(true);
-                $this->releaseData['culture'][$culture->getId()] = $culture->getName();
                 $culture->setRelease($this->release);
                 $this->em->persist($culture);
             }
-        }
-    }
 
-    private function releaseFeats(): void
-    {
-        $featRepository = $this->em->getRepository(Feat::class);
-
-        $featsToBeReleased = $featRepository->getFeatsForRelease();
-
-        if ($featsToBeReleased) {
-            foreach ($featsToBeReleased as $feat) {
-                $feat->setIsActive(true);
-                $this->releaseData['feat'][$feat->getId()] = $feat->getName();
-                $feat->setRelease($this->release);
-                $this->em->persist($feat);
-            }
+            $this->release->setCultures(new ArrayCollection($cultures));
         }
     }
 
     private function releaseBackgrounds(): void
     {
-        $backgroundRepository = $this->em->getRepository(Background::class);
+        $backgrounds = $this->contentBag->getBackgrounds();
 
-        $backgroundsToBeReleased = $backgroundRepository->getBackgroundsForRelease();
-
-        if ($backgroundsToBeReleased) {
-            foreach ($backgroundsToBeReleased as $background) {
+        if ($backgrounds) {
+            foreach ($backgrounds as $background) {
                 $background->setIsActive(true);
-                $this->releaseData['background'][$background->getId()] = $background->getName();
                 $background->setRelease($this->release);
                 $this->em->persist($background);
             }
+
+            $this->release->setBackgrounds(new ArrayCollection($backgrounds));
         }
     }
 
     private function releaseLanguages(): void
     {
-        $languageRepository = $this->em->getRepository(Language::class);
+        $languages = $this->contentBag->getLanguages();
 
-        $languagesToBeReleased = $languageRepository->getLanguagesForRelease();
-
-        if ($languagesToBeReleased) {
-            foreach ($languagesToBeReleased as $language) {
+        if ($languages) {
+            foreach ($languages as $language) {
                 $language->setIsActive(true);
-                $this->releaseData['language'][$language->getId()] = $language->getName();
                 $language->setRelease($this->release);
                 $this->em->persist($language);
             }
+
+            $this->release->setLanguages(new ArrayCollection($languages));
         }
     }
 }

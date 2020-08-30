@@ -18,7 +18,7 @@ class AdminReleaseController extends BaseController
 {
     /**
      * @Route("/admin/core/release/create", name="release_create")
-     * @Template("base/base_form.html.twig")
+     * @Template("core/release/create.html.twig")
      */
     public function createReleaseAction(Request $request, ReleaseService $releaseService)
     {
@@ -41,7 +41,7 @@ class AdminReleaseController extends BaseController
         $templateData = [
             'form' => $form->createView(),
             'entityName' => Release::ENTITY_NAME,
-            'contentToBeReleased' => $releaseService->getContentToBeReleased(),
+            'bag' => $releaseService->getContentToBeReleased(),
             'formattedEntityName' => Release::getFormattedName(),
             'actionName' => BaseController::ENTITY_CREATE_ACTION,
         ];

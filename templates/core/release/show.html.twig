@@ -18,7 +18,7 @@
                 </h1>
                 <div class="pf2-subtitle">
                     <div class="text-center">
-                        Wydanie z dnia {{ release.createdAt|date('Y-m-d') }}
+                        Release from {{ release.createdAt|date('Y-m-d') }}
                     </div>
                 </div>
             </div>
@@ -32,23 +32,8 @@
                 {{ release.contentChanges|raw }}
             </div>
         {% endif %}
-        <h2 class="mb-2">Wydana zawartość:</h2>
+        <h2 class="mb-2">Released content:</h2>
     </div>
 
-    {% if release.isLaunched %}
-        {% for entityType, entityNameArray in release.getContentReleased %}
-            <div class="col-md-4 mb-4">
-                <h3>{{ entityType|releaseKey }}</h3>
-                {% for entitySlug, entityName in entityNameArray %}
-                    {% include "base/badges/entity_slug_show_badge.html.twig" with {'entityName': entityType, "entitySlug": entitySlug} %} {{ entityName }}
-
-                    {% if not loop.last %}
-                        <br />
-                    {% endif %}
-                {% endfor %}
-            </div>
-        {% endfor %}
-    {% else %}
-        {% include 'core/release/content_array_display.html.twig' %}
-    {% endif %}
+    {% include 'core/release/content_array_display.html.twig' %}
 {% endblock %}

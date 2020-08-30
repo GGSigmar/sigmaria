@@ -8,10 +8,10 @@
         {% include 'core/paragraph/paragraph_entity_display.html.twig' with {'entity': culture} %}
     </div>
     <div class="col-md-3 sidebar sidebar-right color-blood text-justify pt-2 pb-2">
-        <h3>Pospolite rasy</h3>
+        <h3>Common ancestries</h3>
         <p class="mb-4">
             {% if culture.commonAncestries is empty %}
-                Brak.
+                None
             {% else %}
                 {% for ancestry in culture.commonAncestries %}
                     {% include "base/badges/entity_show_badge.html.twig" with {'entityName': 'ancestry', 'entityId': ancestry.id} %} {{ ancestry.name }}
@@ -21,10 +21,10 @@
                 {% endfor %}
             {% endif %}
         </p>
-        <h3>Pospolite klasy</h3>
+        <h3>Common classes</h3>
         <p class="mb-4">
             {% if culture.commonClasses is empty %}
-                Brak.
+                None
             {% else %}
                 {% for class in culture.commonClasses %}
                     {{ class.name }}
@@ -35,10 +35,10 @@
                 {% endfor %}
             {% endif %}
         </p>
-        <h3>Pospolite pochodzenia</h3>
+        <h3>Common backgrounds</h3>
         <p class="mb-4">
             {% if culture.commonBackgrounds is empty %}
-                Brak.
+                None
             {% else %}
                 {% for background in culture.commonBackgrounds %}
                     {% include "base/badges/entity_show_badge.html.twig" with {'entityName': 'background', 'entityId': background.id} %} {{ background.name }}
@@ -49,10 +49,10 @@
                 {% endfor %}
             {% endif %}
         </p>
-        <h3>Pospolite języki</h3>
+        <h3>Common languages</h3>
         <p class="mb-4">
             {% if culture.commonLanguages is empty %}
-                Brak.
+                None
             {% else %}
                 {% for language in culture.commonLanguages %}
                     {% include "base/badges/entity_show_badge.html.twig" with {'entityName': 'language', 'entityId': language.id} %} {{ language.name }}

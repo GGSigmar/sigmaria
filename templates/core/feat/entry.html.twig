@@ -4,7 +4,7 @@
             {{ feat.name|upper }} {% if feat.actions %}{% include 'base/actions/display_actions.html.twig' with {actions: feat.actions} %} {% endif %}
             <span class="float-right">
                 {% if feat.level %}
-                    ATUT {{ feat.level }}
+                    FEAT {{ feat.level }}
                 {% endif %}
                 {% if isAdmin %}
                     {% if entity is defined %}

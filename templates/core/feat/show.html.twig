@@ -22,12 +22,12 @@
     <div class="col-md-6">
         <h2>Lokacja:</h2>
         {% if isGeneral %}
-            <h3>Atuty ogólne</h3>
+            <h3>General Feats</h3>
             <a href="{{ path('feat_general_display') }}" class="badge badge-success border border-white" role="button"><i class="fas fa-search"></i></a>
             Zobacz
         {% else %}
             {% if ancestries is not empty %}
-                <h3>Rasa</h3>
+                <h3>Ancestry</h3>
 
                 {% for ancestry in ancestries %}
                     {% include "base/badges/entity_slug_show_badge.html.twig" with {'entityName': 'ancestry', 'entitySlug': ancestry.slug} %}
@@ -40,7 +40,7 @@
             {% endif %}
 
             {% if heritages is not empty %}
-                <h3>Dziedzictwo</h3>
+                <h3>Heritage</h3>
 
                 {% for heritage in heritages %}
                     {% include "base/badges/entity_slug_show_badge.html.twig" with {'entityName': 'heritage', 'entitySlug': heritage.slug} %}
@@ -53,7 +53,7 @@
             {% endif %}
 
             {% if cultures is not empty %}
-                <h3>Kultura</h3>
+                <h3>Culture</h3>
 
                 {% for culture in cultures %}
                     {% include "base/badges/entity_slug_show_badge.html.twig" with {'entityName': 'culture', 'entitySlug': culture.slug} %}
