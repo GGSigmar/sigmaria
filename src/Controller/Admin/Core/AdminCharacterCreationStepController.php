@@ -139,6 +139,7 @@ class AdminCharacterCreationStepController extends BaseController
         $entityManager->remove($characterCreationStep);
         $entityManager->flush();
 
+        $this->addFlash('danger', 'Krok tworznia postaci usunięty!');
         $this->addEntityActionFlash(CharacterCreationStep::getFormattedName(), BaseController::ENTITY_DELETE_ACTION);
 
         return $this->redirectToRoute('character_creation_step_list');

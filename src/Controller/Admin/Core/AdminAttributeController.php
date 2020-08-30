@@ -17,7 +17,7 @@ class AdminAttributeController extends BaseController
 {
     /**
      * @Route("/admin/core/trait/list", name="trait_list")
-     * @Template("core/attribute/list.html.twig")
+     * @Template("core/trait/list.html.twig")
      */
     public function listAttributesAction()
     {

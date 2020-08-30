@@ -2,6 +2,7 @@
 
 namespace App\Entity\Ancestry;
 
+use App\Entity\Core\BaseEntity;
 use App\Entity\Core\Traits\ActiveTrait;
 use App\Entity\Core\Traits\BaseFieldsTrait;
 use App\Entity\Core\Traits\DescriptionTrait;
@@ -15,9 +16,11 @@ use Gedmo\Timestampable\Traits\TimestampableEntity;
  * @ORM\Entity(repositoryClass="App\Repository\Ancestry\AncestralFeatureRepository")
  * @ORM\Table(name="ancestry_ancestral_feature")
  */
-class AncestralFeature
+class AncestralFeature extends BaseEntity
 {
     use BaseFieldsTrait, ActiveTrait, DescriptionTrait, ValueTrait, TimestampableEntity;
+
+    public const ENTITY_NAME = 'ancestral_feature';
 
     /**
      * @var ArrayCollection

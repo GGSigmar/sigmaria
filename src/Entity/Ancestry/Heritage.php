@@ -4,6 +4,7 @@ namespace App\Entity\Ancestry;
 
 use App\Entity\Core\Ability;
 use App\Entity\Core\Attribute;
+use App\Entity\Core\BaseEntity;
 use App\Entity\Core\Feat;
 use App\Entity\Core\MoveSpeed;
 use App\Entity\Core\Size;
@@ -26,7 +27,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity(repositoryClass="App\Repository\Ancestry\HeritageRepository")
  * @ORM\Table(name="ancestry_heritage")
  */
-class Heritage
+class Heritage extends BaseEntity
 {
     use BaseFieldsTrait, ActiveTrait, SlugTrait, HandleTrait, DescriptionTrait, SimpleRarityTrait, ParagraphsTrait, ReleasableTrait, TimestampableEntity;
 

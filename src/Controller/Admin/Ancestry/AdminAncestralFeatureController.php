@@ -25,7 +25,7 @@ class AdminAncestralFeatureController extends BaseController
 
         $templateData = [
             'ancestralFeatures' => $ancestralFeatures,
-            'entityName' => 'ancestral_feature',
+            'entityName' => AncestralFeature::ENTITY_NAME,
         ];
 
         return array_merge($templateData, $this->getTemplateData(BaseController::NAV_TAB_ADMIN));
@@ -33,7 +33,7 @@ class AdminAncestralFeatureController extends BaseController
 
     /**
      * @Route("/admin/ancestry/feature/create", name="ancestral_feature_create")
-     * @Template("ancestry/feature/create.html.twig")
+     * @Template("base/base_form.html.twig")
      */
     public function createAncestralFeatureAction(Request $request)
     {
@@ -48,14 +48,16 @@ class AdminAncestralFeatureController extends BaseController
             $entityManager->persist($ancestralFeature);
             $entityManager->flush();
 
-            $this->addFlash('success', 'Zdolność rasowa stworzona!');
+            $this->addEntityActionFlash(AncestralFeature::getFormattedName(), BaseController::ENTITY_CREATE_ACTION);
 
             return $this->redirectToRoute('ancestral_feature_list');
         }
 
         $templateData = [
             'form' => $form->createView(),
-            'entityName' => 'ancestral_feature'
+            'entityName' => AncestralFeature::ENTITY_NAME,
+            'formattedEntityName' => AncestralFeature::getFormattedName(),
+            'actionName' => BaseController::ENTITY_CREATE_ACTION,
         ];
 
         return array_merge($templateData, $this->getTemplateData(BaseController::NAV_TAB_ADMIN));
@@ -63,7 +65,7 @@ class AdminAncestralFeatureController extends BaseController
 
     /**
      * @Route("/admin/ancestry/feature/{id}/edit", name="ancestral_feature_edit")
-     * @Template("ancestry/feature/edit.html.twig")
+     * @Template("base/base_form.html.twig")
      */
     public function editAncestralFeatureAction(Request $request, AncestralFeature $ancestralFeature)
     {
@@ -78,14 +80,16 @@ class AdminAncestralFeatureController extends BaseController
             $entityManager->persist($ancestralFeature);
             $entityManager->flush();
 
-            $this->addFlash('success', 'Zdolność rasowa edytowana!');
+            $this->addEntityActionFlash(AncestralFeature::getFormattedName(), BaseController::ENTITY_EDIT_ACTION);
 
             return $this->redirectToRoute('ancestral_feature_list');
         }
 
         $templateData = [
             'form' => $form->createView(),
-            'entityName' => 'ancestral_feature'
+            'entityName' => AncestralFeature::ENTITY_NAME,
+            'formattedEntityName' => AncestralFeature::getFormattedName(),
+            'actionName' => BaseController::ENTITY_EDIT_ACTION,
         ];
 
         return array_merge($templateData, $this->getTemplateData(BaseController::NAV_TAB_ADMIN));
@@ -103,7 +107,7 @@ class AdminAncestralFeatureController extends BaseController
         $entityManager->persist($ancestralFeature);
         $entityManager->flush();
 
-        $this->addFlash('warning', 'Zdolność rasowa zabita!');
+        $this->addEntityActionFlash(AncestralFeature::getFormattedName(), BaseController::ENTITY_KILL_ACTION);
 
         return $this->redirectToRoute('ancestral_feature_list');
     }
@@ -120,7 +124,7 @@ class AdminAncestralFeatureController extends BaseController
         $entityManager->persist($ancestralFeature);
         $entityManager->flush();
 
-        $this->addFlash('success', 'Zdolność rasowa wskrzeszona!');
+        $this->addEntityActionFlash(AncestralFeature::getFormattedName(), BaseController::ENTITY_REVIVE_ACTION);
 
         return $this->redirectToRoute('ancestral_feature_list');
     }
@@ -135,7 +139,7 @@ class AdminAncestralFeatureController extends BaseController
         $entityManager->remove($ancestralFeature);
         $entityManager->flush();
 
-        $this->addFlash('danger', 'Zdolność rasowa usunięta!');
+        $this->addEntityActionFlash(AncestralFeature::getFormattedName(), BaseController::ENTITY_DELETE_ACTION);
 
         return $this->redirectToRoute('ancestral_feature_list');
     }

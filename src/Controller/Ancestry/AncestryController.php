@@ -19,7 +19,7 @@ class AncestryController extends BaseController
 
         $templateData = [
             'ancestries' => $ancestries,
-            'entityName' => 'ancestry',
+            'entityName' => Ancestry::ENTITY_NAME,
         ];
 
         return array_merge($templateData, $this->getTemplateData(BaseController::NAV_TAB_RULES));
@@ -35,7 +35,7 @@ class AncestryController extends BaseController
 
         $templateData = [
             'ancestry' => $ancestry,
-            'entityName' => 'ancestry',
+            'entityName' => Ancestry::ENTITY_NAME,
         ];
 
         return array_merge($templateData, $this->getTemplateData(BaseController::NAV_TAB_RULES));

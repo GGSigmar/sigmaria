@@ -23,7 +23,7 @@ class AdminHeritageController extends BaseController
 {
     /**
      * @Route("/admin/ancestry/heritage/create", name="heritage_create")
-     * @Template("ancestry/heritage/create.html.twig")
+     * @Template("base/base_form.html.twig")
      */
     public function createHeritageAction(Request $request)
     {
@@ -38,7 +38,7 @@ class AdminHeritageController extends BaseController
             $entityManager->persist($heritage);
             $entityManager->flush();
 
-            $this->addFlash('success', 'Dziedzictwo stworzone!');
+            $this->addEntityActionFlash(Heritage::getFormattedName(), BaseController::ENTITY_CREATE_ACTION);
 
             return $this->redirectToRoute('heritage_show', ['slug' => $heritage->getSlug()]);
         }
@@ -46,6 +46,8 @@ class AdminHeritageController extends BaseController
         $templateData = [
             'form' => $form->createView(),
             'entityName' => Heritage::ENTITY_NAME,
+            'formattedEntityName' => Heritage::getFormattedName(),
+            'actionName' => BaseController::ENTITY_CREATE_ACTION,
         ];
 
         return array_merge($templateData, $this->getTemplateData(BaseController::NAV_TAB_ADMIN));
@@ -53,7 +55,7 @@ class AdminHeritageController extends BaseController
 
     /**
      * @Route("/admin/ancestry/heritage/{id}/edit", name="heritage_edit")
-     * @Template("ancestry/heritage/edit.html.twig")
+     * @Template("base/base_form.html.twig")
      */
     public function editHeritageAction(Request $request, Heritage $heritage)
     {
@@ -68,7 +70,7 @@ class AdminHeritageController extends BaseController
             $entityManager->persist($heritage);
             $entityManager->flush();
 
-            $this->addFlash('success', 'Dziedzictwo edytowane!');
+            $this->addEntityActionFlash(Heritage::getFormattedName(), BaseController::ENTITY_EDIT_ACTION);
 
             return $this->redirectToRoute('heritage_show', ['slug' => $heritage->getSlug()]);
         }
@@ -76,6 +78,8 @@ class AdminHeritageController extends BaseController
         $templateData = [
             'form' => $form->createView(),
             'entityName' => Heritage::ENTITY_NAME,
+            'formattedEntityName' => Heritage::getFormattedName(),
+            'actionName' => BaseController::ENTITY_EDIT_ACTION,
         ];
 
         return array_merge($templateData, $this->getTemplateData(BaseController::NAV_TAB_ADMIN));
@@ -93,7 +97,7 @@ class AdminHeritageController extends BaseController
         $entityManager->persist($heritage);
         $entityManager->flush();
 
-        $this->addFlash('warning', 'Dziedzictwo zabite!');
+        $this->addEntityActionFlash(Heritage::getFormattedName(), BaseController::ENTITY_KILL_ACTION);
 
         return $this->redirectToRoute('heritage_list');
     }
@@ -110,7 +114,7 @@ class AdminHeritageController extends BaseController
         $entityManager->persist($heritage);
         $entityManager->flush();
 
-        $this->addFlash('success', 'Dziedzictwo wskrzeszone!');
+        $this->addEntityActionFlash(Heritage::getFormattedName(), BaseController::ENTITY_REVIVE_ACTION);
 
         return $this->redirectToRoute('heritage_list');
     }
@@ -125,7 +129,7 @@ class AdminHeritageController extends BaseController
         $entityManager->remove($heritage);
         $entityManager->flush();
 
-        $this->addFlash('danger', 'Dziedzictwo usunięte!');
+        $this->addEntityActionFlash(Heritage::getFormattedName(), BaseController::ENTITY_DELETE_ACTION);
 
         return $this->redirectToRoute('heritage_list');
     }
@@ -142,7 +146,7 @@ class AdminHeritageController extends BaseController
         $entityManager->persist($heritage);
         $entityManager->flush();
 
-        $this->addFlash('success', 'Dziedzictwo oznaczone do wydania!');
+        $this->addEntityActionFlash(Heritage::getFormattedName(), BaseController::ENTITY_STAGE_ACTION);
 
         return $this->redirectToReferer($request);
     }
@@ -159,14 +163,14 @@ class AdminHeritageController extends BaseController
         $entityManager->persist($heritage);
         $entityManager->flush();
 
-        $this->addFlash('warning', 'Dziedzictwo wyłączone z wydania!');
+        $this->addEntityActionFlash(Heritage::getFormattedName(), BaseController::ENTITY_UNSTAGE_ACTION);
 
         return $this->redirectToReferer($request);
     }
 
     /**
      * @Route("/admin/ancestry/heritage/{id}/feat/create", name="heritage_feat_create")
-     * @Template("core/feat/create.html.twig")
+     * @Template("base/base_form.html.twig")
      */
     public function createHeritageFeatAction(Request $request, Heritage $heritage, SourcableService $sourcableService)
     {
@@ -186,7 +190,7 @@ class AdminHeritageController extends BaseController
             $entityManager->persist($heritage);
             $entityManager->flush();
 
-            $this->addFlash('success', 'Atut stworzony!');
+            $this->addEntityActionFlash(Feat::getFormattedName(), BaseController::ENTITY_CREATE_ACTION);
 
             return $this->redirectToRoute('heritage_show', ['slug' => $heritage->getSlug()]);
         }
@@ -194,6 +198,8 @@ class AdminHeritageController extends BaseController
         $templateData = [
             'form' => $form->createView(),
             'entityName' => Heritage::ENTITY_NAME,
+            'formattedEntityName' => Feat::getFormattedName(),
+            'actionName' => BaseController::ENTITY_CREATE_ACTION,
         ];
 
         return array_merge($templateData, $this->getTemplateData(BaseController::NAV_TAB_RULES));
@@ -201,7 +207,7 @@ class AdminHeritageController extends BaseController
 
     /**
      * @Route("/admin/ancestry/heritage/{baseId}/feat/{id}/edit", name="heritage_feat_edit")
-     * @Template("core/feat/create.html.twig")
+     * @Template("base/base_form.html.twig")
      * @ParamConverter("heritage", class="App\Entity\Ancestry\Heritage", options={"id"="baseId"})
      * @ParamConverter("feat", class="App\Entity\Core\Feat", options={"id"="id"})
      */
@@ -221,7 +227,7 @@ class AdminHeritageController extends BaseController
             $entityManager->persist($feat);
             $entityManager->flush();
 
-            $this->addFlash('success', 'Atut zmieniony!');
+            $this->addEntityActionFlash(Feat::getFormattedName(), BaseController::ENTITY_EDIT_ACTION);
 
             return $this->redirectToRoute('heritage_show', ['slug' => $heritage->getSlug()]);
         }
@@ -229,6 +235,8 @@ class AdminHeritageController extends BaseController
         $templateData = [
             'form' => $form->createView(),
             'entityName' => Heritage::ENTITY_NAME,
+            'formattedEntityName' => Feat::getFormattedName(),
+            'actionName' => BaseController::ENTITY_EDIT_ACTION,
         ];
 
         return array_merge($templateData, $this->getTemplateData(BaseController::NAV_TAB_RULES));
@@ -236,7 +244,7 @@ class AdminHeritageController extends BaseController
 
     /**
      * @Route("/admin/ancestry/heritage/{id}/paragraph/create", name="heritage_paragraph_create")
-     * @Template("core/paragraph/create.html.twig")
+     * @Template("base/base_form.html.twig")
      */
     public function createHeritageParagraphAction(Request $request, Heritage $heritage)
     {
@@ -254,7 +262,7 @@ class AdminHeritageController extends BaseController
             $entityManager->persist($heritage);
             $entityManager->flush();
 
-            $this->addFlash('success', 'Paragraf stworzony!');
+            $this->addEntityActionFlash(Paragraph::getFormattedName(), BaseController::ENTITY_CREATE_ACTION);
 
             return $this->redirectToRoute('heritage_show', ['slug' => $heritage->getSlug()]);
         }
@@ -262,6 +270,8 @@ class AdminHeritageController extends BaseController
         $templateData = [
             'form' => $form->createView(),
             'entityName' => Heritage::ENTITY_NAME,
+            'formattedEntityName' => Paragraph::getFormattedName(),
+            'actionName' => BaseController::ENTITY_CREATE_ACTION,
         ];
 
         return array_merge($templateData, $this->getTemplateData(BaseController::NAV_TAB_RULES));
@@ -269,7 +279,7 @@ class AdminHeritageController extends BaseController
 
     /**
      * @Route("/admin/ancestry/heritage/{baseId}/paragraph/{id}/edit", name="heritage_paragraph_edit")
-     * @Template("core/paragraph/edit.html.twig")
+     * @Template("base/base_form.html.twig")
      * @ParamConverter("heritage", class="App\Entity\Ancestry\Heritage", options={"id"="baseId"})
      * @ParamConverter("paragraph", class="App\Entity\Core\Paragraph", options={"id"="id"})
      */
@@ -287,7 +297,7 @@ class AdminHeritageController extends BaseController
             $entityManager->persist($heritage);
             $entityManager->flush();
 
-            $this->addFlash('success', 'Paragraf edytowany!');
+            $this->addEntityActionFlash(Paragraph::getFormattedName(), BaseController::ENTITY_EDIT_ACTION);
 
             return $this->redirectToRoute('heritage_show', ['slug' => $heritage->getSlug()]);
         }
@@ -295,6 +305,8 @@ class AdminHeritageController extends BaseController
         $templateData = [
             'form' => $form->createView(),
             'entityName' => Heritage::ENTITY_NAME,
+            'formattedEntityName' => Paragraph::getFormattedName(),
+            'actionName' => BaseController::ENTITY_EDIT_ACTION,
         ];
 
         return array_merge($templateData, $this->getTemplateData(BaseController::NAV_TAB_RULES));

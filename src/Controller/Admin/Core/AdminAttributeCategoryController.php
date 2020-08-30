@@ -17,7 +17,7 @@ class AdminAttributeCategoryController extends BaseController
 {
     /**
      * @Route("/admin/core/trait-category/list", name="trait_category_list")
-     * @Template("core/attribute_category/list.html.twig")
+     * @Template("core/trait_category/list.html.twig")
      */
     public function listAttributeCategoriesAction()
     {

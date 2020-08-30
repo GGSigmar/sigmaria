@@ -35,7 +35,7 @@ class HeritageController extends BaseController
 
         $templateData = [
             'heritage' => $heritage,
-            'entityName' => 'heritage',
+            'entityName' => Heritage::ENTITY_NAME,
         ];
 
         return array_merge($templateData, $this->getTemplateData(BaseController::NAV_TAB_RULES));

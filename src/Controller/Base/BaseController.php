@@ -74,7 +74,7 @@ class BaseController extends AbstractController
                 $this->addFlash('warning', sprintf(self::ENTITY_UNSTAGED_FORMAT, $entityName));
                 break;
             case self::ENTITY_DELETE_ACTION:
-                $this->addFlash('danger', sprintf(self::ENTITY_DELETED_FORMAT, $entityName));
+                $this->addFlash('error', sprintf(self::ENTITY_DELETED_FORMAT, $entityName));
                 break;
             default:
                 throw new \InvalidArgumentException(sprintf('Action %s not recognized!', $action));
