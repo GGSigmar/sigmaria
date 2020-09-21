@@ -193,7 +193,7 @@ class AdminCultureController extends BaseController
 
         $templateData = [
             'form' => $form->createView(),
-            'entityName' => Culture::ENTITY_NAME,
+            'entityName' => Feat::ENTITY_NAME,
         ];
 
         return array_merge($templateData, $this->getTemplateData(BaseController::NAV_TAB_RULES));
@@ -229,7 +229,7 @@ class AdminCultureController extends BaseController
 
         $templateData = [
             'form' => $form->createView(),
-            'entityName' => Culture::ENTITY_NAME,
+            'entityName' => Feat::ENTITY_NAME,
         ];
 
         return array_merge($templateData, $this->getTemplateData(BaseController::NAV_TAB_RULES));
@@ -262,7 +262,7 @@ class AdminCultureController extends BaseController
 
         $templateData = [
             'form' => $form->createView(),
-            'entityName' => Culture::ENTITY_NAME,
+            'entityName' => Paragraph::ENTITY_NAME,
         ];
 
         return array_merge($templateData, $this->getTemplateData(BaseController::NAV_TAB_RULES));
@@ -295,7 +295,7 @@ class AdminCultureController extends BaseController
 
         $templateData = [
             'form' => $form->createView(),
-            'entityName' => Culture::ENTITY_NAME,
+            'entityName' => Paragraph::ENTITY_NAME,
         ];
 
         return array_merge($templateData, $this->getTemplateData(BaseController::NAV_TAB_RULES));

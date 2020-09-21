@@ -197,7 +197,7 @@ class AdminHeritageController extends BaseController
 
         $templateData = [
             'form' => $form->createView(),
-            'entityName' => Heritage::ENTITY_NAME,
+            'entityName' => Feat::ENTITY_NAME,
             'formattedEntityName' => Feat::getFormattedName(),
             'actionName' => BaseController::ENTITY_CREATE_ACTION,
         ];
@@ -234,7 +234,7 @@ class AdminHeritageController extends BaseController
 
         $templateData = [
             'form' => $form->createView(),
-            'entityName' => Heritage::ENTITY_NAME,
+            'entityName' => Feat::ENTITY_NAME,
             'formattedEntityName' => Feat::getFormattedName(),
             'actionName' => BaseController::ENTITY_EDIT_ACTION,
         ];
@@ -269,7 +269,7 @@ class AdminHeritageController extends BaseController
 
         $templateData = [
             'form' => $form->createView(),
-            'entityName' => Heritage::ENTITY_NAME,
+            'entityName' => Paragraph::ENTITY_NAME,
             'formattedEntityName' => Paragraph::getFormattedName(),
             'actionName' => BaseController::ENTITY_CREATE_ACTION,
         ];
@@ -304,7 +304,7 @@ class AdminHeritageController extends BaseController
 
         $templateData = [
             'form' => $form->createView(),
-            'entityName' => Heritage::ENTITY_NAME,
+            'entityName' => Paragraph::ENTITY_NAME,
             'formattedEntityName' => Paragraph::getFormattedName(),
             'actionName' => BaseController::ENTITY_EDIT_ACTION,
         ];
