@@ -27,14 +27,18 @@
                     </div>
                     <div id="collapse-{{ id }}" class="collapse" aria-labelledby="heading-{{ id }}" data-parent="#blogAccordion">
                         <div class="card-body bg-white text-dark">
+                            {% if isAdmin %}
+                                <div class="float-right">
+                                    {% include "base/buttons/entity_edit_button.html.twig" with {'entityName': entityName, 'entity': post} %}
+                                </div>
+                            {% endif %}
                             {{ post.description|raw }}
-
-                            <br /><br />
 
                             {% if post.release %}
                                 {% set release = post.release %}
-
-                                {% include "base/badges/entity_show_badge.html.twig" with {'entityName': 'release', 'entityId': release.id} %} {{ release }}
+                                <div class="mt-4">
+                                    {% include "base/badges/entity_show_badge.html.twig" with {'entityName': 'release', 'entityId': release.id} %} {{ release }}
+                                </div>
                             {% endif %}
                         </div>
                     </div>

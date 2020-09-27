@@ -47,11 +47,23 @@ class Ancestry extends BaseEntity
     public const ANCESTRY_ELF = 'ANCESTRY_ELF';
     public const ANCESTRY_HALFLING = 'ANCESTRY_HALFLING';
 
-    public const CORE_ANCESTRIES = [
+    public const ANCESTRY_ORC = 'ANCESTRY_ORC';
+    public const ANCESTRY_LIZARDFOLK = 'ANCESTRY_LIZARDFOLK';
+    public const ANCESTRY_HOBGOBLIN = 'ANCESTRY_HOBGOBLIN';
+    public const ANCESTRY_KOBOLD = 'ANCESTRY_KOBOLD';
+
+    public const PRIMARY_ANCESTRIES = [
         self::ANCESTRY_HUMAN,
         self::ANCESTRY_DWARF,
         self::ANCESTRY_ELF,
         self::ANCESTRY_HALFLING,
+    ];
+
+    public const SECONDARY_ANCESTRIES = [
+        self::ANCESTRY_ORC,
+        self::ANCESTRY_LIZARDFOLK,
+        self::ANCESTRY_HOBGOBLIN,
+        self::ANCESTRY_KOBOLD,
     ];
 
     /**

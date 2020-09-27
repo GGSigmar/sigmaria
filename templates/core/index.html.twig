@@ -7,9 +7,9 @@
             Start here
         {% endset %}
         {% set content %}
-            <a href="{{ path('setting_foundations') }}" class="badge badge-danger border border-blood" role="button"><i class="fas fa-search"></i></a> Setting foundations<br />
-            <a href="#" class="badge badge-danger border border-blood" role="button"><i class="fas fa-search"></i></a> Planned campaigns<br />
-            <a href="{{ path('character_creation') }}" class="badge badge-success border border-blood" role="button"><i class="fas fa-search"></i></a> Character creation<br />
+            <a href="{{ path('setting_foundations') }}" class="badge badge-danger border border-blood" role="button"><i class="fas fa-search"></i></a> Setting Foundations<br />
+            <a href="#" class="badge badge-danger border border-blood" role="button"><i class="fas fa-search"></i></a> Planned Campaigns<br />
+            <a href="{{ path('character_creation') }}" class="badge badge-success border border-blood" role="button"><i class="fas fa-search"></i></a> Character Creation<br />
             <a href="#" class="badge badge-danger border border-blood" role="button"><i class="fas fa-search"></i></a> Homebrew
         {% endset %}
 
@@ -21,8 +21,8 @@
             Primary ancestries
         {% endset %}
         {% set content %}
-            {% if coreAncestries is not empty %}
-                {% for ancestry in coreAncestries %}
+            {% if primaryAncestries is not empty %}
+                {% for ancestry in primaryAncestries %}
                     {% include "base/badges/entity_slug_show_badge.html.twig" with {'entityName': 'ancestry', 'entitySlug': ancestry.slug} %}
                     {{ ancestry.name }}
 
@@ -43,7 +43,18 @@
             Secondary ancestries
         {% endset %}
         {% set content %}
-            <h3 class="text-danger text-center"><i class="fas fa-times"></i> None!</h3>
+            {% if secondaryAncestries is not empty %}
+                {% for ancestry in secondaryAncestries %}
+                    {% include "base/badges/entity_slug_show_badge.html.twig" with {'entityName': 'ancestry', 'entitySlug': ancestry.slug} %}
+                    {{ ancestry.name }}
+
+                    {% if not loop.last %}
+                        <br />
+                    {% endif %}
+                {% endfor %}
+            {% else %}
+                <h5 class="text-danger text-center"><i class="fas fa-times"></i> None!</h5>
+            {% endif %}
         {% endset %}
 
         {% include 'base/components/card.html.twig' with {'title': title, 'content': content} %}

@@ -13,7 +13,6 @@ class BaseEntityType extends AbstractType
 {
     public const DEFAULT_CKEDITOR_CONFIG = [
         'toolbar' => 'custom_toolbar',
-        'language' => 'pl',
         'entities_latin' => false,
         'height' => 200,
         'enterMode' => 'CKEDITOR.ENTER_BR',

@@ -38,14 +38,14 @@ class AncestryRepository extends ServiceEntityRepository
     /**
      * @return array|Ancestry[]
      */
-    public function getCoreAncestries(): array
+    public function getAncestriesByHandles(array $handles): array
     {
         $qb = $this->createQueryBuilder('a');
         $ex = $qb->expr();
 
         return $this->createQueryBuilder('a')
             ->andWhere('a.isActive = true')
-            ->andWhere($ex->in('a.handle', Ancestry::CORE_ANCESTRIES))
+            ->andWhere($ex->in('a.handle', $handles))
             ->orderBy('a.sortOrder', 'ASC')
             ->getQuery()
             ->getResult();

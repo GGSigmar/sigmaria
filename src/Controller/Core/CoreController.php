@@ -25,10 +25,12 @@ class CoreController extends BaseController
      */
     public function indexAction()
     {
-        $coreAncestries = $this->getDoctrine()->getRepository(Ancestry::class)->getCoreAncestries();
+        $primaryAncestries = $this->getDoctrine()->getRepository(Ancestry::class)->getAncestriesByHandles(Ancestry::PRIMARY_ANCESTRIES);
+        $secondaryAncestries = $this->getDoctrine()->getRepository(Ancestry::class)->getAncestriesByHandles(Ancestry::SECONDARY_ANCESTRIES);
 
         $templateData = [
-            'coreAncestries' => $coreAncestries,
+            'primaryAncestries' => $primaryAncestries,
+            'secondaryAncestries' => $secondaryAncestries,
         ];
 
         return array_merge($templateData, $this->getTemplateData(BaseController::NAV_TAB_HOME));
