@@ -8,6 +8,7 @@ use App\Entity\Core\Interfaces\SourcableInterface;
 use App\Entity\Core\Traits\ActiveTrait;
 use App\Entity\Core\Traits\BaseFieldsTrait;
 use App\Entity\Core\Traits\DescriptionTrait;
+use App\Entity\Core\Traits\NoteTrait;
 use App\Entity\Core\Traits\ReleasableTrait;
 use App\Entity\Core\Traits\SimpleRarityTrait;
 use App\Entity\Core\Traits\SlugTrait;
@@ -25,7 +26,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Feat extends BaseEntity implements SourcableInterface
 {
-    use BaseFieldsTrait, ActiveTrait, SlugTrait, DescriptionTrait, SimpleRarityTrait, ReleasableTrait, SourceTrait, TimestampableEntity;
+    use BaseFieldsTrait, ActiveTrait, SlugTrait, DescriptionTrait, NoteTrait, SimpleRarityTrait, ReleasableTrait, SourceTrait, TimestampableEntity;
 
     public const ENTITY_NAME = 'feat';
 

@@ -1,6 +1,5 @@
 <?php
 
-
 namespace App\Entity\Core\Traits;
 
 use Doctrine\ORM\Mapping as ORM;

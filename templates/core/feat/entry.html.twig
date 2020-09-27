@@ -69,5 +69,10 @@
             <b>Special</b> {{ feat.specialRules }}
         </div>
     {% endif %}
+    {% if feat.note %}
+        <div class="indented">
+            <b>Note</b> {{ feat.note }}
+        </div>
+    {% endif %}
     {% include "base/components/entity_source.html.twig" with {'entity': feat} %}
 </div>

@@ -48,6 +48,12 @@ class FeatType extends AbstractType
                     'rows' => 5,
                 ]
             ])
+            ->add('note', TextareaType::class, [
+                'required' => false,
+                'attr' => [
+                    'rows' => 5,
+                ]
+            ])
             ->add('attributes', EntityType::class, [
                 'label' => 'Traits',
                 'class' => Attribute::class,
