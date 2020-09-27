@@ -1,10 +1,20 @@
-{% if entity.isToBeReleased %}
-    {% set unstagePathName = (entityName ~ '_unstage') %}
-
-    <a href="{{ path(unstagePathName, {"id": entity.id}) }}" class="badge badge-danger border border-blood" role="button"><i class="fas fa-minus-square"></i></a>
+{% if entity.isActive %}
+    {% include "base/badges/entity_kill_badge.html.twig"
+        with
+        {
+            'entityName': 'feat',
+            'entityId': entity.id
+        }
+    %}
 {% else %}
-    {% set stagePathName = (entityName ~ '_stage') %}
+    {% if entity.isToBeReleased %}
+        {% set unstagePathName = (entityName ~ '_unstage') %}
 
-    <a href="{{ path(stagePathName, {"id": entity.id}) }}" class="badge badge-success border border-blood" role="button"><i class="fas fa-plus-square"></i></a>
+        <a href="{{ path(unstagePathName, {"id": entity.id}) }}" class="badge badge-danger border border-blood" role="button"><i class="fas fa-minus-square"></i></a>
+    {% else %}
+        {% set stagePathName = (entityName ~ '_stage') %}
+
+        <a href="{{ path(stagePathName, {"id": entity.id}) }}" class="badge badge-success border border-blood" role="button"><i class="fas fa-plus-square"></i></a>
+    {% endif %}
 {% endif %}
 
