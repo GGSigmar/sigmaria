@@ -27,7 +27,7 @@
         {% endfor %}
     </div>
     {% if heritage.hitPoints or heritage.size or heritage.speed or heritage.abilityBoosts is not empty %}
-        <div class="border-bottom border-white">
+        <div class="border-bottom border-blood">
             {% if heritage.hitPoints and heritage.hitPoints.name != heritage.ancestry.hitPoints.name %}
                 <div>
                     <b>Hit Points:</b> {{ heritage.hitPoints }}
