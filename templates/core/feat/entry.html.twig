@@ -41,22 +41,22 @@
         <div class="border-bottom border-white">
             {% if feat.prerequisites %}
                 <div>
-                    <b>Wymagania:</b> {{ feat.prerequisites }}
+                    <b>Prerequisites</b> {{ feat.prerequisites }}
                 </div>
             {% endif %}
             {% if feat.frequency %}
                 <div>
-                    <b>Częstotliwość:</b> {{ feat.frequency }}
+                    <b>Frequency</b> {{ feat.frequency }}
                 </div>
             {% endif %}
             {% if feat.trigger %}
                 <div>
-                    <b>Wyzwalacz:</b> {{ feat.trigger }}
+                    <b>Trigger</b> {{ feat.trigger }}
                 </div>
             {% endif %}
             {% if feat.requirements %}
                 <div>
-                    <b>Warunki:</b> {{ feat.requirements }}
+                    <b>Requirements</b> {{ feat.requirements }}
                 </div>
             {% endif %}
         </div>
@@ -66,7 +66,7 @@
     </div>
     {% if feat.specialRules %}
         <div class="indented">
-            <b>Właściwość specialna:</b> {{ feat.specialRules }}
+            <b>Special</b> {{ feat.specialRules }}
         </div>
     {% endif %}
     {% include "base/components/entity_source.html.twig" with {'entity': feat} %}
