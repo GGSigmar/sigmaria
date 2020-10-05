@@ -279,7 +279,7 @@ class AdminAncestryController extends BaseController
     }
 
     /**
-     * @Route("/admin/ancestry//{baseId}/heritage/{id}/edit", name="ancestry_heritage_edit")
+     * @Route("/admin/ancestry/{baseId}/heritage/{id}/edit", name="ancestry_heritage_edit")
      * @Template("base/base_form.html.twig")
      * @ParamConverter("ancestry", class="App\Entity\Ancestry\Ancestry", options={"id"="baseId"})
      * @ParamConverter("heritage", class="App\Entity\Ancestry\Heritage", options={"id"="id"})
