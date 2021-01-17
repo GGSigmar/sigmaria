@@ -53,7 +53,7 @@ class Release extends BaseEntity
      *
      * @ORM\Column(type="text", nullable=true)
      */
-    private $contentChanges = '';
+    private $contentChangesNote = '';
 
 
     /**
@@ -69,6 +69,15 @@ class Release extends BaseEntity
      * @ORM\OrderBy({"name"="ASC"})
      */
     private $feats;
+
+    /**
+     * @var ArrayCollection
+     *
+     * @ORM\ManyToMany(targetEntity="App\Entity\Core\Feat", inversedBy="updateReleases")
+     * @ORM\JoinTable(name="core_feat_update_release")
+     * @ORM\OrderBy({"name"="ASC"})
+     */
+    private $updatedFeats;
 
     /**
      * @var ArrayCollection
@@ -113,6 +122,7 @@ class Release extends BaseEntity
     public function __construct()
     {
         $this->feats = new ArrayCollection();
+        $this->updatedFeats = new ArrayCollection();
         $this->ancestries = new ArrayCollection();
         $this->heritages = new ArrayCollection();
         $this->cultures = new ArrayCollection();
@@ -163,17 +173,17 @@ class Release extends BaseEntity
     /**
      * @return string|null
      */
-    public function getContentChanges(): ?string
+    public function getContentChangesNote(): ?string
     {
-        return $this->contentChanges;
+        return $this->contentChangesNote;
     }
 
     /**
-     * @param string|null $contentChanges
+     * @param string|null $contentChangesNote
      */
-    public function setContentChanges(?string $contentChanges): void
+    public function setContentChangesNote(?string $contentChangesNote): void
     {
-        $this->contentChanges = $contentChanges;
+        $this->contentChangesNote = $contentChangesNote;
     }
 
     /**
@@ -206,6 +216,22 @@ class Release extends BaseEntity
     public function setFeats(Collection $feats): void
     {
         $this->feats = $feats;
+    }
+
+    /**
+     * @return Collection
+     */
+    public function getUpdatedFeats(): Collection
+    {
+        return $this->updatedFeats;
+    }
+
+    /**
+     * @param Collection $updatedFeats
+     */
+    public function setUpdatedFeats(Collection $updatedFeats): void
+    {
+        $this->updatedFeats = $updatedFeats;
     }
 
     /**

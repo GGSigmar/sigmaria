@@ -20,7 +20,7 @@
                 {% include "base/buttons/entity_show_button.html.twig" with {'entityName': entityName, 'entity': release} %}
                 {% if isAdmin %}
                     <a href="{{ path('release_edit', {"id": release.id}) }}" class="btn btn-outline-primary" role="button">Edit <i class="fas fa-bolt"></i></a>
-                    {% if release.launchDate is not defined %}
+                    {% if not release.launchDate %}
                         <a href="{{ path('release_launch', {"id": release.id}) }}" class="btn btn-outline-info" role="button">Release <i class="fas fa-bolt"></i></a>
                     {% endif %}
                 {% endif %}

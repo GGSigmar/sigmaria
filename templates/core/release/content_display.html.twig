@@ -1,10 +1,10 @@
-{% if release.launchDate is defined %}
+{% if release.launchDate %}
     {% set bag = release %}
 {% endif %}
 
 {%
-    if bag.feats is not empty or bag.ancestries is empty or bag.heritages is empty
-    or bag.cultures is empty or bag.backgrounds is empty or bag.languages is empty
+    if bag.feats is not empty or bag.ancestries is not empty or bag.heritages is not empty
+    or bag.cultures is not empty or bag.backgrounds is not empty or bag.languages is not empty
 %}
     {% if bag.feats is not empty %}
         <div class="col-md-4 mb-4">
@@ -49,7 +49,7 @@
         <div class="col-md-4 mb-4">
             <h3>Cultures</h3>
             {% for entity in bag.cultures %}
-                {% include "base/badges/entity_slug_show_badge.html.twig" with {'entityName': 'culture', "entitySlug": entity.slug} %} {{ entity.name }}
+                {% include "base/badges/entity_show_badge.html.twig" with {'entityName': 'culture', "entityId": entity.id} %} {{ entity.name }}
 
                 {% if not loop.last %}
                     <br />
@@ -84,7 +84,7 @@
         </div>
     {% endif %}
 {% else %}
-    <div class="col-md-12">
+    <div class="col-md-12 mb-2">
         None
     </div>
 {% endif %}

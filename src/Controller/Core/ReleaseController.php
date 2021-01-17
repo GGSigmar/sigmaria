@@ -23,7 +23,7 @@ class ReleaseController extends BaseController
             'entityName' => Release::ENTITY_NAME,
         ];
 
-        return array_merge($templateData, $this->getTemplateData(BaseController::NAV_TAB_ADMIN));
+        return array_merge($templateData, $this->getTemplateData(BaseController::NAV_TAB_MISC));
     }
 
     /**
@@ -38,6 +38,6 @@ class ReleaseController extends BaseController
             'bag' => $releaseService->getContentToBeReleased(),
         ];
 
-        return array_merge($templateData, $this->getTemplateData(BaseController::NAV_TAB_ADMIN));
+        return array_merge($templateData, $this->getTemplateData(BaseController::NAV_TAB_MISC));
     }
 }

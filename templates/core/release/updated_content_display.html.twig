@@ -1,0 +1,24 @@
+{% if release is defined and release.launchDate %}
+    {% set bag = release %}
+{% endif %}
+
+{%
+    if bag.updatedFeats is not empty
+%}
+    {% if bag.updatedFeats is not empty %}
+        <div class="col-md-4 mb-4">
+            <h3>Feats</h3>
+            {% for entity in bag.updatedFeats %}
+                {% include "base/badges/entity_show_badge.html.twig" with {'entityName': 'feat', "entityId": entity.id} %} {{ entity.name }}
+
+                {% if not loop.last %}
+                    <br />
+                {% endif %}
+            {% endfor %}
+        </div>
+    {% endif %}
+{% else %}
+    <div class="col-md-12 mb-2">
+        None
+    </div>
+{% endif %}

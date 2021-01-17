@@ -19,27 +19,21 @@ class ReleaseService
      */
     private $em;
 
-    /**
-     * @var Release
-     */
+    /** @var FeatHelper */
+    private $featHelper;
+
+    /** @var Release */
     private $release;
 
-    /**
-     * @var array
-     */
-    private $releaseData;
-
-    /**
-     * @var ContentToBeReleasedBag|null
-     */
+    /** @var ContentToBeReleasedBag|null */
     private $contentBag = null;
 
-    /**
-     * @param EntityManagerInterface $em
-     */
-    public function __construct(EntityManagerInterface $em)
-    {
+    public function __construct(
+        EntityManagerInterface $em,
+        FeatHelper $featHelper
+    ) {
         $this->em = $em;
+        $this->featHelper = $featHelper;
     }
 
     /**
@@ -97,15 +91,29 @@ class ReleaseService
     private function releaseFeats(): void
     {
         $feats = $this->contentBag->getFeats();
+        $newFeats = [];
+        $updatedFeats = [];
 
         if ($feats) {
             foreach ($feats as $feat) {
-                $feat->setIsActive(true);
-                $feat->setRelease($this->release);
+                $edits = $feat->getEdits();
+
+                if ($feat->isActive() && $edits) {
+                    $this->featHelper->applyEdits($feat);
+                    $feat->setEdits(null);
+                    $this->em->remove($edits);
+                    $updatedFeats[] = $feat;
+                } else {
+                    $feat->setIsActive(true);
+                    $feat->setRelease($this->release);
+                    $newFeats[] = $feat;
+                }
+
                 $this->em->persist($feat);
             }
 
-            $this->release->setFeats(new ArrayCollection($feats));
+            $this->release->setFeats(new ArrayCollection($newFeats));
+            $this->release->setUpdatedFeats(new ArrayCollection($updatedFeats));
         }
     }
 

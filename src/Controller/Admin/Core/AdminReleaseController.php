@@ -46,7 +46,7 @@ class AdminReleaseController extends BaseController
             'actionName' => BaseController::ENTITY_CREATE_ACTION,
         ];
 
-        return array_merge($templateData, $this->getTemplateData(BaseController::NAV_TAB_ADMIN));
+        return array_merge($templateData, $this->getTemplateData(BaseController::NAV_TAB_MISC));
     }
 
     /**
@@ -78,7 +78,7 @@ class AdminReleaseController extends BaseController
             'actionName' => BaseController::ENTITY_EDIT_ACTION,
         ];
 
-        return array_merge($templateData, $this->getTemplateData(BaseController::NAV_TAB_ADMIN));
+        return array_merge($templateData, $this->getTemplateData(BaseController::NAV_TAB_MISC));
     }
 
     /**

@@ -31,6 +31,13 @@ class Feat extends BaseEntity implements SourcableInterface
     public const ENTITY_NAME = 'feat';
 
     /**
+     * @var ArrayCollection
+     *
+     * @ORM\ManyToMany(targetEntity="App\Entity\Core\Release", fetch="EXTRA_LAZY", mappedBy="updatedFeats")
+     */
+    private $updateReleases;
+
+    /**
      * @var Actions
      *
      * @ORM\ManyToOne(targetEntity="App\Entity\Core\Actions")

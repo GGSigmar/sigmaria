@@ -18,22 +18,44 @@
                 </h1>
                 <div class="pf2-subtitle">
                     <div class="text-center">
-                        Release from {{ release.createdAt|date('Y-m-d') }}
+                        {% if release.launchDate %}
+                            Release launched on {{ release.launchDate|date('Y-m-d') }}
+                        {% else %}
+                            Release not yet launched
+                        {% endif %}
                     </div>
                 </div>
+
             </div>
         </div>
     </div>
 
     <div class="col-md-12">
-        {% if release.contentChanges %}
-            <div class="mb-4">
-                <h2 class="mb-2">Zmiany zawartości:</h2>
-                {{ release.contentChanges|raw }}
+        {% if release.contentChangesNote %}
+            <div class="mb-2">
+                <h2 class="mb-2">Content changes:</h2>
+                {{ release.contentChangesNote|raw }}
             </div>
         {% endif %}
-        <h2 class="mb-2">Released content:</h2>
     </div>
 
-    {% include 'core/release/content_array_display.html.twig' %}
+    <div class="col-md-12">
+        <h2 class="mb-2">
+            {% if release.launchDate %}
+                Released content:
+            {% else %}
+                Content to be released:
+            {% endif %}
+        </h2>
+    </div>
+
+    {% include 'core/release/content_display.html.twig' %}
+
+    {% if release.launchDate %}
+        <div class="col-md-12">
+            <h2 class="mb-2">Updated content:</h2>
+        </div>
+
+        {% include 'core/release/updated_content_display.html.twig' %}
+    {% endif %}
 {% endblock %}
