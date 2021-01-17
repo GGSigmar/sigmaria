@@ -1,6 +1,15 @@
 <div class="mb-4 border border-blood rounded p-1">
     <div class="border-bottom border-blood padding-bottom-3 {% include 'base/components/activeness_bg_class.html.twig' with {'entity': feat} %}" style="width:100%;">
         <h4>
+            {% if feat.isEdit and feat.editParent %}
+                <a class="text-warning" href="{{ path(feat.entityName ~ '_show', {'id': feat.editParent.id}) }}">
+                    [PARENT]
+                </a>
+            {% elseif not feat.isEdit and feat.edits %}
+                <a class="text-danger" href="{{ path(feat.entityName ~ '_show', {'id': feat.edits.id}) }}">
+                    [EDITS]
+                </a>
+            {% endif %}
             {{ feat.name|upper }} {% if feat.actions %}{% include 'base/actions/display_actions.html.twig' with {actions: feat.actions} %} {% endif %}
             <span class="float-right">
                 {% if feat.level %}
@@ -26,7 +35,9 @@
                             }
                         %}
                     {% endif %}
-                    {% include "base/badges/entity_release_badge.html.twig" with {'entityName': 'feat', 'entity': feat} %}
+                    {% if not feat.isEdit %}
+                        {% include "base/badges/entity_release_badge.html.twig" with {'entityName': 'feat', 'entity': feat} %}
+                    {% endif %}
                 {% endif %}
             </span>
         </h4>

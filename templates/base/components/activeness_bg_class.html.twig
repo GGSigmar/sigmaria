@@ -1,6 +1,8 @@
 {% if isAdmin %}
     {% if not entity.isActive %}
-        {% if entity.isToBeReleased %}
+        {% if entity.isEdit is defined and entity.isEdit %}
+            bg-secondary
+        {% elseif entity.isToBeReleased %}
             bg-success
         {% else %}
             bg-danger

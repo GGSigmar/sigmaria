@@ -117,8 +117,30 @@ class Feat extends BaseEntity implements SourcableInterface
      */
     private $cultures;
 
+    /**
+     * @var bool
+     *
+     * @ORM\Column(type="boolean")
+     */
+    private $isEdit;
+
+    /**
+     * @var Feat|null
+     *
+     * @ORM\ManyToOne(targetEntity="App\Entity\Core\Feat")
+     */
+    private $edits;
+
+    /**
+     * @var Feat|null
+     *
+     * @ORM\ManyToOne(targetEntity="App\Entity\Core\Feat")
+     */
+    private $editParent;
+
     public function __construct()
     {
+        $this->isActive = false;
         $this->isActive = false;
         $this->attributes = new ArrayCollection();
         $this->ancestries = new ArrayCollection();
@@ -351,5 +373,53 @@ class Feat extends BaseEntity implements SourcableInterface
         }
 
         return $isGeneral;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isEdit(): bool
+    {
+        return $this->isEdit;
+    }
+
+    /**
+     * @param bool $isEdit
+     */
+    public function setIsEdit(bool $isEdit): void
+    {
+        $this->isEdit = $isEdit;
+    }
+
+    /**
+     * @return Feat|null
+     */
+    public function getEdits(): ?Feat
+    {
+        return $this->edits;
+    }
+
+    /**
+     * @param Feat|null $edits
+     */
+    public function setEdits(?Feat $edits): void
+    {
+        $this->edits = $edits;
+    }
+
+    /**
+     * @return Feat|null
+     */
+    public function getEditParent(): ?Feat
+    {
+        return $this->editParent;
+    }
+
+    /**
+     * @param Feat|null $editParent
+     */
+    public function setEditParent(?Feat $editParent): void
+    {
+        $this->editParent = $editParent;
     }
 }

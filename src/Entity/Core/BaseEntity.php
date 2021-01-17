@@ -17,4 +17,9 @@ class BaseEntity
         }
         return implode(' ', $uppercaseParts);
     }
+
+    public static function getEntityName(): string
+    {
+        return static::ENTITY_NAME;
+    }
 }

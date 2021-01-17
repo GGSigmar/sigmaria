@@ -5,6 +5,7 @@ namespace App\Controller\Admin\Core;
 use App\Controller\Base\BaseController;
 use App\Entity\Core\Feat;
 use App\Form\Core\FeatType;
+use App\Service\Core\EditHelper;
 use App\Service\Core\SourcableService;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\Routing\Annotation\Route;
@@ -54,28 +55,21 @@ class AdminFeatController extends BaseController
      * @Route("/admin/core/feat/{id}/edit", name="feat_edit")
      * @Template("base/base_form.html.twig")
      */
-    public function editFeatAction(Request $request, Feat $feat, SourcableService $sourcableService)
+    public function editFeatAction(Request $request, Feat $feat, EditHelper $editHelper)
     {
-        $form = $this->createForm(FeatType::class, $feat);
+        $result = $editHelper->editEntity($request, FeatType::class, $feat);
 
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $feat = $form->getData();
-
-            $sourcableService->ensureEmptySourceNullification($feat);
-
+        if ($result) {
             $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($feat);
             $entityManager->flush();
 
             $this->addEntityActionFlash(Feat::getFormattedName(), BaseController::ENTITY_EDIT_ACTION);
 
-            return $this->redirectToRoute('feat_show', ['id' => $feat->getId()]);
+            return $this->redirectToRoute('feat_show', ['id' => $result->getId()]);
         }
 
         $templateData = [
-            'form' => $form->createView(),
+            'form' => $editHelper->getEntityForm()->createView(),
             'entityName' => Feat::ENTITY_NAME,
             'formattedEntityName' => Feat::getFormattedName(),
             'actionName' => BaseController::ENTITY_EDIT_ACTION,
