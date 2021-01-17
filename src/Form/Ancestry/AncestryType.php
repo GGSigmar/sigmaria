@@ -102,6 +102,8 @@ class AncestryType extends AbstractType
                         ->innerJoin('f.attributes', 'a')
                         ->innerJoin('a.category', 'c')
                         ->andWhere('c.handle LIKE :ancestral_category')
+                        ->andWhere('f.isEdit = :false')
+                        ->setParameter('false', false)
                         ->setParameter('ancestral_category', AttributeCategory::ATTRIBUTE_CATEGORY_ANCESTRAL);
                 },
                 'attr' => [

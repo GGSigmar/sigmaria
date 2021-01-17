@@ -49,7 +49,7 @@ class EditHelper
     {
         $edits = $entity->getEdits();
 
-        if ($entity->isEdit()) {
+        if ($entity->isEdit() || !$entity->isActive()) {
             $entityToBeEdited = $entity;
         } else {
             $entityToBeEdited = $edits ? $edits : clone $entity;
@@ -61,14 +61,16 @@ class EditHelper
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            if ($entityToBeEdited->isEdit()) {
+            if ($entityToBeEdited->isEdit() || !$entityToBeEdited->isActive()) {
                 $editedEntity = $form->getData();
             } else {
                 $editedEntity = $form->getData();
                 $editedEntity->setIsEdit(true);
                 $editedEntity->setIsActive(true);
-                $entity->setEdits($editedEntity);
+                $editedEntity->isToBeReleased(false);
                 $editedEntity->setEditParent($entity);
+                $entity->setEdits($editedEntity);
+                $entity->isToBeReleased(true);
             }
 
             if (property_exists($entity, 'source')) {

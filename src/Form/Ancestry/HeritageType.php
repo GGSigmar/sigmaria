@@ -84,6 +84,8 @@ class HeritageType extends AbstractType
                         ->innerJoin('f.attributes', 'a')
                         ->innerJoin('a.category', 'c')
                         ->andWhere('c.handle IN (:categories)')
+                        ->andWhere('f.isEdit = :false')
+                        ->setParameter('false', false)
                         ->setParameter(
                             'categories',
                             [

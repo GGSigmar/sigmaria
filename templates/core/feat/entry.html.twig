@@ -6,7 +6,7 @@
                     [PARENT]
                 </a>
             {% elseif not feat.isEdit and feat.edits %}
-                <a class="text-danger" href="{{ path(feat.entityName ~ '_show', {'id': feat.edits.id}) }}">
+                <a class="text-warning" href="{{ path(feat.entityName ~ '_show', {'id': feat.edits.id}) }}">
                     [EDITS]
                 </a>
             {% endif %}

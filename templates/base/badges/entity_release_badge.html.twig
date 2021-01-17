@@ -6,15 +6,16 @@
             'entityId': entity.id
         }
     %}
-{% else %}
-    {% if entity.isToBeReleased %}
-        {% set unstagePathName = (entityName ~ '_unstage') %}
-
-        <a href="{{ path(unstagePathName, {"id": entity.id}) }}" class="badge badge-danger border border-blood" role="button"><i class="fas fa-minus-square"></i></a>
-    {% else %}
-        {% set stagePathName = (entityName ~ '_stage') %}
-
-        <a href="{{ path(stagePathName, {"id": entity.id}) }}" class="badge badge-success border border-blood" role="button"><i class="fas fa-plus-square"></i></a>
-    {% endif %}
 {% endif %}
 
+{% if not entity.isActive or (not entity.isToBeReleased and entity.edits is defined and entity.edits) %}
+    {% set stagePathName = (entityName ~ '_stage') %}
+
+    <a href="{{ path(stagePathName, {"id": entity.id}) }}" class="badge badge-success border border-blood" role="button"><i class="fas fa-plus-square"></i></a>
+{% endif %}
+
+{% if entity.isToBeReleased and (not entity.isActive or (entity.edits is defined and entity.edits)) %}
+    {% set unstagePathName = (entityName ~ '_unstage') %}
+
+    <a href="{{ path(unstagePathName, {"id": entity.id}) }}" class="badge badge-danger border border-blood" role="button"><i class="fas fa-minus-square"></i></a>
+{% endif %}

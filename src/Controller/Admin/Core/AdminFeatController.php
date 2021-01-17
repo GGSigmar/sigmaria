@@ -81,7 +81,7 @@ class AdminFeatController extends BaseController
     /**
      * @Route("/admin/core/feat/{id}/kill", name="feat_kill")
      */
-    public function killFeatAction(Feat $feat)
+    public function killFeatAction(Request $request, Feat $feat)
     {
         $entityManager = $this->getDoctrine()->getManager();
 
@@ -92,13 +92,13 @@ class AdminFeatController extends BaseController
 
         $this->addEntityActionFlash(Feat::getFormattedName(), BaseController::ENTITY_KILL_ACTION);
 
-        return $this->redirectToRoute('feat_list');
+        return $this->redirectToReferer($request);
     }
 
     /**
      * @Route("/admin/core/feat/{id}/revive", name="feat_revive")
      */
-    public function reviveFeatAction(Feat $feat)
+    public function reviveFeatAction(Request $request, Feat $feat)
     {
         $entityManager = $this->getDoctrine()->getManager();
 
@@ -109,7 +109,7 @@ class AdminFeatController extends BaseController
 
         $this->addEntityActionFlash(Feat::getFormattedName(), BaseController::ENTITY_REVIVE_ACTION);
 
-        return $this->redirectToRoute('feat_list');
+        return $this->redirectToReferer($request);
     }
 
     /**

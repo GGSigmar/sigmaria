@@ -16,7 +16,7 @@ class FeatController extends BaseController
      */
     public function listFeatsAction()
     {
-        $feats = $this->getDoctrine()->getRepository(Feat::class)->findAll();
+        $feats = $this->getDoctrine()->getRepository(Feat::class)->findBy(['isEdit' => false]);
 
         $templateData = [
             'feats' => $feats,

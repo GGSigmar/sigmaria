@@ -19,9 +19,22 @@ class FeatRepository extends ServiceEntityRepository
      */
     public function getFeatsForRelease(): array
     {
-        return $this->createQueryBuilder('f')
-            ->andWhere('f.isActive = false')
-            ->andWhere('f.isToBeReleased = true')
+        $qb = $this->createQueryBuilder('f');
+        $expr = $qb->expr();
+
+        return $qb
+            ->where($expr->orX(
+                $expr->andX(
+                    $expr->eq('f.isActive', ':false'),
+                    $expr->eq('f.isToBeReleased', ':true')
+                ),
+                $expr->andX(
+                    $expr->isNotNull('f.edits'),
+                    $expr->eq('f.isToBeReleased', ':true')
+                )
+            ))
+            ->setParameter('false', false)
+            ->setParameter('true', true)
             ->getQuery()
             ->getResult();
     }

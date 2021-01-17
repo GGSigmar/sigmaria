@@ -141,7 +141,7 @@ class Feat extends BaseEntity implements SourcableInterface
     public function __construct()
     {
         $this->isActive = false;
-        $this->isActive = false;
+        $this->isEdit = false;
         $this->attributes = new ArrayCollection();
         $this->ancestries = new ArrayCollection();
         $this->heritages = new ArrayCollection();
@@ -352,10 +352,7 @@ class Feat extends BaseEntity implements SourcableInterface
     public function setIsActive(bool $isActive): void
     {
         $this->isActive = $isActive;
-
-        if (!$isActive) {
-            $this->isToBeReleased = false;
-        }
+        $this->isToBeReleased = false;
     }
 
     /**
@@ -421,5 +418,10 @@ class Feat extends BaseEntity implements SourcableInterface
     public function setEditParent(?Feat $editParent): void
     {
         $this->editParent = $editParent;
+    }
+
+    public function __toString(): string
+    {
+        return $this->isEdit ? '[EDIT] ' . $this->name : $this->name;
     }
 }

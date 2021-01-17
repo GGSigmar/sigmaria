@@ -1,11 +1,11 @@
 {% if isAdmin %}
-    {% if not entity.isActive %}
-        {% if entity.isEdit is defined and entity.isEdit %}
-            bg-secondary
-        {% elseif entity.isToBeReleased %}
+    {% if not entity.isActive or (entity.isActive and entity.edits is defined and entity.edits) %}
+        {% if entity.isToBeReleased %}
             bg-success
         {% else %}
             bg-danger
         {% endif %}
+    {% elseif entity.isEdit is defined and entity.isEdit %}
+        bg-secondary
     {% endif %}
 {% endif %}
