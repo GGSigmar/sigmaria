@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Form\Core;
+namespace App\Form\Campaign;
 
-use App\Entity\Core\Paragraph;
+use App\Entity\Campaign\Campaign;
+use App\Form\Core\BaseEntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class ParagraphType extends AbstractType
+class CampaignType extends AbstractType
 {
     public function getParent()
     {
@@ -16,10 +17,12 @@ class ParagraphType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => Paragraph::class,
-            'has_sort_order' => true,
-            'has_description' => true,
-            'is_name_required' => false,
+            'data_class' => Campaign::class,
+            'is_name_required' => true,
+            'has_handle' => false,
+            'has_description' => false,
+            'has_value' => false,
+            'has_sort_order' => false,
         ]);
     }
 }

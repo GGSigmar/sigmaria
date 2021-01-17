@@ -2,6 +2,7 @@
 
 namespace App\Entity\Campaign;
 
+use App\Entity\Core\BaseEntity;
 use App\Entity\Core\Traits\BaseFieldsTrait;
 use App\Entity\Core\Traits\DescriptionTrait;
 use App\Entity\Core\Traits\SlugTrait;
@@ -14,7 +15,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity(repositoryClass="App\Repository\Campaign\CampaignRepository")
  * @ORM\Table(name="campaign_campaign")
  */
-class Campaign
+class Campaign extends BaseEntity
 {
     use BaseFieldsTrait, SlugTrait, DescriptionTrait, TimestampableEntity;
 

@@ -7,6 +7,8 @@ use App\Entity\Ancestry\Heritage;
 use App\Entity\Core\CharacterClass;
 use App\Entity\Core\Traits\BaseFieldsTrait;
 use App\Entity\Core\Traits\DescriptionTrait;
+use App\Entity\Core\Traits\SlugTrait;
+use App\Entity\Core\User;
 use App\Entity\Setting\Background;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -18,7 +20,15 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class PlayerCharacter
 {
-    use BaseFieldsTrait, DescriptionTrait, TimestampableEntity;
+    use BaseFieldsTrait, SlugTrait, DescriptionTrait, TimestampableEntity;
+
+    /**
+     * @var User
+     *
+     * @ORM\ManyToOne(targetEntity="App\Entity\Core\User")
+     * @Assert\NotBlank
+     */
+    private $player;
 
     /**
      * @var Ancestry
@@ -55,10 +65,26 @@ class PlayerCharacter
     /**
      * @var Campaign
      *
-     * @ORM\ManyToOne(targetEntity="Campaign")
+     * @ORM\ManyToOne(targetEntity="Campaign", inversedBy="playerCharacters")
      * @Assert\NotBlank
      */
     private $campaign;
+
+    /**
+     * @return User
+     */
+    public function getPlayer(): User
+    {
+        return $this->player;
+    }
+
+    /**
+     * @param User $player
+     */
+    public function setPlayer(User $player): void
+    {
+        $this->player = $player;
+    }
 
     /**
      * @return Ancestry

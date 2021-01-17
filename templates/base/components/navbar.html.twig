@@ -38,6 +38,8 @@
                     <a href="{{ path('ancestry_list') }}" class="dropdown-item">Ancestries</a>
                     <a href="{{ path('heritage_list') }}" class="dropdown-item">Heritages</a>
                     <div class="dropdown-divider"></div>
+                    <a href="{{ path('lore_list') }}" class="dropdown-item">Lores</a>
+                    <div class="dropdown-divider"></div>
                     <a href="#" class="dropdown-item dropdown-toggle" data-toggle="dropdown">Feats</a>
                     <ul class="dropdown-menu">
                         <li><a href="{{ path('feat_list') }}" class="dropdown-item">Feat List</a></li>
@@ -82,6 +84,11 @@
                         <li><a href="{{ path('trait_category_list') }}" class="dropdown-item">Trait Categories</a></li>
                     </ul>
                     <div class="dropdown-divider"></div>
+                    <a href="#" class="dropdown-item dropdown-toggle" data-toggle="dropdown">Campaign Admin</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{{ path('character_creation_step_list') }}" class="dropdown-item">XXX</a></li>
+                    </ul>
+                    <div class="dropdown-divider"></div>
                     <a href="#" class="dropdown-item dropdown-toggle" data-toggle="dropdown">Ancestry Admin</a>
                     <ul class="dropdown-menu">
                         <li><a href="{{ path('ancestral_feature_list') }}" class="dropdown-item">Ancestral Features</a></li>
@@ -90,7 +97,6 @@
                     <a href="#" class="dropdown-item dropdown-toggle" data-toggle="dropdown">Setting Admin</a>
                     <ul class="dropdown-menu">
                         <li><a href="{{ path('setting_foundation_list') }}" class="dropdown-item">Setting Foundations</a></li>
-                        <li><a href="{{ path('lore_list') }}" class="dropdown-item">Lores</a></li>
                         <li><a href="{{ path('script_list') }}" class="dropdown-item">Scripts</a></li>
                         <li><a href="{{ path('location_type_list') }}" class="dropdown-item">Location Types</a></li>
                     </ul>

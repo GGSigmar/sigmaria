@@ -16,6 +16,7 @@ use Doctrine\ORM\Mapping as ORM;
 class Quest
 {
     use BaseFieldsTrait, DescriptionTrait, TimestampableEntity;
+
     /**
      * @var Campaign
      *
