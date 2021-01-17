@@ -16,7 +16,7 @@ class ReleaseType extends AbstractType
         $builder
             ->add('name', TextType::class)
             ->add('contentVersion', TextType::class)
-            ->add('contentChanges', CKEditorType::class, [
+            ->add('contentChangesNote', CKEditorType::class, [
                 'required' => false,
                 'config' => BaseEntityType::DEFAULT_CKEDITOR_CONFIG,
             ])

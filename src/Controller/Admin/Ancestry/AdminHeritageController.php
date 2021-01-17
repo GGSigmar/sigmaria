@@ -9,6 +9,7 @@ use App\Entity\Core\Paragraph;
 use App\Form\Ancestry\HeritageType;
 use App\Form\Core\FeatType;
 use App\Form\Core\ParagraphType;
+use App\Service\Core\EditHelper;
 use App\Service\Core\SourcableService;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
@@ -211,20 +212,12 @@ class AdminHeritageController extends BaseController
      * @ParamConverter("heritage", class="App\Entity\Ancestry\Heritage", options={"id"="baseId"})
      * @ParamConverter("feat", class="App\Entity\Core\Feat", options={"id"="id"})
      */
-    public function editHeritageFeatAction(Request $request, Heritage $heritage, Feat $feat, SourcableService $sourcableService)
+    public function editHeritageFeatAction(Request $request, Heritage $heritage, Feat $feat, EditHelper $editHelper)
     {
-        $form = $this->createForm(FeatType::class, $feat);
+        $result = $editHelper->editEntity($request, FeatType::class, $feat);
 
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $feat = $form->getData();
-
-            $sourcableService->ensureEmptySourceNullification($feat);
-            $feat->setSlug(null);
-
+        if ($result) {
             $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($feat);
             $entityManager->flush();
 
             $this->addEntityActionFlash(Feat::getFormattedName(), BaseController::ENTITY_EDIT_ACTION);
@@ -233,7 +226,7 @@ class AdminHeritageController extends BaseController
         }
 
         $templateData = [
-            'form' => $form->createView(),
+            'form' => $editHelper->getEntityForm()->createView(),
             'entityName' => Feat::ENTITY_NAME,
             'formattedEntityName' => Feat::getFormattedName(),
             'actionName' => BaseController::ENTITY_EDIT_ACTION,

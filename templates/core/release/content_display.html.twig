@@ -1,4 +1,4 @@
-{% if release.launchDate %}
+{% if release is defined and release.launchDate %}
     {% set bag = release %}
 {% endif %}
 
