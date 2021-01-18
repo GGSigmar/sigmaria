@@ -9,7 +9,7 @@ use App\Entity\Setting\Background;
 use App\Entity\Setting\Culture;
 use App\Entity\Setting\Language;
 
-class ContentToBeReleasedBag
+class ReleaseContentBag
 {
     /**
      * @var Feat[]

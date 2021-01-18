@@ -5,6 +5,7 @@ namespace App\Form\Core;
 use App\Entity\Core\Release;
 use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -16,6 +17,7 @@ class ReleaseType extends AbstractType
         $builder
             ->add('name', TextType::class)
             ->add('contentVersion', TextType::class)
+            ->add('launchDate', DateType::class)
             ->add('contentChangesNote', CKEditorType::class, [
                 'required' => false,
                 'config' => BaseEntityType::DEFAULT_CKEDITOR_CONFIG,

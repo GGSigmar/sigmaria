@@ -24,9 +24,11 @@ class BaseController extends AbstractController
     public const ENTITY_STAGE_ACTION = 'stage';
     public const ENTITY_UNSTAGE_ACTION = 'unstage';
     public const ENTITY_DELETE_ACTION = 'delete';
+    public const ENTITY_MERGE_ACTION = 'merge';
 
     public const ENTITY_CREATED_FORMAT = '%s created!';
     public const ENTITY_EDITED_FORMAT = '%s edited!';
+    public const ENTITY_MERGED_FORMAT = '%s merged!';
     public const ENTITY_KILLED_FORMAT = '%s killed!';
     public const ENTITY_REVIVED_FORMAT = '%s revived!';
     public const ENTITY_STAGED_FORMAT = '%s staged!';
@@ -60,6 +62,9 @@ class BaseController extends AbstractController
                 break;
             case self::ENTITY_EDIT_ACTION:
                 $this->addFlash('success', sprintf(self::ENTITY_EDITED_FORMAT, $entityName));
+                break;
+            case self::ENTITY_MERGE_ACTION:
+                $this->addFlash('success', sprintf(self::ENTITY_MERGED_FORMAT, $entityName));
                 break;
             case self::ENTITY_KILL_ACTION:
                 $this->addFlash('warning', sprintf(self::ENTITY_KILLED_FORMAT, $entityName));

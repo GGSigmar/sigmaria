@@ -32,26 +32,28 @@
 
     <div class="col-md-12">
         {% if release.contentChangesNote %}
-            <div class="mb-2">
+            <div class="mb-4">
                 <h2 class="mb-2">Content changes:</h2>
                 {{ release.contentChangesNote|raw }}
             </div>
         {% endif %}
     </div>
 
-    <div class="col-md-12">
-        <h2 class="mb-2">
-            {% if release.launchDate %}
-                Released content:
-            {% else %}
-                Content to be released:
-            {% endif %}
-        </h2>
-    </div>
+    {% if not release.isNewContentEmpty %}
+        <div class="col-md-12">
+            <h2 class="mb-2">
+                {% if release.launchDate %}
+                    Released content:
+                {% else %}
+                    Content to be released:
+                {% endif %}
+            </h2>
+        </div>
 
-    {% include 'core/release/content_display.html.twig' %}
+        {% include 'core/release/content_display.html.twig' %}
+    {% endif %}
 
-    {% if release.launchDate %}
+    {% if release.launchDate and not release.isUpdatedContentEmpty %}
         <div class="col-md-12">
             <h2 class="mb-2">Updated content:</h2>
         </div>

@@ -1,0 +1,17 @@
+{% extends "base/base_form.html.twig" %}
+
+{% block content %}
+    <div class="col-md-12">
+        <h1>
+            {% block form_title %}
+                Merge Releases
+            {% endblock %}
+        </h1>
+
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <button type="submit" class="btn btn-warning border border-blood">Merge <i class="fas fa-object-group"></i></button>
+        {% include "base/buttons/entity_list_button.html.twig" with {'entityName': entityName} %}
+        {{ form(form) }}
+    </div>
+{% endblock %}

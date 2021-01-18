@@ -4,9 +4,15 @@
     Releases
 {% endblock %}
 
+{% block top_right_buttons %}
+    {% include "base/buttons/entity_create_button.html.twig" with {'entityName': entityName} %}
+    <a href="{{ path('release_merge') }}" class="btn btn-warning border-blood" role="button">Merge <i class="fas fa-object-group"></i></a>
+{% endblock %}
+
 {% block table_headers %}
     <th>Version</th>
     <th>Name</th>
+    <th>Launch date</th>
     <th>Actions</th>
 {% endblock %}
 
@@ -16,6 +22,7 @@
         <tr>
             <td class="align-middle">{{ release.getContentVersion }}</td>
             <td class="align-middle">{{ release.name }}</td>
+            <td class="align-middle">{{ release.launchDate|date('Y-m-d') }}</td>
             <td class="align-middle text-nowrap">
                 {% include "base/buttons/entity_show_button.html.twig" with {'entityName': entityName, 'entity': release} %}
                 {% if isAdmin %}

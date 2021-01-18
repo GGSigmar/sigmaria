@@ -2,89 +2,80 @@
     {% set bag = release %}
 {% endif %}
 
-{%
-    if bag.feats is not empty or bag.ancestries is not empty or bag.heritages is not empty
-    or bag.cultures is not empty or bag.backgrounds is not empty or bag.languages is not empty
-%}
-    {% if bag.feats is not empty %}
-        <div class="col-md-4 mb-4">
-            <h3>Feats</h3>
-            {% for entity in bag.feats %}
-                {% include "base/badges/entity_show_badge.html.twig" with {'entityName': 'feat', "entityId": entity.id} %} {{ entity.name }}
+{% if bag.feats is not empty %}
+    <div class="col-md-4 mb-4">
+        <h3>Feats</h3>
+        {% for entity in bag.feats %}
+            {% include "base/badges/entity_show_badge.html.twig" with {'entityName': 'feat', "entityId": entity.id} %} {{ entity.name }}
 
-                {% if not loop.last %}
-                    <br />
-                {% endif %}
-            {% endfor %}
-        </div>
-    {% endif %}
+            {% if not loop.last %}
+                <br />
+            {% endif %}
+        {% endfor %}
+    </div>
+{% endif %}
 
-    {% if bag.ancestries is not empty %}
-        <div class="col-md-4 mb-4">
-            <h3>Ancestries</h3>
-            {% for entity in bag.ancestries %}
-                {% include "base/badges/entity_slug_show_badge.html.twig" with {'entityName': 'ancestry', "entitySlug": entity.slug} %} {{ entity.name }}
+{% if bag.ancestries is not empty %}
+    <div class="col-md-4 mb-4">
+        <h3>Ancestries</h3>
+        {% for entity in bag.ancestries %}
+            {% include "base/badges/entity_slug_show_badge.html.twig" with {'entityName': 'ancestry', "entitySlug": entity.slug} %} {{ entity.name }}
 
-                {% if not loop.last %}
-                    <br />
-                {% endif %}
-            {% endfor %}
-        </div>
-    {% endif %}
+            {% if not loop.last %}
+                <br />
+            {% endif %}
+        {% endfor %}
+    </div>
+{% endif %}
 
-    {% if bag.heritages is not empty %}
-        <div class="col-md-4 mb-4">
-            <h3>Heritages</h3>
-            {% for entity in bag.heritages %}
-                {% include "base/badges/entity_slug_show_badge.html.twig" with {'entityName': 'heritage', "entitySlug": entity.slug} %} {{ entity.name }}
+{% if bag.heritages is not empty %}
+    <div class="col-md-4 mb-4">
+        <h3>Heritages</h3>
+        {% for entity in bag.heritages %}
+            {% include "base/badges/entity_slug_show_badge.html.twig" with {'entityName': 'heritage', "entitySlug": entity.slug} %} {{ entity.name }}
 
-                {% if not loop.last %}
-                    <br />
-                {% endif %}
-            {% endfor %}
-        </div>
-    {% endif %}
+            {% if not loop.last %}
+                <br />
+            {% endif %}
+        {% endfor %}
+    </div>
+{% endif %}
 
-    {% if bag.cultures is not empty %}
-        <div class="col-md-4 mb-4">
-            <h3>Cultures</h3>
-            {% for entity in bag.cultures %}
-                {% include "base/badges/entity_show_badge.html.twig" with {'entityName': 'culture', "entityId": entity.id} %} {{ entity.name }}
+{% if bag.cultures is not empty %}
+    <div class="col-md-4 mb-4">
+        <h3>Cultures</h3>
+        {% for entity in bag.cultures %}
+            {% include "base/badges/entity_show_badge.html.twig" with {'entityName': 'culture', "entityId": entity.id} %} {{ entity.name }}
 
-                {% if not loop.last %}
-                    <br />
-                {% endif %}
-            {% endfor %}
-        </div>
-    {% endif %}
+            {% if not loop.last %}
+                <br />
+            {% endif %}
+        {% endfor %}
+    </div>
+{% endif %}
 
-    {% if bag.backgrounds is not empty %}
-        <div class="col-md-4 mb-4">
-            <h3>Backgrounds</h3>
-            {% for entity in bag.backgrounds %}
-                {% include "base/badges/entity_slug_show_badge.html.twig" with {'entityName': 'background', "entitySlug": entity.slug} %} {{ entity.name }}
+{% if bag.backgrounds is not empty %}
+    <div class="col-md-4 mb-4">
+        <h3>Backgrounds</h3>
+        {% for entity in bag.backgrounds %}
+            {% include "base/badges/entity_slug_show_badge.html.twig" with {'entityName': 'background', "entitySlug": entity.slug} %} {{ entity.name }}
 
-                {% if not loop.last %}
-                    <br />
-                {% endif %}
-            {% endfor %}
-        </div>
-    {% endif %}
+            {% if not loop.last %}
+                <br />
+            {% endif %}
+        {% endfor %}
+    </div>
+{% endif %}
 
-    {% if bag.languages is not empty %}
-        <div class="col-md-4 mb-4">
-            <h3>Languages</h3>
-            {% for entity in bag.languages %}
-                {% include "base/badges/entity_slug_show_badge.html.twig" with {'entityName': 'language', "entitySlug": entity.slug} %} {{ entity.name }}
+{% if bag.languages is not empty %}
+    <div class="col-md-4 mb-4">
+        <h3>Languages</h3>
+        {% for entity in bag.languages %}
+            {% include "base/badges/entity_slug_show_badge.html.twig" with {'entityName': 'language', "entitySlug": entity.slug} %} {{ entity.name }}
 
-                {% if not loop.last %}
-                    <br />
-                {% endif %}
-            {% endfor %}
-        </div>
-    {% endif %}
-{% else %}
-    <div class="col-md-12 mb-2">
-        None
+            {% if not loop.last %}
+                <br />
+            {% endif %}
+        {% endfor %}
     </div>
 {% endif %}

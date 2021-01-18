@@ -9,6 +9,7 @@ use App\Entity\Core\Release;
 use App\Entity\Setting\Background;
 use App\Entity\Setting\Culture;
 use App\Entity\Setting\Language;
+use App\Form\Core\ReleaseMergeType;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\EntityManagerInterface;
 
@@ -25,7 +26,7 @@ class ReleaseService
     /** @var Release */
     private $release;
 
-    /** @var ContentToBeReleasedBag|null */
+    /** @var ReleaseContentBag|null */
     private $contentBag = null;
 
     public function __construct(
@@ -43,7 +44,7 @@ class ReleaseService
     public function releaseContent(Release $release): Release
     {
         $this->release = $release;
-        $this->getContentToBeReleased();
+        $this->getContentForNewRelease();
 
         $this->releaseFeats();
         $this->releaseAncestries();
@@ -59,12 +60,9 @@ class ReleaseService
         return $release;
     }
 
-    /**
-     * @return ContentToBeReleasedBag
-     */
-    public function getContentToBeReleased(): ContentToBeReleasedBag
+    public function getContentForNewRelease(): ReleaseContentBag
     {
-        $contentBag = new ContentToBeReleasedBag();
+        $contentBag = new ReleaseContentBag();
 
         $ancestryRepository = $this->em->getRepository(Ancestry::class);
         $contentBag->setAncestries($ancestryRepository->getAncestriesForRelease());
@@ -86,6 +84,68 @@ class ReleaseService
 
         $this->contentBag = $contentBag;
         return $contentBag;
+    }
+
+    /**
+     * @param Release[] $oldReleases
+     * @return ReleaseContentBag
+     */
+    public function getContentForMerge(array $oldReleases): ReleaseContentBag
+    {
+        $contentBag = new ReleaseContentBag();
+
+        $feats = [];
+        $ancestries = [];
+        $heritages = [];
+        $cultures = [];
+        $backgrounds = [];
+        $languages = [];
+
+        /** @var Release $oneOldRelease */
+        foreach ($oldReleases as $oneOldRelease) {
+            $feats = array_merge($feats, $oneOldRelease->getFeats()->toArray());
+            $ancestries = array_merge($ancestries, $oneOldRelease->getAncestries()->toArray());
+            $heritages = array_merge($heritages, $oneOldRelease->getHeritages()->toArray());
+            $cultures = array_merge($cultures, $oneOldRelease->getCultures()->toArray());
+            $backgrounds = array_merge($backgrounds, $oneOldRelease->getBackgrounds()->toArray());
+            $languages = array_merge($languages, $oneOldRelease->getLanguages()->toArray());
+
+            $this->em->remove($oneOldRelease);
+        }
+
+        $contentBag->setAncestries($ancestries);
+        $contentBag->setHeritages($heritages);
+        $contentBag->setCultures($cultures);
+        $contentBag->setFeats($feats);
+        $contentBag->setBackgrounds($backgrounds);
+        $contentBag->setLanguages($languages);
+
+        $this->contentBag = $contentBag;
+        return $contentBag;
+    }
+
+    public function mergeReleasesIntoNewOne(array $formData): Release
+    {
+        $newRelease = new Release();
+        $newRelease->setName($formData[ReleaseMergeType::FIELD_NAME]);
+        $newRelease->setContentVersion($formData[ReleaseMergeType::FIELD_NAME]);
+        $newRelease->setLaunchDate($formData[ReleaseMergeType::LAUNCH_DATE_NAME]);
+
+        $this->getContentForMerge($formData[ReleaseMergeType::FIELD_RELEASES]->toArray());
+
+        $this->release = $newRelease;
+
+        $this->releaseFeatsForMerge();
+        $this->releaseAncestries();
+        $this->releaseHeritages();
+        $this->releaseCultures();
+        $this->releaseBackgrounds();
+        $this->releaseLanguages();
+
+        $this->em->persist($newRelease);
+        $this->em->flush();
+
+        return $newRelease;
     }
 
     private function releaseFeats(): void
@@ -114,6 +174,21 @@ class ReleaseService
 
             $this->release->setFeats(new ArrayCollection($newFeats));
             $this->release->setUpdatedFeats(new ArrayCollection($updatedFeats));
+        }
+    }
+
+    private function releaseFeatsForMerge()
+    {
+        $feats = $this->contentBag->getFeats();
+
+        if ($feats) {
+            foreach ($feats as $oneFeat) {
+                $oneFeat->setIsActive(true);
+                $oneFeat->setRelease($this->release);
+                $this->em->persist($oneFeat);
+            }
+
+            $this->release->setFeats(new ArrayCollection($feats));
         }
     }
 

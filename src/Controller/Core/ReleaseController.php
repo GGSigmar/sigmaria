@@ -35,7 +35,7 @@ class ReleaseController extends BaseController
         $templateData = [
             'release' => $release,
             'entityName' => Release::ENTITY_NAME,
-            'bag' => $releaseService->getContentToBeReleased(),
+            'bag' => $releaseService->getContentForNewRelease(),
         ];
 
         return array_merge($templateData, $this->getTemplateData(BaseController::NAV_TAB_MISC));

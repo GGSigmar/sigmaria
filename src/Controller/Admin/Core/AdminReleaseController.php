@@ -4,6 +4,7 @@ namespace App\Controller\Admin\Core;
 
 use App\Controller\Base\BaseController;
 use App\Entity\Core\Release;
+use App\Form\Core\ReleaseMergeType;
 use App\Form\Core\ReleaseType;
 use App\Service\Core\ReleaseService;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
@@ -41,7 +42,7 @@ class AdminReleaseController extends BaseController
         $templateData = [
             'form' => $form->createView(),
             'entityName' => Release::ENTITY_NAME,
-            'bag' => $releaseService->getContentToBeReleased(),
+            'bag' => $releaseService->getContentForNewRelease(),
             'formattedEntityName' => Release::getFormattedName(),
             'actionName' => BaseController::ENTITY_CREATE_ACTION,
         ];
@@ -91,5 +92,31 @@ class AdminReleaseController extends BaseController
         $this->addFlash('success', 'Release launched!');
 
         return $this->redirectToRoute('release_show', ['id' => $release->getId()]);
+    }
+
+    /**
+     * @Route("/admin/core/release/merge", name="release_merge")
+     * @Template("core/release/merge.html.twig")
+     */
+    public function mergeReleasesAction(Request $request, ReleaseService $releaseService)
+    {
+        $form = $this->createForm(ReleaseMergeType::class);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $newRelease = $releaseService->mergeReleasesIntoNewOne($form->getData());
+            $this->addEntityActionFlash(Release::getFormattedName(), BaseController::ENTITY_MERGE_ACTION);
+            return $this->redirectToRoute('release_show', ['id' => $newRelease->getId()]);
+        }
+
+        $templateData = [
+            'form' => $form->createView(),
+            'entityName' => Release::ENTITY_NAME,
+            'formattedEntityName' => Release::getFormattedName(),
+            'actionName' => BaseController::ENTITY_MERGE_ACTION,
+        ];
+
+        return array_merge($templateData, $this->getTemplateData(BaseController::NAV_TAB_MISC));
     }
 }

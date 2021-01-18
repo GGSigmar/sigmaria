@@ -318,4 +318,25 @@ class Release extends BaseEntity
     {
         return sprintf('%s (%s)', $this->getName(), $this->getContentVersion());
     }
+
+    public function isNewContentEmpty(): bool
+    {
+        if (
+            $this->ancestries->isEmpty()
+            && $this->heritages->isEmpty()
+            && $this->cultures->isEmpty()
+            && $this->feats->isEmpty()
+            && $this->backgrounds->isEmpty()
+            && $this->languages->isEmpty()
+        ) {
+            return true;
+        }
+
+        return false;
+    }
+
+    public function isUpdatedContentEmpty(): bool
+    {
+        return $this->updatedFeats->isEmpty();
+    }
 }
