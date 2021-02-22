@@ -56,6 +56,11 @@ class EntityControllerHelper
 
     }
 
+    public function getEntityArrayForList(string $entityClassName): array
+    {
+        return $this->em->getRepository($entityClassName)->findAll();
+    }
+
     public function editEntity(Request $request, string $formClass, $entity)
     {
         $edits = $entity->getEdits();

@@ -1,0 +1,30 @@
+{% extends "base/base_list.html.twig" %}
+
+{% block list_title %}
+    House Rules
+{% endblock %}
+
+{% block table_headers %}
+    <th class="align-middle">Name</th>
+    <th class="align-middle">Actions</th>
+{% endblock %}
+
+{% block table_rows %}
+    {% for rule in houseRules %}
+        {% if isAdmin or ancestry.isActive %}
+            <tr>
+                <td class="align-middle">{{ rule.name }}</td>
+                <td class="align-middle">
+{#                    {% include "base/buttons/entity_slug_show_button.html.twig" with {'entityName': entityName, 'entity': ancestry} %}#}
+{#                    {% if isAdmin %}#}
+{#                        {% include "base/buttons/entity_list_edit_button.html.twig" with {'entityName': entityName, 'entity': ancestry} %}#}
+{#                        {% if not ancestry.isActive %}#}
+{#                            {% include "base/buttons/entity_release_buttons.html.twig" with {'entityName': entityName, 'entity': ancestry} %}#}
+{#                        {% endif %}#}
+{#                        {% include "base/buttons/entity_delete_buttons.html.twig" with {'entityName': entityName, 'entity': ancestry} %}#}
+{#                    {% endif %}#}
+                </td>
+            </tr>
+        {% endif %}
+    {% endfor %}
+{% endblock %}
