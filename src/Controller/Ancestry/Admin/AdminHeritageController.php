@@ -9,7 +9,7 @@ use App\Entity\Core\Paragraph;
 use App\Form\Ancestry\HeritageType;
 use App\Form\Core\FeatType;
 use App\Form\Core\ParagraphType;
-use App\Service\Core\SourcableService;
+use App\Service\Core\SourceableService;
 use App\Service\Helper\EntityControllerHelper;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
@@ -173,7 +173,7 @@ class AdminHeritageController extends BaseController
      * @Route("/admin/ancestry/heritage/{id}/feat/create", name="heritage_feat_create")
      * @Template("base/base_form.html.twig")
      */
-    public function createHeritageFeatAction(Request $request, Heritage $heritage, SourcableService $sourcableService)
+    public function createHeritageFeatAction(Request $request, Heritage $heritage, SourceableService $sourceableService)
     {
         $form = $this->createForm(FeatType::class);
 
@@ -184,7 +184,7 @@ class AdminHeritageController extends BaseController
 
             $heritage->addFeat($feat);
 
-            $sourcableService->ensureEmptySourceNullification($feat);
+            $sourceableService->ensureEmptySourceNullification($feat);
 
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($feat);

@@ -4,7 +4,7 @@ namespace App\Service\Helper;
 
 use App\Entity\Core\Feat;
 use App\Form\Core\FeatType;
-use App\Service\Core\SourcableService;
+use App\Service\Core\SourceableService;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\Form\FormInterface;
@@ -19,8 +19,8 @@ class EntityControllerHelper
     /** @var FormFactoryInterface */
     private $formFactory;
 
-    /** @var SourcableService */
-    private $sourcableService;
+    /** @var SourceableService */
+    private $sourceableService;
 
     /** @var EntityManagerInterface */
     private $em;
@@ -33,11 +33,11 @@ class EntityControllerHelper
 
     public function __construct(
         FormFactoryInterface $formFactory,
-        SourcableService $sourcableService,
+        SourceableService $sourceableService,
         EntityManagerInterface $em
     ) {
         $this->formFactory = $formFactory;
-        $this->sourcableService = $sourcableService;
+        $this->sourceableService = $sourceableService;
         $this->em = $em;
     }
 
@@ -85,7 +85,7 @@ class EntityControllerHelper
             }
 
             if (property_exists($entity, 'source')) {
-                $this->sourcableService->ensureEmptySourceNullification($editedEntity);
+                $this->sourceableService->ensureEmptySourceNullification($editedEntity);
             }
 
             $this->em->persist($editedEntity);

@@ -11,7 +11,7 @@ use App\Form\Ancestry\AncestryType;
 use App\Form\Ancestry\HeritageType;
 use App\Form\Core\FeatType;
 use App\Form\Core\ParagraphType;
-use App\Service\Core\SourcableService;
+use App\Service\Core\SourceableService;
 use App\Service\Helper\EntityControllerHelper;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
@@ -175,7 +175,7 @@ class AdminAncestryController extends BaseController
      * @Route("/admin/ancestry/{id}/feat/create", name="ancestry_feat_create")
      * @Template("base/base_form.html.twig")
      */
-    public function createAncestryFeatAction(Request $request, Ancestry $ancestry, SourcableService $sourcableService)
+    public function createAncestryFeatAction(Request $request, Ancestry $ancestry, SourceableService $sourceableService)
     {
         $form = $this->createForm(FeatType::class);
 
@@ -186,7 +186,7 @@ class AdminAncestryController extends BaseController
 
             $ancestry->addFeat($feat);
 
-            $sourcableService->ensureEmptySourceNullification($feat);
+            $sourceableService->ensureEmptySourceNullification($feat);
 
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($feat);

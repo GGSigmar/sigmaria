@@ -4,7 +4,7 @@ namespace App\Entity\Core;
 
 use App\Entity\Ancestry\Ancestry;
 use App\Entity\Ancestry\Heritage;
-use App\Entity\Core\Interfaces\SourcableInterface;
+use App\Entity\Core\Interfaces\SourceableInterface;
 use App\Entity\Core\Traits\ActiveTrait;
 use App\Entity\Core\Traits\BaseFieldsTrait;
 use App\Entity\Core\Traits\DescriptionTrait;
@@ -24,7 +24,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity(repositoryClass="App\Repository\Core\FeatRepository")
  * @ORM\Table(name="core_feat")
  */
-class Feat extends BaseEntity implements SourcableInterface
+class Feat extends BaseEntity implements SourceableInterface
 {
     use BaseFieldsTrait, ActiveTrait, SlugTrait, DescriptionTrait, NoteTrait, SimpleRarityTrait, ReleasableTrait, SourceTrait, TimestampableEntity;
 

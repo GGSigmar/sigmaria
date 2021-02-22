@@ -4,7 +4,7 @@ namespace App\Entity\Core\Interfaces;
 
 use App\Entity\Core\EntitySource;
 
-interface SourcableInterface
+interface SourceableInterface
 {
     public function getSource(): ?EntitySource;
 

@@ -5,7 +5,7 @@ namespace App\Controller\Core\Admin;
 use App\Controller\Base\BaseController;
 use App\Entity\Core\Feat;
 use App\Form\Core\FeatType;
-use App\Service\Core\SourcableService;
+use App\Service\Core\SourceableService;
 use App\Service\Helper\EntityControllerHelper;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\Routing\Annotation\Route;
@@ -21,7 +21,7 @@ class AdminFeatController extends BaseController
      * @Route("/admin/core/feat/create", name="feat_create")
      * @Template("base/base_form.html.twig")
      */
-    public function createFeatAction(Request $request, SourcableService $sourcableService)
+    public function createFeatAction(Request $request, SourceableService $sourceableService)
     {
         $form = $this->createForm(FeatType::class);
 
@@ -30,7 +30,7 @@ class AdminFeatController extends BaseController
         if ($form->isSubmitted() && $form->isValid()) {
             $feat = $form->getData();
 
-            $sourcableService->ensureEmptySourceNullification($feat);
+            $sourceableService->ensureEmptySourceNullification($feat);
 
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($feat);

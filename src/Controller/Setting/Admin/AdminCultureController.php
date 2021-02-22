@@ -9,7 +9,7 @@ use App\Entity\Setting\Culture;
 use App\Form\Core\FeatType;
 use App\Form\Core\ParagraphType;
 use App\Form\Setting\CultureType;
-use App\Service\Core\SourcableService;
+use App\Service\Core\SourceableService;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Component\Routing\Annotation\Route;
@@ -168,7 +168,7 @@ class AdminCultureController extends BaseController
      * @Route("/admin/setting/culture/{id}/feat/create", name="culture_feat_create")
      * @Template("core/feat/create.html.twig")
      */
-    public function createCultureFeatAction(Request $request, Culture $culture, SourcableService $sourcableService)
+    public function createCultureFeatAction(Request $request, Culture $culture, SourceableService $sourceableService)
     {
         $form = $this->createForm(FeatType::class);
 
@@ -179,7 +179,7 @@ class AdminCultureController extends BaseController
 
             $culture->addFeat($feat);
 
-            $sourcableService->ensureEmptySourceNullification($feat);
+            $sourceableService->ensureEmptySourceNullification($feat);
 
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($feat);
@@ -203,7 +203,7 @@ class AdminCultureController extends BaseController
      * @Route("/admin/setting/culture/{baseId}/feat/{id}/edit", name="culture_feat_edit")
      * @Template("core/feat/create.html.twig")
      */
-    public function editCultureFeatAction(Request $request, int $baseId, int $id, SourcableService $sourcableService)
+    public function editCultureFeatAction(Request $request, int $baseId, int $id, SourceableService $sourceableService)
     {
         $entityManager = $this->getDoctrine()->getManager();
 
@@ -216,7 +216,7 @@ class AdminCultureController extends BaseController
         if ($form->isSubmitted() && $form->isValid()) {
             $feat = $form->getData();
 
-            $sourcableService->ensureEmptySourceNullification($feat);
+            $sourceableService->ensureEmptySourceNullification($feat);
 
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($feat);
