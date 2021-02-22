@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Service\Core;
+namespace App\Model\Core;
 
 use App\Entity\Ancestry\Ancestry;
 use App\Entity\Ancestry\Heritage;

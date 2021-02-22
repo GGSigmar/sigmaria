@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller\Admin\Core;
+namespace App\Controller\Core\Admin;
 
 use App\Controller\Base\BaseController;
 use App\Entity\Core\AttributeCategory;

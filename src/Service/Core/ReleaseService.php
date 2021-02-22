@@ -10,6 +10,7 @@ use App\Entity\Setting\Background;
 use App\Entity\Setting\Culture;
 use App\Entity\Setting\Language;
 use App\Form\Core\ReleaseMergeType;
+use App\Model\Core\ReleaseContentBag;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\EntityManagerInterface;
 

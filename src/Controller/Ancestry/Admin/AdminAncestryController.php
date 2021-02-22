@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller\Admin\Ancestry;
+namespace App\Controller\Ancestry\Admin;
 
 use App\Controller\Base\BaseController;
 use App\Entity\Ancestry\Ancestry;
@@ -11,8 +11,8 @@ use App\Form\Ancestry\AncestryType;
 use App\Form\Ancestry\HeritageType;
 use App\Form\Core\FeatType;
 use App\Form\Core\ParagraphType;
-use App\Service\Core\EditHelper;
 use App\Service\Core\SourcableService;
+use App\Service\Helper\EntityControllerHelper;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Component\Routing\Annotation\Route;
@@ -214,9 +214,9 @@ class AdminAncestryController extends BaseController
      * @ParamConverter("ancestry", class="App\Entity\Ancestry\Ancestry", options={"id"="baseId"})
      * @ParamConverter("feat", class="App\Entity\Core\Feat", options={"id"="id"})
      */
-    public function editAncestryFeatAction(Request $request, Ancestry $ancestry, Feat $feat, EditHelper $editHelper)
+    public function editAncestryFeatAction(Request $request, Ancestry $ancestry, Feat $feat, EntityControllerHelper $entityControllerHelper)
     {
-        $result = $editHelper->editEntity($request, FeatType::class, $feat);
+        $result = $entityControllerHelper->editEntity($request, FeatType::class, $feat);
 
         if ($result) {
             $entityManager = $this->getDoctrine()->getManager();
@@ -228,7 +228,7 @@ class AdminAncestryController extends BaseController
         }
 
         $templateData = [
-            'form' => $editHelper->getEntityForm()->createView(),
+            'form' => $entityControllerHelper->getEntityForm()->createView(),
             'entityName' => Feat::ENTITY_NAME,
             'formattedEntityName' => Feat::getFormattedName(),
             'actionName' => BaseController::ENTITY_EDIT_ACTION,

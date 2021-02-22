@@ -12,9 +12,11 @@ class BaseEntity
     {
         $explodedEntityName = explode('_', static::ENTITY_NAME);
         $uppercaseParts = [];
+
         foreach ($explodedEntityName as $part) {
             $uppercaseParts[] = ucfirst($part);
         }
+
         return implode(' ', $uppercaseParts);
     }
 

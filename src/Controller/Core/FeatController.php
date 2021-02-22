@@ -4,7 +4,7 @@ namespace App\Controller\Core;
 
 use App\Controller\Base\BaseController;
 use App\Entity\Core\Feat;
-use App\Service\Core\UtilityService;
+use App\Service\Core\FeatHelper;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -35,7 +35,7 @@ class FeatController extends BaseController
         $feats = $this->getDoctrine()->getRepository(Feat::class)->getGeneralFeats();
 
         $templateData = [
-            'feats' => UtilityService::groupFeatsByLevel($feats),
+            'feats' => FeatHelper::groupFeatsByLevel($feats),
             'entityName' => Feat::ENTITY_NAME,
         ];
 

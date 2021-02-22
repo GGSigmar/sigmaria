@@ -1,15 +1,21 @@
 <?php
 
-namespace App\Service\Core;
+namespace App\Service\Helper;
 
+use App\Entity\Core\Feat;
+use App\Form\Core\FeatType;
+use App\Service\Core\SourcableService;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\Request;
 
-class EditHelper
+class EntityControllerHelper
 {
+    private const ENTITY_TO_FORM_MAP = [
+        Feat::class => FeatType::class,
+    ];
+
     /** @var FormFactoryInterface */
     private $formFactory;
 
@@ -40,9 +46,14 @@ class EditHelper
         return $this->editedEntity;
     }
 
-    public function getEntityForm()
+    public function getEntityForm(): ?FormInterface
     {
         return $this->entityForm;
+    }
+
+    public function createEntity(Request $request)
+    {
+
     }
 
     public function editEntity(Request $request, string $formClass, $entity)

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller\Admin\Ancestry;
+namespace App\Controller\Ancestry\Admin;
 
 use App\Controller\Base\BaseController;
 use App\Entity\Ancestry\AncestralFeature;

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller\Admin\Setting;
+namespace App\Controller\Setting\Admin;
 
 use App\Controller\Base\BaseController;
 use App\Entity\Setting\Script;

@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Controller\Admin\Core;
+namespace App\Controller\Core\Admin;
 
 use App\Controller\Base\BaseController;
 use App\Entity\Core\Feat;
 use App\Form\Core\FeatType;
-use App\Service\Core\EditHelper;
 use App\Service\Core\SourcableService;
+use App\Service\Helper\EntityControllerHelper;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
@@ -55,9 +55,9 @@ class AdminFeatController extends BaseController
      * @Route("/admin/core/feat/{id}/edit", name="feat_edit")
      * @Template("base/base_form.html.twig")
      */
-    public function editFeatAction(Request $request, Feat $feat, EditHelper $editHelper)
+    public function editFeatAction(Request $request, Feat $feat, EntityControllerHelper $entityControllerHelper)
     {
-        $result = $editHelper->editEntity($request, FeatType::class, $feat);
+        $result = $entityControllerHelper->editEntity($request, FeatType::class, $feat);
 
         if ($result) {
             $entityManager = $this->getDoctrine()->getManager();
@@ -69,7 +69,7 @@ class AdminFeatController extends BaseController
         }
 
         $templateData = [
-            'form' => $editHelper->getEntityForm()->createView(),
+            'form' => $entityControllerHelper->getEntityForm()->createView(),
             'entityName' => Feat::ENTITY_NAME,
             'formattedEntityName' => Feat::getFormattedName(),
             'actionName' => BaseController::ENTITY_EDIT_ACTION,

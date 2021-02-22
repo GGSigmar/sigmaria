@@ -3,9 +3,32 @@
 namespace App\Service\Core;
 
 use App\Entity\Core\Feat;
+use Doctrine\Common\Collections\Collection;
 
 class FeatHelper
 {
+    /**
+     * @param Collection|Feat[] $featCollection
+     *
+     * @return array
+     */
+    public static function groupFeatsByLevel($featCollection): array
+    {
+        $groupedFeats = [];
+
+        foreach ($featCollection as $feat) {
+            $featLevel = $feat->getLevel();
+
+            if (!array_key_exists($featLevel, $groupedFeats)) {
+                $groupedFeats[$featLevel] = [$feat];
+            } else {
+                $groupedFeats[$featLevel][] = $feat;
+            }
+        }
+
+        return $groupedFeats;
+    }
+
     public function applyEdits(Feat $feat): void
     {
         $edits = $feat->getEdits();

@@ -18,7 +18,7 @@ use App\Entity\Core\Traits\SimpleRarityTrait;
 use App\Entity\Core\Traits\SlugTrait;
 use App\Entity\Core\Traits\SortOrderTrait;
 use App\Entity\Setting\Culture;
-use App\Service\Core\UtilityService;
+use App\Service\Core\FeatHelper;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
@@ -432,7 +432,7 @@ class Ancestry extends BaseEntity
      */
     public function getGroupedFeats(): array
     {
-        return UtilityService::groupFeatsByLevel($this->feats);
+        return FeatHelper::groupFeatsByLevel($this->feats);
     }
 
     /**
@@ -448,7 +448,7 @@ class Ancestry extends BaseEntity
      */
     public function getActiveGroupedFeats(): array
     {
-        return UtilityService::groupFeatsByLevel(
+        return FeatHelper::groupFeatsByLevel(
             $this->feats->filter(function ($feat) {
                 return $feat->isActive();
             })
